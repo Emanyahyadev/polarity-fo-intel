@@ -99,7 +99,7 @@ class ReleaseGate:
         # G7 — mandatory fields + at least one actionable / entity-intelligence path
         geography_ok = bool(rec.hq_country or rec.hq_state or rec.hq_city)
         actionable = bool(rec.principal_email or rec.principal_phone or rec.principal_linkedin
-                          or rec.website or rec.investment_thesis or rec.signals)
+                          or rec.hq_phone or rec.website or rec.investment_thesis or rec.signals)
         missing = []
         if not rec.name:
             missing.append("name")
