@@ -42,4 +42,22 @@ Every run writes a manifest (`docs/evidence/run-manifest-*.json`) tying the pool
 - The pool is **SEC-heavy** (regulatory lens is the most productive). The final-50 selection applies a per-source cap so the *shipped* file is not source-dominated (see the release policy in `docs/Validation.md` and `KnownLimitations.md`).
 - 990-PF returns many non-family-office entities (religious/educational/benefit orgs); these are filtered by validation, not by discovery.
 
-*(Enrichment and validation methodology — SEC submissions, firm-site parsing, per-firm GDELT signals, firm-type classification, email verification — is documented here as Wave 2 ships each stage.)*
+## 6. Enrichment (Wave 2)
+
+Each candidate is enriched with **authoritative** facts, each snapshotted (content hash) for reproducible provenance:
+
+- **SEC submissions** (`data.sec.gov/submissions`) — for any candidate with a CIK: legal name, business address, **firm phone**, EIN, former names, and a public-company flag (tickers/exchanges → reject).
+- **IAPD / Form ADV** (`api.adviserinfo.sec.gov`) — the investment-adviser registration record. Because IAPD (IARD) is a **different filing system from EDGAR 13F**, it is a genuinely *independent* authoritative source for a firm discovered via 13F. Its registered aliases frequently state the family-office nature and single/multi type (e.g. "PATHSTONE FAMILY OFFICE, LLC"). A fuzzy **name-match guard** prevents ever attaching a different firm's record.
+- **Firm website** — resolved via Wikidata P856 (for directory firms); homepage + `/about` parsed for family-office language, description, and AUM. (DuckDuckGo search was trialled to find sites for firms without a Wikidata URL but rate-limits too aggressively for bulk use — documented, not used.)
+- **Wikipedia intro** — cited **background only**, never as FO-verification (discovery-only).
+- **GDELT per-firm** — recent dated signals (sparse for private offices; honest blanks over filler).
+
+## 7. Validation (Wave 2)
+
+- **Firm-type classification** (`validation/firm_type.py`) enforces `config/inclusion_standard.md`: a firm qualifies only with **affirmative family-office evidence from an authoritative source** (SEC 13F self-identification, IAPD/ADV alias, or firm website) — never a name alone or a discovery-only reference. Non-qualifying orgs (public companies, funds, banks, pensions, religious/educational/network entities, individual trustees) are rejected with a reason recorded for the discovery report. Type is SFO/MFO from explicit language, honest **Undetermined** otherwise; **High** confidence requires two independent authoritative sources.
+- **Gold-set evaluation** (`validation/goldset.py`, `docs/evidence/firmtype-goldset-eval.json`): a hand-labelled set measures accuracy/precision/recall/**FP-rate**/FN-rate/confusion. In this domain the deadly error is a false *positive* (a non-FO shipped as an FO), so precision is the headline.
+- **Release gate + selection** as in `docs/Validation.md`. Discovery vs verification are kept separate in every record; a firm discovered via 13F full-text search and verified via the distinct IAPD/submissions records + firm site is a multi-verified record, not a "same source" one.
+
+## 8. The scarcity finding (evidence-backed)
+
+Verified US family offices concentrate overwhelmingly in SEC data on free tiers. Non-SEC verification is genuinely scarce: bulk web search rate-limits, most single-family offices have **no public website** (Walton, Bezos, Mousse…), and even Form ADV is SEC-based. This is quantified in the discovery report (`docs/evidence/dataset-discovery-report.json`): of 192 discovered, the majority are rejected for no authoritative FO evidence or as non-FOs, leaving a smaller decision-grade set — exactly the market reality the assessment is built around. We document this rather than manufacture diversity or weaken validation.

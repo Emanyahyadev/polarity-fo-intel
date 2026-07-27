@@ -201,6 +201,22 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                                          source_url=None, confidence=Confidence.LOW,
                                          note="background context; not used to verify FO status")
 
+    # geography fallback to discovery hints (e.g. 990-PF city/state from the IRS filing,
+    # directory country) — only when no authoritative source already supplied it.
+    h = c.hints
+    if "hq_state" not in fields and h.get("state"):
+        fields["hq_state"] = h["state"]
+    if "hq_city" not in fields and h.get("city"):
+        fields["hq_city"] = h["city"]
+    if "hq_country" not in fields:
+        country = h.get("country") or ("United States" if fields.get("hq_state") else None)
+        if country:
+            fields["hq_country"] = country
+            prov["hq_country"] = Provenance(
+                source_class=c.source_class, method="discovery-source filing/record address",
+                checked_at=as_of, confidence=Confidence.MEDIUM,
+                note="location from the discovery source (e.g. IRS 990-PF / directory)")
+
     # same-source justification whenever any verification source shares the discovery class
     # (e.g. discovered via SEC 13F full-text search, verified via the distinct SEC submissions
     # registration record). Independent sources (IAPD, firm website) still raise confidence.
