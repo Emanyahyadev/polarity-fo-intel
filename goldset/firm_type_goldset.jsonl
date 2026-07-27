@@ -1,0 +1,28 @@
+# Firm-type gold set — DRAFT, requires the candidate's review/confirmation (human judgment).
+# One JSON object per line: {firm_name, is_family_office, true_type, note}. Lines starting with # are ignored.
+# Ground-truth basis is in each 'note'. true_type in {SFO, MFO, Undetermined} for family offices.
+{"firm_name": "Pathstone Family Office, LLC", "is_family_office": true, "true_type": "MFO", "note": "Large registered multi-family office; ADV aliases include 'Pathstone Family Office'; 162 branches"}
+{"firm_name": "Duquesne Family Office LLC", "is_family_office": true, "true_type": "SFO", "note": "Stanley Druckenmiller's single-family office (widely reported)"}
+{"firm_name": "Walton Enterprises", "is_family_office": true, "true_type": "SFO", "note": "Walton (Walmart) family office"}
+{"firm_name": "Bezos Expeditions", "is_family_office": true, "true_type": "SFO", "note": "Jeff Bezos's personal investment vehicle / family office"}
+{"firm_name": "Kirkbi", "is_family_office": true, "true_type": "SFO", "note": "Kirk Kristiansen family (LEGO) holding / family office"}
+{"firm_name": "Mousse Partners", "is_family_office": true, "true_type": "SFO", "note": "Wertheimer family (Chanel) family office"}
+{"firm_name": "DFO Management", "is_family_office": true, "true_type": "SFO", "note": "Michael Dell's family office (MSD/DFO)"}
+{"firm_name": "Builders Vision", "is_family_office": true, "true_type": "SFO", "note": "Lukas Walton's family office / impact platform"}
+{"firm_name": "EMFO, LLC", "is_family_office": true, "true_type": "MFO", "note": "Emerald Multi-Family Office (ADV alias)"}
+{"firm_name": "Veritable, L.P.", "is_family_office": true, "true_type": "MFO", "note": "Well-known large multi-family office (Newtown Square, PA)"}
+{"firm_name": "Allie Family Office LLC", "is_family_office": true, "true_type": "Undetermined", "note": "Registered family office (ADV); single vs multi unclear"}
+{"firm_name": "Biltmore Family Office, LLC", "is_family_office": true, "true_type": "Undetermined", "note": "Registered family office (ADV)"}
+{"firm_name": "Custos Family Office, LLC", "is_family_office": true, "true_type": "Undetermined", "note": "Registered family office (ADV)"}
+{"firm_name": "INTREPID FAMILY OFFICE LLC", "is_family_office": true, "true_type": "Undetermined", "note": "Registered family office (ADV)"}
+{"firm_name": "Korys", "is_family_office": true, "true_type": "SFO", "note": "Colruyt family investment company (Belgium)"}
+{"firm_name": "Financière Agache", "is_family_office": true, "true_type": "SFO", "note": "Arnault family holding / family office (France)"}
+{"firm_name": "Madison Square Garden Entertainment Corp.  (MSGE)", "is_family_office": false, "note": "Public operating company (tickers/exchanges)"}
+{"firm_name": "HALL LAURIE J TRUSTEE", "is_family_office": false, "note": "Individual trustee, not a firm"}
+{"firm_name": "Dorsey & Whitney Trust CO LLC", "is_family_office": false, "note": "Trust company affiliated with a law firm"}
+{"firm_name": "Family Office University Network", "is_family_office": false, "note": "Education / network organization, not a family office"}
+{"firm_name": "Vincentian Family Office", "is_family_office": false, "note": "Catholic religious-order entity, not a wealth family office"}
+{"firm_name": "Crestone Asset Management LLC", "is_family_office": false, "note": "Registered asset manager (RIA); ADV shows no family-office designation"}
+{"firm_name": "Family Foundation", "is_family_office": false, "note": "A private foundation (990-PF), not a family office"}
+{"firm_name": "BlackRock, Inc.", "is_family_office": false, "note": "Global asset manager, not a family office"}
+{"firm_name": "Family Office Principles Inc", "is_family_office": false, "note": "Not an operating family office (services/naming); no FO evidence"}
