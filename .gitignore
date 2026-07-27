@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Secrets & local config
+.env
+
+# Regenerable / bulky / third-party raw payloads (rebuilt by the pipeline)
+data/raw/
+data/interim/
+
+# Model / embedding caches
+.cache/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

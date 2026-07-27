@@ -1,0 +1,23 @@
+# Wave 1 — discovery, enrichment, validation, data model
+requests
+pandas
+openpyxl
+python-dotenv
+pydantic>=2
+dnspython          # MX lookups for email verification
+tenacity           # retry policy on flaky network sources
+beautifulsoup4     # HTML parsing during enrichment
+lxml
+rapidfuzz          # entity matching / dedup
+feedparser         # news/press discovery via RSS
+pytest
+
+# Wave 3 — RAG + serving (installed when that wave starts):
+# sentence-transformers
+# numpy
+# fastapi
+# uvicorn[standard]
+# jinja2
+# groq            # or: google-generativeai  (free-tier LLM for generation only)
+#
+# Frozen to requirements.lock (pip freeze) before submission for reproducibility.

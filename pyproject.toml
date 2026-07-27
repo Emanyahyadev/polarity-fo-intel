@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fointel"
+version = "0.1.0"
+description = "Family Office Intelligence pipeline + grounded Micro-RAG"
+requires-python = ">=3.12"
+# Runtime dependencies are tracked in requirements.txt (+ requirements.lock for
+# reproducibility). pyproject is used here for packaging / editable install so
+# `import fointel` works cleanly in tests, scripts, and the deployed server.
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
