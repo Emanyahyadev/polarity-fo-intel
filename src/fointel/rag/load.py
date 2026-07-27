@@ -14,9 +14,26 @@ from datetime import date
 from pathlib import Path
 from typing import Optional
 
-from ..schema import Confidence, FamilyOfficeRecord, FOType, Signal, SourceClass
+from ..schema import (
+    Confidence,
+    FamilyOfficeRecord,
+    FOType,
+    Signal,
+    SourceClass,
+    SourceRef,
+)
 
 DEFAULT_CSV = "data/final/family_offices.csv"
+
+
+def _verification(cell: str, as_of: date) -> list[SourceRef]:
+    """Reconstruct verification sources by matching known source-class values
+    (their values contain parentheses, so substring matching is more robust than parsing)."""
+    refs = []
+    for sc in SourceClass:
+        if sc.value and sc.value in (cell or ""):
+            refs.append(SourceRef(source_class=sc, verifies="(see dataset)", accessed_at=as_of))
+    return refs
 
 
 def _date(s: str) -> date:
@@ -70,6 +87,8 @@ def load_records_from_csv(path: str = DEFAULT_CSV) -> list[FamilyOfficeRecord]:
             principal_phone=row.get("principal_phone") or None,
             signals=_signals(row),
             discovery_source=_enum(SourceClass, row.get("discovery_source", ""), SourceClass.OTHER),
+            verification_sources=_verification(row.get("verification_sources", ""),
+                                               _date(row.get("data_as_of", ""))),
             record_confidence=_enum(Confidence, row.get("record_confidence", ""), Confidence.LOW),
             data_as_of=_date(row.get("data_as_of", "")),
             could_not_verify=cnv))

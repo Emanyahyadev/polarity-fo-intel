@@ -17,7 +17,17 @@ from pydantic import BaseModel
 
 from ..config import settings
 from ..observability import get_logger
+from ..schema import SourceClass
 from .ground import Grounding
+
+_VERIFY_LABEL = {
+    SourceClass.SEC_EDGAR.value: "SEC 13F/SC filing",
+    SourceClass.SEC_IAPD.value: "SEC Form ADV registration",
+    SourceClass.FIRM_SITE.value: "firm website",
+    SourceClass.IRS_990PF.value: "IRS 990-PF",
+    SourceClass.NEWS.value: "news",
+    SourceClass.DIRECTORY.value: "curated directory",
+}
 from .index import RetrievalIndex, parse_filters, record_text
 from .retrieve import Retrieved, retrieve
 
@@ -48,7 +58,8 @@ def _card(r: Retrieved) -> dict:
         "phone": rec.hq_phone, "website": rec.website, "linkedin": rec.corporate_linkedin,
         "description": rec.description, "aum": rec.estimated_aum,
         "confidence": rec.record_confidence.value, "classification_evidence": rec.fo_type_evidence,
-        "verification": sorted({s.source_class.value for s in rec.verification_sources}),
+        "verification": sorted({_VERIFY_LABEL.get(s.source_class.value, s.source_class.value)
+                                for s in rec.verification_sources}),
         "match": round(r.vector_score, 3),
     }
 
