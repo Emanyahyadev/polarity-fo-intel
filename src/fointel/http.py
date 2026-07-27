@@ -72,3 +72,12 @@ class HttpClient:
 
     def get_text(self, url: str, params: Optional[dict] = None) -> str:
         return self.get(url, params=params).text
+
+    def get_with_evidence(self, url: str, params: Optional[dict] = None, ext: str = "json"):
+        """Fetch AND snapshot: returns (Response, EvidenceRef) so the retrieved content
+        is content-addressed for reproducible provenance. Used by enrichment/validation."""
+        from .evidence import snapshot  # local import avoids an import cycle
+
+        resp = self.get(url, params=params)
+        ref = snapshot(resp.content, url=resp.url, ext=ext)
+        return resp, ref
