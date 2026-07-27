@@ -5,7 +5,27 @@ A production-shaped pipeline that discovers, enriches, and **validates** a decis
 Built for the PolarityIQ Differentiator, Stage 1, Task 1. This README is a work-in-progress scaffold; it is completed as the build progresses.
 
 ## The idea in one line
-A fund manager should be able to open a URL, ask *"which single-family offices in Texas have invested in healthcare recently, and who do I contact?"*, and get an answer that is **grounded in verified records** — or an honest "not enough evidence."
+A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an answer **grounded in verified records** — or an honest "not enough evidence."
+
+## Deliverables (assessment map)
+| Deliverable | Where |
+|---|---|
+| Dataset — 50 validated records (28 High confidence) | `data/final/family_offices.xlsx` / `.csv` |
+| Methodology | [docs/Methodology.md](docs/Methodology.md) |
+| Validation + gold-set metrics (precision 1.00, FP-rate 0.00) | [docs/Validation.md](docs/Validation.md) |
+| 3 validation chains | [docs/ValidationChains.md](docs/ValidationChains.md) |
+| Micro-RAG (hybrid retrieval + code-enforced grounding) | `src/fointel/rag/`, [eval](docs/evidence/rag-abstention-eval.md) |
+| Live customer-facing URL | Deploy: `HF_TOKEN=… python scripts/deploy_hf.py` ([Deployment](docs/Deployment.md)) |
+| Discovery report (398 → 50, with rejections) | `docs/evidence/dataset-discovery-report.json` |
+| Build session summary | [docs/BuildSessionSummary.md](docs/BuildSessionSummary.md) |
+| Task 2 — SaaS conversion analysis | [docs/Task2_SaaS_Conversion.md](docs/Task2_SaaS_Conversion.md) |
+| Reproducibility (run manifests, content-hash snapshots) | `docs/evidence/run-manifest-*.json` |
+
+## Micro-RAG
+Layered: `rag/index` (fastembed/ONNX embeddings — no torch — + BM25 + metadata) · `rag/retrieve` (RRF-fused hybrid) · `rag/ground` (**code-enforced** abstention below a tuned similarity threshold + verifies generated answers only name retrieved firms) · `rag/answer` (Groq LLM if a key is set, else deterministic extractive; both bounded by grounding) · `serve` (FastAPI + non-technical UI). Reads the committed deliverable CSV, so answers are reproducibly grounded. Abstention/grounding eval: **10/11** (declines pizza/weather/bitcoin). Run locally:
+```bash
+uvicorn fointel.serve.app:app --port 8000    # then open http://localhost:8000
+```
 
 ## What makes the dataset trustworthy
 - **Rule 1 (cells):** every high-value value carries provenance (source + method + confidence).
@@ -43,7 +63,8 @@ pytest -q                          # run the test suite
 
 ## Documentation
 - [Architecture](docs/Architecture.md) · [Decision Log](docs/DecisionLog.md) · [Tradeoffs](docs/Tradeoffs.md)
-- [Methodology](docs/Methodology.md) · [Validation & metrics](docs/Validation.md) · [Known limitations](docs/KnownLimitations.md)
+- [Methodology](docs/Methodology.md) · [Validation & metrics](docs/Validation.md) · [Validation chains](docs/ValidationChains.md) · [Known limitations](docs/KnownLimitations.md)
+- [Deployment](docs/Deployment.md) · [Build session summary](docs/BuildSessionSummary.md) · [Task 2](docs/Task2_SaaS_Conversion.md)
 - [Evidence directory](docs/evidence/README.md) — reproducible backing for every significant claim
 
 ## Data handling

@@ -28,18 +28,15 @@ Present now (Wave 1):
 |---|---|---|
 | `01-discovery-source-distribution.csv` | pipeline | discovery is genuinely multi-source |
 | `01-discovery-harvest-summary.json` | pipeline | per-source yields + resolution actions |
-| `01-harvest-discovery.log` | pipeline log | the harvest ran (incl. GDELT 429 recorded, not swallowed) |
 | `02-entity-resolution-decisions.jsonl` | merge decisions | every merge/kept-distinct decision + basis (no silent drops) |
-| `run-manifest-discovery-*.json` | run manifest | ties the pool to git commit + schema/pipeline version + counts |
+| `dataset-discovery-report.json` | pipeline | 398 discovered → 189 qualified → 68 released → 50 selected, with rejection reasons |
+| `firmtype-goldset-eval.json` | validation report | firm-type precision 1.00 / FP-rate 0.00 / recall 0.44 + the false negatives |
+| `rag-abstention-eval.json` + `.md` | RAG eval | grounding/abstention 10/11 on labelled queries (declines off-topic) |
+| `run-manifest-discovery-*.json` / `run-manifest-dataset-*.json` | run manifest | ties pool + release to git commit + schema/pipeline version + counts |
 
-Planned (filled in as later waves ship):
+Planned / pending:
 
-| Artifact | Category | Claim it backs |
+| Artifact | Category | Status |
 |---|---|---|
-| `firmtype-goldset-eval.json` | validation report | firm-type accuracy/precision/recall/FP/FN + confusion matrix |
-| `email-goldset-eval.json` | evaluation metrics | email verification FP/FN |
-| `audit-sample.csv` | audit trail | findings govern releases (withheld values) |
-| `abstention-eval.jsonl` | sample queries | grounding control abstains on unanswerable queries |
-| `live-query-transcript.md` + PNGs | screenshots | live system answers real queries |
-| `deployment.md` + health check | deployment | live URL is up |
-| `failure-cases.md` | failure cases | known mis-handled cases + responses |
+| live-URL screenshots + query transcript | screenshots | after HF Spaces deploy (needs the candidate's HF token) |
+| `email-goldset-eval.json` | evaluation metrics | not run — records are firm-level, no principal emails to verify yet |
