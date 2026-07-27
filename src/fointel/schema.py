@@ -222,8 +222,13 @@ class FamilyOfficeRecord(BaseModel):
     # Rules of proof
     # ------------------------------------------------------------------ #
     def qualifies(self) -> bool:
-        """Rule 2 gate: only affirmatively-evidenced family offices count toward 50."""
-        return self.fo_type in (FOType.SFO, FOType.MFO) and bool(self.fo_type_evidence)
+        """Rule 2 gate: a record counts toward the 50 only with affirmative evidence
+        that the firm IS a family office. `fo_type_evidence` is that evidence. The
+        SFO/MFO/Undetermined sub-type is a separate attribute — a proven FO whose
+        type cannot be established is honestly labelled Undetermined and still
+        qualifies (per the assessment: "if you cannot determine which type ... say
+        so in the record"). See config/inclusion_standard.md."""
+        return bool(self.fo_type_evidence)
 
     def provenance_violations(self) -> list[tuple[str, str]]:
         """Rule 1 completeness check (code, not documentation). Returns (field, reason)
