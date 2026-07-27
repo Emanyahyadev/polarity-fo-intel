@@ -33,10 +33,11 @@ Present now (Wave 1):
 | `firmtype-goldset-eval.json` | validation report | firm-type precision 1.00 / FP-rate 0.00 / recall 0.44 + the false negatives |
 | `rag-abstention-eval.json` + `.md` | RAG eval | grounding/abstention 10/11 on labelled queries (declines off-topic) |
 | `run-manifest-discovery-*.json` / `run-manifest-dataset-*.json` | run manifest | ties pool + release to git commit + schema/pipeline version + counts |
+| `live-url-query-transcript.json` + `.md` | deployment | live URL verified — `/health` = 50 records + 6 real queries (4 answered with grounded records, 2 correct abstentions) |
 
 Planned / pending:
 
 | Artifact | Category | Status |
 |---|---|---|
-| live-URL screenshots + query transcript | screenshots | after HF Spaces deploy (needs the candidate's HF token) |
+| live-URL screenshot | screenshots | optional visual capture of the live UI (machine-readable transcript already present above) |
 | `email-goldset-eval.json` | evaluation metrics | not run — records are firm-level, no principal emails to verify yet |

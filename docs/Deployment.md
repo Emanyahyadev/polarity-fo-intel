@@ -3,6 +3,26 @@
 The Micro-RAG is a FastAPI service in a container. It builds from the `Dockerfile`
 and serves the exact committed dataset (`data/final/family_offices.csv`).
 
+## Live (verified)
+
+- **URL:** https://family-office-intelligence.onrender.com
+- **Host:** Render free web service (Docker), deployed from this repo via `render.yaml` (Blueprint).
+- **Health:** `GET /health` → `{"status":"ok","records":50}`
+- **Verified queries:** see [`docs/evidence/live-url-query-transcript.md`](evidence/live-url-query-transcript.md)
+  — on-topic queries answer with grounded records; off-topic ("best pizza in Chicago")
+  and empty-hard-filter ("multi-family offices in New York") queries correctly abstain.
+- **Kept warm:** Render free services sleep after ~15 min idle. A scheduled GitHub Action
+  (`.github/workflows/keepalive.yml`) pings `/health` every 10 minutes so the demo stays
+  responsive throughout the review window with no cold-start wait. Disable it after review
+  from the repo's Actions tab if desired.
+
+> **Why Render (not HF / Vercel / shared hosting), DecisionLog D13.** HF now requires a
+> **PRO** plan for *both* Docker *and* Gradio Spaces (only static Spaces are free — a live
+> 402 confirmed this for each). Vercel's serverless size/duration limits do not fit the
+> onnxruntime embedding model + in-memory index. Shared hosting (e.g. Hostinger) cannot run
+> a long-lived ASGI process with a native ML dependency. Render's free container web service
+> runs the existing `Dockerfile` unchanged.
+
 > **Host note (DecisionLog D13, revised).** Hugging Face changed its policy: free
 > accounts now get only *Static* Spaces — Docker Spaces require a **PRO** subscription
 > (a live 402 confirmed this during deploy). To stay strictly free-tier, the primary

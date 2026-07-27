@@ -2,7 +2,9 @@
 
 A production-shaped pipeline that discovers, enriches, and **validates** a decision-grade dataset of 50 family offices, then serves it through a grounded Micro-RAG with a non-technical, customer-facing UI.
 
-Built for the PolarityIQ Differentiator, Stage 1, Task 1. This README is a work-in-progress scaffold; it is completed as the build progresses.
+Built for the PolarityIQ Differentiator, Stage 1, Task 1.
+
+**▶ Live demo:** **https://family-office-intelligence.onrender.com** — try *"single-family offices in Texas"*, *"family offices in California"*, or *"Tell me about Pathstone"*. Ask something off-topic (*"best pizza in Chicago"*) and it declines instead of guessing. *(Hosted on a free tier and kept warm; a rare first request after idle may take a few seconds.)*
 
 ## The idea in one line
 A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an answer **grounded in verified records** — or an honest "not enough evidence."
@@ -15,7 +17,7 @@ A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an
 | Validation + gold-set metrics (precision 1.00, FP-rate 0.00) | [docs/Validation.md](docs/Validation.md) |
 | 3 validation chains | [docs/ValidationChains.md](docs/ValidationChains.md) |
 | Micro-RAG (hybrid retrieval + code-enforced grounding) | `src/fointel/rag/`, [eval](docs/evidence/rag-abstention-eval.md) |
-| Live customer-facing URL | Deploy: `HF_TOKEN=… python scripts/deploy_hf.py` ([Deployment](docs/Deployment.md)) |
+| **Live customer-facing URL** | **https://family-office-intelligence.onrender.com** ([Deployment](docs/Deployment.md), [live transcript](docs/evidence/live-url-query-transcript.md)) |
 | Discovery report (398 → 50, with rejections) | `docs/evidence/dataset-discovery-report.json` |
 | Build session summary | [docs/BuildSessionSummary.md](docs/BuildSessionSummary.md) |
 | Task 2 — SaaS conversion analysis | [docs/Task2_SaaS_Conversion.md](docs/Task2_SaaS_Conversion.md) |

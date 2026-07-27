@@ -1,0 +1,253 @@
+{
+  "captured_at_utc": "2026-07-27T15:24:46+00:00",
+  "base_url": "https://family-office-intelligence.onrender.com",
+  "health": {
+    "status": "ok",
+    "records": 50
+  },
+  "queries": [
+    {
+      "query": "single-family offices in Texas",
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.76",
+      "answer": "Found 1 matching family office in the verified dataset:\n• 818 FAMILY OFFICE, LLC — Single-Family Office · AUSTIN, TX, United States · https://818familyoffice.com/ · [Medium confidence]",
+      "citations": [
+        "fo_831b1d28ba"
+      ],
+      "cards": [
+        {
+          "name": "818 FAMILY OFFICE, LLC",
+          "type": "Single-Family Office",
+          "location": "AUSTIN, TX, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.764
+        }
+      ]
+    },
+    {
+      "query": "multi-family offices in New York",
+      "answered": false,
+      "mode": "abstain",
+      "reason": "no records matched the query",
+      "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+      "citations": [],
+      "cards": []
+    },
+    {
+      "query": "family offices in California",
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.75",
+      "answer": "Found 4 matching family offices in the verified dataset:\n• SESTANTE FAMILY OFFICE — Multi-Family Office · CORONADO, CA, United States · http://sestante.com/ · [Medium confidence]\n• DCA FAMILY OFFICE, LLC — Undetermined · ROSEVILLE, CA, United States · https://dcafamilyoffice.com/ · [Medium confidence]\n• ANGELES FAMILY OFFICE — Undetermined · SANTA MONICA, CA, United States · https://www.angelesinvestments.com/ · [Medium confidence]\n• Tarbox Family Office, Inc. — Undetermined · NEWPORT BEACH, CA, United States · phone +1 (949) 721-2330 · [High confidence]",
+      "citations": [
+        "fo_55e904bc2b",
+        "fo_80f649ced1",
+        "fo_3171716a52",
+        "fo_15eb1b42d3"
+      ],
+      "cards": [
+        {
+          "name": "SESTANTE FAMILY OFFICE",
+          "type": "Multi-Family Office",
+          "location": "CORONADO, CA, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.754
+        },
+        {
+          "name": "DCA FAMILY OFFICE, LLC",
+          "type": "Undetermined",
+          "location": "ROSEVILLE, CA, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.708
+        },
+        {
+          "name": "ANGELES FAMILY OFFICE",
+          "type": "Undetermined",
+          "location": "SANTA MONICA, CA, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.737
+        },
+        {
+          "name": "Tarbox Family Office, Inc.",
+          "type": "Undetermined",
+          "location": "NEWPORT BEACH, CA, United States",
+          "confidence": "High",
+          "verification": [
+            "SEC 13F/SC filing",
+            "SEC Form ADV registration"
+          ],
+          "match": 0.722
+        }
+      ]
+    },
+    {
+      "query": "family offices that invest in technology",
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.73",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Single-Family Office · CORAL GABLES, FL, United States · https://www.wefamilyoffices.com/ · [Medium confidence]\n• NOBLEHOUSE FAMILY OFFICE, LLC — Multi-Family Office · PLANO, TX, United States · https://www.noblehousefamilyoffice.com/ · [Medium confidence]\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · https://www.matterfamilyoffice.com/ · [Medium confidence]\n• COLLECTIVE FAMILY OFFICE LLC — Undetermined · YORK, PA, United States · phone +1 (717) 893-5055 · https://www.collectivefamilyoffice.com/ · [High confidence]\n• MARCUARD FAMILY OFFICE LTD — Multi-Family Office · ZURICH, Switzerland · https://www.marcuardfamilyoffice.com/ · [Medium confidence]",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_33d228f849",
+        "fo_a4cb68cd35",
+        "fo_c1e06b1868",
+        "fo_3bd9ae1726"
+      ],
+      "cards": [
+        {
+          "name": "WE FAMILY OFFICES",
+          "type": "Single-Family Office",
+          "location": "CORAL GABLES, FL, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.716
+        },
+        {
+          "name": "NOBLEHOUSE FAMILY OFFICE, LLC",
+          "type": "Multi-Family Office",
+          "location": "PLANO, TX, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.686
+        },
+        {
+          "name": "MATTER FAMILY OFFICE",
+          "type": "Multi-Family Office",
+          "location": "ST LOUIS, MO, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.732
+        },
+        {
+          "name": "COLLECTIVE FAMILY OFFICE LLC",
+          "type": "Undetermined",
+          "location": "YORK, PA, United States",
+          "confidence": "High",
+          "verification": [
+            "SEC 13F/SC filing",
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.674
+        },
+        {
+          "name": "MARCUARD FAMILY OFFICE LTD",
+          "type": "Multi-Family Office",
+          "location": "ZURICH, Switzerland",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.671
+        }
+      ]
+    },
+    {
+      "query": "Tell me about Pathstone",
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.72",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• PATHSTONE FAMILY OFFICE, LLC — Undetermined · ENGLEWOOD, NJ, United States · phone +1 (201) 731-7112 · [High confidence]\n• MARCUARD FAMILY OFFICE LTD — Multi-Family Office · ZURICH, V8, Switzerland · phone 41 43 344 60 00 · https://www.marcuardfamilyoffice.com/ · [High confidence]\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · https://www.matterfamilyoffice.com/ · [Medium confidence]\n• Revisio Family Office — Undetermined · Germany · https://revisio-family.de/ · [Medium confidence]\n• STORYONE FAMILY OFFICE — Multi-Family Office · OVERLAND PARK, KS, United States · https://story-one.com/ · [Medium confidence]",
+      "citations": [
+        "fo_38a12a7ca6",
+        "fo_1e72fff8ee",
+        "fo_a4cb68cd35",
+        "fo_33a7413d76",
+        "fo_f638fbd06f"
+      ],
+      "cards": [
+        {
+          "name": "PATHSTONE FAMILY OFFICE, LLC",
+          "type": "Undetermined",
+          "location": "ENGLEWOOD, NJ, United States",
+          "confidence": "High",
+          "verification": [
+            "SEC 13F/SC filing",
+            "SEC Form ADV registration"
+          ],
+          "match": 0.718
+        },
+        {
+          "name": "MARCUARD FAMILY OFFICE LTD",
+          "type": "Multi-Family Office",
+          "location": "ZURICH, V8, Switzerland",
+          "confidence": "High",
+          "verification": [
+            "SEC 13F/SC filing",
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.499
+        },
+        {
+          "name": "MATTER FAMILY OFFICE",
+          "type": "Multi-Family Office",
+          "location": "ST LOUIS, MO, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.544
+        },
+        {
+          "name": "Revisio Family Office",
+          "type": "Undetermined",
+          "location": "Germany",
+          "confidence": "Medium",
+          "verification": [
+            "firm website"
+          ],
+          "match": 0.487
+        },
+        {
+          "name": "STORYONE FAMILY OFFICE",
+          "type": "Multi-Family Office",
+          "location": "OVERLAND PARK, KS, United States",
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.523
+        }
+      ]
+    },
+    {
+      "query": "best pizza in Chicago",
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.48 is below the 0.55 threshold",
+      "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+      "citations": [],
+      "cards": []
+    }
+  ]
+}

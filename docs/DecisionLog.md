@@ -101,13 +101,14 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Future improvements.** Signed commits.
 
 ### D13 — Deployment target: Render free web service (revised from HF Spaces)
-- **Revision.** HF now restricts free accounts to Static Spaces; Docker Spaces require PRO (a live 402 confirmed this). To stay strictly free-tier, the primary target is **Render** (free web service, no card). The Dockerfile binds to `$PORT` so it runs on Render, HF (PRO), or Cloud Run unchanged; `scripts/deploy_hf.py` remains for HF-PRO users.
+- **Status (live, verified).** Deployed at **https://family-office-intelligence.onrender.com** from this repo via `render.yaml` (Blueprint). `/health` → `{"status":"ok","records":50}`; on-/off-topic query transcript in `docs/evidence/live-url-query-transcript.md`.
+- **Revision.** HF now gates *both* Docker **and** Gradio Spaces behind PRO — only Static Spaces are free (two separate live 402s confirmed this: one on a Docker Space, one on a Gradio Space during this build). Vercel/Netlify serverless size + duration limits do not fit the onnxruntime embedding model + in-memory index; shared hosting (Hostinger) cannot run a long-lived ASGI process with a native ML dependency. **Render** (free Docker web service) runs the existing `Dockerfile` unchanged and required no code compromise.
 - **Decision (original).** Deploy the FastAPI + UI as a Docker container.
-- **Reasoning.** Free, persistent public URL, no idle spin-down (a reviewer opening it gets a warm system), supports local embeddings.
-- **Alternatives considered.** Render free (cold starts on idle); Fly.io (free allowance, more setup).
-- **Tradeoffs.** Image build must fit Space limits → keep the image lean; precompute the index at build.
-- **Risks.** torch image size → precompute embeddings at build, or fall back to a hosted embedding API if the image is too large.
-- **Future improvements.** Custom domain; uptime monitoring.
+- **Reasoning.** Free public URL, supports local embeddings, no architecture change from the committed image.
+- **Alternatives considered.** HF Docker/Gradio Space (both now PRO); Vercel/Netlify (serverless limits vs onnxruntime); Fly.io/Railway/Cloud Run (require a credit card); Hostinger shared hosting (no persistent ASGI process / native deps).
+- **Tradeoffs.** Render free services sleep after ~15 min idle (cold start ~30–60 s) → mitigated by a scheduled `keepalive.yml` GitHub Action pinging `/health` every 10 min so the demo stays warm through the review window.
+- **Risks.** onnxruntime image size → the Dockerfile uses fastembed (ONNX, no torch) and pre-warms the model at build, keeping the image within Render's free build limits (build succeeded).
+- **Future improvements.** Custom domain (e.g. CNAME a Hostinger subdomain onto the service); external uptime monitor as a second keep-warm.
 
 ---
 

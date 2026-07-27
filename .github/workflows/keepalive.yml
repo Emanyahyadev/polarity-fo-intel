@@ -1,0 +1,29 @@
+name: keepalive
+
+# Render's free web service sleeps after ~15 min idle, cold-starting (~30-60s) on
+# the next request. This scheduled ping hits /health every 10 minutes so the live
+# demo stays warm for reviewers throughout the evaluation window — no cold start
+# whenever they open the URL. Uses no repo checkout, so each run is a few seconds
+# and stays well inside the free Actions budget. Disable after review if desired
+# (Actions tab -> keepalive -> ... -> Disable workflow).
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 minutes (Render idles at ~15)
+  workflow_dispatch: {}       # allow manual runs
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint (retry to cover a cold wake-up)
+        run: |
+          URL="https://family-office-intelligence.onrender.com/health"
+          for i in 1 2 3 4; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 90 "$URL" || echo "000")
+            echo "attempt $i -> HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 20
+          done
+          echo "::warning::health endpoint did not return 200 (service may be waking)"
+          exit 0   # never fail the workflow on a transient miss
