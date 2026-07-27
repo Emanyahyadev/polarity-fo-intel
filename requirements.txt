@@ -1,27 +1,25 @@
-# Wave 1 — discovery, enrichment, validation, data model
 requests
 pandas
 openpyxl
 python-dotenv
 pydantic>=2
-dnspython          # MX lookups for email verification
-tenacity           # retry policy on flaky network sources
-beautifulsoup4     # HTML parsing during enrichment
+dnspython
+tenacity
+beautifulsoup4
 lxml
-rapidfuzz          # entity matching / dedup
-feedparser         # news/press discovery via RSS
+rapidfuzz
+feedparser
 pytest
 
-# Postgres / Supabase backend (activated at deploy via DATABASE_URL; SQLite is the
-# local/dev default). Uncomment to run the Postgres Repository implementation:
-# psycopg[binary]>=3
+# RAG + serving (Wave 3)
+fastembed
+rank-bm25
+numpy
+fastapi
+uvicorn[standard]
+jinja2
+groq
 
-# Wave 3 — RAG + serving (installed when that wave starts):
-# sentence-transformers
-# numpy
-# fastapi
-# uvicorn[standard]
-# jinja2
-# groq            # or: google-generativeai  (free-tier LLM for generation only)
-#
-# Frozen to requirements.lock (pip freeze) before submission for reproducibility.
+# Postgres/Supabase backend (deploy): pip install 'psycopg[binary]>=3'
+
+# Frozen to requirements.lock (pip freeze) for reproducibility.

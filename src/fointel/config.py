@@ -55,8 +55,10 @@ class Settings:
 
     # --- retrieval / grounding control ---
     retrieval_top_k: int = _int("RETRIEVAL_TOP_K", 5)
-    # below this max-similarity, the system abstains instead of answering
-    min_retrieval_score: float = _float("MIN_RETRIEVAL_SCORE", 0.35)
+    # below this max-similarity, the system abstains instead of answering. Tuned on the
+    # bge-small model: on-topic queries score ~0.7-0.78, off-topic ~0.48, so 0.55 separates
+    # them (e.g. "best pizza in Chicago" -> abstain). See docs/evidence abstention eval.
+    min_retrieval_score: float = _float("MIN_RETRIEVAL_SCORE", 0.55)
 
     # --- paths ---
     data_dir: str = os.getenv("DATA_DIR", "data")

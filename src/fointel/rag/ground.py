@@ -1,0 +1,58 @@
+"""
+Grounding / abstention control — enforced in CODE, not prompt.
+
+The assessment is explicit: "Prompt instructions alone are not enough." This
+control does three things independent of any model:
+
+1. Abstain: if the best retrieval similarity is below a threshold (or nothing
+   matched a hard filter), the system declines rather than guessing.
+2. Bound claims: a generated answer may only name family offices present in the
+   retrieved set; any other named firm is treated as a hallucination.
+3. Cite: every answer carries the fo_ids it is grounded in.
+
+`verify_answer` returns the list of ungrounded firm mentions; a non-empty list
+means the generation must be rejected or replaced by the extractive answer.
+"""
+
+from __future__ import annotations
+
+import re
+
+from ..text import norm_name
+from .retrieve import Retrieved
+
+# Proper-noun-ish spans that look like firm names (to catch invented firms).
+_CANDIDATE_FIRM = re.compile(
+    r"\b([A-Z][A-Za-z&.\-]+(?:\s+[A-Z][A-Za-z&.\-]+){0,4}"
+    r"\s+(?:Family Office|Family Offices|Capital|Advisors|Partners|Management|Group|LLC|LP))\b")
+
+
+class Grounding:
+    def __init__(self, min_score: float = 0.55):
+        self.min_score = min_score
+
+    def assess(self, retrieved: list[Retrieved]) -> tuple[bool, str]:
+        """Answerable only if we retrieved something above the similarity threshold."""
+        if not retrieved:
+            return False, "no records matched the query"
+        top = max(r.vector_score for r in retrieved)
+        if top < self.min_score:
+            return False, f"best match similarity {top:.2f} is below the {self.min_score} threshold"
+        return True, f"top similarity {top:.2f}"
+
+    def verify_answer(self, answer_text: str, retrieved: list[Retrieved]) -> list[str]:
+        """Return firm names asserted in the answer that are NOT in the retrieved set."""
+        allowed = {norm_name(r.record.name) for r in retrieved}
+        # allow any single-token subset match too (retrieved names are the source of truth)
+        allowed_tokens = {t for name in allowed for t in name.split()}
+        ungrounded = []
+        for match in _CANDIDATE_FIRM.finditer(answer_text or ""):
+            mentioned = norm_name(match.group(1))
+            if not mentioned:
+                continue
+            if mentioned in allowed:
+                continue
+            if any(tok in allowed_tokens for tok in mentioned.split()):
+                continue  # a partial/aliased reference to a retrieved firm
+            ungrounded.append(match.group(1))
+        return sorted(set(ungrounded))

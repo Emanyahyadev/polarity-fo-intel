@@ -1,0 +1,144 @@
+{
+  "n": 11,
+  "correct": 10,
+  "accuracy": 0.909,
+  "results": [
+    {
+      "query": "single-family offices in Texas",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.76",
+      "citations": [
+        "fo_831b1d28ba"
+      ],
+      "correct": true
+    },
+    {
+      "query": "multi-family offices",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.77",
+      "citations": [
+        "fo_3bd9ae1726",
+        "fo_b406883a90",
+        "fo_1e72fff8ee",
+        "fo_a4cb68cd35",
+        "fo_311aa9d44c"
+      ],
+      "correct": true
+    },
+    {
+      "query": "family offices in Florida",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.80",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_7ef75c02df",
+        "fo_a2bc85f0ac",
+        "fo_16837977fd",
+        "fo_c7e795ff94"
+      ],
+      "correct": true
+    },
+    {
+      "query": "family offices in New York",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.76",
+      "citations": [
+        "fo_0728fa18e5",
+        "fo_4b474eef93",
+        "fo_a6f6c19fed",
+        "fo_519c4712e1",
+        "fo_77b15abad5"
+      ],
+      "correct": true
+    },
+    {
+      "query": "Pathstone",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.72",
+      "citations": [
+        "fo_38a12a7ca6",
+        "fo_a4cb68cd35",
+        "fo_1e72fff8ee",
+        "fo_33a7413d76",
+        "fo_f638fbd06f"
+      ],
+      "correct": true
+    },
+    {
+      "query": "family offices focused on private equity",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.75",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_a4cb68cd35",
+        "fo_16837977fd",
+        "fo_311aa9d44c",
+        "fo_f638fbd06f"
+      ],
+      "correct": true
+    },
+    {
+      "query": "what is the best pizza in Chicago",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.48 is below the 0.55 threshold",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "how do I bake sourdough bread",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.43 is below the 0.55 threshold",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "tomorrow's weather forecast",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.43 is below the 0.55 threshold",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "predict the price of bitcoin next year",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.49 is below the 0.55 threshold",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "family offices headquartered on the moon",
+      "expected_answer": false,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.64",
+      "citations": [
+        "fo_a4cb68cd35",
+        "fo_33d228f849",
+        "fo_cfa2d51623",
+        "fo_eca2b3bb02",
+        "fo_c1e06b1868"
+      ],
+      "correct": false
+    }
+  ]
+}
