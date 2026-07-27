@@ -71,3 +71,41 @@ decisions, before writing connectors.
 independence, repository roundtrip + dedup + qualifying filter).
 
 **Next.** Implement the 4 discovery connectors + candidate-pool harvest with provenance and logs.
+
+---
+
+## Session 3 — Wave 1: Discovery connectors + candidate pool (Mon)
+
+**Goal.** Build the 4 discovery sources and harvest a diverse, provenance-tagged candidate pool.
+
+**Tested reality before coding (How We Work).** Probed all source APIs live first:
+- SEC EDGAR full-text search (`efts.sec.gov`) → 892 "family office" 13F filers; `data.sec.gov/
+  submissions/{CIK}.json` gives authoritative name/address/**phone**. High-signal. ✅
+- ProPublica Nonprofit Explorer → works but noisy for FOs (most FOs are for-profit). Diversity lens.
+- **Google News RSS → its ToS forbids non-personal/commercial use** → pivoted news to **GDELT**.
+- **GDELT** → works but rate-limits 1/5s, and the generic "family office" query is a WEAK discovery
+  channel (mostly non-English noise). Repositioned news as a **signals** source (per-firm queries in
+  enrichment), not bulk discovery — an honest empirical finding, documented.
+- Wikipedia `Category:Family_offices` (9) + **Wikidata** instances of family office `Q751314` (14) →
+  clean, ToS-safe, high-quality (mostly SFOs). Used both for the curated-directory lens.
+
+**Built.**
+- Shared `http.py`: descriptive UA, tenacity retries, per-source throttle (GDELT 6s), no silent failures.
+- 4 connectors: `sec_edgar.py`, `irs_990pf.py`, `news.py` (GDELT), `directory.py` (Wikipedia+Wikidata).
+- `harvest.py` orchestrator (per-source limits, cross-source overlap, distribution report) + `scripts/harvest.py`.
+- Honesty fix: renamed source label `SEC_ADV` → `SEC_EDGAR` (we use EDGAR 13F/SC filings, not IARD Form ADV).
+
+**Harvest result (evidence: docs/evidence/01-*).** 191 unique candidates — SEC 119, 990-PF 50,
+Directory 22, News 0. Real, verifiable firms incl. Duquesne Family Office (Druckenmiller SFO),
+Pathstone, Veritable, Walton Enterprises, Bezos Expeditions, Kirkbi. Pool is pre-validation; Wave 2
+qualifies + balances the final-50 source mix (SEC is 62% of the raw pool but the selection controls the
+delivered distribution).
+
+**Judgment calls.** Kept news despite 0 discovery (honest, documents a real limitation; it earns its
+place as the signals engine). Capped noisy 990-PF at 50; pulled 120 from high-signal SEC. A regression
+test caught a name-extraction bug (leading "The" swallowed) before it shipped.
+
+**Tests.** 16 passing (added discovery pure-function tests).
+
+**Next.** Wave 2 — enrichment (SEC submissions, firm sites, per-firm GDELT signals) + validation layer
+(firm-type classifier, email verification), release gates, gold-set metrics, and the final 50.

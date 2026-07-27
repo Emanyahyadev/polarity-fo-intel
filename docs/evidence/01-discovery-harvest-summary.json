@@ -1,0 +1,21 @@
+{
+  "per_source": {
+    "SEC EDGAR (13F / SC / Form D filings)": {
+      "yielded": 120
+    },
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": {
+      "yielded": 50
+    },
+    "Curated directory / reference (Wikipedia, associations)": {
+      "yielded": 22
+    },
+    "News / Press (GDELT)": {
+      "yielded": 0
+    }
+  },
+  "total_yielded": 192,
+  "unique_added": 191,
+  "pool_size": 191,
+  "multi_source_firm_count": 0,
+  "multi_source_firms": {}
+}

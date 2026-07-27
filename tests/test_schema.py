@@ -64,7 +64,7 @@ def test_recent_activity_confidence_is_weakest_link():
 def test_record_confidence_falls_with_weak_anchor():
     strong = _base(
         fo_type=FOType.SFO, fo_type_evidence="ev", fo_type_confidence=Confidence.HIGH,
-        provenance={"name": Provenance(source_class=SourceClass.SEC_ADV, method="ADV Item 1",
+        provenance={"name": Provenance(source_class=SourceClass.SEC_EDGAR, method="EDGAR submissions",
                                        checked_at=date(2026, 7, 27), confidence=Confidence.HIGH)},
     )
     assert strong.compute_record_confidence() == Confidence.HIGH

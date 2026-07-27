@@ -60,10 +60,10 @@ class EmailStatus(str, Enum):
 
 class SourceClass(str, Enum):
     # Discovery-capable source classes
-    SEC_ADV = "SEC EDGAR Form ADV"
+    SEC_EDGAR = "SEC EDGAR (13F / SC / Form D filings)"
     IRS_990PF = "IRS 990-PF (ProPublica Nonprofit Explorer)"
-    NEWS = "News / Press"
-    DIRECTORY = "FO Directory / Association"   # 4th, non-regulatory discovery lens
+    NEWS = "News / Press (GDELT)"
+    DIRECTORY = "Curated directory / reference (Wikipedia, associations)"
     # Proof / enrichment source classes (not used for discovery)
     FIRM_SITE = "Firm Website"
     LINKEDIN = "LinkedIn (public profile)"
@@ -72,7 +72,7 @@ class SourceClass(str, Enum):
 
 
 DISCOVERY_SOURCE_CLASSES = {
-    SourceClass.SEC_ADV,
+    SourceClass.SEC_EDGAR,
     SourceClass.IRS_990PF,
     SourceClass.NEWS,
     SourceClass.DIRECTORY,

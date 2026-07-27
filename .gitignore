@@ -11,6 +11,10 @@ __pycache__/
 # Regenerable / bulky / third-party raw payloads (rebuilt by the pipeline)
 data/raw/
 data/interim/
+# working databases (contain PII; regenerable by the pipeline)
+data/*.db
+data/*.db-wal
+data/*.db-shm
 
 # Model / embedding caches
 .cache/
