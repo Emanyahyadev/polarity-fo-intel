@@ -109,3 +109,40 @@ test caught a name-extraction bug (leading "The" swallowed) before it shipped.
 
 **Next.** Wave 2 — enrichment (SEC submissions, firm sites, per-firm GDELT signals) + validation layer
 (firm-type classifier, email verification), release gates, gold-set metrics, and the final 50.
+
+---
+
+## Session 4 — Architecture Gate Review remediation (Mon)
+
+**Goal.** Close every mandatory item from the gate review before any production data is created.
+Default assumption during review: "not ready." Each fix shipped with tests + docs + evidence + a commit.
+
+**Done (commit-by-commit).**
+- Provenance enforcement (cfb1c16): construction-time invariant (no populated + could_not_verify)
+  + `provenance_violations()`; Provenance gains fetched_at/content_hash/snapshot_path.
+- Entity resolution (30b834d): conservative `norm_name`; `EntityResolver` merges only on shared
+  identifier or name+geo, flags fuzzy dups kept-distinct; every decision logged. Live: 192 firms,
+  0 silent merges, 3 flagged (a Porfolio/Portfolio typo, MSGE/SPHR).
+- Inclusion standard (bcbf581): `config/inclusion_standard.md`; `qualifies()` now hinges on
+  FO-evidence, decoupled from SFO/MFO/Undetermined sub-type.
+- Release gate (b773b06): `ReleaseGate.publish()` single authority, 9 gates, core invariant test
+  (audited value never shipped). Caught a real bug: `name` is a reserved LogRecord attr.
+- Reproducibility (0df0063): `evidence.py` snapshots (sha256) + run manifest (git commit, versions,
+  counts); `http.get_with_evidence`.
+- Repo integrity (6612a11): real `SupabaseRepository` (lazy psycopg, clear error, no dangling
+  import); canonical `scripts/run_pipeline.py`; created Methodology/Validation/KnownLimitations;
+  fixed README refs.
+- Source diversity (490e20b): `select_final()` caps any discovery source at ~40% of the shipped N,
+  relax only with logged justification.
+- Observability (1c33717): connectors on the `discovery` channel with skip logging; no silent skips.
+- Integration tests (b08a3df): mocked-source end-to-end (discovery→resolve→persist; gate→selection).
+- Docs sweep: Architecture reconciled (4 lenses = 3 discovery + news-as-signals; SEC EDGAR not ADV;
+  9 gates; no SMTP probing), DecisionLog D14–D19, evidence catalogue, this log.
+
+**Judgment calls.** Chose to refuse the original certification and fix first, rather than proceed on
+unproven gating/provenance. Implemented a real Postgres backend rather than reword the claim.
+Kept news despite 0 discovery — honest, and it earns its place as the signals engine.
+
+**Tests.** 48 passing, 1 skipped (Postgres roundtrip, gated on TEST_DATABASE_URL).
+
+**Next.** Final gate: full suite + adversarial self-review + certification decision.

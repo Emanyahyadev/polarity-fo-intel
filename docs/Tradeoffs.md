@@ -18,3 +18,9 @@ Deep verification (SMTP probes, multi-source corroboration, signal dating) is sl
 
 ## T5 — Automation vs. judgment
 The 50 must be pipeline-produced, not hand-assembled — but human judgment sets the inclusion standard, labels the gold set, and makes the SFO/MFO/Undetermined calls the classifier is unsure about. AI builds the pipeline; the human owns the standard. Those judgment points are logged in `BuildLog.md` so the reasoning is visible.
+
+## T6 — Entity resolution: precision over recall (deliberate)
+We tuned resolution to favour **precision** (never falsely merge distinct firms) over **recall** (catch every duplicate). A false merge silently deletes a real firm and corrupts the count and source diversity; a missed merge merely leaves a flagged near-duplicate a human can reconcile. So fuzzy matches are *kept distinct and logged*, not auto-merged. The cost is a few genuine duplicates surviving into the pool (e.g. a typo variant), visible in the decisions log; the benefit is zero silent data loss.
+
+## T7 — Reproducibility vs. repository weight / PII
+Full reproducibility wants every raw source snapshot committed; correct data-handling and repo hygiene want them out (bulky, third-party, PII). We split the difference: provenance carries url + fetched_at + content_hash in the committed dataset (so drift is detectable), working snapshots stay gitignored, and only the snapshots backing the released 50 are bundled into `docs/evidence/` at export. The committed repo is self-contained for the delivered records; the full candidate pool is regenerable, not archived.

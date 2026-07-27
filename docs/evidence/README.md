@@ -20,16 +20,26 @@ Every significant claim in this repository's documentation must link to a reprod
 - **Rejected records / audit trail** — values withheld by the gates (findings govern releases).
 - **Failure cases** — edge cases the pipeline/validation/RAG mis-handled, and how we responded.
 
-## Artifact index (filled in as waves complete)
+## Artifact index
 
-| # | Category | Claim it backs | Artifact | Produced by |
-|---|---|---|---|---|
-| 01 | pipeline log | Discovery is genuinely multi-source | `01-discovery-source-distribution.csv` | pipeline stats |
-| 02 | validation report | Firm-type classifier accuracy/precision/recall/FP/FN + confusion matrix | `02-firmtype-goldset-eval.json` | `validation/goldset.py` |
-| 03 | evaluation metrics | Email verification FP/FN | `03-email-goldset-eval.json` | `validation/goldset.py` |
-| 04 | audit trail | Findings govern releases | `04-audit-sample.csv` | release gate |
-| 05 | sample queries | Grounding control abstains on unanswerable queries | `05-abstention-eval.jsonl` | RAG eval harness |
-| 06 | screenshots | Live system answers real queries | `06-live-query-transcript.md` + PNGs | manual, on deployed URL |
-| 07 | pipeline log | Pipeline reproduces the 50 | `07-pipeline-run.log` | `scripts/run_pipeline.py` |
-| 08 | deployment | Live URL is up | `08-deployment.md` + health-check output | HF Space |
-| 09 | failure cases | Known mis-handled cases + responses | `09-failure-cases.md` | manual review |
+Present now (Wave 1):
+
+| Artifact | Category | Claim it backs |
+|---|---|---|
+| `01-discovery-source-distribution.csv` | pipeline | discovery is genuinely multi-source |
+| `01-discovery-harvest-summary.json` | pipeline | per-source yields + resolution actions |
+| `01-harvest-discovery.log` | pipeline log | the harvest ran (incl. GDELT 429 recorded, not swallowed) |
+| `02-entity-resolution-decisions.jsonl` | merge decisions | every merge/kept-distinct decision + basis (no silent drops) |
+| `run-manifest-discovery-*.json` | run manifest | ties the pool to git commit + schema/pipeline version + counts |
+
+Planned (filled in as later waves ship):
+
+| Artifact | Category | Claim it backs |
+|---|---|---|
+| `firmtype-goldset-eval.json` | validation report | firm-type accuracy/precision/recall/FP/FN + confusion matrix |
+| `email-goldset-eval.json` | evaluation metrics | email verification FP/FN |
+| `audit-sample.csv` | audit trail | findings govern releases (withheld values) |
+| `abstention-eval.jsonl` | sample queries | grounding control abstains on unanswerable queries |
+| `live-query-transcript.md` + PNGs | screenshots | live system answers real queries |
+| `deployment.md` + health check | deployment | live URL is up |
+| `failure-cases.md` | failure cases | known mis-handled cases + responses |

@@ -107,3 +107,55 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Tradeoffs.** Image build must fit Space limits → keep the image lean; precompute the index at build.
 - **Risks.** torch image size → precompute embeddings at build, or fall back to a hosted embedding API if the image is too large.
 - **Future improvements.** Custom domain; uptime monitoring.
+
+---
+
+*Decisions D14–D19 were added during the Architecture Gate Review remediation.*
+
+### D14 — Evidence-based entity resolution; conservative name normalisation
+- **Decision.** Merge candidates only on a shared strong identifier (CIK/EIN/QID/domain) or exact conservatively-normalised name + compatible geography + no id conflict. Similar names are flagged `possible_duplicate_kept_distinct`, never auto-merged. `norm_name` strips only legal-entity suffixes.
+- **Reasoning.** The prior lossy dedup collapsed distinct firms ("Blue Capital" vs "Blue Partners") and silently dropped one via INSERT OR IGNORE (gate-review A4). A false merge deletes a real firm and corrupts the count + source diversity.
+- **Alternatives considered.** Fuzzy auto-merge (rejected: false merges); name-only key (rejected: the original bug); no dedup (rejected: cross-source duplicates).
+- **Tradeoffs.** Keeps a few genuine duplicates as "kept distinct" pending manual review, in exchange for zero silent data loss.
+- **Risks.** Under-merging leaves near-dups (e.g. typo variants) → surfaced in the decisions log for a human.
+- **Future improvements.** Address/domain-based clustering; a learned matcher.
+
+### D15 — Release gate as the single publication authority; provenance enforced in code
+- **Decision.** `ReleaseGate.publish()` is the only path to a released record; nine mandatory gates, all must pass. Provenance completeness (Rule 1) and the "no rejected value shipped" invariant (G9) are enforced by the gate + a construction-time schema validator, not documentation.
+- **Reasoning.** "Findings govern releases" was prose with no enforcement (gate-review A1, A2). The gate makes it a checkable, tested property.
+- **Alternatives considered.** Soft warnings (rejected: weak records leak); enforcing at construction (rejected: breaks incremental record building).
+- **Tradeoffs.** May shrink the shippable set below 50 → mitigated by a ~4× discovery pool.
+- **Risks.** Over-strict gates starve the file → gate outcomes are logged so removal rates are visible; thresholds reviewed at the dataset checkpoint.
+- **Future improvements.** Per-gate removal metrics in the run manifest.
+
+### D16 — Reproducible evidence retention + run manifest
+- **Decision.** Content-address retrieved sources (sha256) with `fetched_at` in each cell's provenance; write a run manifest (git commit, schema/pipeline version, timestamps, counts) per run; bundle the snapshots backing the released 50 into `docs/evidence/` at export.
+- **Reasoning.** Live sources drift; without retained content a claim cannot be reproduced months later (gate-review A3).
+- **Alternatives considered.** URLs only (rejected: rot/drift); committing all raw content (rejected: bulky, PII, third-party).
+- **Tradeoffs.** Snapshot storage + a small export-time bundle step, for genuine reproducibility of the delivered records.
+- **Risks.** Working snapshots are gitignored → the committed repo is self-contained only for the bundled released 50 (documented in KnownLimitations).
+- **Future improvements.** archive.org "Save Page Now" URLs for durable web references.
+
+### D17 — Email verification without SMTP probing
+- **Decision.** Verify via syntax + MX/domain-liveness + role/pattern heuristics; no SMTP RCPT probing. Unverifiable emails are honest `could_not_verify` blanks.
+- **Reasoning.** SMTP probing from free/cloud IPs is unreliable (greylisting, catch-all) and treated as abusive/blacklistable (gate-review A8). A guessed "verified" value is disqualifying; an honest blank is candour.
+- **Alternatives considered.** SMTP RCPT probing (rejected: unreliable + abusive); paid verification API (rejected: free-tier constraint).
+- **Tradeoffs.** Fewer "deliverable"-labelled emails, but every label is defensible under sampling.
+- **Risks.** Lower contactable-email fill rate → compensated by entity-level intelligence (thesis, AUM, signals).
+- **Future improvements.** A defended, budgeted paid verification pass if the role permits.
+
+### D18 — Source-diversity selection policy for the shipped file
+- **Decision.** `select_final()` caps any single discovery source at ~40% of the delivered N; relax only with a logged justification. Wikipedia/Wikidata are discovery-only and blocked as verification (gate G5).
+- **Reasoning.** The pool is 62% SEC; the anti-"copy at scale" rule applies to what we ship (gate-review A10). Community-edited references are not authoritative verification.
+- **Alternatives considered.** Ship the pool distribution (rejected: SEC-dominated); hard cap with no relaxation (rejected: could fail to reach 50).
+- **Tradeoffs.** May include slightly lower-ranked non-SEC records to balance, for defensible diversity.
+- **Risks.** If non-SEC qualifying supply is too thin, the cap relaxes (logged) → mitigation is to strengthen non-SEC discovery.
+- **Future improvements.** More non-SEC lenses (state registries, curated MFO lists).
+
+### D19 — Postgres/Supabase backend implemented behind the interface
+- **Decision.** Real `SupabaseRepository` (psycopg, jsonb) mirroring SQLite; selected when `DATABASE_URL` is set; psycopg imported lazily so a missing driver gives a clear error, not a dangling import.
+- **Reasoning.** D5 claimed "Postgres from the beginning" but only SQLite existed and the factory had a dangling import (gate-review A6). The claim must match reality.
+- **Alternatives considered.** SQLite-only + reworded docs (rejected: weaker deploy story); a NotImplementedError stub (rejected: placeholder, forbidden).
+- **Tradeoffs.** A second backend to maintain; validated against a live instance only at deploy (roundtrip test skipped without `TEST_DATABASE_URL`).
+- **Risks.** Untested-in-CI-here → the error path is always-tested and the SQL mirrors the tested SQLite backend.
+- **Future improvements.** pgvector for the semantic index at scale.

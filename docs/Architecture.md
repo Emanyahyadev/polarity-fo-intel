@@ -1,6 +1,6 @@
 # Architecture
 
-> Status: **v0.1 — proposed for the architecture checkpoint.** This is the design under review before discovery connectors are implemented.
+> Status: **v1.0 — Wave 1 implemented and hardened through the Architecture Gate Review.** Discovery (4 lenses), evidence-based entity resolution, the release gate (single publication authority), provenance enforcement, reproducible evidence + run manifests, and the DB-agnostic storage layer are built and tested. Enrichment, the RAG/retrieval layer (§6), and the serving/UI layer are Wave 2–3 and are described here as target design.
 
 ## 1. What this system is, and the standard it is held to
 
@@ -57,20 +57,24 @@ Delivered file = flat CSV/XLSX via `to_delivery_row()`; full cell lineage = a se
 
 **Schema vs. the reference sample:** the provided `FO-MAX` sample is a *static firm-and-contact list* (no AUM, no SFO/MFO type, no dated signals, no per-cell provenance, no confidence). Our schema is that floor **plus**: firm-type + evidence, AUM, recent **dated** signals, per-cell provenance, confidence that dips, honest `could_not_verify` flags, and an audit trail. Those additions are exactly the "actionability + verification" the file is scored on.
 
-## 4. Discovery strategy — diverse but manageable (4 source classes)
+## 4. Discovery strategy — four lenses (three active discovery + one signals)
 
-Single-source-at-scale is an automatic fail. We use **four genuinely different source classes** (regulatory, tax-exempt, media, curated-directory) — diversity of *lens*, not quantity of connectors. Discovery sources are kept strictly separate from *proof* sources.
+Single-source-at-scale is an automatic fail. We use **four deliberately different lenses** — diversity of *lens*, not quantity of connectors. Discovery sources are kept strictly separate from *proof* sources.
 
-| # | Source class | Lens | Role | Evidence it contributes | Known blind spot |
+| # | Source | Lens | Role | Evidence it contributes | Known blind spot |
 |---|---|---|---|---|---|
-| 1 | **SEC EDGAR — Form ADV / IA filings** | regulatory | discovery + authoritative firm facts | AUM, address, phone, adviser type (strong for MFOs & registered SFOs) | pure SFOs using the family-office exclusion don't file |
-| 2 | **IRS 990-PF — private foundation filings** (ProPublica Nonprofit Explorer, free API) | tax-exempt | **discovery of single-family offices** + principals | family name, trustees/officers, location, asset scale | families without a foundation, or with a differently-named one |
-| 3 | **News / press** (free web search + fetch) | media | discovery of non-filing SFOs + **recent dated signals** | recent investments, commitments, hires; existence signals | firms that never appear in press |
-| 4 | **FO directories / associations** (public member lists, curated listings) | curated | discovery of established FOs, esp. MFOs & named SFOs | firm existence + self-described type; a cross-check on the other lenses | paywalled directories excluded on free-tier; listing bias |
+| 1 | **SEC EDGAR** — full-text search over 13F/SC filings mentioning "family office" | regulatory | discovery + authoritative firm facts (via `data.sec.gov/submissions`) | name, CIK, business location, address, phone | pure SFOs that don't file 13F/SC |
+| 2 | **IRS 990-PF** (ProPublica Nonprofit Explorer, free API) | tax-exempt | discovery of families behind private foundations | family/foundation name, EIN, city/state | most FOs are for-profit → under-represented; noisy |
+| 3 | **Wikipedia `Category:Family_offices` + Wikidata `Q751314`** | curated | discovery of notable offices (heavily SFO) | firm name, country, an article for enrichment | notability bias. **Discovery-only — never verifies** |
+| 4 | **GDELT** news | media | **signals-primary**: per-firm recent dated activity in enrichment; best-effort discovery | recent investments, commitments, hires | generic query is a weak *discovery* channel (documented) |
 
-Proof/enrichment sources (never used for discovery): firm websites, LinkedIn public profiles, cross-source corroboration.
+**Honest reconciliation:** lens 4 (news) yields ~0 bulk discovery — GDELT's generic "family office" query is noisy — so it is repositioned to a per-firm *signals* source. The *shipped* file is therefore discovered by three active lenses (SEC / 990-PF / curated), which comfortably clears the "not one source" bar. Google News RSS was rejected on ToS grounds.
 
-**Why each source exists** is documented per DecisionLog D2; the methodology reports the **per-record discovery-source distribution** to demonstrate real market discovery, not one source copied. Inherent blind spot we disclose: a family office with no filing, no foundation, no press, and no directory listing is invisible to all four — an honest limit of any free-tier approach.
+Proof/enrichment sources (never used for discovery): firm websites, LinkedIn public profiles, cross-source corroboration. **Why each source exists** is in DecisionLog D2; the methodology reports the per-record discovery-source distribution. Inherent blind spot disclosed: a firm with no filing, no foundation, no notable listing, and no press is invisible to all four.
+
+## 4c. Entity resolution (evidence-based, never silent)
+
+De-duplication is delegated to `EntityResolver`, not a lossy name key. Firms merge only on a **shared strong identifier** (CIK/EIN/QID/domain) or **exact normalised name + compatible geography + no identifier conflict**; a merely similar name is flagged `possible_duplicate_kept_distinct` for review, never auto-merged (a false merge silently deletes a real firm). Every decision is logged and written to `docs/evidence/02-entity-resolution-decisions.jsonl`; cross-source discovery is captured in `discovery_sources`.
 
 ## 4a. Discovery / verification separation (enforced in the record)
 
@@ -82,25 +86,37 @@ Confidence is per-field and **derived from the evidence** (`field_confidence()` 
 
 ## 5. Validation layer (the higher-burden build)
 
-* **Firm-type (Rule 2):** classify SFO / MFO / Undetermined with extracted evidence + confidence.
-* **Email verification:** syntax → MX → SMTP probe → status (deliverable / risky / undeliverable / could_not_verify). Undeliverable is **gated out** of the delivered field and logged to audit.
+* **Firm-type (Rule 2):** classify SFO / MFO / Undetermined against `config/inclusion_standard.md`, with extracted evidence + confidence.
+* **Email verification (honest by design):** syntax + MX/domain-liveness + role/pattern heuristics → status (deliverable / risky / could_not_verify). We do **not** perform SMTP RCPT probing (unreliable from free/cloud IPs and treated as abusive). Values that fail are **gated out** of the delivered field and logged to audit; unverifiable ones are honest blanks.
 * **Cross-source corroboration:** a firm fact confirmed by ≥2 independent sources raises confidence; single-source facts stay Medium/Low.
 
 **Gold-set evaluation (reads like a production ML eval).** A **25–30 record** hand-reviewed gold set for firm-type. `validation/goldset.py` reports **accuracy, precision, recall, false-positive rate, false-negative rate, and a confusion matrix**, plus concrete **failure examples, root-cause analysis, and improvement notes** (`docs/Validation.md`). A separate small gold set of known-good/known-bad addresses measures the email checker's own FP/FN. The false-negative rate is the headline metric — a bad value we labelled "good" ships downstream with our confidence behind it.
 
-## 5a. Release gates (no record ships unless all pass)
+## 5a. Release gate — the single publication authority
 
-`validation/gates.py` runs mandatory gates; a record enters `data/final/` only if **every** one passes, else it is withheld with a logged reason:
-1. Firm qualifies as a family office (Rule 2, `qualifies()`).
-2. Classification evidence present.
-3. Discovery documented.
-4. Verification documented (≥1 independent verification source).
-5. Critical contradictions resolved.
-6. Mandatory fields complete (name, type, geography, ≥1 contactable or entity-intelligence path).
-7. Validation status recorded.
-8. Audit trail retained for any withheld value.
+`validation/gates.py::ReleaseGate.publish()` is the **only** path to a released record. A record ships only if **all nine** gates pass, else it is withheld with logged reasons (`release` channel). Final selection then runs `validation/selection.py` to keep the shipped file source-balanced (§5b).
 
-Rejected values never appear inside customer-facing records — they live only in the audit trail.
+| Gate | Guarantees |
+|---|---|
+| G1 `family_office_evidenced` | Rule 2 — affirmative FO evidence (`qualifies()`) |
+| G2 `classification_evidence` | a typed SFO/MFO carries evidence |
+| G3 `discovery_documented` | discovery source recorded |
+| G4 `verification_documented` | ≥1 authoritative (non-discovery-only) verification source |
+| G5 `verification_authoritative` | Wikipedia/Wikidata (discovery-only) can never verify |
+| G6 `no_contradictions` | discovery ≠ verification (independence) unless justified |
+| G7 `mandatory_fields_complete` | name + geography + ≥1 actionable/entity-intelligence path |
+| G8 `provenance_complete` | Rule 1 — every populated high-value cell has a basis |
+| G9 `no_rejected_values_shipped` | a value in the audit trail can never appear in any delivered field |
+
+G9 is protected by an automated invariant test in both directions. Rejected values live only in the audit trail.
+
+## 5b. Source-diversity selection (the shipped file)
+
+The anti-"copy at scale" rule applies to the delivered 50, not the SEC-heavy raw pool. `select_final()` picks the final N from gate-approved records so no single **discovery** source exceeds a cap (default 40% of N), preferring higher-confidence records; if diversity is insufficient the cap is relaxed only with an explicit, logged justification (DecisionLog D18).
+
+## 5c. Reproducibility
+
+Every run writes a manifest (`docs/evidence/run-manifest-*.json`: git commit, schema/pipeline version, timestamps, stage counts). Retrieved source content is content-addressed (sha256 in each cell's provenance) so a claim can be reproduced or shown to have drifted (`fointel.evidence`).
 
 ## 6. RAG — hybrid retrieval + the grounding control
 
