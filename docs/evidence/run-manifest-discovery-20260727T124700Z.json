@@ -1,0 +1,33 @@
+{
+  "run_id": "20260727T124700Z",
+  "stage": "discovery",
+  "git_commit": "2d8f59d3b616b592878ac712a8de7ab8c73c4c43",
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "started_at": "2026-07-27T12:46:23+00:00",
+  "finished_at": "2026-07-27T12:47:00+00:00",
+  "counts": {
+    "discovered_yielded": 302,
+    "resolved_firms": 302,
+    "merges": 0,
+    "possible_duplicates_kept_distinct": 6,
+    "pool_size": 302,
+    "source_failures": 0
+  },
+  "notes": {
+    "per_source": {
+      "SEC EDGAR (13F / SC / Form D filings)": {
+        "yielded": 220
+      },
+      "IRS 990-PF (ProPublica Nonprofit Explorer)": {
+        "yielded": 60
+      },
+      "Curated directory / reference (Wikipedia, associations)": {
+        "yielded": 22
+      },
+      "News / Press (GDELT)": {
+        "yielded": 0
+      }
+    }
+  }
+}

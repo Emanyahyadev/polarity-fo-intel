@@ -29,5 +29,12 @@ Honest limits of the current build. Stating them is the point — hidden uncerta
 ## Scale
 - Synchronous, single-threaded HTTP; SQLite single-writer (dev); GDELT hard-capped at ~1 req/5s. Fine at 50 records. Beyond ~1k firms this needs async workers, the Postgres backend (already behind the Repository interface), a job queue, and incremental refresh. The DB swap is a config change (`DATABASE_URL`); the concurrency redesign is not yet done.
 
+## Dataset (Wave 2) — honest limitations of the delivered file
+- **Firm-level, not yet principal-level.** Records carry verified firm intelligence (name, type, address, authoritative **firm phone**, website, provenance) but not, in most cases, the decision-maker's name/title/email/direct phone. Per the assessment this reads primarily as a "firm-and-contact" dataset with a corresponding limit on commercial value. Principal enrichment (ADV Schedule A executives, firm team pages) is the top follow-up.
+- **Discovery is SEC-heavy.** Verifiable US family offices concentrate in SEC data on free tiers (13F filers + IAPD/ADV registration). Non-SEC *discovery* diversity is thin because non-SEC *verification* is genuinely scarce (see the scarcity finding). Every record is nonetheless multi-source **verified** (13F + SEC submissions + IAPD are independent filing systems). The discovery-source distribution is reported transparently, not manufactured.
+- **Type is often Undetermined.** ADV registered aliases rarely state single vs. multi family; resolving SFO/MFO reliably needs ADV Part 2 / client-count data (Item 5), a follow-up. We label Undetermined rather than guess.
+- **Signals are sparse.** Most private family offices have little press; GDELT per-firm coverage is thin, so many records honestly carry no dated signals.
+- **Foreign SFOs discovered but unverifiable.** Marquee non-US offices (Walton, Bezos, Mousse, Kirkbi) surface via the directory lens but cannot be verified on free tiers (no US filing, no public site) — an honest gap, documented in the discovery report.
+
 ## Backends / infrastructure
 - **Postgres/Supabase backend** is implemented and unit-testable but is validated against a live instance only at deploy (its roundtrip test is skipped unless `TEST_DATABASE_URL` is set). SQLite is the tested backend at this scope.
