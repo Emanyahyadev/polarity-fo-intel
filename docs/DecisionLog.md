@@ -12,9 +12,9 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Risks.** torch may exceed a free host's build limits → mitigation in D5/D13. Python 3.14 also installed; we pin to 3.12 for wheel availability.
 - **Future improvements.** Swap MiniLM for a larger embedding model if recall is weak; add a reranker.
 
-### D2 — Discovery from four source classes: SEC ADV · IRS 990-PF · News · FO Directories
-- **Decision.** Four discovery lenses — regulatory (SEC EDGAR Form ADV), tax-exempt (IRS 990-PF via ProPublica), media (news/press), curated (public FO directories/associations). Discovery kept separate from proof sources.
-- **Reasoning.** One convenient source = automatic fail. Four independent lenses give genuine market discovery; 990-PF specifically surfaces single-family offices (families behind foundations) that filings and directories miss; news supplies the dated signals that drive commercial value; a directory lens cross-checks the others.
+### D2 — Discovery from four lenses: SEC EDGAR · IRS 990-PF · Wikipedia/Wikidata · GDELT
+- **Decision.** Four lenses — regulatory (SEC EDGAR full-text search over 13F/SC filings; **not** IARD Form ADV), tax-exempt (IRS 990-PF via ProPublica), curated (Wikipedia `Category:Family_offices` + Wikidata `Q751314`, discovery-only), media (GDELT, **signals-primary** — its generic query proved weak for bulk discovery). Discovery kept separate from proof sources.
+- **Reasoning.** One convenient source = automatic fail. Independent lenses give genuine market discovery; 990-PF surfaces families behind foundations; the curated lens finds notable (heavily single-family) offices; GDELT supplies per-firm dated signals. Empirically, news yields ~0 bulk discovery, so the *shipped* file is discovered by three active lenses — reconciled honestly in Architecture §4 and BuildLog Session 3.
 - **Alternatives considered.** 3 sources (sufficient but thinner diversity); a broad web crawl (rejected: unfocused, high noise, ToS risk); paid data vendors (rejected: free-tier constraint + a vendor's finished record demonstrates the vendor, not our system).
 - **Tradeoffs.** More sources = more coverage but more surface to validate; four is the deliberate ceiling ("diversity of lens, not quantity of connectors").
 - **Risks.** Discovery could still skew to one lens → we report the per-record discovery distribution and rebalance if skewed. Some directories are paywalled → we use only freely-accessible ones and document which.

@@ -14,7 +14,7 @@ Priority order is fixed by the assessment: **dataset first, working functionalit
 How We Work: "velocity without validation is recklessness," but the window is real. We buy speed by **scoping small** (50 records, 3 sources, one focused UI) and spend the saved time on validation evidence (gold set, audit trail, live-query logs), not on more features. Slower-but-right beats fast-but-unverifiable here by design.
 
 ## T4 — Coverage vs. verification cost per record
-Deep verification (SMTP probes, multi-source corroboration, signal dating) is slow per record. Rather than thinly enrich a large pool, we discover a pool of ~4× and spend verification budget only on records that clear the firm-type gate — so effort lands on records that can actually ship.
+Deep verification (MX/deliverability checks, multi-source corroboration, signal dating) is slow per record. Rather than thinly enrich a large pool, we discover a pool of ~4× and spend verification budget only on records that clear the firm-type gate — so effort lands on records that can actually ship.
 
 ## T5 — Automation vs. judgment
 The 50 must be pipeline-produced, not hand-assembled — but human judgment sets the inclusion standard, labels the gold set, and makes the SFO/MFO/Undetermined calls the classifier is unsure about. AI builds the pipeline; the human owns the standard. Those judgment points are logged in `BuildLog.md` so the reasoning is visible.
