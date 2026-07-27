@@ -19,9 +19,10 @@ def get_repository() -> Repository:
     Callers never see the difference.
     """
     if os.getenv("DATABASE_URL"):
-        from .supabase_repo import SupabaseRepository  # imported lazily; added at deploy
+        from .supabase_repo import SupabaseRepository  # psycopg imported lazily inside
 
-        return SupabaseRepository(os.environ["DATABASE_URL"])
-    repo = SqliteRepository(settings.db_path)
+        repo: Repository = SupabaseRepository(os.environ["DATABASE_URL"])
+    else:
+        repo = SqliteRepository(settings.db_path)
     repo.init_schema()
     return repo

@@ -12,6 +12,10 @@ rapidfuzz          # entity matching / dedup
 feedparser         # news/press discovery via RSS
 pytest
 
+# Postgres / Supabase backend (activated at deploy via DATABASE_URL; SQLite is the
+# local/dev default). Uncomment to run the Postgres Repository implementation:
+# psycopg[binary]>=3
+
 # Wave 3 — RAG + serving (installed when that wave starts):
 # sentence-transformers
 # numpy

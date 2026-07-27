@@ -35,8 +35,10 @@ scripts/           run_pipeline.py (CLI entry)
 py -3.12 -m venv .venv
 .venv\Scripts\activate            # Windows
 pip install -r requirements.txt
+pip install -e .                   # install the fointel package (tests, CLI, server)
 cp .env.example .env               # then set USER_AGENT contact info
-python scripts/run_pipeline.py --help
+python scripts/run_pipeline.py discovery --per-source 50   # discover + resolve + persist the pool
+pytest -q                          # run the test suite
 ```
 
 ## Documentation
