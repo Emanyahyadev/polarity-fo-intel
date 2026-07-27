@@ -24,14 +24,13 @@ BASE = (sys.argv[1] if len(sys.argv) > 1 else
         "https://family-office-intelligence.onrender.com").rstrip("/")
 
 QUERIES = [
-    "single-family offices in Texas",
-    "multi-family offices in New York",
-    "family offices in California",
-    "family offices that invest in technology",
-    "Tell me about Pathstone",             # specific firm -> should return ONLY Pathstone (no padding)
-    "best pizza in Chicago",               # off-topic -> must abstain
-    "best pizza office in Chicago",        # in-vocabulary probe -> must abstain (was a false positive)
-    "family offices headquartered on the moon",  # in-vocabulary probe -> must abstain
+    "single-family offices in Texas",                 # structured: type + state
+    "family offices with AUM over $1 billion",        # structured: numeric AUM filter
+    "who is the principal at Callan Family Office",    # principal (decision-maker) intelligence
+    "Tell me about Matter Family Office",             # entity attributes incl. investment thesis
+    "family offices in California",                    # semantic + location
+    "best pizza office in Chicago",                    # in-vocabulary probe -> must abstain
+    "family offices headquartered on the moon",        # in-vocabulary probe -> must abstain
 ]
 
 OUT = Path(__file__).resolve().parents[1] / "docs" / "evidence"
@@ -52,8 +51,10 @@ def main() -> None:
             "answer": r["answer"],
             "citations": r.get("citations", []),
             "cards": [{"name": c["name"], "type": c["type"], "location": c["location"],
-                       "confidence": c["confidence"], "verification": c["verification"],
-                       "match": c["match"]} for c in r.get("cards", [])],
+                       "principal": c.get("principal"), "aum": c.get("aum"),
+                       "signals": c.get("signals"), "confidence": c["confidence"],
+                       "verification": c["verification"], "match": c["match"]}
+                      for c in r.get("cards", [])],
         })
 
     payload = {"captured_at_utc": ts, "base_url": BASE, "health": health, "queries": results}
