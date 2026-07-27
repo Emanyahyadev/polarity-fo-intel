@@ -8,11 +8,13 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY requirements.txt pyproject.toml ./
+# Serving-only deps (lean image -> fast, reliable free-tier build). The full
+# dataset-building deps in requirements.txt are NOT needed to serve the RAG.
+COPY requirements-serve.txt pyproject.toml ./
 COPY src ./src
 COPY data/final/family_offices.csv ./data/final/family_offices.csv
 
-RUN pip install --no-cache-dir -r requirements.txt \
+RUN pip install --no-cache-dir -r requirements-serve.txt \
     && pip install --no-cache-dir --no-deps -e .
 
 # Pre-download the embedding model so the first query is fast (and the image is self-contained).

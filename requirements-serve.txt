@@ -1,0 +1,13 @@
+# Serving-only dependencies for the deployed Micro-RAG container.
+# Deliberately minimal: the live app only does retrieval + grounding + serving, so it
+# needs NONE of the dataset-building deps (pandas, lxml, openpyxl, bs4, requests, pytest,
+# etc.). Keeping the image lean makes the free-tier build fast and reliable.
+# The full dev/pipeline deps live in requirements.txt.
+fastembed
+rank-bm25
+numpy
+pydantic>=2
+python-dotenv
+fastapi
+uvicorn[standard]
+groq
