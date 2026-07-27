@@ -32,7 +32,11 @@ from datetime import date
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
+
+# Bumped when the delivered schema changes; recorded in every run manifest so a
+# release can be reproduced against the exact model that produced it.
+SCHEMA_VERSION = "1.0.0"
 
 
 class FOType(str, Enum):
@@ -80,14 +84,23 @@ DISCOVERY_SOURCE_CLASSES = {
 
 
 class Provenance(BaseModel):
-    """The basis for a single value: where it came from and how it was confirmed."""
+    """The basis for a single value: where it came from and how it was confirmed.
+
+    Reproducibility fields (`fetched_at`, `content_hash`, `snapshot_path`) let
+    another engineer reproduce the claim from a retained snapshot months later,
+    even after the live source has changed.
+    """
 
     source_class: SourceClass
-    method: str                      # e.g. "SEC ADV Item 1", "MX+SMTP probe", "2-source corroboration"
+    method: str                      # e.g. "EDGAR submissions", "MX+SMTP probe", "2-source corroboration"
     checked_at: date
     source_url: Optional[str] = None
     confidence: Confidence = Confidence.MEDIUM
     note: Optional[str] = None
+    # --- reproducibility ---
+    fetched_at: Optional[date] = None       # when the source content was retrieved
+    content_hash: Optional[str] = None       # sha256 of the retained snapshot
+    snapshot_path: Optional[str] = None      # local path / archive URL of the snapshot
 
 
 class SourceRef(BaseModel):
@@ -123,6 +136,25 @@ CONFIDENCE_FIELDS = [
     "estimated_aum",
     "investment_thesis",
     "recent_activity",
+]
+
+# Customer-visible high-value fields that MUST, when populated, carry provenance
+# (Rule 1). `fo_type` is covered by `fo_type_evidence`; `signals` self-provenance
+# via each Signal's own source. Everything here is enforced at release by the gate
+# and by `provenance_violations()`.
+HIGH_VALUE_FIELDS = [
+    "name",
+    "description",
+    "investment_thesis",
+    "estimated_aum",
+    "website",
+    "corporate_linkedin",
+    "hq_country",
+    "principal_name",
+    "principal_title",
+    "principal_linkedin",
+    "principal_email",
+    "principal_phone",
 ]
 
 
@@ -173,11 +205,44 @@ class FamilyOfficeRecord(BaseModel):
     provenance: dict[str, Provenance] = Field(default_factory=dict)
 
     # ------------------------------------------------------------------ #
+    # Always-true structural invariant (enforced at construction)
+    # ------------------------------------------------------------------ #
+    @model_validator(mode="after")
+    def _no_populated_could_not_verify(self) -> "FamilyOfficeRecord":
+        """A field cannot be both populated and marked 'could not verify' — that is
+        a self-contradiction (we would be shipping a value we say we couldn't verify)."""
+        for field in self.could_not_verify:
+            if getattr(self, field, None):
+                raise ValueError(
+                    f"field {field!r} is populated but listed in could_not_verify"
+                )
+        return self
+
+    # ------------------------------------------------------------------ #
     # Rules of proof
     # ------------------------------------------------------------------ #
     def qualifies(self) -> bool:
         """Rule 2 gate: only affirmatively-evidenced family offices count toward 50."""
         return self.fo_type in (FOType.SFO, FOType.MFO) and bool(self.fo_type_evidence)
+
+    def provenance_violations(self) -> list[tuple[str, str]]:
+        """Rule 1 completeness check (code, not documentation). Returns (field, reason)
+        for every populated high-value field lacking provenance, plus a classified
+        firm with no classification evidence. Empty list == provenance-complete.
+
+        A field may be blank (absent) freely; if populated it must carry provenance.
+        (The populated-and-could_not_verify contradiction is already impossible — it
+        is rejected at construction.)"""
+        violations: list[tuple[str, str]] = []
+        if self.fo_type in (FOType.SFO, FOType.MFO) and not self.fo_type_evidence:
+            violations.append(("fo_type", "classified as a family office without evidence"))
+        for field in HIGH_VALUE_FIELDS:
+            if getattr(self, field, None) and field not in self.provenance:
+                violations.append((field, "populated without provenance"))
+        for i, sig in enumerate(self.signals):
+            if not sig.source_url and sig.source_class is None:
+                violations.append((f"signal[{i}]", "signal without a source"))
+        return violations
 
     def independence_warnings(self) -> list[str]:
         """Flag any verification source that shares the discovery source class
@@ -330,9 +395,13 @@ class Candidate(BaseModel):
     """
 
     name: str
-    source_class: SourceClass          # the DISCOVERY source that surfaced it
+    source_class: SourceClass          # the PRIMARY discovery source that surfaced it
     source_url: Optional[str] = None
     discovered_at: Optional[date] = None
-    dedup_key: Optional[str] = None    # normalised name for de-duplication
+    dedup_key: Optional[str] = None    # normalised name (fallback only; identifiers preferred)
+    # Strong identifiers used by entity resolution (never merge without evidence):
+    identifiers: dict = Field(default_factory=dict)   # {"cik": .., "ein": .., "qid": .., "domain": ..}
+    # All discovery sources that surfaced this firm (multi-source discovery is a signal):
+    discovery_sources: list[str] = Field(default_factory=list)
     raw: dict = Field(default_factory=dict)     # source-specific payload
     hints: dict = Field(default_factory=dict)   # cheap hints (city, principal, ...)
