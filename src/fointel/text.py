@@ -4,19 +4,30 @@ from __future__ import annotations
 
 import re
 
-_SUFFIXES = re.compile(
-    r"\b(llc|lp|llp|inc|ltd|co|corp|group|management|mgmt|capital|partners|"
-    r"family office|office|advisors|advisers|holdings|trust|foundation)\b"
+# Only LEGAL-ENTITY suffixes are stripped. Descriptive words that distinguish
+# firms (capital, partners, group, management, holdings, family office, ...) are
+# DELIBERATELY kept: stripping them silently merged distinct firms
+# ("Blue Capital" vs "Blue Partners"). See gate-review finding A4 / DecisionLog D14.
+_LEGAL_SUFFIX = re.compile(
+    r"\b(llc|lp|llp|inc|incorporated|ltd|limited|co|corp|corporation|company|"
+    r"plc|pllc|gmbh|ag|sa|nv|bv|spa|pte|pty)\b"
 )
 
 
 def norm_name(name: str) -> str:
-    """Normalise a firm name for de-duplication across sources.
+    """Conservative firm-name key for candidate comparison.
 
-    'The Smith Family Office, LLC' and 'Smith Family Office' collapse to the same key.
+    'The Smith Family Office, LLC' -> 'smith family office'
+    'Smith Family Office'          -> 'smith family office'   (same firm)
+    'Duquesne Family Office'       != 'Duquesne'               (distinct)
+    'Blue Capital'                 != 'Blue Partners'          (distinct)
+
+    Never used alone to MERGE records — entity resolution requires identifiers or
+    name+geography agreement (see fointel.entity_resolution).
     """
     n = name.lower().strip()
-    n = re.sub(r"[^a-z0-9 ]+", " ", n)
-    n = _SUFFIXES.sub(" ", n)
+    n = re.sub(r"[.,]", "", n)          # "L.L.C." -> "llc"
+    n = re.sub(r"[^a-z0-9 ]+", " ", n)  # other punctuation -> space
     n = re.sub(r"\bthe\b", " ", n)
+    n = _LEGAL_SUFFIX.sub(" ", n)
     return re.sub(r"\s+", " ", n).strip()

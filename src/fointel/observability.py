@@ -25,11 +25,14 @@ from pathlib import Path
 LOG_DIR = Path(os.getenv("LOG_DIR", "logs"))
 
 CHANNELS = {
-    "pipeline": "pipeline.log",
-    "validation": "validation.log",
-    "retrieval": "retrieval.log",
-    "api": "api.log",
-    "deployment": "deployment.log",
+    "pipeline": "pipeline.log",       # orchestration + shared HTTP
+    "discovery": "discovery.log",     # source discovery + skipped records
+    "enrichment": "enrichment.log",   # entity/principal/signal enrichment
+    "validation": "validation.log",   # firm-type, email, entity-resolution/merge decisions
+    "release": "release.log",         # release gates: what shipped, what was withheld and why
+    "retrieval": "retrieval.log",     # RAG retrieval + grounding/abstention
+    "api": "api.log",                 # serving layer
+    "deployment": "deployment.log",   # deploy + health
 }
 
 # LogRecord attributes we do NOT copy into the JSON payload as "extra" fields.

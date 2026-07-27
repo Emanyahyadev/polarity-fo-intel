@@ -41,17 +41,29 @@ def main() -> None:
 
     ev = Path(args.evidence_dir)
     ev.mkdir(parents=True, exist_ok=True)
+
+    # Source distribution (evidence 01)
     with (ev / "01-discovery-source-distribution.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["source_class", "yielded", "error"])
         for source, info in report["per_source"].items():
             w.writerow([source, info.get("yielded", 0), info.get("error", "")])
+
+    # Entity-resolution decision log (evidence 02) — one JSON line per decision
+    decisions = report["resolution"].pop("decisions")
+    with (ev / "02-entity-resolution-decisions.jsonl").open("w", encoding="utf-8") as f:
+        for d in decisions:
+            f.write(json.dumps(d, ensure_ascii=False) + "\n")
+
+    # Lean summary (evidence 01) — decisions live in the JSONL, not here
     (ev / "01-discovery-harvest-summary.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
+        json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
     )
 
-    summary = {k: v for k, v in report.items() if k != "multi_source_firms"}
-    print(json.dumps(summary, indent=2))
+    printable = dict(report)
+    printable["resolution"] = {k: v for k, v in report["resolution"].items()
+                               if k != "multi_source_firms"}
+    print(json.dumps(printable, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

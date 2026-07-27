@@ -18,6 +18,10 @@ def test_news_extracts_named_family_offices_only():
     assert _extract_fo_names("How a family office invests in private equity") == set()
 
 
-def test_norm_name_collapses_entity_variants():
+def test_norm_name_collapses_only_legal_suffixes():
+    # legal-suffix/casing/punctuation variants of the SAME firm collapse
     assert norm_name("The Smith Family Office, LLC") == norm_name("Smith Family Office")
-    assert norm_name("Duquesne Family Office LLC") == norm_name("Duquesne")
+    assert norm_name("Duquesne Family Office LLC") == norm_name("Duquesne Family Office")
+    # distinguishing words are preserved -> distinct firms stay distinct (no over-merge)
+    assert norm_name("Duquesne Family Office") != norm_name("Duquesne")
+    assert norm_name("Blue Capital") != norm_name("Blue Partners")
