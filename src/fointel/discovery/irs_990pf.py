@@ -23,7 +23,7 @@ from ..schema import Candidate, SourceClass
 from ..text import norm_name
 from .base import DiscoverySource
 
-log = get_logger("pipeline")
+log = get_logger("discovery")
 
 
 class Irs990pfSource(DiscoverySource):
@@ -39,6 +39,7 @@ class Irs990pfSource(DiscoverySource):
     def discover(self, limit: int) -> Iterator[Candidate]:
         seen_eins: set[str] = set()
         yielded = 0
+        skipped = 0
         for query in self.queries:
             page = 0
             while yielded < limit:
@@ -48,11 +49,19 @@ class Irs990pfSource(DiscoverySource):
                     break
                 for org in orgs:
                     ein = str(org.get("ein") or "")
-                    if not ein or ein in seen_eins:
+                    if not ein:
+                        skipped += 1
+                        log.debug("skip: org without EIN", extra={"event": "skip",
+                                  "source": "irs_990pf", "reason": "no_ein"})
                         continue
+                    if ein in seen_eins:
+                        continue  # dedup within source
                     seen_eins.add(ein)
                     name = (org.get("name") or "").strip()
                     if not name:
+                        skipped += 1
+                        log.debug("skip: org without name", extra={"event": "skip",
+                                  "source": "irs_990pf", "reason": "no_name", "ein": ein})
                         continue
                     strein = org.get("strein") or ein
                     yield Candidate(
@@ -76,4 +85,4 @@ class Irs990pfSource(DiscoverySource):
                 if page >= data.get("num_pages", 1):
                     break
         log.info("irs_990pf done", extra={"event": "discover_done", "source": "irs_990pf",
-                                          "count": yielded})
+                                          "count": yielded, "skipped": skipped})

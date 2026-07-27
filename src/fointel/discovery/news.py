@@ -25,7 +25,7 @@ from ..schema import Candidate, SourceClass
 from ..text import norm_name
 from .base import DiscoverySource
 
-log = get_logger("pipeline")
+log = get_logger("discovery")
 
 # "Walton Enterprises", "Bezos Expeditions" won't match; this catches explicit
 # "<Proper Name> Family Office" mentions, which are unambiguous FO references.

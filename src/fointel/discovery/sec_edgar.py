@@ -22,7 +22,7 @@ from ..schema import Candidate, SourceClass
 from ..text import norm_name
 from .base import DiscoverySource
 
-log = get_logger("pipeline")
+log = get_logger("discovery")
 
 _CIK_SUFFIX = re.compile(r"\s*\(CIK\s*\d+\)\s*$", re.IGNORECASE)
 
@@ -46,6 +46,7 @@ class SecEdgarSource(DiscoverySource):
     def discover(self, limit: int) -> Iterator[Candidate]:
         seen_ciks: set[str] = set()
         yielded = 0
+        skipped = 0
         for form in self.forms:
             frm = 0
             while yielded < limit:
@@ -60,16 +61,20 @@ class SecEdgarSource(DiscoverySource):
                     src = hit.get("_source", {})
                     ciks = src.get("ciks") or []
                     if not ciks:
+                        skipped += 1
+                        log.debug("skip: hit without CIK", extra={"event": "skip",
+                                  "source": "sec_edgar", "reason": "no_cik"})
                         continue
                     cik = str(ciks[0]).lstrip("0") or ciks[0]
                     if cik in seen_ciks:
-                        continue
+                        continue  # same filer, multiple filings — expected, not a skip
                     seen_ciks.add(cik)
                     names = src.get("display_names") or []
-                    if not names:
-                        continue
-                    name = _clean_name(names[0])
+                    name = _clean_name(names[0]) if names else ""
                     if not name:
+                        skipped += 1
+                        log.debug("skip: hit without usable name", extra={"event": "skip",
+                                  "source": "sec_edgar", "reason": "no_name", "cik": cik})
                         continue
                     location = (src.get("biz_locations") or [None])[0]
                     state = (src.get("biz_states") or [None])[0]
@@ -98,4 +103,4 @@ class SecEdgarSource(DiscoverySource):
             log.info("sec_edgar form scanned", extra={"event": "discover", "source": "sec_edgar",
                                                        "form": form, "yielded_so_far": yielded})
         log.info("sec_edgar done", extra={"event": "discover_done", "source": "sec_edgar",
-                                          "count": yielded})
+                                          "count": yielded, "skipped": skipped})

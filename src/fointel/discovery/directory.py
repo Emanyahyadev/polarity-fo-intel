@@ -21,7 +21,7 @@ from ..schema import Candidate, SourceClass
 from ..text import norm_name
 from .base import DiscoverySource
 
-log = get_logger("pipeline")
+log = get_logger("discovery")
 
 # Non-firm pages that appear in the category but are concepts, not family offices.
 _SKIP_TITLES = {"family office", "list of family offices", "multi-family office",
@@ -89,7 +89,11 @@ class DirectorySource(DiscoverySource):
                 continue
             for member in members:
                 title = (member.get("title") or "").strip()
-                if not title or title.lower() in _SKIP_TITLES:
+                if not title:
+                    continue
+                if title.lower() in _SKIP_TITLES:
+                    log.debug("skip: category concept page (not a firm)", extra={
+                        "event": "skip", "source": "directory", "title": title})
                     continue
                 key = norm_name(title)
                 if not key or key in seen:
