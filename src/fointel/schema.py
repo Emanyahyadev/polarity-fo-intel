@@ -69,6 +69,7 @@ class SourceClass(str, Enum):
     NEWS = "News / Press (GDELT)"
     DIRECTORY = "Curated directory / reference (Wikipedia, associations)"
     # Proof / enrichment source classes (not used for discovery)
+    SEC_IAPD = "SEC IAPD / Form ADV (investment-adviser registration)"
     FIRM_SITE = "Firm Website"
     LINKEDIN = "LinkedIn (public profile)"
     CROSS_SOURCE = "Cross-source corroboration"

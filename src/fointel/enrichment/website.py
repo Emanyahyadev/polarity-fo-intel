@@ -62,9 +62,10 @@ class WebsiteEnricher:
 
     def __init__(self):
         self.http = HttpClient()
-        # a browser-ish UA for firm sites (many reject unknown agents)
+        # a browser-ish UA for firm sites (many reject unknown agents); short timeout
+        # and no retry so a slow/dead site cannot stall the pipeline.
         self.web = HttpClient(user_agent="Mozilla/5.0 (compatible; PolarityFOIntel/0.1)",
-                              accept="text/html,application/xhtml+xml")
+                              accept="text/html,application/xhtml+xml", timeout=8, max_attempts=1)
 
     # -- URL discovery ------------------------------------------------- #
     def wikipedia_title_to_qid(self, title: str) -> Optional[str]:
@@ -123,3 +124,28 @@ class WebsiteEnricher:
             url=resp.url, resolved=True, fo_language=fo_language,
             fo_type_hint=type_hint, description=desc, aum_text=aum,
             text_excerpt=text[:1500]), ref
+
+    _ABOUT_PATHS = ("about", "about-us")
+
+    def fetch_site_deep(self, url: str) -> tuple[WebsiteFacts, list[EvidenceRef]]:
+        """Homepage first; if it does not confirm family-office status, try common
+        /about pages (the phrase often lives there, not on the homepage)."""
+        refs: list[EvidenceRef] = []
+        facts, ref = self.fetch_site(url)
+        if ref:
+            refs.append(ref)
+        if facts.resolved and facts.fo_language:
+            return facts, refs
+        base = url.rstrip("/")
+        for path in self._ABOUT_PATHS:
+            more, ref2 = self.fetch_site(f"{base}/{path}")
+            if not more.resolved:
+                continue
+            if ref2:
+                refs.append(ref2)
+            if more.fo_language:                     # /about confirms FO -> merge and stop
+                more.url = facts.url or url
+                more.description = facts.description or more.description
+                return more, refs
+        return facts, refs
+

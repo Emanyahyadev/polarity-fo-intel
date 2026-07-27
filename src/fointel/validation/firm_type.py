@@ -57,11 +57,12 @@ def _reject(reason: str) -> Classification:
     return Classification(qualifies=False, fo_type=FOType.UNDETERMINED, reject_reason=reason)
 
 
-def classify(name: str, sec_facts: Optional[SecFacts] = None,
-             website_text: str = "", extra_texts: Optional[list[str]] = None) -> Classification:
+def classify(name: str, sec_facts: Optional[SecFacts] = None, website_text: str = "",
+             iapd=None, extra_texts: Optional[list[str]] = None) -> Classification:
     lname = name.lower()
     web = (website_text or "").lower()
-    combined = " ".join([lname, web] + [t.lower() for t in (extra_texts or [])])
+    iapd_text = " ".join([iapd.firm_name] + iapd.other_names).lower() if iapd else ""
+    combined = " ".join([lname, web, iapd_text] + [t.lower() for t in (extra_texts or [])])
 
     # 1. hard rejects
     if sec_facts and sec_facts.is_public_company:
@@ -75,19 +76,23 @@ def classify(name: str, sec_facts: Optional[SecFacts] = None,
     # 2. affirmative FO evidence from AUTHORITATIVE sources (name alone is insufficient)
     name_fo = bool(_FO_LANG.search(lname))
     web_fo = bool(_FO_LANG.search(web))
+    iapd_fo = bool(iapd and iapd.fo_language)
     sources: list[str] = []
     if name_fo and sec_facts is not None:
         sources.append("SEC 13F filer self-identifying as a family office")
+    if iapd_fo:
+        sources.append("SEC Form ADV / IAPD registration names it a family office")
     if web_fo:
         sources.append("firm website describes itself as a family office")
     if not sources:
         return _reject("no affirmative family-office evidence from an authoritative source "
                        "(name / discovery-only references are insufficient)")
 
-    # 3. type from explicit language; honest Undetermined otherwise
-    if _MFO_LANG.search(combined):
+    # 3. type from explicit language (incl. IAPD aliases); honest Undetermined otherwise
+    iapd_hint = iapd.fo_type_hint if iapd else None
+    if _MFO_LANG.search(combined) or iapd_hint == "MFO":
         fo_type, type_basis = FOType.MFO, "multi-family language"
-    elif _SFO_LANG.search(combined):
+    elif _SFO_LANG.search(combined) or iapd_hint == "SFO":
         fo_type, type_basis = FOType.SFO, "single-family language"
     else:
         fo_type, type_basis = FOType.UNDETERMINED, "single vs multi family not established"

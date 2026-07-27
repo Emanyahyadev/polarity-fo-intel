@@ -19,6 +19,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from .discovery.base import Candidate
+from .enrichment.iapd import IapdEnricher, IapdFacts
 from .enrichment.sec import SecEnricher, SecFacts, sec_provenance
 from .enrichment.website import WebsiteEnricher, WebsiteFacts
 from .observability import get_logger
@@ -46,14 +47,17 @@ class EnrichedFirm(BaseModel):
     sec_facts: Optional[SecFacts] = None
     sec_url: Optional[str] = None
     sec_hash: Optional[str] = None
+    iapd: Optional[IapdFacts] = None
+    iapd_url: Optional[str] = None
+    iapd_hash: Optional[str] = None
     website: Optional[str] = None
     website_facts: Optional[WebsiteFacts] = None
     wikipedia_bg: Optional[str] = None
     classification: Classification
 
 
-def enrich_candidate(cand: Candidate, sec_enr: SecEnricher,
-                     web_enr: WebsiteEnricher) -> EnrichedFirm:
+def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnricher,
+                     iapd_enr: IapdEnricher) -> EnrichedFirm:
     facts = sec_url = sec_hash = None
     cik = cand.identifiers.get("cik") or cand.raw.get("cik")
     if cik:
@@ -63,6 +67,18 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher,
         except Exception as exc:
             log.warning("sec enrich failed", extra={"event": "enrich_warn", "source": "sec",
                                                     "firm": cand.name, "error": str(exc)})
+
+    # IAPD / Form ADV — independent authoritative registration record (name-guarded)
+    iapd = iapd_url = iapd_hash = None
+    try:
+        iapd_facts, iapd_ref = iapd_enr.lookup(cand.name)
+        if iapd_facts:
+            iapd = iapd_facts
+            iapd_url = iapd_facts.report_url
+            iapd_hash = iapd_ref.content_hash if iapd_ref else None
+    except Exception as exc:
+        log.warning("iapd enrich failed", extra={"event": "enrich_warn", "source": "iapd",
+                                                 "firm": cand.name, "error": str(exc)})
 
     website = wfacts = wiki_bg = None
     qid = cand.raw.get("qid")
@@ -88,8 +104,9 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher,
                         "firm": cand.name, "url": website, "error": str(exc)})
 
     website_text = wfacts.text_excerpt if wfacts else ""
-    cls = classify(cand.name, sec_facts=facts, website_text=website_text)
+    cls = classify(cand.name, sec_facts=facts, website_text=website_text, iapd=iapd)
     return EnrichedFirm(candidate=cand, sec_facts=facts, sec_url=sec_url, sec_hash=sec_hash,
+                        iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash,
                         website=website, website_facts=wfacts, wikipedia_bg=wiki_bg,
                         classification=cls)
 
@@ -135,6 +152,25 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                                   verifies="firm existence, address, phone, EIN",
                                   accessed_at=as_of, url=e.sec_url))
 
+    # IAPD / Form ADV — independent authoritative registration record
+    if e.iapd:
+        ip = e.iapd
+        vsources.append(SourceRef(source_class=SourceClass.SEC_IAPD,
+                                  verifies="firm registration, family-office status, type",
+                                  accessed_at=as_of, url=e.iapd_url))
+        iapd_prov = Provenance(source_class=SourceClass.SEC_IAPD, method="IAPD registration record",
+                               checked_at=as_of, source_url=e.iapd_url, confidence=Confidence.HIGH,
+                               fetched_at=as_of, content_hash=e.iapd_hash)
+        if "name" not in prov:
+            prov["name"] = iapd_prov
+        if "hq_country" not in fields and ip.country:
+            fields["hq_country"] = ip.country
+            prov["hq_country"] = iapd_prov
+        if "hq_city" not in fields and ip.city:
+            fields["hq_city"] = ip.city
+        if "hq_state" not in fields and ip.state:
+            fields["hq_state"] = ip.state
+
     # website: authoritative corroboration + description/AUM
     if e.website_facts and e.website_facts.resolved:
         wf = e.website_facts
@@ -165,13 +201,15 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                                          source_url=None, confidence=Confidence.LOW,
                                          note="background context; not used to verify FO status")
 
-    # same-source justification when the only authoritative verifier shares the discovery class
+    # same-source justification whenever any verification source shares the discovery class
+    # (e.g. discovered via SEC 13F full-text search, verified via the distinct SEC submissions
+    # registration record). Independent sources (IAPD, firm website) still raise confidence.
     reviewer_notes = None
     disc = c.source_class
-    if all(s.source_class == disc for s in vsources) and vsources:
-        reviewer_notes = ("same-source: discovered via SEC full-text search on filings; verified "
-                          "via the independent SEC submissions registration record and the firm's "
-                          "regulatory self-identification as a family office")
+    if any(s.source_class == disc for s in vsources):
+        reviewer_notes = ("same-source: discovered via SEC 13F full-text search on filings; "
+                          "verified via the distinct SEC submissions registration record and the "
+                          "firm's regulatory self-identification as a family office")
 
     cls = e.classification
     rec = FamilyOfficeRecord(
@@ -187,7 +225,7 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 
 def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, dict]:
     """Enrich + build all candidates. Returns (records, discovery_report)."""
-    sec_enr, web_enr = SecEnricher(), WebsiteEnricher()
+    sec_enr, web_enr, iapd_enr = SecEnricher(), WebsiteEnricher(), IapdEnricher()
     records: list[FamilyOfficeRecord] = []
     discovered_by_source: Counter = Counter()
     rejected_by_reason: Counter = Counter()
@@ -195,7 +233,7 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
 
     for cand in candidates:
         discovered_by_source[cand.source_class.value] += 1
-        e = enrich_candidate(cand, sec_enr, web_enr)
+        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr)
         if not e.classification.qualifies:
             rejected_by_reason[e.classification.reject_reason or "unknown"] += 1
             continue

@@ -10,12 +10,6 @@ import time
 from typing import Optional
 
 import requests
-from tenacity import (
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-)
 
 from .config import settings
 from .observability import get_logger
@@ -24,17 +18,24 @@ log = get_logger("pipeline")
 
 
 class HttpClient:
-    """A throttled, retrying requests session. `pause` is the minimum gap between
-    calls from this client (GDELT, for example, requires >=5s)."""
+    """A throttled, retrying requests session.
+
+    `pause`   — minimum gap between calls from this client (GDELT needs >=5s).
+    `timeout` — per-request timeout (short for flaky firm websites).
+    `max_attempts` — total tries incl. the first (1 = no retry, for slow web pages).
+    """
 
     def __init__(self, user_agent: Optional[str] = None, pause: Optional[float] = None,
-                 accept: str = "application/json"):
+                 accept: str = "application/json", timeout: Optional[int] = None,
+                 max_attempts: int = 3):
         self.session = requests.Session()
         self.session.headers.update({
             "User-Agent": user_agent or settings.user_agent,
             "Accept": accept,
         })
         self.pause = settings.request_pause_seconds if pause is None else pause
+        self.timeout = settings.request_timeout if timeout is None else timeout
+        self.max_attempts = max(1, max_attempts)
         self._last = 0.0
 
     def _throttle(self) -> None:
@@ -43,29 +44,24 @@ class HttpClient:
             time.sleep(self.pause - gap)
         self._last = time.monotonic()
 
-    @retry(
-        reraise=True,
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=2, max=30),
-        retry=retry_if_exception_type(requests.RequestException),
-    )
-    def _get(self, url: str, params: Optional[dict] = None) -> requests.Response:
-        self._throttle()
-        resp = self.session.get(url, params=params, timeout=settings.request_timeout)
-        if resp.status_code == 429:
-            log.warning("rate limited", extra={"event": "http_429", "url": url})
-            resp.raise_for_status()  # triggers retry with backoff
-        resp.raise_for_status()
-        return resp
-
     def get(self, url: str, params: Optional[dict] = None) -> requests.Response:
-        try:
-            return self._get(url, params=params)
-        except requests.RequestException as exc:
-            # Never fail silently: log with enough context to reproduce.
-            log.error("http_get_failed", extra={"event": "http_error", "url": url,
-                                                 "params": params, "error": str(exc)})
-            raise
+        last_exc: Optional[Exception] = None
+        for attempt in range(self.max_attempts):
+            self._throttle()
+            try:
+                resp = self.session.get(url, params=params, timeout=self.timeout)
+                if resp.status_code == 429:
+                    log.warning("rate limited", extra={"event": "http_429", "url": url})
+                    resp.raise_for_status()
+                resp.raise_for_status()
+                return resp
+            except requests.RequestException as exc:
+                last_exc = exc
+                if attempt + 1 < self.max_attempts:
+                    time.sleep(min(2 ** attempt, 20))  # backoff between retries only
+        log.error("http_get_failed", extra={"event": "http_error", "url": url,
+                                             "params": params, "error": str(last_exc)})
+        raise last_exc  # type: ignore[misc]
 
     def get_json(self, url: str, params: Optional[dict] = None) -> dict:
         return self.get(url, params=params).json()
