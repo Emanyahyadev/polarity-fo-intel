@@ -31,9 +31,24 @@ Enforced in code, not documentation:
 - **Construction-time invariant** (`@model_validator`): a field can never be both populated and marked `could_not_verify`.
 - **`provenance_violations()`**: every populated high-value field must carry provenance, and a classified FO must carry classification evidence. The gate (G8) blocks release on any violation.
 
-## 4. Gold-set evaluation (Wave 2)
+## 4. Gold-set evaluation (measured)
 
-A **25–30 record** hand-reviewed gold set for firm-type classification. `validation/goldset.py` will report **accuracy, precision, recall, FP rate, FN rate, and a confusion matrix**, plus concrete failure examples, root-cause analysis, and improvement notes — reading like a production ML evaluation. A separate small gold set of known-good/known-bad addresses will measure the email checker's own FP/FN. Metrics land here (and machine-readable JSON in `docs/evidence/02-firmtype-goldset-eval.json`) as Wave 2 ships.
+A **25-record** hand-labelled gold set (`goldset/firm_type_goldset.jsonl`) evaluates the firm-type classifier. Full run: `python scripts/eval_goldset.py` → `docs/evidence/firmtype-goldset-eval.json`.
+
+| Metric | Value | Reading |
+|---|---|---|
+| **Precision** | **1.00** | of the firms we shipped as family offices, **100% really are** |
+| **False-positive rate** | **0.00** | **zero** non-FOs classified as FOs — the domain-critical guarantee |
+| Recall | 0.44 | of the real FOs in the set, we caught 44% |
+| False-negative rate | 0.56 | we missed 56% — see below |
+| Accuracy | 0.64 | |
+| Type accuracy | 0.57 | of correctly-qualified FOs with a known type, SFO/MFO correct 57% |
+
+**Interpretation — a deliberate precision-over-recall tradeoff.** In this domain the deadly error is a false *positive* (presenting an unconfirmed firm as a proven family office — "the most serious error"). The classifier's **false-positive rate is zero**: it never ships a non-FO. The cost is recall — the 9 false negatives are **exactly the famous single-family offices that hide** (Walton Enterprises, Bezos Expeditions, Kirkbi, Mousse Partners, DFO Management, Builders Vision, Veritable, Korys, Financière Agache): no SEC filing, no adviser registration, no resolvable public website, so no free-tier authoritative evidence. Per the inclusion standard we **reject rather than guess**. This is the right tradeoff for decision-grade intelligence: a missed real FO costs a lead; a shipped fake FO costs the client's trust.
+
+**Root cause of the false negatives:** free-tier verification scarcity, not a classifier logic error — the same scarcity quantified in the discovery report. **Improvement path:** paid data (ADV Part-1 bulk, a business-registry API) or reputable-press corroboration would recover several; documented in `KnownLimitations.md`.
+
+*(Email verification gold set: not run — the delivered records carry firm-level contact, not principal emails, so there was nothing to measure yet; see KnownLimitations.)*
 
 ## 5. Email verification (honest by design)
 
