@@ -1,7 +1,10 @@
 {
   "per_source": {
     "SEC EDGAR (13F / SC / Form D filings)": {
-      "yielded": 220
+      "yielded": 140
+    },
+    "SEC IAPD / Form ADV (investment-adviser registration)": {
+      "yielded": 200
     },
     "IRS 990-PF (ProPublica Nonprofit Explorer)": {
       "yielded": 60
@@ -10,19 +13,110 @@
       "yielded": 22
     },
     "News / Press (GDELT)": {
-      "yielded": 0
+      "yielded": 0,
+      "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=%22family+office%22+sourcelang%3Aenglish&mode=artlist&format=json&maxrecords=100&sort=datedesc&timespan=6months"
     }
   },
-  "total_yielded": 302,
-  "resolved_firms": 302,
-  "unique_added": 302,
-  "pool_size": 302,
+  "total_yielded": 422,
+  "resolved_firms": 398,
+  "unique_added": 398,
+  "pool_size": 398,
   "resolution": {
     "actions": {
-      "new": 296,
-      "possible_duplicate_kept_distinct": 6
+      "new": 385,
+      "possible_duplicate_kept_distinct": 13,
+      "merge": 24
     },
-    "multi_source_firm_count": 0,
-    "multi_source_firms": {}
+    "multi_source_firm_count": 22,
+    "multi_source_firms": {
+      "EMFO, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Allie Family Office LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Biltmore Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Tarbox Family Office, Inc.": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "COLLECTIVE FAMILY OFFICE LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Arrowroot Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Independent Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "BOSTON FAMILY OFFICE LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Fortitude Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Stokes Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Stenger Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Callan Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Capitol Family Office, Inc.": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Family Office Research LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Pioneer Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Standard Family Office LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "FIDUCIARY FAMILY OFFICE, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Aurelius Family Office LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Virtus Family Office LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "PMG Family Office LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "Wealthgate Family Office, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ],
+      "CAMBIENT FAMILY OFFICE, LLC": [
+        "SEC EDGAR (13F / SC / Form D filings)",
+        "SEC IAPD / Form ADV (investment-adviser registration)"
+      ]
+    }
   }
 }

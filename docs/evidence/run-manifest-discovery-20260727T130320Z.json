@@ -1,0 +1,37 @@
+{
+  "run_id": "20260727T130320Z",
+  "stage": "discovery",
+  "git_commit": "c80334c756713ee5a8e7d46e74da12c5e29007d5",
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "started_at": "2026-07-27T13:02:11+00:00",
+  "finished_at": "2026-07-27T13:03:20+00:00",
+  "counts": {
+    "discovered_yielded": 422,
+    "resolved_firms": 398,
+    "merges": 24,
+    "possible_duplicates_kept_distinct": 13,
+    "pool_size": 398,
+    "source_failures": 1
+  },
+  "notes": {
+    "per_source": {
+      "SEC EDGAR (13F / SC / Form D filings)": {
+        "yielded": 140
+      },
+      "SEC IAPD / Form ADV (investment-adviser registration)": {
+        "yielded": 200
+      },
+      "IRS 990-PF (ProPublica Nonprofit Explorer)": {
+        "yielded": 60
+      },
+      "Curated directory / reference (Wikipedia, associations)": {
+        "yielded": 22
+      },
+      "News / Press (GDELT)": {
+        "yielded": 0,
+        "error": "429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=%22family+office%22+sourcelang%3Aenglish&mode=artlist&format=json&maxrecords=100&sort=datedesc&timespan=6months"
+      }
+    }
+  }
+}

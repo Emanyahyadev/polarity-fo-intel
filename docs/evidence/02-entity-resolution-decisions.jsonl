@@ -22,8 +22,8 @@
 {"incoming": "Callan Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Capitol Family Office, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Geller Family Office Services, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Family Office Research LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "VPR Management LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Family Office Research LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Pioneer Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "OneAscent Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Standard Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -42,8 +42,8 @@
 {"incoming": "CAMBIENT FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "INTREPID CAPITAL MANAGEMENT INC /DE/", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Sageworth Trust Co", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "BANK OF MONTREAL /CAN/  (BMO, BERZ, BULZ, CARD, CARU, DULL, FLYD, FLYU, FNGD, FNGO, FNGS, FNGU, GDXD, GDXU, JETD, JETU, OILD)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "AQR CAPITAL MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BANK OF MONTREAL /CAN/  (BMO, BERZ, BULZ, CARD, CARU, DULL, FLYD, FLYU, FNGD, FNGO, FNGS, FNGU, GDXD, GDXU, JETD, JETU, OILD)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "DEUTSCHE BANK AG\\", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "TrustBank", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Orion Portfolio Solutions, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -89,8 +89,8 @@
 {"incoming": "NewLake Capital Partners, Inc.  (NLCP)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MVC CAPITAL, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MSG NETWORKS INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Velodyne Lidar, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "THISTLE GROUP HOLDINGS CO", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Velodyne Lidar, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Zoom Telephonics, Inc.  (MINM)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "IntelGenx Technologies Corp.  (IGXT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MESA AIR GROUP INC  (MESA)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -138,86 +138,206 @@
 {"incoming": "Just Energy Group Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BARINGTON CAPITAL GROUP L P", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "KEURIG GREEN MOUNTAIN, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "DORIAN LPG LTD.  (LPG)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "HCA INC/TN  (HCA)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Altisource Asset Management Corp  (AAMC)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Limbach Holdings, Inc.  (LMB)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Fusion Fuel Green PLC  (HTOO, HTOOW)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Fortress Biotech, Inc.  (FBIO, FBIOP)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Altisource Residential Corp", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "LILIS ENERGY, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "SAFEGUARD SCIENTIFICS INC  (SFES)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Rapid Therapeutic Science Laboratories, Inc.  (RTSL)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "NeuBase Therapeutics, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "GEMPLUS INTERNATIONAL SA", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Monster Beverage Corp  (MNST)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Akebia Therapeutics, Inc.  (AKBA)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Investview, Inc.  (INVU, INVUP)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "RING ENERGY, INC.  (REI)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "MAGAL SECURITY SYSTEMS LTD", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Invesco Ltd.  (IVZ)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Roche Robert W.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "AILERON THERAPEUTICS INC  (ALRN)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "MARKETWISE, INC.  (MKTW)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "UNIVERSAL ELECTRONICS INC  (UEIC)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "JANUS HENDERSON GROUP PLC  (JHG)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "WSI INDUSTRIES, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "AMERICAN POWER GROUP Corp", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Sema4 Holdings Corp.  (WGS, WGSWW)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Perfect Moment Ltd.  (PMNT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Gupta Raj K.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Turtle Beach Corp  (HEAR)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Livanos Peter G.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "VITAL THERAPIES INC  (IMUX)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Renalytix plc  (RNLX, RTNXF)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "INFONOW CORP /", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "CREATIVE LEARNING Corp  (DWAY)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "WisdomTree Investments, Inc.  (WT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Pasithea Therapeutics Corp.  (KTTA, KTTAW)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "CARRIER GLOBAL Corp  (CARR)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "HALCON RESOURCES CORP  (BATL)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Rocket Lab USA, Inc.  (RKLB)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "SatixFy Communications Ltd.  (SATX, STXYF)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Serve Robotics Inc. /DE/  (SERV)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Electronic Cigarettes International Group, Ltd.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "HC2 HOLDINGS, INC.  (VATE)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Barnes & Noble Education, Inc.  (BNED)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Pharmagen, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "MARINE PRODUCTS CORP  (MPX)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "America's Suppliers, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Luther Burbank Corp", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Aerpio Pharmaceuticals, Inc.  (AADI)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Medicine Man Technologies, Inc.  (SHWZ)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "FedNat Holding Co", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "OCWEN FINANCIAL CORP  (ONIT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "US ENERGY CORP  (USEG)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "EndoChoice Holdings, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "RPC INC  (RES)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "AMMO, INC.  (POWW, POWWP)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Ranpak Holdings Corp.  (PACK)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "AMERICA WEST RESOURCES, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Helix BioPharma Corp", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "ROLLINS INC  (ROL)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "FOXHOLLOW TECHNOLOGIES, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Aviragen Therapeutics, Inc.  (VXRT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Prairie Operating Co.  (PROP)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Och-Ziff Capital Management Group LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "MTech Acquisition Corp", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "BIRNER DENTAL MANAGEMENT SERVICES INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "EVANS & SUTHERLAND COMPUTER CORP", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "COLE KENNETH D", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Ferrari N.V.  (RACE)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Ashford Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "NUMEREX CORP /PA/", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "New Mountain Guardian IV Income Fund, L.L.C.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "New Mountain Guardian IV BDC, L.L.C.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "OPHTHALMIC IMAGING SYSTEMS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Hyatt Hotels Corp  (H)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Gogo Inc.  (GOGO)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Quality Industrial Corp.  (QIND)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Wendy's Co  (WEN)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Galaxy Gaming, Inc.  (GLXZ)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "SULZBERGER ARTHUR JR", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DYE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "JFG FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WE FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LONG FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CARPA FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CRAIG FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BGL FAMILY OFFICE AG", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BT FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "VIRTUS FAMILY OFFICE", "matched": "Virtus Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "MATTER FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "THE FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "360 FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TRU FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BMO FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DCA FAMILY OFFICE, LLC", "matched": "CVA Family Office, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=94", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "PLH FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "818 FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PMG FAMILY OFFICE, LLC", "matched": "PMG Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "LMB FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WPA FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MFG FAMILY OFFICE LLC", "matched": "JFG FAMILY OFFICE", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=94", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "DESTINY FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ANGELES FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PENTA FAMILY OFFICE SA", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GARD FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GRIT FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HULTHAGE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FOUNDERS FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "POINTONE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SESTANTE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "STORYONE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "XCEPTION FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LONGWALL FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ATLAS FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HONOR FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALLIE FAMILY OFFICE LLC", "matched": "Allie Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "EAGLE BAY FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GRAND FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HAMPSHIRE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SENESCHAL FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HAMPSHIRE FAMILY OFFICE", "matched": "HAMPSHIRE FAMILY OFFICE", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "FORTITUDE FAMILY OFFICE", "matched": "Fortitude Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "HOLDUN FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SOCIUS FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HOLDUN FAMILY OFFICE LLC", "matched": "HOLDUN FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "ELYSEUM FAMILY OFFICE S.A.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BOSTON FAMILY OFFICE LLC", "matched": "BOSTON FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "FRENCH FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LEGACY FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ARAGON FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TARBOX FAMILY OFFICE, INC.", "matched": "Tarbox Family Office, Inc.", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "CALLAN FAMILY OFFICE, LLC", "matched": "Callan Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "CUSTOS FAMILY OFFICE LLC", "matched": "Custos Family Office, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=100", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "HOLDEN FAMILY OFFICE, LLC", "matched": "HOLDUN FAMILY OFFICE LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=95", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "STOKES FAMILY OFFICE LLC", "matched": "Stokes Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "ACTIV8 FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WELLSPRING FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FOUNDER360° FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MAXWELL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CAPITOL FAMILY OFFICE, INC.", "matched": "Capitol Family Office, Inc.", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "DOCTORS FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PIONEER FAMILY OFFICE, LLC", "matched": "Pioneer Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "FREEDOM FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PULLIAM FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "STEWARD FAMILY OFFICE, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "STENGER FAMILY OFFICE, LLC", "matched": "Stenger Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "CLASS VI FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ONEASCENT FAMILY OFFICES", "matched": "OneAscent Family Office, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=97", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "COLONY FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GREENWAY FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CRANE ISLAND FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FAMILY OFFICE PARTNERS, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WAVELAND FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALCALA MULTI FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "NAJARIAN FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "STANDARD FAMILY OFFICE, LLC", "matched": "Standard Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "FAMILY OFFICE RESEARCH, LLC", "matched": "Family Office Research LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "FAMILY OFFICE ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WEALTHY & WISE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FIFTH AVENUE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WERKLUND FAMILY OFFICE INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PARKSIDE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BILTMORE FAMILY OFFICE, LLC", "matched": "Biltmore Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "TFO FAMILY OFFICE PARTNERS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MARCUARD FAMILY OFFICE LTD", "matched": "MARCUARD FAMILY OFFICE LTD", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=100", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "CAMBIENT FAMILY OFFICE, LLC", "matched": "CAMBIENT FAMILY OFFICE, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "AURELIUS FAMILY OFFICE, LLC", "matched": "Aurelius Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "LAULIMA FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LIVE OAK FAMILY OFFICES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LEGACY ROAD FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "COMMONWEALTH FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PENINSULA FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HIGHPOINT FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CHARTWELL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FIDUCIARY FAMILY OFFICE, LLC", "matched": "FIDUCIARY FAMILY OFFICE, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "MACI FAMILY OFFICE ADVISORS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ARROWROOT FAMILY OFFICE, LLC", "matched": "Arrowroot Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "HIGH POINT FAMILY OFFICE, L.L.C.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "KEE MULTI FAMILY OFFICE CORP.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CHERRY CREEK FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HERITAGE FAMILY OFFICES, LLP", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "QP GLOBAL FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "COMPOUND FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ARDEN GLOBAL FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WEALTHGATE FAMILY OFFICE LLC", "matched": "Wealthgate Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "MERIWETHER FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "AXIOM FOUNDERS FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "INNOVATIVE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ELEMENT POINTE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GENERATIVE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "COLLECTIVE FAMILY OFFICE, LLC", "matched": "COLLECTIVE FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "NOBLEHOUSE FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ADI DASSLER FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WHITE SANDS FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BARCLAY BRELAND FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "INSCRIPTION FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CONSCIENTIA FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "INDEPENDENT FAMILY OFFICE, LLC", "matched": "Independent Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "CORNERSTONE FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ABP FAMILY OFFICE ADVISORY, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DOW FAMILY OFFICE ADVISORY, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BONNEVILLE MULTI-FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TAYLOR FRIGON FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALPHA CAPITAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "RIVERGLADES FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DOUBLE EAGLE FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "THOMAS JACKSON FAMILY OFFICE, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "KOIOS PRIVATE FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "EXCEPTIONAL WEALTH & FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FAMILY OFFICE VENTURE CAPITAL LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ECHELON VIRTUAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SUMMIT FAMILY OFFICE SERVICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MAYBRY MCSHANE FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LAKESIDE VIRTUAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WEALTH DIMENSIONS FAMILY OFFICE, INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "QUESTMONT VIRTUAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FOUNTAINHEAD MULTI-FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "EUROPEAN FAMILY OFFICE INSTITUTE LLC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "VESTED PARTNERS: A MULTI-FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LEGACY BRIDGE PRIVATE FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "THE FAMILY OFFICES GLOBAL VENTURES INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FAMILY OFFICE INVESTMENT ADVISORY LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CONNEMARA FAMILY OFFICE MANAGEMENT, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MCMILLIAN ADVISOR MULTI FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BOSTON FAMILY ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "THE CLARIUS GROUP, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "OPEN FAMILY OFFICE (OFO) WEALTH MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FINANCIAL GRAVITY FAMILY OFFICE SERVICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LINDSEY FINANCIAL, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALTHUM ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SUPERIOR PLANNING WEALTH MANAGEMENT & FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TIMONIER", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "EMFO, LLC", "matched": "EMFO, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "PATHSTONE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DBA A1A 401K", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ENVOI LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LEGACY WEALTH, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FILAMENT, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ELYXIUM WEALTH LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "M3 ADVISORY GROUP, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "JFG WEALTH MANAGEMENT, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HFO SERVICES CORPORATION", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FI3 FINANCIAL ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ASCEND INTERPLAY, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FIVE ELEVEN PARTNERS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALPHA CAPITAL MANAGEMENT GROUP LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TANARA WEALTH MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ADI DASSLER INTERNATIONAL FAMILY OFFICE USA LIMITED PARTNERSHIP", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "STRONGHAVEN CAPITAL LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "SABBIA FARO WEALTH MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BREAKTHRU ADVISORY SERVICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HILLTOP INVESTMENT ADVISORS, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "CANOPY PARTNERS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "UNIQUE WEALTH STRATEGIES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BONSAI ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WHITE OAK FINANCIAL MANAGEMENT, INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "B1 FINANCIAL", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FO INVESTMENTS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ARCHVEST WEALTH ADVISORS, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PELICAN ADVISORY LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALIYA CAPITAL PARTNERS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BRIGHTON JONES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ROCKEFELLER CAPITAL MANAGEMENT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "THE MATHER GROUP, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FLYING CLOUD SECURITIES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ABERNATHY GROUP II LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "IWP WEALTH MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "EMERALD ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "RUSH PENN, LLC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "COVENANT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "DFW & ASSOCIATES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "GELLER ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ALTURA PRIVATE CAPITAL, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ODEON CAPITAL ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "HB WEALTH", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "COMRIE WEALTH MANAGEMENT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TERRA WEALTH", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "TURTLE CREEK WEALTH ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "J.M. ARBOUR, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ONEASCENT WEALTH MANAGEMENT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Vincentian Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office Principles Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office University Network", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -226,7 +346,7 @@
 {"incoming": "Family Business Office Center", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office Bioforum Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Midwest Family Office Forum", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Family Office Legacy Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Family Office Legacy Inc", "matched": "LEGACY FAMILY OFFICE, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=100", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
 {"incoming": "Prestige Family Office University", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Creo Family Office Syndicate", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Carolinas Family Office Forum Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}

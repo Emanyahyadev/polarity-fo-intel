@@ -1,48 +1,53 @@
 {
   "discovered_by_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 220,
+    "SEC EDGAR (13F / SC / Form D filings)": 140,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 176,
     "IRS 990-PF (ProPublica Nonprofit Explorer)": 60,
     "Curated directory / reference (Wikipedia, associations)": 22
   },
   "qualified_by_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 34,
-    "IRS 990-PF (ProPublica Nonprofit Explorer)": 8,
+    "SEC EDGAR (13F / SC / Form D filings)": 30,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 152,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 3,
     "Curated directory / reference (Wikipedia, associations)": 4
   },
   "rejected_by_reason": {
-    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 151,
-    "public company (SEC tickers/exchanges present)": 85,
-    "employee benefit / pension plan": 9,
-    "membership / association / network, not a family office": 6,
-    "educational institution": 2,
+    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 114,
+    "public company (SEC tickers/exchanges present)": 41,
+    "employee benefit / pension plan": 21,
+    "membership / association / network, not a family office": 21,
+    "insurance entity": 5,
+    "educational institution": 3,
+    "government / municipal entity": 2,
     "individual trustee, not a family-office firm": 1,
-    "insurance entity": 1,
     "religious organization": 1
   },
-  "total_discovered": 302,
-  "total_qualified_pre_gate": 46,
-  "released": 36,
+  "total_discovered": 398,
+  "total_qualified_pre_gate": 189,
+  "released": 68,
   "withheld_gate_reasons": {
-    "mandatory_fields_complete": 10
+    "mandatory_fields_complete": 121
   },
-  "selected": 36,
+  "selected": 50,
   "selection": {
     "target": 50,
     "cap_per_source": 20,
-    "selected": 36,
+    "selected": 50,
     "source_counts": {
-      "SEC EDGAR (13F / SC / Form D filings)": 34,
+      "SEC EDGAR (13F / SC / Form D filings)": 28,
+      "SEC IAPD / Form ADV (investment-adviser registration)": 20,
       "Curated directory / reference (Wikipedia, associations)": 2
     },
     "cap_relaxed": true,
     "justification": "insufficient diverse qualifying records to fill 50 under a 20-per-source cap; cap relaxed for ['SEC EDGAR (13F / SC / Form D filings)'] to reach target"
   },
   "confidence": {
-    "High": 32,
-    "Medium": 4
+    "High": 28,
+    "Medium": 22
   },
   "types": {
-    "Undetermined": 35,
-    "Multi-Family Office": 1
+    "Multi-Family Office": 8,
+    "Single-Family Office": 4,
+    "Undetermined": 38
   }
 }
