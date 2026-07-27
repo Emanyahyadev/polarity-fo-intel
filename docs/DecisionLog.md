@@ -161,3 +161,26 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Tradeoffs.** A second backend to maintain; validated against a live instance only at deploy (roundtrip test skipped without `TEST_DATABASE_URL`).
 - **Risks.** Untested-in-CI-here → the error path is always-tested and the SQL mirrors the tested SQLite backend.
 - **Future improvements.** pgvector for the semantic index at scale.
+
+---
+
+*Decisions D20–D22 were added when deepening commercial intelligence (principal / AUM / thesis / signals).*
+
+### D20 — SEC Form 13F as the deep-intelligence source (principal, AUM, recent investments)
+- **Decision.** For firms that file 13F, extract from the filing itself: the signatory's **name + title + phone** (principal), the summary page's **aggregate 13(f) securities value** (AUM), and **new positions vs the prior quarter** (recent investments). Gated on **freshness (≤ ~25 months)** — a stale filing contributes nothing. Website-stated AUM is **not used**.
+- **Reasoning.** The IAPD API exposes registration but not Item 5 (AUM) or Schedule A (owners); the 13F filing exposes real, dated, content-hashable principal/AUM/holdings for free. A stale filing's signatory may have left and its value be out of date; a scraped website AUM proved unreliable (e.g. a bogus "$35B" industry figure). Trust > coverage.
+- **Alternatives considered.** ADV Part 2 PDF parse for AUM/owners (rejected: heavy, unreliable); the IAPD individuals endpoint (rejected: 195 associated persons, no clear principal); website AUM (rejected: mis-parses); pattern-guessed emails (rejected: not verifiable → `could_not_verify`).
+- **Tradeoffs.** Depth is bounded to ~26/50 (the 13F filers); the principal is the *signatory* (often CCO/GC), disclosed as such in `reviewer_notes`. Non-13F firms keep honest `could_not_verify`.
+- **Future improvements.** ADV Part 2 structured data for total AUM + Schedule A owners; principal role disambiguation (lead investor vs signer).
+
+### D21 — Post-enrichment entity resolution (dedup on shared domain / geography)
+- **Decision.** After enrichment, merge records that share a website **domain** or exact **name + state + country**, keeping the richer record. Conservative: same name + different geography stays distinct (D14).
+- **Reasoning.** The candidate-stage resolver runs before enrichment, so a firm found via two lenses (SEC 13F CIK + IAPD CRD) can survive as two records until enrichment reveals the shared domain — which is exactly how a Marcuard duplicate reached the delivered 50. Fix the class of defect, not the row.
+- **Alternatives considered.** Manual row edit (rejected: not reproducible, the user explicitly required a pipeline fix); fuzzy auto-merge (rejected: D14 over-merge risk).
+- **Tradeoffs.** A second resolution pass; deterministic and logged.
+
+### D22 — Precompute embeddings + slim serving image (fit the 512 MB free instance)
+- **Decision.** Build a **serving-only** requirements file (no pandas/lxml/pytest/etc.) and **precompute the 50 document vectors at image-build time**; the runtime loads vectors instead of running the ONNX model at startup. The model then loads lazily on the first query.
+- **Reasoning.** The full requirements OOM/timed-out the free build; and loading onnxruntime + the model *while* embedding all 50 docs at startup exceeded 512 MB ("used over 512Mi" in the logs) and killed the container. Precomputing removes the startup spike; the lean image builds fast and reliably. Verified on a live deploy (health + abstention + deep-data queries).
+- **Alternatives considered.** Swap to model2vec/static embeddings (deferred: larger change + re-tune + re-eval); a paid instance (rejected: strictly free-tier); hosted embedding API (rejected: adds a key, D1).
+- **Tradeoffs.** The vectors are a build artifact (gitignored, regenerated from the committed CSV); a stale artifact is guarded by a shape check + build-time regeneration.
