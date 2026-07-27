@@ -150,6 +150,7 @@ HIGH_VALUE_FIELDS = [
     "website",
     "corporate_linkedin",
     "hq_country",
+    "hq_phone",
     "principal_name",
     "principal_title",
     "principal_linkedin",
@@ -179,6 +180,7 @@ class FamilyOfficeRecord(BaseModel):
     hq_city: Optional[str] = None
     hq_state: Optional[str] = None
     hq_country: Optional[str] = None
+    hq_phone: Optional[str] = None                    # authoritative firm main line (e.g. SEC filing)
 
     # --- principal / decision-maker intelligence ---
     principal_name: Optional[str] = None
@@ -305,6 +307,7 @@ class FamilyOfficeRecord(BaseModel):
             "hq_city": self.hq_city or "",
             "hq_state": self.hq_state or "",
             "hq_country": self.hq_country or "",
+            "hq_phone": self.hq_phone or "",
             "principal_name": self.principal_name or "",
             "principal_title": self.principal_title or "",
             "principal_linkedin": self.principal_linkedin or "",
