@@ -27,6 +27,43 @@ log = get_logger("enrichment")
 _FO = re.compile(r"family office", re.IGNORECASE)
 _SFO = re.compile(r"single[- ]?family office", re.IGNORECASE)
 _MFO = re.compile(r"multi[- ]?family office", re.IGNORECASE)
+# investment-thesis / mandate language a firm states about ITS OWN approach
+_THESIS_KW = re.compile(
+    r"\b(invest\w*|approach|philosoph\w*|strateg\w*|mission|believe|focus\w*|"
+    r"generation\w*|preserv\w*|steward\w*|mandate|long[- ]term|values|legacy|"
+    r"grow\w*|protect\w*|capital|portfolio|wealth)\b", re.I)
+_NAV_KW = re.compile(
+    r"\b(cookie|privacy|copyright|all rights|©|menu|navigation|subscribe|newsletter|"
+    r"terms of|log ?in|sign ?in|404|not found|javascript|enable)\b", re.I)
+
+
+def _looks_like_prose(s: str) -> bool:
+    """True for a real sentence, False for a concatenated navigation menu. Menus are
+    mostly Capitalized nouns with no connective words; prose has lowercase function words."""
+    words = s.split()
+    if len(words) < 7:
+        return False
+    if sum(1 for w in words if w[:1].isupper()) / len(words) > 0.5:
+        return False
+    return bool(re.search(r"\b(we|our|is|are|to|of|and|for|with|that|your|help\w*|"
+                          r"believe|partner\w*|manage\w*|provide\w*|approach|serve\w*)\b", s))
+
+
+def extract_thesis(text: str) -> Optional[str]:
+    """Pick the sentence that best states the firm's own investment approach/mission —
+    an attributable quote from its site, not a synthesis. Requires >=2 thesis cues, real
+    prose (not a nav menu), and no boilerplate. None if the site has no such statement."""
+    best, best_score = None, 0
+    for raw in re.split(r"(?<=[.!?])\s+", text):
+        s = raw.strip()
+        if not (45 <= len(s) <= 280) or _NAV_KW.search(s) or not _looks_like_prose(s):
+            continue
+        score = len(set(m.lower()[:6] for m in _THESIS_KW.findall(s)))
+        if _FO.search(s):
+            score += 1
+        if score > best_score:
+            best, best_score = s, score
+    return best if best_score >= 2 else None
 _AUM = re.compile(
     r"(?:aum|assets under management|manages?|oversees?)[^.$]{0,40}"
     r"(\$[\d.,]+\s*(?:billion|million|bn|mn|b|m)\b)", re.IGNORECASE)
@@ -41,6 +78,7 @@ class WebsiteFacts(BaseModel):
     fo_type_hint: Optional[str] = None  # "SFO" / "MFO" / None
     description: Optional[str] = None
     aum_text: Optional[str] = None
+    thesis: Optional[str] = None
     text_excerpt: str = ""
 
 
@@ -123,7 +161,7 @@ class WebsiteEnricher:
         return WebsiteFacts(
             url=resp.url, resolved=True, fo_language=fo_language,
             fo_type_hint=type_hint, description=desc, aum_text=aum,
-            text_excerpt=text[:1500]), ref
+            thesis=extract_thesis(text), text_excerpt=text[:1500]), ref
 
     _ABOUT_PATHS = ("about", "about-us")
 

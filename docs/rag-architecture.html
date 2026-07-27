@@ -1,0 +1,245 @@
+<title>Micro-RAG Architecture — Family Office Intelligence</title>
+<style>
+  :root{
+    --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F7F9FB; --ink:#101B30;
+    --muted:#586A85; --faint:#8695AB; --hair:#D5DCE6;
+    --accent:#0C7A85; --accent-2:#0A5C64; --accent-soft:#DBEEF0;
+    --ok:#1C7C46; --ok-soft:#DEEFE4; --warn:#8A5E00; --warn-soft:#F4EACE; --stop:#B23B33;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+    --r:12px; --maxw:960px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0A1120; --surface:#131C2E; --surface-2:#0F1727; --ink:#E9EEF6;
+      --muted:#94A2B8; --faint:#6E7E96; --hair:#263349;
+      --accent:#2FB3BD; --accent-2:#5AC8D0; --accent-soft:#0E2E33;
+      --ok:#3CB371; --ok-soft:#122A1E; --warn:#D69A2A; --warn-soft:#2A2312; --stop:#E0685E;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#EEF1F5; --surface:#FFFFFF; --surface-2:#F7F9FB; --ink:#101B30;
+    --muted:#586A85; --faint:#8695AB; --hair:#D5DCE6;
+    --accent:#0C7A85; --accent-2:#0A5C64; --accent-soft:#DBEEF0;
+    --ok:#1C7C46; --ok-soft:#DEEFE4; --warn:#8A5E00; --warn-soft:#F4EACE; --stop:#B23B33;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1120; --surface:#131C2E; --surface-2:#0F1727; --ink:#E9EEF6;
+    --muted:#94A2B8; --faint:#6E7E96; --hair:#263349;
+    --accent:#2FB3BD; --accent-2:#5AC8D0; --accent-soft:#0E2E33;
+    --ok:#3CB371; --ok-soft:#122A1E; --warn:#D69A2A; --warn-soft:#2A2312; --stop:#E0685E;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); line-height:1.55;
+    -webkit-font-smoothing:antialiased; font-size:16px;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:clamp(24px,5vw,56px) clamp(18px,4vw,32px) 64px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent-2); margin:0 0 14px;
+  }
+  h1{font-size:clamp(28px,5vw,42px); line-height:1.05; margin:0 0 12px; letter-spacing:-.02em; text-wrap:balance; font-weight:680}
+  .lede{font-size:clamp(16px,2.2vw,19px); color:var(--muted); max-width:62ch; margin:0}
+  .urlchip{
+    display:inline-flex; align-items:center; gap:8px; margin-top:20px;
+    font-family:var(--mono); font-size:13px; color:var(--ink);
+    background:var(--surface); border:1px solid var(--hair); border-radius:999px;
+    padding:7px 14px 7px 12px; text-decoration:none;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 3px var(--ok-soft)}
+
+  /* ---- flow scaffold ---- */
+  .flow{margin-top:40px; display:flex; flex-direction:column; align-items:stretch; gap:0}
+  .arrow{align-self:center; width:2px; height:26px; background:linear-gradient(var(--accent),var(--accent)); position:relative; opacity:.55}
+  .arrow::after{content:""; position:absolute; left:50%; bottom:-1px; transform:translateX(-50%);
+    border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--accent)}
+  .arrow.up{opacity:.4}
+  .arrow.up::after{border-top:none; border-bottom:7px solid var(--accent); top:-1px; bottom:auto}
+
+  .layer{
+    display:grid; grid-template-columns:132px 1fr; gap:0;
+    background:var(--surface); border:1px solid var(--hair); border-radius:var(--r);
+    overflow:hidden;
+  }
+  .lane{
+    background:var(--surface-2); border-right:1px solid var(--hair);
+    padding:18px 16px; display:flex; flex-direction:column; gap:6px; justify-content:center;
+  }
+  .lane .k{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint)}
+  .lane .n{font-weight:640; font-size:15px; line-height:1.15}
+  .body{padding:18px 20px}
+
+  .row{display:flex; flex-wrap:wrap; gap:12px}
+  .col{flex:1 1 0; min-width:0}
+
+  .card{background:var(--surface-2); border:1px solid var(--hair); border-radius:10px; padding:13px 14px}
+  .card h4{margin:0 0 6px; font-size:13.5px; font-weight:640; letter-spacing:.01em}
+  .card p{margin:0; font-size:13px; color:var(--muted)}
+  .card .tag{font-family:var(--mono); font-size:11px; color:var(--accent-2); display:block; margin-bottom:5px; letter-spacing:.03em}
+
+  .legs{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media (max-width:560px){.legs{grid-template-columns:1fr}}
+  .leg{border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 10px 10px 0; padding:12px 14px}
+  .leg.semantic{border-left-color:var(--accent-2)}
+  .leg h4{margin:0 0 4px; font-size:13.5px}
+  .leg p{margin:0; font-size:12.5px; color:var(--muted)}
+  .fuse{margin-top:12px; text-align:center; font-family:var(--mono); font-size:12.5px; color:var(--ink);
+    background:var(--surface-2); border:1px dashed var(--hair); border-radius:8px; padding:9px}
+  .fuse b{color:var(--accent-2)}
+
+  /* grounding gate */
+  .gate .card{border-color:var(--warn); background:var(--warn-soft)}
+  .outcomes{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
+  @media (max-width:560px){.outcomes{grid-template-columns:1fr}}
+  .out{border-radius:10px; padding:12px 14px; border:1px solid}
+  .out.pass{background:var(--ok-soft); border-color:var(--ok)}
+  .out.stop{background:var(--surface-2); border-color:var(--stop)}
+  .out .lbl{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; display:flex; align-items:center; gap:7px; margin-bottom:5px}
+  .out.pass .lbl{color:var(--ok)} .out.stop .lbl{color:var(--stop)}
+  .out p{margin:0; font-size:12.5px; color:var(--muted)}
+  .pip{width:8px;height:8px;border-radius:50%}
+  .out.pass .pip{background:var(--ok)} .out.stop .pip{background:var(--stop)}
+
+  /* query demo */
+  .demo{background:var(--surface); border:1px solid var(--hair); border-radius:var(--r); padding:18px 20px; margin-top:8px}
+  .demo .q{font-size:17px; font-weight:600; margin:0 0 4px}
+  .demo .q .em{color:var(--accent-2)}
+  .demo .sub{margin:0 0 14px; font-size:13px; color:var(--muted)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{font-family:var(--mono); font-size:12px; padding:5px 10px; border-radius:7px; border:1px solid var(--hair); background:var(--surface-2); color:var(--ink); white-space:nowrap}
+  .chip.s{color:var(--accent-2); border-color:var(--accent); background:var(--accent-soft)}
+  .chip.m{color:var(--muted)}
+
+  /* foundation pipeline */
+  .foundation{margin-top:34px; border-top:1px solid var(--hair); padding-top:26px}
+  .foundation .eyebrow{margin-bottom:14px}
+  .pipe{display:flex; align-items:stretch; gap:0; flex-wrap:wrap}
+  .stage{flex:1 1 140px; background:var(--surface); border:1px solid var(--hair); border-radius:10px; padding:12px 13px; position:relative}
+  .stage + .stage{margin-left:10px}
+  .stage .s{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.06em}
+  .stage .t{font-weight:620; font-size:13.5px; margin:2px 0 4px}
+  .stage .d{font-size:12px; color:var(--muted); margin:0}
+  @media (max-width:620px){.stage{flex:1 1 100%} .stage + .stage{margin-left:0; margin-top:10px}}
+
+  .foot{margin-top:34px; font-size:12.5px; color:var(--faint); font-family:var(--mono); text-align:center; line-height:1.7}
+  .foot a{color:var(--accent-2)}
+
+  @media (prefers-reduced-motion:no-preference){
+    .layer,.demo,.stage{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+    .flow .layer:nth-child(3){animation-delay:.05s}
+    .flow .layer:nth-child(5){animation-delay:.1s}
+    .flow .layer:nth-child(7){animation-delay:.15s}
+    @keyframes rise{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Micro-RAG · System architecture</p>
+    <h1>Grounded retrieval over 50 verified family offices</h1>
+    <p class="lede">A non-technical user asks a plain-English question and gets an answer built only from
+      independently-verified records — or an honest “not enough evidence.” Three separated layers, a hybrid
+      of structured and semantic search, and an anti-hallucination control enforced in code.</p>
+    <a class="urlchip" href="https://family-office-intelligence.onrender.com"><span class="dot"></span>
+      family-office-intelligence.onrender.com</a>
+  </header>
+
+  <!-- worked query -->
+  <p class="eyebrow" style="margin-top:36px">One query, two kinds of search</p>
+  <div class="demo">
+    <p class="q">“<span class="em">single-family offices in Texas</span> with <span class="em">AUM over $500M</span>
+       that focus on <span class="em">technology</span>”</p>
+    <p class="sub">The parser splits the question into hard structured filters and a semantic intent. Both run, then fuse.</p>
+    <div class="chips">
+      <span class="chip s">structured&nbsp;→&nbsp;fo_type = Single-Family</span>
+      <span class="chip s">structured&nbsp;→&nbsp;hq_state = TX</span>
+      <span class="chip s">structured&nbsp;→&nbsp;aum_usd &gt; 500,000,000</span>
+      <span class="chip m">semantic&nbsp;→&nbsp;“technology focus” (meaning)</span>
+    </div>
+  </div>
+
+  <!-- the flow -->
+  <div class="flow">
+
+    <div class="layer">
+      <div class="lane"><span class="k">Layer 1</span><span class="n">Presentation</span></div>
+      <div class="body">
+        <div class="row">
+          <div class="col card"><span class="tag">serve/app.py · serve/web</span>
+            <h4>FastAPI + non-technical UI</h4>
+            <p>A live web page and a <code class="mono">/query</code> endpoint. Renders each answer with confidence and
+              “verified via” labels; no jargon, no raw JSON. This layer only handles HTTP and rendering.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow" aria-hidden="true"></div>
+
+    <div class="layer">
+      <div class="lane"><span class="k">Layer 2</span><span class="n">Retrieval</span><span class="k" style="text-transform:none;color:var(--accent-2)">hybrid</span></div>
+      <div class="body">
+        <div class="legs">
+          <div class="leg"><h4>Structured filtering</h4>
+            <p>Hard filters parsed from the query — family-office type, US state, and numeric <b>AUM thresholds</b> —
+              narrow the set to firms that provably match. Unknown AUM can’t satisfy a threshold, so it’s excluded, not guessed.</p></div>
+          <div class="leg semantic"><h4>Semantic + keyword</h4>
+            <p>Local ONNX embeddings (bge-small) capture meaning; BM25 catches exact terms and firm names.
+              Two ranked lists over the filtered set.</p></div>
+        </div>
+        <div class="fuse">three legs → <b>Reciprocal Rank Fusion</b> → top-k candidates</div>
+      </div>
+    </div>
+
+    <div class="arrow" aria-hidden="true"></div>
+
+    <div class="layer gate">
+      <div class="lane"><span class="k">Layer 3</span><span class="n">Grounding</span><span class="k" style="text-transform:none;color:var(--warn)">the guard</span></div>
+      <div class="body">
+        <div class="card"><span class="tag">rag/ground.py · enforced in code, not the prompt</span>
+          <h4>Abstain when the evidence is thin; verify every claim</h4>
+          <p>If the best match is below a tuned similarity threshold, or a hard filter matched nothing, the system declines.
+             Generated answers are checked so they only name firms that were actually retrieved — any other firm is treated as a hallucination and dropped.</p></div>
+        <div class="outcomes">
+          <div class="out pass"><div class="lbl"><span class="pip"></span>Grounded answer</div>
+            <p>Cited to specific record IDs, each carrying provenance and “verified via” sources.</p></div>
+          <div class="out stop"><div class="lbl"><span class="pip"></span>Honest abstention</div>
+            <p>“I don’t have enough verified information for that” — no false confidence.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow up" aria-hidden="true"></div>
+
+    <div class="layer">
+      <div class="lane"><span class="k">Layer 0</span><span class="n">Data</span><span class="k" style="text-transform:none">source of truth</span></div>
+      <div class="body">
+        <div class="row">
+          <div class="col card"><span class="tag">data/final/family_offices.csv</span>
+            <h4>50 independently-verified records</h4>
+            <p>The exact delivered dataset. Every high-value cell carries provenance; retrieval and answers are grounded
+              in this file, so what the app says is always traceable to a source.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- foundation pipeline -->
+  <div class="foundation">
+    <p class="eyebrow">How the data earned its place — the pipeline behind the file</p>
+    <div class="pipe">
+      <div class="stage"><span class="s">01 · discover</span><p class="t">Multi-source</p><p class="d">SEC 13F · Form ADV · IRS 990-PF · directories — several independent lenses.</p></div>
+      <div class="stage"><span class="s">02 · enrich</span><p class="t">Authoritative facts</p><p class="d">SEC submissions, ADV registration, firm sites, and <b>Form 13F</b> (principal, AUM, holdings).</p></div>
+      <div class="stage"><span class="s">03 · validate</span><p class="t">Prove or blank</p><p class="d">Firm-type classifier + release gates. Unverifiable cells become honest <span class="mono">could_not_verify</span>.</p></div>
+      <div class="stage"><span class="s">04 · deliver</span><p class="t">Select 50</p><p class="d">Dedup by identity, cap per source, export with provenance + run manifest.</p></div>
+    </div>
+  </div>
+
+  <p class="foot">
+    Separation of concerns: <span class="mono">retrieval</span> · <span class="mono">data</span> · <span class="mono">presentation</span> are distinct components, not one script.<br>
+    Live: <a href="https://family-office-intelligence.onrender.com">family-office-intelligence.onrender.com</a> · Built for the PolarityIQ Differentiator, Stage 1.
+  </p>
+</div>

@@ -76,6 +76,28 @@ def main() -> None:
               f"geo={geo[:22]:22} verify=[{vs}] phone={'Y' if r.hq_phone else '-'}")
 
     if args.export:
+        # Recent-news signals (GDELT) for the DELIVERED set only. GDELT requires ~6s between
+        # calls, so scoping to the 50 shipped records (not the ~400-firm pool) keeps this to
+        # a few minutes. News is appended after any 13F recent-investment signal; coverage is
+        # genuinely sparse for private family offices, so many records honestly gain none.
+        import time
+        from fointel.enrichment.signals import SignalsEnricher
+        sig_enr = SignalsEnricher()
+        news_added, deadline = 0, time.monotonic() + 300  # hard cap: never exceed ~5 min
+        for rec in selected:
+            if time.monotonic() > deadline:
+                print("news step hit its time cap; remaining firms left without news (honest)")
+                break
+            room = 3 - len(rec.signals)
+            if room <= 0:
+                continue
+            for s in sig_enr.firm_signals(rec.name, max_signals=min(2, room)):
+                if len(rec.signals) >= 3:
+                    break
+                rec.signals.append(s)
+                news_added += 1
+        print(f"\n===== NEWS SIGNALS =====\nadded {news_added} GDELT news signal(s) across the delivered 50")
+
         result = export_dataset(selected, audit=[], out_dir="data/final")
         Path("docs/evidence").mkdir(parents=True, exist_ok=True)
         Path("docs/evidence/dataset-discovery-report.json").write_text(

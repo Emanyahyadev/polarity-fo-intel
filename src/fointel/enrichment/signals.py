@@ -32,7 +32,9 @@ class SignalsEnricher:
     DOC = "https://api.gdeltproject.org/api/v2/doc/doc"
 
     def __init__(self):
-        self.http = HttpClient(pause=6.0, accept="application/json")  # GDELT: >=5s between calls
+        # GDELT rate-limits aggressively; fail FAST (no retry/backoff) so a throttled firm
+        # is skipped instantly rather than stalling a batch. >=5s pacing between calls.
+        self.http = HttpClient(pause=6.0, accept="application/json", timeout=15, max_attempts=1)
 
     def firm_signals(self, firm_name: str, max_signals: int = 3,
                      timespan: str = "12months") -> list[Signal]:

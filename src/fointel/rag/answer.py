@@ -50,6 +50,12 @@ class AnswerResult(BaseModel):
     cards: list[dict] = []
 
 
+def _principal(rec) -> Optional[str]:
+    if not rec.principal_name:
+        return None
+    return f"{rec.principal_name} — {rec.principal_title}" if rec.principal_title else rec.principal_name
+
+
 def _card(r: Retrieved) -> dict:
     rec = r.record
     return {
@@ -57,11 +63,22 @@ def _card(r: Retrieved) -> dict:
         "location": ", ".join(x for x in [rec.hq_city, rec.hq_state, rec.hq_country] if x),
         "phone": rec.hq_phone, "website": rec.website, "linkedin": rec.corporate_linkedin,
         "description": rec.description, "aum": rec.estimated_aum,
+        "principal": _principal(rec), "principal_phone": rec.principal_phone,
+        "signals": [s.text for s in rec.signals],
         "confidence": rec.record_confidence.value, "classification_evidence": rec.fo_type_evidence,
         "verification": sorted({_VERIFY_LABEL.get(s.source_class.value, s.source_class.value)
                                 for s in rec.verification_sources}),
         "match": round(r.vector_score, 3),
     }
+
+
+def _short_aum(aum: Optional[str]) -> Optional[str]:
+    """Leading figure of an AUM string ('$228.5M in 13(f)…' -> '$228.5M') for compact lines."""
+    if not aum:
+        return None
+    import re
+    m = re.match(r"(\$\s*[\d.,]+\s*(?:billion|million|thousand|[BbMmKk])?)", aum.strip())
+    return m.group(1).replace(" ", "") if m else None
 
 
 def extractive_answer(retrieved: list[Retrieved]) -> str:
@@ -73,12 +90,18 @@ def extractive_answer(retrieved: list[Retrieved]) -> str:
         loc = ", ".join(x for x in [rec.hq_city, rec.hq_state, rec.hq_country] if x)
         if loc:
             bits.append(loc)
+        aum = _short_aum(rec.estimated_aum)
+        if aum:
+            bits.append(f"AUM {aum}")
+        if rec.principal_name:
+            bits.append(f"principal {_principal(rec)}")
         if rec.hq_phone:
             bits.append(f"phone {rec.hq_phone}")
-        if rec.website:
-            bits.append(rec.website)
         bits.append(f"[{rec.record_confidence.value} confidence]")
-        lines.append("• " + " · ".join(bits))
+        line = "• " + " · ".join(bits)
+        if rec.signals:
+            line += "\n    ↳ " + rec.signals[0].text
+        lines.append(line)
     return "\n".join(lines)
 
 

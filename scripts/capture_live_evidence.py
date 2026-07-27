@@ -28,8 +28,10 @@ QUERIES = [
     "multi-family offices in New York",
     "family offices in California",
     "family offices that invest in technology",
-    "Tell me about Pathstone",
-    "best pizza in Chicago",   # off-topic -> must abstain
+    "Tell me about Pathstone",             # specific firm -> should return ONLY Pathstone (no padding)
+    "best pizza in Chicago",               # off-topic -> must abstain
+    "best pizza office in Chicago",        # in-vocabulary probe -> must abstain (was a false positive)
+    "family offices headquartered on the moon",  # in-vocabulary probe -> must abstain
 ]
 
 OUT = Path(__file__).resolve().parents[1] / "docs" / "evidence"

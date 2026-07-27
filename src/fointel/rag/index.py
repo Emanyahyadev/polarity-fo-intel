@@ -48,9 +48,30 @@ def record_text(r: FamilyOfficeRecord) -> str:
         parts.append("Location: " + loc)
     if r.estimated_aum:
         parts.append("AUM: " + r.estimated_aum)
+    if r.principal_name:
+        parts.append("Principal: " + r.principal_name
+                     + (f", {r.principal_title}" if r.principal_title else ""))
     for sig in r.signals:
-        parts.append("Recent: " + sig.text)
+        parts.append("Recent activity: " + sig.text)
     return " | ".join(parts)
+
+
+_AUM_UNIT = {"billion": 1e9, "b": 1e9, "million": 1e6, "m": 1e6, "thousand": 1e3, "k": 1e3}
+
+
+def parse_aum_usd(aum_text: Optional[str]) -> Optional[int]:
+    """Extract the leading dollar figure from an AUM string ('$228.5M in 13(f)...',
+    '$5 billion') as a USD integer, for numeric filtering. None if unparseable."""
+    if not aum_text:
+        return None
+    m = re.search(r"\$\s*([\d,.]+)\s*(billion|million|thousand|b|m|k)?", aum_text, re.I)
+    if not m:
+        return None
+    try:
+        num = float(m.group(1).replace(",", ""))
+    except ValueError:
+        return None
+    return int(num * _AUM_UNIT.get((m.group(2) or "").lower(), 1))
 
 
 def record_meta(r: FamilyOfficeRecord) -> dict:
@@ -60,6 +81,7 @@ def record_meta(r: FamilyOfficeRecord) -> dict:
         "hq_country": r.hq_country or "",
         "confidence": r.record_confidence.value,
         "sectors": [s.lower() for s in r.investing_sectors],
+        "aum_usd": parse_aum_usd(r.estimated_aum),
     }
 
 
@@ -107,15 +129,35 @@ class RetrievalIndex:
 # --- query parsing (structured retrieval signal) ------------------------- #
 
 def parse_filters(query: str) -> dict:
-    """Extract hard filters from a natural-language query (type, state, country)."""
+    """Extract hard structured filters from a natural-language query: family-office
+    type, US state, and a numeric AUM constraint (e.g. 'AUM over $500M')."""
     q = query.lower()
     filters: dict = {}
-    if re.search(r"single[- ]family|\bsfo\b", q):
+    if re.search(r"single[- ]family|\bsfos?\b", q):
         filters["fo_type"] = "Single-Family Office"
-    elif re.search(r"multi[- ]family|\bmfo\b", q):
+    elif re.search(r"multi[- ]family|\bmfos?\b", q):
         filters["fo_type"] = "Multi-Family Office"
     for name, abbr in US_STATES.items():
         if re.search(rf"\b{name}\b", q):
             filters["hq_state"] = abbr
             break
+    filters.update(_parse_aum_filter(q))
     return filters
+
+
+def _parse_aum_filter(q: str) -> dict:
+    """Read an AUM threshold + direction, e.g. 'AUM over $500m', 'more than $1 billion',
+    'under $250 million'. Returns {'aum_min': n} or {'aum_max': n} (USD), else {}."""
+    m = re.search(
+        r"(over|above|more than|greater than|at least|north of|min(?:imum)?|>=?|"
+        r"under|below|less than|smaller than|max(?:imum)?|<=?)\s*"
+        r"\$?\s*([\d.,]+)\s*(billion|million|thousand|b|m|k)\b", q, re.I)
+    if not m:
+        return {}
+    try:
+        val = int(float(m.group(2).replace(",", "")) * _AUM_UNIT.get(m.group(3).lower(), 1))
+    except ValueError:
+        return {}
+    op = m.group(1).lower()
+    lo = any(w in op for w in ("over", "above", "more", "greater", "least", "north", "min", ">"))
+    return {"aum_min": val} if lo else {"aum_max": val}

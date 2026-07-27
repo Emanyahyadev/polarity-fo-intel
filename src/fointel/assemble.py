@@ -12,6 +12,7 @@ records + a discovery report; `scripts/build_dataset.py` gates, selects, exports
 from __future__ import annotations
 
 import hashlib
+import re
 from collections import Counter
 from datetime import date
 from typing import Optional
@@ -21,6 +22,7 @@ from pydantic import BaseModel
 from .discovery.base import Candidate
 from .enrichment.iapd import IapdEnricher, IapdFacts, facts_from_registry
 from .enrichment.sec import SecEnricher, SecFacts, sec_provenance
+from .enrichment.thirteenf import ThirteenFEnricher, ThirteenFFacts
 from .enrichment.website import WebsiteEnricher, WebsiteFacts
 from .observability import get_logger
 from .schema import (
@@ -32,9 +34,115 @@ from .schema import (
     SourceClass,
     SourceRef,
 )
+from .text import norm_name
 from .validation.firm_type import Classification, classify
 
 log = get_logger("enrichment")
+
+_CONF_RANK = {Confidence.HIGH: 3, Confidence.MEDIUM: 2, Confidence.LOW: 1}
+_FILLABLE = ("hq_phone", "website", "corporate_linkedin", "hq_city", "hq_state",
+             "hq_country", "description", "investment_thesis", "estimated_aum")
+
+
+def _domain(url: Optional[str]) -> str:
+    """Registrable host of a URL, lower-cased, without www. '' if none."""
+    m = re.search(r"https?://(?:www\.)?([^/?#]+)", (url or "").strip().lower())
+    return m.group(1) if m else ""
+
+
+def _parse_period(period: Optional[str]) -> Optional[date]:
+    """13F reportCalendarOrQuarter 'MM-DD-YYYY' -> date."""
+    if not period:
+        return None
+    m = re.match(r"(\d{2})-(\d{2})-(\d{4})", period.strip())
+    if not m:
+        return None
+    try:
+        return date(int(m.group(3)), int(m.group(1)), int(m.group(2)))
+    except ValueError:
+        return None
+
+
+# principal-contact fields that cannot be verified from free authoritative sources
+# and are therefore honestly recorded as could_not_verify when blank (never guessed).
+_UNVERIFIABLE_CONTACT = ("corporate_linkedin", "principal_linkedin", "principal_email")
+
+
+def _completeness(r: FamilyOfficeRecord) -> tuple:
+    return (bool(r.hq_phone), bool(r.website), len(r.verification_sources), bool(r.hq_city))
+
+
+def _merge_two(a: FamilyOfficeRecord, b: FamilyOfficeRecord) -> FamilyOfficeRecord:
+    """Merge two records for the SAME firm. Keep the higher-confidence / more-complete
+    record as the primary and absorb the other's verification sources + any fields it
+    is missing (with provenance). Never fabricates: only copies values that already
+    carry their own provenance on the donor record."""
+    ka = (_CONF_RANK.get(a.record_confidence, 0), _completeness(a))
+    kb = (_CONF_RANK.get(b.record_confidence, 0), _completeness(b))
+    keep, other = (a, b) if ka >= kb else (b, a)
+
+    seen = {(s.source_class, s.verifies) for s in keep.verification_sources}
+    for s in other.verification_sources:
+        if (s.source_class, s.verifies) not in seen:
+            keep.verification_sources.append(s)
+            seen.add((s.source_class, s.verifies))
+
+    for f in _FILLABLE:
+        if not getattr(keep, f, None) and getattr(other, f, None):
+            setattr(keep, f, getattr(other, f))
+            if f in other.provenance and f not in keep.provenance:
+                keep.provenance[f] = other.provenance[f]
+
+    keep.record_confidence = keep.compute_record_confidence()
+    return keep
+
+
+def dedupe_records(records: list[FamilyOfficeRecord]) -> tuple[list[FamilyOfficeRecord], list[dict]]:
+    """Post-enrichment entity resolution.
+
+    The candidate-stage resolver runs before enrichment, so two lenses that discover the
+    same firm under different identifiers (e.g. an SEC 13F CIK and an IAPD CRD) can survive
+    as separate candidates and only reveal their shared identity once enrichment resolves a
+    website/EIN. This pass merges records that share a strong post-enrichment signal — the
+    same website domain, or the same conservatively-normalised name in the same state+country
+    — keeping the richer record. Conservative by design: same normalised name alone is NOT
+    enough (see DecisionLog D14); it needs a shared domain or matching geography.
+    """
+    kept: list[FamilyOfficeRecord] = []
+    decisions: list[dict] = []
+    dom_idx: dict[str, int] = {}
+    geo_idx: dict[tuple, int] = {}
+
+    for r in records:
+        dom = _domain(r.website)
+        geo_key = (norm_name(r.name), (r.hq_state or "").lower(), (r.hq_country or "").lower())
+        idx, basis = None, ""
+        if dom and dom in dom_idx:
+            idx, basis = dom_idx[dom], f"domain:{dom}"
+        elif geo_key[0] and (geo_key[1] or geo_key[2]) and geo_key in geo_idx:
+            idx, basis = geo_idx[geo_key], "name+state+country"
+
+        if idx is not None:
+            merged = _merge_two(kept[idx], r)
+            kept[idx] = merged
+            decisions.append({"kept": merged.name, "kept_id": merged.fo_id,
+                              "merged_out": r.name, "merged_out_id": r.fo_id, "basis": basis})
+            log.info("post-enrichment dedup merge", extra={
+                "event": "record_merge", "firm": r.name, "kept": merged.fo_id, "basis": basis})
+            d2 = _domain(merged.website)
+            if d2:
+                dom_idx[d2] = idx
+            geo_idx[(norm_name(merged.name), (merged.hq_state or "").lower(),
+                     (merged.hq_country or "").lower())] = idx
+        else:
+            idx = len(kept)
+            kept.append(r)
+            if dom:
+                dom_idx[dom] = idx
+            if geo_key[0]:
+                geo_idx[geo_key] = idx
+
+    return kept, decisions
 
 
 def _fo_id(cand: Candidate) -> str:
@@ -50,6 +158,7 @@ class EnrichedFirm(BaseModel):
     iapd: Optional[IapdFacts] = None
     iapd_url: Optional[str] = None
     iapd_hash: Optional[str] = None
+    thirteenf: Optional[ThirteenFFacts] = None
     website: Optional[str] = None
     website_facts: Optional[WebsiteFacts] = None
     wikipedia_bg: Optional[str] = None
@@ -57,7 +166,7 @@ class EnrichedFirm(BaseModel):
 
 
 def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnricher,
-                     iapd_enr: IapdEnricher) -> EnrichedFirm:
+                     iapd_enr: IapdEnricher, f13_enr: ThirteenFEnricher) -> EnrichedFirm:
     facts = sec_url = sec_hash = None
     cik = cand.identifiers.get("cik") or cand.raw.get("cik")
     if cik:
@@ -66,6 +175,18 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
             sec_url, sec_hash = ref.url, ref.content_hash
         except Exception as exc:
             log.warning("sec enrich failed", extra={"event": "enrich_warn", "source": "sec",
+                                                    "firm": cand.name, "error": str(exc)})
+
+    # SEC Form 13F deep facts: principal (name/title/phone), 13(f) portfolio value (AUM),
+    # and recent-investment holdings. Only firms that actually file 13F yield facts.
+    thirteenf = None
+    if cik:
+        try:
+            res = f13_enr.fetch(cik)
+            if res:
+                thirteenf, _ = res
+        except Exception as exc:
+            log.warning("13f enrich failed", extra={"event": "enrich_warn", "source": "13f",
                                                     "firm": cand.name, "error": str(exc)})
 
     # IAPD / Form ADV — independent authoritative registration record
@@ -125,7 +246,7 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
     website_text = wfacts.text_excerpt if wfacts else ""
     cls = classify(cand.name, sec_facts=facts, website_text=website_text, iapd=iapd)
     return EnrichedFirm(candidate=cand, sec_facts=facts, sec_url=sec_url, sec_hash=sec_hash,
-                        iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash,
+                        iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash, thirteenf=thirteenf,
                         website=website, website_facts=wfacts, wikipedia_bg=wiki_bg,
                         classification=cls)
 
@@ -206,11 +327,54 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
             prov["description"] = Provenance(source_class=SourceClass.FIRM_SITE,
                                              method="website meta description", checked_at=as_of,
                                              source_url=wf.url, confidence=Confidence.MEDIUM)
-        if wf.aum_text:
-            fields["estimated_aum"] = wf.aum_text
-            prov["estimated_aum"] = Provenance(source_class=SourceClass.FIRM_SITE,
-                                               method="stated on firm website", checked_at=as_of,
-                                               source_url=wf.url, confidence=Confidence.MEDIUM)
+        # NOTE: a website-stated AUM is intentionally NOT used — scraped marketing figures
+        # are unreliable (industry totals, parent-firm numbers, mis-parsed context). AUM is
+        # taken only from the authoritative SEC 13F summary below.
+        if wf.thesis:
+            fields["investment_thesis"] = wf.thesis
+            prov["investment_thesis"] = Provenance(
+                source_class=SourceClass.FIRM_SITE,
+                method="firm website (stated investment approach / mission)", checked_at=as_of,
+                source_url=wf.url, confidence=Confidence.MEDIUM)
+
+    # SEC Form 13F deep facts — authoritative principal (signatory name/title/phone), the
+    # aggregate 13(f) securities value (a dated AUM figure), and recent-investment holdings.
+    # Only firms that actually file 13F contribute here; nothing is inferred.
+    signals: list[Signal] = []
+    tf = e.thirteenf
+    period_date = _parse_period(tf.period) if tf else None
+    # Freshness gate: a 13F older than ~25 months no longer represents the firm's current
+    # principal, AUM, or holdings (the signatory may have left; the value is out of date).
+    # A stale filing therefore contributes NOTHING — those fields stay could_not_verify.
+    if tf and period_date and (as_of - period_date).days <= 760:
+        f13_url = tf.report_url
+        sig_prov = Provenance(source_class=SourceClass.SEC_EDGAR,
+                              method="SEC Form 13F signature block", checked_at=as_of,
+                              source_url=f13_url, confidence=Confidence.HIGH,
+                              fetched_at=as_of, content_hash=tf.content_hash)
+        if tf.principal_name:
+            fields["principal_name"] = tf.principal_name
+            prov["principal_name"] = sig_prov
+            if tf.principal_title:
+                fields["principal_title"] = tf.principal_title
+                prov["principal_title"] = sig_prov
+            if tf.principal_phone:
+                fields["principal_phone"] = tf.principal_phone
+                prov["principal_phone"] = sig_prov
+        if tf.aum_text:  # authoritative, filed, and now confirmed current
+            fields["estimated_aum"] = tf.aum_text
+            prov["estimated_aum"] = Provenance(
+                source_class=SourceClass.SEC_EDGAR,
+                method="SEC Form 13F summary page (aggregate 13(f) securities value)",
+                checked_at=as_of, source_url=f13_url, confidence=Confidence.HIGH,
+                fetched_at=as_of, content_hash=tf.content_hash)
+        if tf.recent_investments_text:
+            signals.append(Signal(text=tf.recent_investments_text, source_class=SourceClass.SEC_EDGAR,
+                                  event_date=period_date, source_url=f13_url))
+        vsources.append(SourceRef(
+            source_class=SourceClass.SEC_EDGAR,
+            verifies="principal (13F signatory), 13(f) portfolio value, recent holdings",
+            accessed_at=as_of, url=f13_url))
 
     # Wikipedia background -> description only if we have nothing better (cited as background)
     if "description" not in fields and e.wikipedia_bg:
@@ -245,13 +409,28 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
         reviewer_notes = ("same-source: discovered via SEC 13F full-text search on filings; "
                           "verified via the distinct SEC submissions registration record and the "
                           "firm's regulatory self-identification as a family office")
+    if fields.get("principal_name"):
+        note = ("principal fields are the firm's SEC Form 13F signatory (a named executive "
+                "officer, title exactly as filed — commonly the CCO/General Counsel, not "
+                "necessarily the lead investor); estimated_aum is the aggregate 13(f) "
+                "securities value, not total assets under management")
+        reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
+
+    # Honest could_not_verify: contact intelligence that free authoritative sources do not
+    # expose (corporate/principal LinkedIn, principal work email) plus principal fields we
+    # could not source (firms that file no 13F). Recorded transparently, never guessed —
+    # and never for a field that is populated (the schema rejects that contradiction).
+    cnv = [f for f in _UNVERIFIABLE_CONTACT if not fields.get(f)]
+    for f in ("principal_name", "principal_title", "principal_phone", "estimated_aum"):
+        if not fields.get(f):
+            cnv.append(f)
 
     cls = e.classification
     rec = FamilyOfficeRecord(
         fo_id=_fo_id(c), name=name,
         fo_type=cls.fo_type, fo_type_evidence=cls.evidence, fo_type_confidence=cls.confidence,
         discovery_source=disc, verification_sources=vsources, reviewer_notes=reviewer_notes,
-        data_as_of=as_of, provenance=prov,
+        data_as_of=as_of, provenance=prov, signals=signals, could_not_verify=cnv,
         **{k: v for k, v in fields.items() if k != "name"},
     )
     rec.record_confidence = rec.compute_record_confidence()
@@ -261,6 +440,7 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, dict]:
     """Enrich + build all candidates. Returns (records, discovery_report)."""
     sec_enr, web_enr, iapd_enr = SecEnricher(), WebsiteEnricher(), IapdEnricher()
+    f13_enr = ThirteenFEnricher()
     records: list[FamilyOfficeRecord] = []
     discovered_by_source: Counter = Counter()
     rejected_by_reason: Counter = Counter()
@@ -268,7 +448,7 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
 
     for cand in candidates:
         discovered_by_source[cand.source_class.value] += 1
-        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr)
+        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr, f13_enr)
         if not e.classification.qualifies:
             rejected_by_reason[e.classification.reject_reason or "unknown"] += 1
             continue
@@ -277,11 +457,20 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
             records.append(rec)
             qualified_by_source[cand.source_class.value] += 1
 
+    n_before = len(records)
+    records, merges = dedupe_records(records)
+    if merges:
+        log.info("post-enrichment dedup complete", extra={
+            "event": "dedup_summary", "before": n_before, "after": len(records),
+            "merged": len(merges)})
+
     report = {
         "discovered_by_source": dict(discovered_by_source),
         "qualified_by_source": dict(qualified_by_source),
         "rejected_by_reason": dict(rejected_by_reason.most_common()),
         "total_discovered": sum(discovered_by_source.values()),
+        "qualified_before_dedup": n_before,
+        "post_enrichment_merges": merges,
         "total_qualified_pre_gate": len(records),
     }
     return records, report

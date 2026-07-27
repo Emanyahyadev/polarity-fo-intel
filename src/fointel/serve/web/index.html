@@ -43,6 +43,9 @@
   .b-Low{background:#f1f2f4;color:#6b7280}
   .meta{margin-top:7px;font-size:.92rem;color:#34414f}
   .meta a{color:var(--accent);text-decoration:none}.meta a:hover{text-decoration:underline}
+  .meta .k{color:var(--muted);font-weight:600}
+  .signal{margin-top:6px;font-size:.85rem;color:var(--muted);font-style:italic;
+    border-left:2px solid var(--line);padding-left:9px}
   .why{margin-top:9px;font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
   .why b{color:#3d4756;font-weight:600}
   .verify{margin-top:6px;font-size:.78rem;color:var(--gray)}
@@ -78,8 +81,8 @@
 </div>
 
 <script>
-const EXAMPLES = ["Single-family offices in Texas","Multi-family offices",
-  "Family offices in Florida","Family offices focused on private equity","Pathstone"];
+const EXAMPLES = ["Single-family offices in Texas","Family offices with AUM over $500M",
+  "Family offices in Florida","Tell me about Pathstone","Multi-family offices"];
 const $ = s => document.querySelector(s);
 const esc = s => (s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
@@ -99,10 +102,19 @@ function card(c){
   if(c.phone) contact.push(`<a href="tel:${esc(c.phone.replace(/[^+\d]/g,''))}">${esc(c.phone)}</a>`);
   if(c.website) contact.push(`<a href="${esc(c.website)}" target="_blank" rel="noopener">website</a>`);
   if(c.aum) contact.push("AUM "+esc(c.aum));
+  let principal = "";
+  if(c.principal){
+    const ph = c.principal_phone?` &nbsp;·&nbsp; <a href="tel:${esc(c.principal_phone.replace(/[^+\d]/g,''))}">${esc(c.principal_phone)}</a>`:"";
+    principal = `<div class="meta"><span class="k">Principal:</span> ${esc(c.principal)}${ph}</div>`;
+  }
+  const signal = (c.signals&&c.signals.length)
+    ? `<div class="signal">↳ ${esc(c.signals[0])}</div>` : "";
   return `<div class="card">
     <div class="top"><span class="name">${esc(c.name)}</span>
       <span class="badges">${badge("b-type",c.type)}${badge("b-"+conf,conf+" confidence")}</span></div>
     <div class="meta">${contact.join(" &nbsp;·&nbsp; ")||"—"}</div>
+    ${principal}
+    ${signal}
     ${c.classification_evidence?`<div class="why"><b>Why it qualifies:</b> ${esc(c.classification_evidence)}</div>`:""}
     ${(c.verification&&c.verification.length)?`<div class="verify">Verified via: ${c.verification.map(esc).join(", ")}</div>`:""}
   </div>`;

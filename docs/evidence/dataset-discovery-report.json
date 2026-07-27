@@ -6,16 +6,16 @@
     "Curated directory / reference (Wikipedia, associations)": 22
   },
   "qualified_by_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 30,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 152,
-    "IRS 990-PF (ProPublica Nonprofit Explorer)": 3,
-    "Curated directory / reference (Wikipedia, associations)": 4
+    "SEC EDGAR (13F / SC / Form D filings)": 31,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 156,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 8,
+    "Curated directory / reference (Wikipedia, associations)": 3
   },
   "rejected_by_reason": {
-    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 114,
+    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 117,
     "public company (SEC tickers/exchanges present)": 41,
     "employee benefit / pension plan": 21,
-    "membership / association / network, not a family office": 21,
+    "membership / association / network, not a family office": 9,
     "insurance entity": 5,
     "educational institution": 3,
     "government / municipal entity": 2,
@@ -23,10 +23,41 @@
     "religious organization": 1
   },
   "total_discovered": 398,
-  "total_qualified_pre_gate": 189,
-  "released": 68,
+  "qualified_before_dedup": 198,
+  "post_enrichment_merges": [
+    {
+      "kept": "Custos Family Office, LLC",
+      "kept_id": "fo_9220a272d8",
+      "merged_out": "CUSTOS FAMILY OFFICE LLC",
+      "merged_out_id": "fo_0db0db22fd",
+      "basis": "name+state+country"
+    },
+    {
+      "kept": "MARCUARD FAMILY OFFICE LTD",
+      "kept_id": "fo_1e72fff8ee",
+      "merged_out": "MARCUARD FAMILY OFFICE LTD",
+      "merged_out_id": "fo_3bd9ae1726",
+      "basis": "domain:marcuardfamilyoffice.com"
+    },
+    {
+      "kept": "THE FAMILY OFFICE, LLC",
+      "kept_id": "fo_c7fbed29da",
+      "merged_out": "THE FAMILY OFFICES GLOBAL VENTURES INC.",
+      "merged_out_id": "fo_163dccb755",
+      "basis": "domain:thefamilyoffice.com"
+    },
+    {
+      "kept": "Geller Advisors LLC",
+      "kept_id": "fo_519c4712e1",
+      "merged_out": "GELLER ADVISORS LLC",
+      "merged_out_id": "fo_fc129c50ce",
+      "basis": "name+state+country"
+    }
+  ],
+  "total_qualified_pre_gate": 194,
+  "released": 66,
   "withheld_gate_reasons": {
-    "mandatory_fields_complete": 121
+    "mandatory_fields_complete": 128
   },
   "selected": 50,
   "selection": {
@@ -46,8 +77,8 @@
     "Medium": 22
   },
   "types": {
-    "Multi-Family Office": 8,
+    "Undetermined": 39,
     "Single-Family Office": 4,
-    "Undetermined": 38
+    "Multi-Family Office": 7
   }
 }

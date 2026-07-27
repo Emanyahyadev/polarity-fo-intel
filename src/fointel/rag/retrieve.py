@@ -29,6 +29,16 @@ def _matches(meta: dict, filters: dict) -> bool:
         if key == "sectors":
             if not any(value in s for s in meta.get("sectors", [])):
                 return False
+        elif key in ("aum_min", "aum_max"):
+            aum = meta.get("aum_usd")
+            # unknown AUM cannot satisfy a numeric AUM constraint -> exclude (we only
+            # return firms we can CONFIRM meet the threshold; no guessing).
+            if aum is None:
+                return False
+            if key == "aum_min" and aum < value:
+                return False
+            if key == "aum_max" and aum > value:
+                return False
         elif meta.get(key) != value:
             return False
     return True
