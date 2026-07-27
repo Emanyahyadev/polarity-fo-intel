@@ -78,6 +78,7 @@ class SourceClass(str, Enum):
 
 DISCOVERY_SOURCE_CLASSES = {
     SourceClass.SEC_EDGAR,
+    SourceClass.SEC_IAPD,        # adviser-registry search (distinct filing system from EDGAR 13F)
     SourceClass.IRS_990PF,
     SourceClass.NEWS,
     SourceClass.DIRECTORY,

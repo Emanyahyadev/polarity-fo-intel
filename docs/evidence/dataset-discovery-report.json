@@ -1,0 +1,48 @@
+{
+  "discovered_by_source": {
+    "SEC EDGAR (13F / SC / Form D filings)": 220,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 60,
+    "Curated directory / reference (Wikipedia, associations)": 22
+  },
+  "qualified_by_source": {
+    "SEC EDGAR (13F / SC / Form D filings)": 34,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 8,
+    "Curated directory / reference (Wikipedia, associations)": 4
+  },
+  "rejected_by_reason": {
+    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 151,
+    "public company (SEC tickers/exchanges present)": 85,
+    "employee benefit / pension plan": 9,
+    "membership / association / network, not a family office": 6,
+    "educational institution": 2,
+    "individual trustee, not a family-office firm": 1,
+    "insurance entity": 1,
+    "religious organization": 1
+  },
+  "total_discovered": 302,
+  "total_qualified_pre_gate": 46,
+  "released": 36,
+  "withheld_gate_reasons": {
+    "mandatory_fields_complete": 10
+  },
+  "selected": 36,
+  "selection": {
+    "target": 50,
+    "cap_per_source": 20,
+    "selected": 36,
+    "source_counts": {
+      "SEC EDGAR (13F / SC / Form D filings)": 34,
+      "Curated directory / reference (Wikipedia, associations)": 2
+    },
+    "cap_relaxed": true,
+    "justification": "insufficient diverse qualifying records to fill 50 under a 20-per-source cap; cap relaxed for ['SEC EDGAR (13F / SC / Form D filings)'] to reach target"
+  },
+  "confidence": {
+    "High": 32,
+    "Medium": 4
+  },
+  "types": {
+    "Undetermined": 35,
+    "Multi-Family Office": 1
+  }
+}

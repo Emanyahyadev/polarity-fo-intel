@@ -1,0 +1,24 @@
+{
+  "run_id": "20260727T125152Z",
+  "stage": "dataset",
+  "git_commit": "9a7c99a66ca11a25b9deef44c89b9c78edbf32a3",
+  "schema_version": "1.0.0",
+  "pipeline_version": "0.1.0",
+  "started_at": "2026-07-27T12:47:35+00:00",
+  "finished_at": "2026-07-27T12:51:52+00:00",
+  "counts": {
+    "discovered": 302,
+    "qualified_pre_gate": 46,
+    "released": 36,
+    "delivered": 36
+  },
+  "notes": {
+    "export": {
+      "xlsx": "data\\final\\family_offices.xlsx",
+      "csv": "data\\final\\family_offices.csv",
+      "records": 36,
+      "provenance_rows": 110,
+      "audit_rows": 0
+    }
+  }
+}

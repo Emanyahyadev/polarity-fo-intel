@@ -19,7 +19,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from .discovery.base import Candidate
-from .enrichment.iapd import IapdEnricher, IapdFacts
+from .enrichment.iapd import IapdEnricher, IapdFacts, facts_from_registry
 from .enrichment.sec import SecEnricher, SecFacts, sec_provenance
 from .enrichment.website import WebsiteEnricher, WebsiteFacts
 from .observability import get_logger
@@ -68,17 +68,26 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
             log.warning("sec enrich failed", extra={"event": "enrich_warn", "source": "sec",
                                                     "firm": cand.name, "error": str(exc)})
 
-    # IAPD / Form ADV — independent authoritative registration record (name-guarded)
+    # IAPD / Form ADV — independent authoritative registration record
     iapd = iapd_url = iapd_hash = None
-    try:
-        iapd_facts, iapd_ref = iapd_enr.lookup(cand.name)
-        if iapd_facts:
-            iapd = iapd_facts
-            iapd_url = iapd_facts.report_url
-            iapd_hash = iapd_ref.content_hash if iapd_ref else None
-    except Exception as exc:
-        log.warning("iapd enrich failed", extra={"event": "enrich_warn", "source": "iapd",
-                                                 "firm": cand.name, "error": str(exc)})
+    if cand.source_class == SourceClass.SEC_IAPD:
+        # discovered via the IAPD registry; the registration data is already captured
+        iapd = facts_from_registry(
+            crd=cand.raw.get("crd", ""), sec_number=cand.raw.get("sec_number"),
+            firm_name=cand.name, other_names=cand.raw.get("other_names") or [],
+            city=cand.hints.get("city"), state=cand.hints.get("state"),
+            country=cand.hints.get("country"))
+        iapd_url = cand.source_url
+    else:
+        try:
+            iapd_facts, iapd_ref = iapd_enr.lookup(cand.name)  # name-guarded lookup
+            if iapd_facts:
+                iapd = iapd_facts
+                iapd_url = iapd_facts.report_url
+                iapd_hash = iapd_ref.content_hash if iapd_ref else None
+        except Exception as exc:
+            log.warning("iapd enrich failed", extra={"event": "enrich_warn", "source": "iapd",
+                                                     "firm": cand.name, "error": str(exc)})
 
     website = wfacts = wiki_bg = None
     qid = cand.raw.get("qid")
@@ -96,6 +105,16 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
                         "source": "directory", "firm": cand.name, "error": str(exc)})
     if facts and facts.website and not website:
         website = facts.website
+    # constructed-domain resolution for likely family offices that still lack a site
+    # (e.g. IAPD-registry-discovered firms) — each candidate domain is fetched and
+    # confirmed to contain family-office language before use.
+    likely_fo = ("family office" in cand.name.lower()) or bool(iapd and iapd.fo_language)
+    if not website and likely_fo:
+        try:
+            website = web_enr.resolve_domain(cand.name)
+        except Exception as exc:
+            log.warning("domain resolve failed", extra={"event": "enrich_warn",
+                        "source": "website", "firm": cand.name, "error": str(exc)})
     if website:
         try:
             wfacts, _ = web_enr.fetch_site_deep(website)

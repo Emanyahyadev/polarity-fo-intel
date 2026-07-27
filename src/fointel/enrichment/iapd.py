@@ -102,6 +102,18 @@ class IapdEnricher:
         )
 
 
+def facts_from_registry(crd: str, sec_number: Optional[str], firm_name: str,
+                        other_names: list[str], city: Optional[str], state: Optional[str],
+                        country: Optional[str]) -> IapdFacts:
+    """Build IapdFacts from data already captured by IAPD discovery (no re-fetch)."""
+    joined = " ".join([firm_name] + other_names)
+    return IapdFacts(
+        crd=crd, sec_number=sec_number, firm_name=firm_name, other_names=other_names,
+        city=city, state=state, country=country, active=True,
+        fo_language=bool(_FO.search(joined)),
+        fo_type_hint="SFO" if _SFO.search(joined) else ("MFO" if _MFO.search(joined) else None))
+
+
 def iapd_provenance(facts: IapdFacts, ref: Optional[EvidenceRef], item: str,
                     checked_at) -> Provenance:
     return Provenance(

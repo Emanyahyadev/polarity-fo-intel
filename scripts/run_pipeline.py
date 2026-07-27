@@ -30,7 +30,8 @@ from fointel.store import get_repository
 
 # High-signal SEC pulls more; noisy 990-PF is capped; directory/news take what they have.
 PER_SOURCE_LIMITS = {
-    SourceClass.SEC_EDGAR.value: 220,   # ~28% of SEC candidates qualify; widen to reach ~50 validated
+    SourceClass.SEC_EDGAR.value: 140,   # 13F "family office" filers (finite ~34 qualify)
+    SourceClass.SEC_IAPD.value: 200,    # registered family offices (the large, distinct lens)
     SourceClass.IRS_990PF.value: 60,
     SourceClass.DIRECTORY.value: 80,
     SourceClass.NEWS.value: 40,

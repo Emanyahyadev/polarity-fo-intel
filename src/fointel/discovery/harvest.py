@@ -19,6 +19,7 @@ from ..observability import get_logger
 from ..store import Repository
 from .base import DiscoverySource
 from .directory import DirectorySource
+from .iapd_search import IapdSearchSource
 from .irs_990pf import Irs990pfSource
 from .news import NewsSource
 from .sec_edgar import SecEdgarSource
@@ -27,7 +28,8 @@ log = get_logger("discovery")
 
 
 def default_sources() -> list[DiscoverySource]:
-    return [SecEdgarSource(), Irs990pfSource(), DirectorySource(), NewsSource()]
+    return [SecEdgarSource(), IapdSearchSource(), Irs990pfSource(),
+            DirectorySource(), NewsSource()]
 
 
 def harvest(repo: Repository, per_source_limit: int,

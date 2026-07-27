@@ -127,6 +127,24 @@ class WebsiteEnricher:
 
     _ABOUT_PATHS = ("about", "about-us")
 
+    def resolve_domain(self, firm_name: str) -> Optional[str]:
+        """Best-effort official site via constructed domains, each VERIFIED by fetching
+        and confirming family-office language (never a guess — we confirm before using)."""
+        lower = re.sub(r"[^a-z0-9 ]", "", firm_name.lower())
+        head = re.sub(r"\bfamily office.*", "", lower).strip().replace(" ", "")
+        nospace = lower.replace(" ", "")
+        candidates = [c for c in dict.fromkeys([
+            nospace + ".com", head + "familyoffice.com", head + "fo.com",
+            lower.replace(" ", "-") + ".com"]) if len(c) >= 9]
+        for domain in candidates:
+            try:
+                resp = self.web.get("https://" + domain)
+                if _FO.search(resp.text):
+                    return "https://" + domain.rstrip("/")
+            except Exception:
+                continue
+        return None
+
     def fetch_site_deep(self, url: str) -> tuple[WebsiteFacts, list[EvidenceRef]]:
         """Homepage first; if it does not confirm family-office status, try common
         /about pages (the phrase often lives there, not on the homepage)."""
