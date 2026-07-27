@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from fointel.config import settings
 from fointel.rag.answer import answer_query
 from fointel.rag.index import RetrievalIndex
 from fointel.rag.load import load_records_from_csv
@@ -27,6 +28,8 @@ QUERIES = [
     ("Pathstone", True),
     ("family offices focused on private equity", True),
     ("what is the best pizza in Chicago", False),
+    ("best pizza office in Chicago", False),        # domain-word probe: "office" must not defeat abstention
+    ("cheap office space in Manhattan", False),     # domain-word probe
     ("how do I bake sourdough bread", False),
     ("tomorrow's weather forecast", False),
     ("predict the price of bitcoin next year", False),
@@ -42,7 +45,7 @@ def main() -> None:
     correct = 0
     transcript = ["# RAG grounding & abstention evaluation\n",
                   f"Dataset: {len(records)} validated records. "
-                  f"Abstention threshold: min cosine 0.55.\n"]
+                  f"Abstention threshold: min cosine {settings.min_retrieval_score}.\n"]
     for query, should_answer in QUERIES:
         r = answer_query(index, query)
         ok = (r.answered == should_answer)

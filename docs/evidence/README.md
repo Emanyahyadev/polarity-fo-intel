@@ -31,7 +31,7 @@ Present now (Wave 1):
 | `02-entity-resolution-decisions.jsonl` | merge decisions | every merge/kept-distinct decision + basis (no silent drops) |
 | `dataset-discovery-report.json` | pipeline | 398 discovered → 189 qualified → 68 released → 50 selected, with rejection reasons |
 | `firmtype-goldset-eval.json` | validation report | firm-type precision 1.00 / FP-rate 0.00 / recall 0.44 + the false negatives |
-| `rag-abstention-eval.json` + `.md` | RAG eval | grounding/abstention 10/11 on labelled queries (declines off-topic) |
+| `rag-abstention-eval.json` + `.md` | RAG eval | grounding/abstention 13/13 on labelled queries incl. adversarial in-vocabulary probes ("pizza office", "office space", "family offices on the moon") |
 | `run-manifest-discovery-*.json` / `run-manifest-dataset-*.json` | run manifest | ties pool + release to git commit + schema/pipeline version + counts |
 | `live-url-query-transcript.json` + `.md` | deployment | live URL verified — `/health` = 50 records + 6 real queries (4 answered with grounded records, 2 correct abstentions) |
 

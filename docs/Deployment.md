@@ -75,7 +75,8 @@ uvicorn fointel.serve.app:app --host 0.0.0.0 --port 8000
 ```
 
 ## Configuration
-- `MIN_RETRIEVAL_SCORE` (default 0.55) — abstention threshold (tuned; see the RAG eval).
+- `MIN_RETRIEVAL_SCORE` (default 0.68) — abstention threshold, tuned against adversarial
+  in-vocabulary probes (genuine queries ≥0.719, off-topic ≤0.643); see the RAG eval.
 - `RETRIEVAL_TOP_K` (default 5), `EMBED_MODEL` (default `BAAI/bge-small-en-v1.5`).
 - No secrets are required to run; the dataset is bundled. The DB backend is not used by the
   served RAG (it reads the delivered CSV), keeping the image minimal.

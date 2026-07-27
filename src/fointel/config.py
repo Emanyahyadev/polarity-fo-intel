@@ -56,9 +56,15 @@ class Settings:
     # --- retrieval / grounding control ---
     retrieval_top_k: int = _int("RETRIEVAL_TOP_K", 5)
     # below this max-similarity, the system abstains instead of answering. Tuned on the
-    # bge-small model: on-topic queries score ~0.7-0.78, off-topic ~0.48, so 0.55 separates
-    # them (e.g. "best pizza in Chicago" -> abstain). See docs/evidence abstention eval.
-    min_retrieval_score: float = _float("MIN_RETRIEVAL_SCORE", 0.55)
+    # bge-small model against adversarial in-vocabulary probes, because the corpus is
+    # 100% family offices so off-topic queries that borrow domain words score higher than
+    # naive off-topic. Measured separation: genuine queries >=0.719 (Pathstone 0.719;
+    # state/type 0.75-0.80; topic 0.73-0.75); off-topic <=0.643, INCLUDING word-stuffed
+    # probes ("best pizza OFFICE in chicago" 0.564, "cheap office space in Manhattan"
+    # 0.567, "family offices headquartered on the moon" 0.643) and plain ones ("weather"
+    # 0.41, "bake bread" 0.45, "best pizza in Chicago" 0.48). 0.68 sits in the 0.643-0.719
+    # gap. Queries engineered to land in that band are the ambiguous zone (KnownLimitations).
+    min_retrieval_score: float = _float("MIN_RETRIEVAL_SCORE", 0.68)
 
     # --- paths ---
     data_dir: str = os.getenv("DATA_DIR", "data")

@@ -103,12 +103,22 @@ def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Groundin
     grounding = grounding or Grounding(settings.min_retrieval_score)
     top_k = top_k or settings.retrieval_top_k
 
-    retrieved = retrieve(index, query, top_k=top_k, filters=parse_filters(query))
+    filters = parse_filters(query)
+    retrieved = retrieve(index, query, top_k=top_k, filters=filters)
     answerable, reason = grounding.assess(retrieved)
     if not answerable:
         log.info("abstain", extra={"event": "abstain", "query": query, "reason": reason})
         return AnswerResult(query=query, answered=False, answer=ABSTAIN_MESSAGE,
                             reason=reason, mode="abstain")
+
+    # Trim semantic padding. With no hard metadata filter, keep only results at/above the
+    # relevance threshold, so a specific query (e.g. a firm name) returns the genuinely
+    # relevant record(s) instead of the padded top-k. Metadata-filtered results already
+    # satisfy a hard constraint (state/type), so they are shown as-is.
+    if not filters:
+        strong = [r for r in retrieved if r.vector_score >= grounding.min_score]
+        if strong:
+            retrieved = strong
 
     cards = [_card(r) for r in retrieved]
     citations = [r.record.fo_id for r in retrieved]

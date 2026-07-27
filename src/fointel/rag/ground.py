@@ -28,7 +28,7 @@ _CANDIDATE_FIRM = re.compile(
 
 
 class Grounding:
-    def __init__(self, min_score: float = 0.55):
+    def __init__(self, min_score: float = 0.68):
         self.min_score = min_score
 
     def assess(self, retrieved: list[Retrieved]) -> tuple[bool, str]:

@@ -24,7 +24,7 @@ A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an
 | Reproducibility (run manifests, content-hash snapshots) | `docs/evidence/run-manifest-*.json` |
 
 ## Micro-RAG
-Layered: `rag/index` (fastembed/ONNX embeddings — no torch — + BM25 + metadata) · `rag/retrieve` (RRF-fused hybrid) · `rag/ground` (**code-enforced** abstention below a tuned similarity threshold + verifies generated answers only name retrieved firms) · `rag/answer` (Groq LLM if a key is set, else deterministic extractive; both bounded by grounding) · `serve` (FastAPI + non-technical UI). Reads the committed deliverable CSV, so answers are reproducibly grounded. Abstention/grounding eval: **10/11** (declines pizza/weather/bitcoin). Run locally:
+Layered: `rag/index` (fastembed/ONNX embeddings — no torch — + BM25 + metadata) · `rag/retrieve` (RRF-fused hybrid) · `rag/ground` (**code-enforced** abstention below a tuned similarity threshold + verifies generated answers only name retrieved firms) · `rag/answer` (Groq LLM if a key is set, else deterministic extractive; both bounded by grounding) · `serve` (FastAPI + non-technical UI). Reads the committed deliverable CSV, so answers are reproducibly grounded. Abstention/grounding eval: **13/13** — declines plain off-topic (pizza/weather/bitcoin) *and* adversarial in-vocabulary probes ("best pizza **office** in chicago", "family offices headquartered on the **moon**") that borrow domain words to inflate similarity. Specific queries return only above-threshold matches (no top-k padding). Run locally:
 ```bash
 uvicorn fointel.serve.app:app --port 8000    # then open http://localhost:8000
 ```

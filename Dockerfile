@@ -2,7 +2,7 @@
 FROM python:3.12-slim
 
 ENV PYTHONUNBUFFERED=1 \
-    MIN_RETRIEVAL_SCORE=0.55 \
+    MIN_RETRIEVAL_SCORE=0.68 \
     HF_HOME=/app/.cache/hf \
     FASTEMBED_CACHE_PATH=/app/.cache/fastembed
 

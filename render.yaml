@@ -9,5 +9,5 @@ services:
     healthCheckPath: /health
     envVars:
       - key: MIN_RETRIEVAL_SCORE
-        value: "0.55"
+        value: "0.68"
       # Optional: set LLM_API_KEY (Groq free tier) in the Render dashboard for LLM answers.
