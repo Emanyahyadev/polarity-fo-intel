@@ -9,16 +9,25 @@ retrieval legs (vector / BM25 / metadata) are fused in `retrieve.py`.
 
 from __future__ import annotations
 
+import os
 import re
 from functools import lru_cache
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
 from rank_bm25 import BM25Okapi
 
+from ..observability import get_logger
 from ..schema import FamilyOfficeRecord
 
+log = get_logger("retrieval")
+
 EMBED_MODEL = "BAAI/bge-small-en-v1.5"   # 384-dim, fastembed-supported, small
+# Precomputed document vectors (built at image build time) let the runtime load vectors
+# instead of running the ONNX model at startup — avoids the startup memory spike that
+# OOM-kills a 512 MB free instance. The model then loads lazily only on the first query.
+DOC_EMBEDDINGS_PATH = os.getenv("DOC_EMBEDDINGS_PATH", "data/final/doc_embeddings.npy")
 
 US_STATES = {
     "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR", "california": "CA",
@@ -104,6 +113,17 @@ def embed_texts(texts: list[str], model_name: str = EMBED_MODEL) -> np.ndarray:
     return vecs / norms
 
 
+def precompute_and_save(records, path: str = DOC_EMBEDDINGS_PATH) -> tuple:
+    """Embed every record's document text and save the matrix to `path`. Run at image
+    build time so the deployed runtime loads vectors instead of running the model at
+    startup (the startup model+batch spike is what OOM-kills a 512 MB instance)."""
+    docs = [record_text(r) for r in records]
+    arr = embed_texts(docs)
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    np.save(path, arr)
+    return arr.shape
+
+
 class RetrievalIndex:
     """Holds records + their documents, metadata, BM25, and (optionally) embeddings.
 
@@ -120,7 +140,22 @@ class RetrievalIndex:
         if embeddings is not None:
             self.embeddings = embeddings
         else:
-            self.embeddings = embed_texts(self.docs, model_name)
+            self.embeddings = self._load_or_embed()
+
+    def _load_or_embed(self) -> np.ndarray:
+        """Load precomputed doc vectors if present and shaped to match; else embed now.
+        Loading avoids importing/running the ONNX model at startup (memory)."""
+        if os.path.exists(DOC_EMBEDDINGS_PATH):
+            try:
+                arr = np.load(DOC_EMBEDDINGS_PATH)
+                if arr.ndim == 2 and arr.shape[0] == len(self.docs) and arr.shape[0] > 0:
+                    log.info("loaded precomputed doc embeddings", extra={
+                        "event": "embeddings_loaded", "count": int(arr.shape[0])})
+                    return arr.astype(np.float32)
+            except Exception as exc:
+                log.warning("precomputed embeddings unusable; embedding at runtime", extra={
+                    "event": "embeddings_fallback", "error": str(exc)})
+        return embed_texts(self.docs, self.model_name)
 
     def embed_query(self, query: str) -> np.ndarray:
         return embed_texts([query], self.model_name)[0]

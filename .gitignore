@@ -19,6 +19,8 @@ data/*.db-shm
 # Model / embedding caches
 .cache/
 *.log
+# precomputed doc vectors are a build artifact (regenerated in the image from the CSV)
+data/final/doc_embeddings.npy
 
 # OS
 .DS_Store

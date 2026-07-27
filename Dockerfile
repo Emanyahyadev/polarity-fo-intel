@@ -17,8 +17,10 @@ COPY data/final/family_offices.csv ./data/final/family_offices.csv
 RUN pip install --no-cache-dir -r requirements-serve.txt \
     && pip install --no-cache-dir --no-deps -e .
 
-# Pre-download the embedding model so the first query is fast (and the image is self-contained).
-RUN python -c "from fointel.rag.index import embed_texts; embed_texts(['warm up'])"
+# Precompute the 50 document embeddings AT BUILD TIME (memory is plentiful here). The
+# runtime then loads these vectors instead of running the model at startup, so it fits the
+# 512 MB free instance. Also pre-downloads/caches the ONNX model for fast first query.
+RUN python -c "from fointel.rag.load import load_records_from_csv; from fointel.rag.index import precompute_and_save; print('precomputed doc embeddings:', precompute_and_save(load_records_from_csv()))"
 
 EXPOSE 7860
 # Binds to $PORT when the host sets one (Render, Cloud Run), else 7860 (HF Spaces).
