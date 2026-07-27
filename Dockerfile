@@ -19,6 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt \
 RUN python -c "from fointel.rag.index import embed_texts; embed_texts(['warm up'])"
 
 EXPOSE 7860
-# HF Spaces sets no LLM key by default -> the RAG serves grounded extractive answers.
-# Set LLM_API_KEY (Groq, free tier) as a Space secret to enable LLM-generated answers.
-CMD ["uvicorn", "fointel.serve.app:app", "--host", "0.0.0.0", "--port", "7860"]
+# Binds to $PORT when the host sets one (Render, Cloud Run), else 7860 (HF Spaces).
+# No LLM key -> grounded extractive answers; set LLM_API_KEY (Groq free tier) for LLM answers.
+CMD ["sh", "-c", "uvicorn fointel.serve.app:app --host 0.0.0.0 --port ${PORT:-7860}"]

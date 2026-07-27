@@ -100,8 +100,9 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Risks.** Author name must be correct from commit 1 (no rewrite) → set before first commit.
 - **Future improvements.** Signed commits.
 
-### D13 — Deployment target: Hugging Face Spaces (Docker)
-- **Decision.** Deploy the FastAPI + UI as a Docker Space on Hugging Face.
+### D13 — Deployment target: Render free web service (revised from HF Spaces)
+- **Revision.** HF now restricts free accounts to Static Spaces; Docker Spaces require PRO (a live 402 confirmed this). To stay strictly free-tier, the primary target is **Render** (free web service, no card). The Dockerfile binds to `$PORT` so it runs on Render, HF (PRO), or Cloud Run unchanged; `scripts/deploy_hf.py` remains for HF-PRO users.
+- **Decision (original).** Deploy the FastAPI + UI as a Docker container.
 - **Reasoning.** Free, persistent public URL, no idle spin-down (a reviewer opening it gets a warm system), supports local embeddings.
 - **Alternatives considered.** Render free (cold starts on idle); Fly.io (free allowance, more setup).
 - **Tradeoffs.** Image build must fit Space limits → keep the image lean; precompute the index at build.

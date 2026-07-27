@@ -1,0 +1,13 @@
+# Render Blueprint — free web service for the Micro-RAG (no credit card required).
+# Deploy: render.com -> New -> Blueprint -> connect this repo -> Apply.
+services:
+  - type: web
+    name: family-office-intelligence
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MIN_RETRIEVAL_SCORE
+        value: "0.55"
+      # Optional: set LLM_API_KEY (Groq free tier) in the Render dashboard for LLM answers.

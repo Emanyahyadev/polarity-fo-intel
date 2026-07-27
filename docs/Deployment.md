@@ -1,8 +1,23 @@
 # Deployment
 
-The Micro-RAG is a FastAPI service in a container, deployed to **Hugging Face Spaces**
-(free, persistent, public URL — DecisionLog D13). It builds from the `Dockerfile` and
-serves the exact committed dataset (`data/final/family_offices.csv`).
+The Micro-RAG is a FastAPI service in a container. It builds from the `Dockerfile`
+and serves the exact committed dataset (`data/final/family_offices.csv`).
+
+> **Host note (DecisionLog D13, revised).** Hugging Face changed its policy: free
+> accounts now get only *Static* Spaces — Docker Spaces require a **PRO** subscription
+> (a live 402 confirmed this during deploy). To stay strictly free-tier, the primary
+> target is **Render** (free web service, no credit card). The `scripts/deploy_hf.py`
+> path still works for anyone with HF PRO. The Dockerfile binds to `$PORT` so it runs
+> unchanged on Render, HF, or Cloud Run.
+
+## Deploy on Render (free, primary)
+1. Sign in at https://render.com with GitHub (free, no card).
+2. **New → Blueprint** → select this repository → **Apply** (Render reads `render.yaml`
+   + the `Dockerfile`).  *(Or: New → Web Service → pick the repo → Render auto-detects Docker.)*
+3. Render builds the image (~5–8 min) and serves at `https://family-office-intelligence.onrender.com`
+   (exact subdomain shown in the dashboard).
+4. Free web services sleep after ~15 min idle → the first request after idle cold-starts
+   in ~30–60 s, then is fast. `GET /health` wakes it.
 
 ## What gets deployed
 - `Dockerfile` — python:3.12-slim, installs `requirements.txt`, pre-downloads the fastembed
