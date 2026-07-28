@@ -1,5 +1,5 @@
 {
-  "captured_at_utc": "2026-07-28T15:10:00+00:00",
+  "captured_at_utc": "2026-07-28T16:07:21+00:00",
   "base_url": "https://family-office-intelligence.onrender.com",
   "health": {
     "status": "ok",
@@ -9,9 +9,9 @@
     {
       "query": "multi-family offices in Texas",
       "answered": true,
-      "mode": "llm",
+      "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
-      "answer": "There are several multi-family offices in Texas, including PMG Family Office LLC, 818 FAMILY OFFICE, LLC, Virtus Family Office LLC, NOBLEHOUSE FAMILY OFFICE, LLC, and Custos Family Office, LLC. These firms are located in cities such as Plano, Austin, and El Paso. Specifically, PMG Family Office LLC is located in Plano with $108.5M in AUM, Virtus Family Office LLC is in El Paso with $117.2M in AUM, and Custos Family Office, LLC is in Austin with $146.5M in AUM. The other two firms, 818 FAMILY OFFICE, LLC and NOBLEHOUSE FAMILY OFFICE, LLC, are also located in Austin and Plano, respectively, but their AUM is not available.",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• PMG Family Office LLC — Multi-Family Office · PLANO, TX, United States · AUM $108.5M · principal William F. Blake — Executive Director · phone +1 (214) 550-8790 · [Medium confidence]\n    ↳ New 13F positions (06-30-2026): Abbvie Inc, Advanced Micro Devices Inc, American Express Co, Asml Hldg Nv, Cisco Sys Inc, Coca Cola Co\n• 818 FAMILY OFFICE, LLC — Multi-Family Office · AUSTIN, TX, United States · [Medium confidence]\n• Virtus Family Office LLC — Multi-Family Office · EL PASO, TX, United States · AUM $117.2M · principal Norma Angelica Peralta Morales — Chief Compliance Officer · phone +1 (915) 730-3885 · [Medium confidence]\n    ↳ New 13F positions (03-31-2026): Automatic Data Processing In, Cognizant Technology Solutio, Cummins Inc, Korn Ferry, Paycom Software Inc, Paypal Hldgs Inc\n• NOBLEHOUSE FAMILY OFFICE, LLC — Multi-Family Office · PLANO, TX, United States · [Medium confidence]\n• Custos Family Office, LLC — Multi-Family Office · AUSTIN, TX, United States · AUM $146.5M · principal Mitchell Herr — Principal · phone +1 (303) 578-7024 · [Medium confidence]\n    ↳ New 13F positions (12-31-2025): Merck & Co Inc, Seagate Technology Hldngs Pl",
       "citations": [
         "fo_40030db7ab",
         "fo_831b1d28ba",
@@ -29,7 +29,7 @@
           "signals": [
             "New 13F positions (06-30-2026): Abbvie Inc, Advanced Micro Devices Inc, American Express Co, Asml Hldg Nv, Cisco Sys Inc, Coca Cola Co"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration",
@@ -60,7 +60,7 @@
           "signals": [
             "New 13F positions (03-31-2026): Automatic Data Processing In, Cognizant Technology Solutio, Cummins Inc, Korn Ferry, Paycom Software Inc, Paypal Hldgs Inc"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration",
@@ -91,7 +91,7 @@
           "signals": [
             "New 13F positions (12-31-2025): Merck & Co Inc, Seagate Technology Hldngs Pl"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration"
@@ -105,7 +105,7 @@
       "answered": true,
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
-      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Multi-Family Office · CORAL GABLES, FL, United States · AUM $10.20B · principal Santiago Ulloa — Manager · [Medium confidence]\n• COLONY FAMILY OFFICES, LLC — Multi-Family Office · CHARLOTTE, NC, United States · AUM $1.98B · principal Eric Dean Ridenour — Managing Director · [Medium confidence]\n• JFG FAMILY OFFICE — Multi-Family Office · DENVER, CO, United States · AUM $2.48B · principal Brandon Carroll Johnson — Member · [Medium confidence]\n• Callan Family Office, LLC — Multi-Family Office · RADNOR, PA, United States · AUM $4.41B · principal John Ginter — CEO and CCO · phone +1 (267) 250-2036 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Affiliated Managers Group, Agree Rlty Corp, Air Products And Chemicals I, Alaska Air Group Inc, Amc Entmt Hldgs Inc\n• Geller Advisors LLC — Multi-Family Office · NEW YORK, NY, United States · AUM $5.01B · principal Martin Jay Geller — Geller & Company President · phone +1 (212) 583-6000 · [High confidence]\n    ↳ New 13F positions (12-31-2024): Berkley W R Corp, Brown & Brown Inc, Cadence Design System Inc, Canadian Pacific Kansas City, Copart Inc, Direxion Shs Etf Tr",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Multi-Family Office · CORAL GABLES, FL, United States · AUM $10.20B · principal Santiago Ulloa — Manager · [High confidence]\n• COLONY FAMILY OFFICES, LLC — Multi-Family Office · CHARLOTTE, NC, United States · AUM $1.98B · principal Eric Dean Ridenour — Managing Director · [High confidence]\n• JFG FAMILY OFFICE — Multi-Family Office · DENVER, CO, United States · AUM $2.48B · principal Brandon Carroll Johnson — Member · [High confidence]\n• Callan Family Office, LLC — Multi-Family Office · RADNOR, PA, United States · AUM $4.41B · principal John Ginter — CEO and CCO · phone +1 (267) 250-2036 · [Medium confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Affiliated Managers Group, Agree Rlty Corp, Air Products And Chemicals I, Alaska Air Group Inc, Amc Entmt Hldgs Inc\n• Geller Advisors LLC — Multi-Family Office · NEW YORK, NY, United States · AUM $5.01B · principal Martin Jay Geller — Geller & Company President · phone +1 (212) 583-6000 · [High confidence]\n    ↳ New 13F positions (12-31-2024): Berkley W R Corp, Brown & Brown Inc, Cadence Design System Inc, Canadian Pacific Kansas City, Copart Inc, Direxion Shs Etf Tr",
       "citations": [
         "fo_cfa2d51623",
         "fo_311aa9d44c",
@@ -121,7 +121,7 @@
           "principal": "Santiago Ulloa — Manager",
           "aum": "$10.20B total regulatory AUM (SEC Form ADV Item 5.F as of 2021)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
@@ -135,7 +135,7 @@
           "principal": "Eric Dean Ridenour — Managing Director",
           "aum": "$1.98B total regulatory AUM (SEC Form ADV Item 5.F as of 2021)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
@@ -149,7 +149,7 @@
           "principal": "Brandon Carroll Johnson — Member",
           "aum": "$2.48B total regulatory AUM (SEC Form ADV Item 5.F as of 2024)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
@@ -165,7 +165,7 @@
           "signals": [
             "New 13F positions (03-31-2026): Abbott Laboratories, Affiliated Managers Group, Agree Rlty Corp, Air Products And Chemicals I, Alaska Air Group Inc, Amc Entmt Hldgs Inc"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration",
@@ -221,7 +221,7 @@
       "answered": true,
       "mode": "extractive",
       "reason": "top similarity 0.80",
-      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Multi-Family Office · CORAL GABLES, FL, United States · AUM $10.20B · principal Santiago Ulloa — Manager · [Medium confidence]\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · principal Kathy Lintz · [Medium confidence]\n• 818 FAMILY OFFICE, LLC — Multi-Family Office · AUSTIN, TX, United States · [Medium confidence]\n• STORYONE FAMILY OFFICE — Multi-Family Office · OVERLAND PARK, KS, United States · AUM $118M · principal John Aaron Christensen — Owner/Cco · [Medium confidence]\n• COLLECTIVE FAMILY OFFICE LLC — Multi-Family Office · YORK, PA, United States · AUM $489.1M · principal Trevor N. Hoffman — CCO/COO · phone +1 (717) 893-5055 · [High confidence]\n    ↳ New 13F positions (06-30-2026): Advanced Micro Devices Inc, Arista Networks Inc, Bny Mellon Etf Trust Ii, Caterpillar Inc, Chevron Corporation, Costco Wholesale Corporation",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Multi-Family Office · CORAL GABLES, FL, United States · AUM $10.20B · principal Santiago Ulloa — Manager · [High confidence]\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · principal Kathy Lintz · [Medium confidence]\n• 818 FAMILY OFFICE, LLC — Multi-Family Office · AUSTIN, TX, United States · [Medium confidence]\n• STORYONE FAMILY OFFICE — Multi-Family Office · OVERLAND PARK, KS, United States · AUM $118M · principal John Aaron Christensen — Owner/Cco · [High confidence]\n• COLLECTIVE FAMILY OFFICE LLC — Multi-Family Office · YORK, PA, United States · AUM $489.1M · principal Trevor N. Hoffman — CCO/COO · phone +1 (717) 893-5055 · [Medium confidence]\n    ↳ New 13F positions (06-30-2026): Advanced Micro Devices Inc, Arista Networks Inc, Bny Mellon Etf Trust Ii, Caterpillar Inc, Chevron Corporation, Costco Wholesale Corporation",
       "citations": [
         "fo_cfa2d51623",
         "fo_a4cb68cd35",
@@ -237,7 +237,7 @@
           "principal": "Santiago Ulloa — Manager",
           "aum": "$10.20B total regulatory AUM (SEC Form ADV Item 5.F as of 2021)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
@@ -279,7 +279,7 @@
           "principal": "John Aaron Christensen — Owner/Cco",
           "aum": "$118M total regulatory AUM (SEC Form ADV Item 5.F as of 2024)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
@@ -295,7 +295,7 @@
           "signals": [
             "New 13F positions (06-30-2026): Advanced Micro Devices Inc, Arista Networks Inc, Bny Mellon Etf Trust Ii, Caterpillar Inc, Chevron Corporation, Costco Wholesale Corporation"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration",
@@ -310,7 +310,7 @@
       "answered": true,
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
-      "answer": "Found 4 matching family offices in the verified dataset:\n• ANGELES FAMILY OFFICE — Multi-Family Office · SANTA MONICA, CA, United States · [Medium confidence]\n• SESTANTE FAMILY OFFICE — Multi-Family Office · CORONADO, CA, United States · [Medium confidence]\n• Tarbox Family Office, Inc. — Multi-Family Office · NEWPORT BEACH, CA, United States · AUM $615.8M · principal Mary Sigler — Chief Operating Officer · phone +1 (949) 721-2330 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Costco Wholesale Corporation, Jpmorgan Chase & Co, Procter & Gamble Co, State Str Spdr S&p 500 Etf T, State Str Spdr S&p Midcap 40\n• DCA FAMILY OFFICE, LLC — Multi-Family Office · ROSEVILLE, CA, United States · AUM $138M · principal Jennifer Rocca — Trustee · [Medium confidence]",
+      "answer": "Found 4 matching family offices in the verified dataset:\n• ANGELES FAMILY OFFICE — Multi-Family Office · SANTA MONICA, CA, United States · [Medium confidence]\n• SESTANTE FAMILY OFFICE — Multi-Family Office · CORONADO, CA, United States · [Medium confidence]\n• Tarbox Family Office, Inc. — Multi-Family Office · NEWPORT BEACH, CA, United States · AUM $615.8M · principal Mary Sigler — Chief Operating Officer · phone +1 (949) 721-2330 · [Medium confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Costco Wholesale Corporation, Jpmorgan Chase & Co, Procter & Gamble Co, State Str Spdr S&p 500 Etf T, State Str Spdr S&p Midcap 40\n• DCA FAMILY OFFICE, LLC — Multi-Family Office · ROSEVILLE, CA, United States · AUM $138M · principal Jennifer Rocca — Trustee · [High confidence]",
       "citations": [
         "fo_3171716a52",
         "fo_55e904bc2b",
@@ -355,7 +355,7 @@
           "signals": [
             "New 13F positions (03-31-2026): Abbott Laboratories, Costco Wholesale Corporation, Jpmorgan Chase & Co, Procter & Gamble Co, State Str Spdr S&p 500 Etf T, State Str Spdr S&p Midcap 40"
           ],
-          "confidence": "High",
+          "confidence": "Medium",
           "verification": [
             "SEC 13F/SC filing",
             "SEC Form ADV registration"
@@ -369,7 +369,7 @@
           "principal": "Jennifer Rocca — Trustee",
           "aum": "$138M total regulatory AUM (SEC Form ADV Item 5.F as of 2023)",
           "signals": [],
-          "confidence": "Medium",
+          "confidence": "High",
           "verification": [
             "SEC Form ADV registration",
             "firm website"
