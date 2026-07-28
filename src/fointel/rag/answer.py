@@ -75,6 +75,7 @@ def _card(r: Retrieved) -> dict:
         "verification": sorted({_VERIFY_LABEL.get(s.source_class.value, s.source_class.value)
                                 for s in rec.verification_sources}),
         "match": round(r.vector_score, 3),
+        "data_as_of": rec.data_as_of.isoformat(),
     }
 
 

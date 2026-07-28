@@ -7,6 +7,9 @@ from the committed deliverable CSV. Endpoints:
 
     GET  /        the customer-facing UI (non-technical)
     GET  /health  liveness + record count
+    GET  /records summary rows of every verified record (powers the Directory view)
+    GET  /stats   dataset coverage stats, computed live from the served records so the
+                  numbers always reconcile with what the service actually answers from
     POST /query   {query} -> grounded answer + record cards (or a clear abstention)
 """
 
@@ -34,8 +37,58 @@ async def lifespan(app: FastAPI):
     records = load_records_from_csv()
     _STATE["index"] = RetrievalIndex(records)
     _STATE["count"] = len(records)
+    _STATE["rows"] = [_row(r) for r in records]
+    _STATE["stats"] = _stats(records)
     log.info("index ready", extra={"event": "startup", "records": len(records)})
     yield
+
+
+_VERIFY_SHORT = {  # compact labels for verification chips (full names are long)
+    "SEC EDGAR (13F / SC / Form D filings)": "SEC 13F",
+    "SEC IAPD / Form ADV (investment-adviser registration)": "SEC ADV",
+    "Firm Website": "Website",
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": "IRS 990-PF",
+    "Curated directory / reference (Wikipedia, associations)": "Directory",
+}
+
+
+def _row(r) -> dict:
+    """One Directory row — the same verified fields a query card carries, no more."""
+    return {
+        "fo_id": r.fo_id, "name": r.name, "type": r.fo_type.value,
+        "location": ", ".join(x for x in [r.hq_city, r.hq_state, r.hq_country] if x),
+        "country": r.hq_country, "state": r.hq_state,
+        "aum": r.estimated_aum, "website": r.website, "phone": r.hq_phone,
+        "principal": (f"{r.principal_name} — {r.principal_title}"
+                      if r.principal_name and r.principal_title else r.principal_name),
+        "confidence": r.record_confidence.value,
+        "evidence": r.fo_type_evidence,
+        "signals": [s.text for s in r.signals],
+        "verification": sorted({_VERIFY_SHORT.get(v.source_class.value, v.source_class.value)
+                                for v in r.verification_sources}),
+        "data_as_of": r.data_as_of.isoformat(),
+    }
+
+
+def _stats(records) -> dict:
+    """Coverage stats computed from the records the service is actually serving."""
+    from collections import Counter
+    n = len(records)
+
+    def cov(pred):
+        return sum(1 for r in records if pred(r))
+
+    return {
+        "records": n,
+        "type": dict(Counter(r.fo_type.value for r in records)),
+        "confidence": dict(Counter(r.record_confidence.value for r in records)),
+        "coverage": {"aum": cov(lambda r: r.estimated_aum),
+                     "principal": cov(lambda r: r.principal_name),
+                     "website": cov(lambda r: r.website),
+                     "signals": cov(lambda r: r.signals)},
+        "countries": len({r.hq_country for r in records if r.hq_country}),
+        "as_of": max(r.data_as_of for r in records).isoformat(),
+    }
 
 
 app = FastAPI(title="Family Office Intelligence", version="1.0.0", lifespan=lifespan)
@@ -53,6 +106,16 @@ def home() -> str:
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok", "records": _STATE.get("count", 0)}
+
+
+@app.get("/records")
+def records() -> dict:
+    return {"records": _STATE.get("rows", [])}
+
+
+@app.get("/stats")
+def stats() -> dict:
+    return _STATE.get("stats", {})
 
 
 @app.post("/query")
