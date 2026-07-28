@@ -54,7 +54,10 @@ _OFF_TASK = re.compile(
     r"|\bshould (i|we)\b(?!\s+contact)"
     r"|\b(write|compose|draft) (me |us )?(a|an|some)\b"
     r"|\b(poem|joke|story|essay|song|recipe|lyrics)\b"
-    r"|\b(advice|advise me|is it (wise|a good idea))\b"
+    r"|\b(advice|advise me|is it (wise|smart|worth|a good idea))\b"
+    r"|\b(my|our) (financial|investment) advis"                      # "act as my financial adviser"
+    r"|\b(ignore|disregard) (your|all|any|previous|prior) (instructions|rules|guidelines)\b"
+    r"|\b(act|pose) as\b|\bpretend (to be|you are)\b|\b(system|your) prompt\b"
     r"|\b(start|starting|set up|setting up|launch|create|establish|open)\s+(my|your|our)\s+(own\s+)?family office\b"
     r"|^\s*what (is|are) (a |an |the )?((single|multi)[- ]?family )?(family )?offices?\??\s*$",
     re.IGNORECASE)
