@@ -19,13 +19,13 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.77",
+      "reason": "top similarity 0.76",
       "citations": [
+        "fo_1e72fff8ee",
+        "fo_33a7413d76",
         "fo_a4cb68cd35",
         "fo_b406883a90",
-        "fo_311aa9d44c",
-        "fo_1e72fff8ee",
-        "fo_f638fbd06f"
+        "fo_311aa9d44c"
       ],
       "correct": true
     },
@@ -34,13 +34,13 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.79",
+      "reason": "top similarity 0.81",
       "citations": [
         "fo_cfa2d51623",
         "fo_16837977fd",
-        "fo_a2bc85f0ac",
         "fo_576ab240f6",
-        "fo_c7e795ff94"
+        "fo_a2bc85f0ac",
+        "fo_29e17a89bc"
       ],
       "correct": true
     },
@@ -49,12 +49,12 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.74",
+      "reason": "top similarity 0.70",
       "citations": [
-        "fo_0728fa18e5",
         "fo_4b474eef93",
-        "fo_77b15abad5",
         "fo_a6f6c19fed",
+        "fo_0728fa18e5",
+        "fo_77b15abad5",
         "fo_519c4712e1"
       ],
       "correct": true
@@ -64,13 +64,9 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "firm-name match (best similarity 0.54)",
+      "reason": "top similarity 0.72",
       "citations": [
-        "fo_38a12a7ca6",
-        "fo_33a7413d76",
-        "fo_a4cb68cd35",
-        "fo_35450e2cea",
-        "fo_f638fbd06f"
+        "fo_38a12a7ca6"
       ],
       "correct": true
     },
@@ -82,10 +78,10 @@
       "reason": "top similarity 0.77",
       "citations": [
         "fo_cfa2d51623",
-        "fo_3171716a52",
-        "fo_33d228f849",
+        "fo_611226b119",
         "fo_16837977fd",
-        "fo_a4cb68cd35"
+        "fo_33d228f849",
+        "fo_f638fbd06f"
       ],
       "correct": true
     },
@@ -94,7 +90,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.48 is below the 0.68 threshold",
+      "reason": "best match similarity 0.47 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -103,7 +99,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.56 is below the 0.68 threshold",
+      "reason": "best match similarity 0.57 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -130,7 +126,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.46 is below the 0.68 threshold",
+      "reason": "best match similarity 0.45 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -139,7 +135,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.60 is below the 0.68 threshold",
+      "reason": "best match similarity 0.58 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -148,7 +144,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.64 is below the 0.68 threshold",
+      "reason": "best match similarity 0.63 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     }
