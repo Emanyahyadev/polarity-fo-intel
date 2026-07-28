@@ -192,29 +192,43 @@
     },
     {
       "query": "how do I start my own family office",
-      "expected_answer": false,
-      "answered": false,
-      "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
-      "citations": [],
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.70",
+      "citations": [
+        "fo_cfa2d51623"
+      ],
       "correct": true
     },
     {
       "query": "should I invest with a multi-family office",
-      "expected_answer": false,
-      "answered": false,
-      "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
-      "citations": [],
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_16837977fd",
+        "fo_beb7590905",
+        "fo_c1e06b1868",
+        "fo_33d228f849"
+      ],
       "correct": true
     },
     {
       "query": "what is a family office",
-      "expected_answer": false,
-      "answered": false,
-      "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
-      "citations": [],
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "top similarity 0.80",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_831b1d28ba",
+        "fo_55e904bc2b",
+        "fo_c1e06b1868",
+        "fo_3171716a52"
+      ],
       "correct": true
     },
     {
@@ -236,17 +250,23 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "reason": "best match similarity 0.67 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
     {
       "query": "is it smart to put my money with a multi-family office",
-      "expected_answer": false,
-      "answered": false,
-      "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
-      "citations": [],
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_cfa2d51623",
+        "fo_c1e06b1868",
+        "fo_33d228f849",
+        "fo_16837977fd",
+        "fo_beb7590905"
+      ],
       "correct": true
     },
     {
@@ -254,7 +274,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "reason": "out-of-scope request (instruction override) \u2014 queries are treated as questions about the records, never as instructions",
       "citations": [],
       "correct": true
     },
@@ -299,7 +319,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "reason": "best match similarity 0.40 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },

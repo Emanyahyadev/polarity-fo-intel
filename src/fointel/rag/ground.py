@@ -43,27 +43,17 @@ def _name_core(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", _FO_WORDS.sub("", (s or "").lower()))
 
 
-# Requests the dataset cannot answer even when they use domain vocabulary: advice,
-# how-to guidance, definitions, and creative/content tasks. Domain words push such
-# queries over the similarity threshold ("what is a family office" scores ~0.80), so
-# scope is enforced HERE in code, not left to the threshold or the prompt. Deliberately
-# conservative patterns; a query that names a verified firm bypasses this gate (asking
-# "how do I contact <firm>" is a legitimate record lookup).
+# SECURITY-ONLY gate (product direction: every domain-relevant question — definitional,
+# educational, how-to, advice-shaped — is ANSWERED with an explanatory response; the LLM
+# explains family-office concepts as general context while every firm-specific fact
+# stays record-bound, and off-domain queries are declined by the similarity threshold).
+# What is never answered: attempts to override the assistant's instructions — those are
+# not questions at all. Patterns are precise so legitimate finance phrasing survives
+# ("firms that act as fiduciaries" is NOT matched; "act as my financial adviser" is).
 _OFF_TASK = re.compile(
-    r"\bhow (do|does|can|could|should|would) (i|we|you|one)\b|\bhow to\b"
-    r"|\bshould (i|we)\b(?!\s+contact)"
-    r"|\b(write|compose|draft) (me |us )?(a|an|some)\b"
-    r"|\b(poem|joke|story|essay|song|recipe|lyrics)\b"
-    r"|\b(advice|advise me|is it (wise|smart|worth|a good idea))\b"
-    r"|\b(my|our) (financial|investment) advis"                      # "act as my financial adviser"
-    r"|\b(ignore|disregard) (your|all|any|previous|prior) (instructions|rules|guidelines)\b"
-    r"|\b(act|pose) as\b|\bpretend (to be|you are)\b|\b(system|your) prompt\b"
-    r"|\b(start|starting|set up|setting up|launch|create|establish|open)\s+(my|your|our)\s+(own\s+)?family office\b"
-    # Only the SINGULAR form is definitional ("what is a family office?" asks for a
-    # concept the dataset cannot authoritatively define). The plural — "what are single
-    # family offices" — is a LISTING question in a research tool ("which are the SFOs?")
-    # and must be answered with the records, so it is deliberately NOT matched here.
-    r"|^\s*what is (a |an )?((single|multi)[- ]?family )?(family )?office\??\s*$",
+    r"\b(ignore|disregard|forget) (your|all|any|previous|prior|these) (instructions|rules|guidelines|prompts?)\b"
+    r"|\bact as (if|though|my|our)\b|\bpose as\b|\bpretend (to be|you are)\b"
+    r"|\b(system|your) prompt\b|\bjailbreak\b",
     re.IGNORECASE)
 
 
@@ -92,11 +82,11 @@ class Grounding:
                           or (len(rcore) >= 5 and rcore in qcore)):
                 named = True
                 break
-        # scope gate: advice / how-to / definitions / creative tasks are declined in code
-        # even when domain vocabulary clears the similarity threshold or a metadata filter
+        # security gate: instruction-override attempts are declined in code regardless of
+        # similarity — a query is data, never instructions
         if not named and _OFF_TASK.search(query):
-            return False, ("out-of-scope request (advice / how-to / definition / creative) "
-                           "— this service answers research questions about the records")
+            return False, ("out-of-scope request (instruction override) — queries are treated "
+                           "as questions about the records, never as instructions")
         if named:
             return True, f"firm-name match (best similarity {top:.2f})"
         if authoritative:
