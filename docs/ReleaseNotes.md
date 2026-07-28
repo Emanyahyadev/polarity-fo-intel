@@ -32,7 +32,7 @@ enrichment scripts. This pass repairs all of them at the source.
 | 4 | Empty Audit sheet | Emitted a **23-row** Audit trail (reclassifications, contamination strip, principal_phone withholdings). Gate G9 no longer vacuous. | xlsx `Audit` sheet |
 | 5 | Misleading `principal_phone` | Blanked where it merely repeated the SEC firm main line (not a verified direct line) → `could_not_verify`, with an Audit entry each. | Audit sheet |
 | 6 | Signals mislabeled `NEWS` | 13F-derived signals now carry `source_class = SEC_EDGAR` with the EDGAR filing URL; described honestly as recent 13F portfolio activity. | store |
-| 7 | Stale doc counts | Reconciled every doc to **55 records / 25-25 RAG eval / recall 0.50 / 8 FNs**. | docs sweep |
+| 7 | Stale doc counts | Reconciled every doc to **55 records / 28-28 RAG eval / recall 0.50 / 8 FNs**. | docs sweep |
 | 8 | Reproducibility gap | Pinned the RAG/serve stack (`requirements-serve.txt`); added **6 release-integrity tests** that bind docs↔data so counts can't drift again. | `requirements-serve.txt`, `tests/test_release_integrity.py` |
 
 ## 3. Provenance model (Rule 1, honest scope)
@@ -50,7 +50,7 @@ Distribution: **IAPD 144, EDGAR 114, Website 128** provenance cells; **386/386 c
 ## 4. Validation & regression (all green)
 
 - **Unit/integration tests:** 96 passed, 1 skipped (`pytest -q`).
-- **RAG grounding/abstention eval:** **25/25** — includes international queries and a new regression test that a reclassification left **no true SFO in Texas** (so `single-family offices in Texas` correctly abstains).
+- **RAG grounding/abstention eval:** **28/28** — includes international queries and a new regression test that a reclassification left **no true SFO in Texas** (so `single-family offices in Texas` correctly abstains).
 - **Firm-type gold set (n=25):** precision **1.0**, false-positive rate **0.0**, recall **0.50**, 8 named false negatives (4 of which — KIRKBI, Korys, Financière Agache, Builders Vision — are now recovered into the delivered set via website verification).
 - **Integrity:** 0 duplicate ids/names/domains, 0 provenance violations, 0 populated-but-`could_not_verify` (native, from the store).
 
@@ -61,7 +61,7 @@ Distribution: **IAPD 144, EDGAR 114, Website 128** provenance cells; **386/386 c
 - [x] Classification evidence exists for every record; **every SFO is a genuine single family** (no "not established" evidence, no regulatory client AUM)
 - [x] Confidence honest (Undetermined not guessed; contact fields blank, not fabricated)
 - [x] Dataset internally consistent (store = CSV = XLSX = stats report)
-- [x] Documentation consistent (55 / 25-25 / recall 0.50 everywhere current)
+- [x] Documentation consistent (55 / 28-28 / recall 0.50 everywhere current)
 - [x] Audit sheet non-empty (findings govern releases)
 - [x] `reviewer_notes` restored; inactive registration surfaced in the record
 - [x] Tests passing (96) + new anti-drift release-integrity tests

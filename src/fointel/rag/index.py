@@ -209,19 +209,42 @@ class RetrievalIndex:
 
 # --- query parsing (structured retrieval signal) ------------------------- #
 
+# Type intent, robust to how users actually phrase it: "single-family", "single family
+# offices", "single office families", "SFO" — and the multi equivalents.
+_TYPE_SFO = re.compile(r"\bsingle[\s-]*(famil(y|ies)|offices?)\b|\bsfos?\b", re.I)
+_TYPE_MFO = re.compile(r"\bmulti[\s-]*(famil(y|ies)|offices?)\b|\bmfos?\b", re.I)
+
+# Two-letter state abbreviations that are ALSO common English words match only when the
+# user typed them in UPPERCASE ("offices in IN" stays unfiltered unless written "IN").
+_AMBIGUOUS_ABBR = {"IN", "OR", "ME", "OK", "HI", "DE", "OH", "PA", "MA", "AL", "LA",
+                   "ID", "CO", "MT", "MS", "VA"}
+
+
 def parse_filters(query: str) -> dict:
     """Extract hard structured filters from a natural-language query: family-office
-    type, US state, and a numeric AUM constraint (e.g. 'AUM over $500M')."""
+    type, US state (full name, spacing-tolerant, or abbreviation), and a numeric AUM
+    constraint (e.g. 'AUM over $500M')."""
     q = query.lower()
     filters: dict = {}
-    if re.search(r"single[- ]family|\bsfos?\b", q):
+    if _TYPE_SFO.search(q):
         filters["fo_type"] = "Single-Family Office"
-    elif re.search(r"multi[- ]family|\bmfos?\b", q):
+    elif _TYPE_MFO.search(q):
         filters["fo_type"] = "Multi-Family Office"
+    # full state names first (spacing/hyphen tolerant: "new york" / "newyork" / "new-york")
     for name, abbr in US_STATES.items():
-        if re.search(rf"\b{name}\b", q):
+        if re.search(r"\b" + name.replace(" ", r"[\s-]?") + r"\b", q):
             filters["hq_state"] = abbr
             break
+    # then abbreviations ("family offices in NY"); ambiguous ones require uppercase
+    if "hq_state" not in filters:
+        for tok in re.findall(r"\b[A-Za-z]{2}\b", query):
+            up = tok.upper()
+            # ambiguous abbrevs need deliberate uppercase — and an ALL-CAPS query makes
+            # every word uppercase, so it signals nothing ("TELL ME ABOUT..." != Maine)
+            if up in US_STATES.values() and (up not in _AMBIGUOUS_ABBR
+                                             or (tok.isupper() and not query.isupper())):
+                filters["hq_state"] = up
+                break
     if "hq_state" not in filters:      # a US state is more specific than a country
         for alias, canon in COUNTRIES.items():
             if re.search(rf"\b{re.escape(alias)}\b", q):

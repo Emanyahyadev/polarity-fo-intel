@@ -25,6 +25,9 @@ QUERIES = [
     ("multi-family offices", True),
     ("family offices in Florida", True),
     ("family offices in New York", True),
+    ("tell me the families office in Newyork", True),   # real-user phrasing: plural + no space
+    ("show me the single office families", True),       # real-user phrasing: scrambled word order -> SFO filter
+    ("family offices in NY", True),                     # state abbreviation
     ("single-family offices in Belgium", True),     # international: Korys (authoritative country+type filter)
     ("family offices in France", True),             # international: Financière Agache
     ("family offices in Denmark", True),            # international: KIRKBI

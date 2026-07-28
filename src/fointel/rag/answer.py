@@ -15,9 +15,12 @@ import re
 from typing import Optional
 
 # An explicit family-office domain term. Guards the authoritative-filter shortcut so a
-# state/country name in an off-topic query cannot force an answer.
-_DOMAIN_TERM = re.compile(r"family offic|single[- ]family|multi[- ]family|\bsfos?\b|\bmfos?\b",
-                          re.IGNORECASE)
+# state/country name in an off-topic query cannot force an answer. Tolerant of real user
+# phrasing: "families office", "office families", "single/multi office(s)".
+_DOMAIN_TERM = re.compile(
+    r"famil(y|ies)[\s-]*offices?|offices?[\s-]*famil(y|ies)"
+    r"|single[\s-]*(famil|offices?\b)|multi[\s-]*(famil|offices?\b)|\bsfos?\b|\bmfos?\b",
+    re.IGNORECASE)
 
 from pydantic import BaseModel
 

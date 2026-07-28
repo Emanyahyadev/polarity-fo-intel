@@ -18,6 +18,18 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
 - Found 5 matching family offices in the verified dataset:
 
+## Q: tell me the families office in Newyork
+- expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
+- Found 5 matching family offices in the verified dataset:
+
+## Q: show me the single office families
+- expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
+- Found 4 matching family offices in the verified dataset:
+
+## Q: family offices in NY
+- expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
+- Found 5 matching family offices in the verified dataset:
+
 ## Q: single-family offices in Belgium
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
 - Found 1 matching family office in the verified dataset:
