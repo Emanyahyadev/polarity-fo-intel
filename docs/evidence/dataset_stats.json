@@ -1,26 +1,26 @@
 {
-  "n": 60,
+  "n": 61,
   "type": {
     "Multi-Family Office": 37,
     "Undetermined": 14,
-    "Single-Family Office": 9
+    "Single-Family Office": 10
   },
   "confidence": {
-    "Medium": 38,
+    "Medium": 39,
     "High": 8,
     "Low": 14
   },
   "discovery_source": {
     "SEC EDGAR (13F / SC / Form D filings)": 28,
     "SEC IAPD / Form ADV (investment-adviser registration)": 20,
-    "Curated directory / reference (Wikipedia, associations)": 12
+    "Curated directory / reference (Wikipedia, associations)": 13
   },
   "verification_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 28,
     "SEC IAPD / Form ADV (investment-adviser registration)": 40,
-    "Firm Website": 37
+    "SEC EDGAR (13F / SC / Form D filings)": 28,
+    "Firm Website": 38
   },
-  "independence_verified": 50,
+  "independence_verified": 51,
   "geography": {
     "countries": {
       "United States": 50,
@@ -31,7 +31,7 @@
       "France": 2,
       "Denmark": 1,
       "Belgium": 1,
-      "unknown": 2
+      "unknown": 3
     },
     "top_us_states": {
       "FL": 7,
@@ -50,24 +50,24 @@
   },
   "coverage": {
     "website": {
-      "count": 38,
-      "pct": 63
+      "count": 39,
+      "pct": 64
     },
     "estimated_aum": {
       "count": 32,
-      "pct": 53
+      "pct": 52
     },
     "principal_name": {
       "count": 38,
-      "pct": 63
+      "pct": 62
     },
     "hq_phone": {
       "count": 28,
-      "pct": 47
+      "pct": 46
     },
     "investment_thesis": {
-      "count": 23,
-      "pct": 38
+      "count": 24,
+      "pct": 39
     },
     "investing_sectors": {
       "count": 1,
@@ -75,7 +75,7 @@
     },
     "recent_signal": {
       "count": 25,
-      "pct": 42
+      "pct": 41
     },
     "corporate_linkedin": {
       "count": 0,
@@ -88,16 +88,16 @@
     "adv": 8
   },
   "could_not_verify": {
-    "corporate_linkedin": 60,
-    "principal_linkedin": 60,
-    "principal_email": 60,
-    "principal_phone": 50,
-    "principal_name": 22,
-    "principal_title": 22,
-    "estimated_aum": 28,
+    "corporate_linkedin": 61,
+    "principal_linkedin": 61,
+    "principal_email": 61,
+    "principal_phone": 51,
+    "principal_name": 23,
+    "principal_title": 23,
+    "estimated_aum": 29,
     "website": 1,
     "investment_thesis": 1,
-    "hq_phone": 10
+    "hq_phone": 11
   },
   "all_qualify": true,
   "provenance_violations": 0,

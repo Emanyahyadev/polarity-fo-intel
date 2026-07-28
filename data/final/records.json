@@ -7731,5 +7731,108 @@
     "snapshot_path": null
    }
   }
+ },
+ {
+  "fo_id": "fo_e6bc01c928",
+  "name": "MacAndrews & Forbes Incorporated",
+  "fo_type": "Single-Family Office",
+  "fo_type_evidence": "Firm's own website self-identifies as a single-owner investment holding: \"Wholly owned by Chairman and Chief Executive Officer Ronald O. Perelman\" — the diversified investment holding of one named individual, the same class as the accepted KIRKBI and Artémis records. Discovered via a curated-reference lens; verified against the firm's own website.",
+  "fo_type_confidence": "Medium",
+  "description": "Diversified investment holding company wholly owned by Ronald O. Perelman.",
+  "investment_thesis": "Our core strategy is to focus our business lines on strong market positions, high quality management with vertical expertise, recognized growth potential and ability to increase profitability.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://www.macandrewsandforbes.com/",
+  "corporate_linkedin": null,
+  "hq_city": null,
+  "hq_state": null,
+  "hq_country": null,
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "signals": [],
+  "discovery_source": "Curated directory / reference (Wikipedia, associations)",
+  "verification_sources": [
+   {
+    "source_class": "Firm Website",
+    "verifies": "single-family-office status, firm identity",
+    "accessed_at": "2026-07-29",
+    "url": "https://www.macandrewsandforbes.com/"
+   }
+  ],
+  "reviewer_notes": "Discovered via the curated/notable-reference lens; classification and firm identity verified against the firm's own authoritative website (single verification source). AUM and individual contact details are not available from free authoritative sources and are left could_not_verify. Perelman is the owner; the site names no separate office decision-maker, so principal fields stay blank. Geography is not stated on the scraped pages and is left blank.",
+  "record_confidence": "Medium",
+  "data_as_of": "2026-07-29",
+  "could_not_verify": [
+   "estimated_aum",
+   "corporate_linkedin",
+   "principal_name",
+   "principal_title",
+   "principal_linkedin",
+   "principal_email",
+   "principal_phone",
+   "hq_phone"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.macandrewsandforbes.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.macandrewsandforbes.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.macandrewsandforbes.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.macandrewsandforbes.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "fo_type_evidence": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.macandrewsandforbes.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
  }
 ]

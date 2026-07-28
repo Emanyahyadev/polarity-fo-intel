@@ -1,0 +1,163 @@
+[
+ {
+  "name": "Declaration Partners",
+  "website": "https://www.declarationpartners.com/",
+  "scraped_chars": 9000,
+  "verdict": "SKIP",
+  "site_owner_name": "Declaration Partners",
+  "site_is_about_firm": true,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": "Declaration Partners is anchored by private equity veteran and philanthropist David M. Rubenstein and partners with like\u2011minded entrepreneurs, operators, and investors.",
+  "investment_thesis": "Combine the best attributes of family office flexibility and institutional real\u2011estate experience to generate attractive risk\u2011adjusted returns."
+ },
+ {
+  "name": "Ceniarth",
+  "website": "https://ceniarth.co/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "Tsao Family Office",
+  "website": "https://www.tsaofamilyoffice.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "TY Danjuma Family Office",
+  "website": "https://www.tydanjumafo.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "Tethys Invest",
+  "website": "https://www.tethysinvest.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "Famille C",
+  "website": "https://www.famillec.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "S-Cubed Capital",
+  "website": "https://www.scubedcapital.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "Alta Advisers",
+  "website": "https://www.altaadvisers.com/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ },
+ {
+  "name": "Ferd",
+  "website": "https://www.ferd.no/en/",
+  "scraped_chars": 5607,
+  "verdict": "SKIP",
+  "site_owner_name": "Ferd",
+  "site_is_about_firm": true,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": "Ferd is a family-owned investment company.",
+  "investment_thesis": "We work to create value for companies and individuals, both independently and in collaboration with others."
+ },
+ {
+  "name": "Horizons Ventures",
+  "website": "https://www.horizonsventures.com/",
+  "scraped_chars": 7522,
+  "verdict": "SKIP",
+  "site_owner_name": "Horizons Ventures",
+  "site_is_about_firm": true,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": "Horizons Ventures invests in deep science and technology to propel humanity towards a radically better future.",
+  "investment_thesis": "We invest to solve fundamental, universal problems."
+ },
+ {
+  "name": "Catamaran",
+  "website": "https://www.catamaran.in/",
+  "scraped_chars": 9000,
+  "verdict": "SKIP",
+  "site_owner_name": "Catamaran",
+  "site_is_about_firm": true,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": "Catamaran showcases its portfolio of investments in companies such as Log9 Materials, SpaceX, Udaan, Acko, Akshayakalpa, Hector Beverages, Aequs, and SEDEMAC.",
+  "investment_thesis": "Passionate and value\u2011based entrepreneurs building successful enterprises"
+ },
+ {
+  "name": "Premji Invest",
+  "website": "https://www.premjiinvest.com/",
+  "scraped_chars": 3635,
+  "verdict": "SKIP",
+  "site_owner_name": "Premji Invest",
+  "site_is_about_firm": true,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": "Premji Invest reports $15b+ in evergreen capital and 165+ total investments.",
+  "investment_thesis": "For-profit investing, for good."
+ },
+ {
+  "name": "MacAndrews & Forbes",
+  "website": "https://www.macandrewsandforbes.com/",
+  "scraped_chars": 1641,
+  "verdict": "ADD",
+  "site_owner_name": "MacAndrews & Forbes Incorporated",
+  "site_is_about_firm": true,
+  "is_single_family_office": true,
+  "family_name": "Perelman",
+  "evidence": "Wholly owned by Chairman and Chief Executive Officer Ronald O. Perelman",
+  "hq_city": null,
+  "hq_country": null,
+  "description": "MacAndrews & Forbes Incorporated owns and operates a diverse array of businesses",
+  "investment_thesis": "Our core strategy is to focus our business lines on strong market positions, high quality management with vertical expertise, recognized growth potential and ability to increase productivity."
+ },
+ {
+  "name": "NNS Group",
+  "website": "https://www.nnsgroup.com/",
+  "scraped_chars": 190,
+  "verdict": "SKIP",
+  "site_owner_name": null,
+  "site_is_about_firm": false,
+  "is_single_family_office": false,
+  "family_name": null,
+  "evidence": null,
+  "hq_city": null,
+  "hq_country": null,
+  "description": null,
+  "investment_thesis": null
+ },
+ {
+  "name": "AQTON",
+  "website": "https://www.aqton.de/",
+  "scraped_chars": 0,
+  "verdict": "SKIP",
+  "error": "no content scraped"
+ }
+]

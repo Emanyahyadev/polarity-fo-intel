@@ -1,6 +1,6 @@
 # RAG grounding & abstention evaluation
 
-Dataset: 60 validated records. Abstention threshold: min cosine 0.68.
+Dataset: 61 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: multi-family offices in Texas
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
