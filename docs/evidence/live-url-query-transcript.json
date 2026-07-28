@@ -1,5 +1,5 @@
 {
-  "captured_at_utc": "2026-07-27T23:10:33+00:00",
+  "captured_at_utc": "2026-07-28T08:35:40+00:00",
   "base_url": "https://family-office-intelligence.onrender.com",
   "health": {
     "status": "ok",
@@ -36,13 +36,58 @@
       "query": "family offices with AUM over $1 billion",
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.72",
-      "answer": "Found 2 matching family offices in the verified dataset:\n• Callan Family Office, LLC — Undetermined · RADNOR, PA, United States · AUM $4.41B · principal John Ginter — CEO and CCO · phone +1 (267) 250-2036 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Affiliated Managers Group, Agree Rlty Corp, Air Products And Chemicals I, Alaska Air Group Inc, Amc Entmt Hldgs Inc\n• Geller Advisors LLC — Undetermined · NEW YORK, NY, United States · AUM $1.52B · principal Beverly Duke — Chief Compliance Officer · phone +1 (212) 583-6000 · [High confidence]\n    ↳ New 13F positions (12-31-2024): Berkley W R Corp, Brown & Brown Inc, Cadence Design System Inc, Canadian Pacific Kansas City, Copart Inc, Direxion Shs Etf Tr",
+      "reason": "top similarity 0.80",
+      "answer": "Found 5 matching family offices in the verified dataset:\n• WE FAMILY OFFICES — Single-Family Office · CORAL GABLES, FL, United States · AUM $10.20B · principal Santiago Ulloa — Manager · [Medium confidence]\n• COLONY FAMILY OFFICES, LLC — Multi-Family Office · CHARLOTTE, NC, United States · AUM $1.98B · principal Eric Dean Ridenour — Managing Director · [Medium confidence]\n• JFG FAMILY OFFICE — Single-Family Office · DENVER, CO, United States · AUM $2.48B · principal Brandon Carroll Johnson — Member · [Medium confidence]\n• Callan Family Office, LLC — Undetermined · RADNOR, PA, United States · AUM $4.41B · principal John Ginter — CEO and CCO · phone +1 (267) 250-2036 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Affiliated Managers Group, Agree Rlty Corp, Air Products And Chemicals I, Alaska Air Group Inc, Amc Entmt Hldgs Inc\n• Geller Advisors LLC — Undetermined · NEW YORK, NY, United States · AUM $5.01B · principal Martin Jay Geller — Geller & Company President · phone +1 (212) 583-6000 · [High confidence]\n    ↳ New 13F positions (12-31-2024): Berkley W R Corp, Brown & Brown Inc, Cadence Design System Inc, Canadian Pacific Kansas City, Copart Inc, Direxion Shs Etf Tr",
       "citations": [
+        "fo_cfa2d51623",
+        "fo_311aa9d44c",
+        "fo_eca2b3bb02",
         "fo_beb7590905",
         "fo_519c4712e1"
       ],
       "cards": [
+        {
+          "name": "WE FAMILY OFFICES",
+          "type": "Single-Family Office",
+          "location": "CORAL GABLES, FL, United States",
+          "principal": "Santiago Ulloa — Manager",
+          "aum": "$10.20B total regulatory AUM (SEC Form ADV Item 5.F as of 2021)",
+          "signals": [],
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.799
+        },
+        {
+          "name": "COLONY FAMILY OFFICES, LLC",
+          "type": "Multi-Family Office",
+          "location": "CHARLOTTE, NC, United States",
+          "principal": "Eric Dean Ridenour — Managing Director",
+          "aum": "$1.98B total regulatory AUM (SEC Form ADV Item 5.F as of 2021)",
+          "signals": [],
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.781
+        },
+        {
+          "name": "JFG FAMILY OFFICE",
+          "type": "Single-Family Office",
+          "location": "DENVER, CO, United States",
+          "principal": "Brandon Carroll Johnson — Member",
+          "aum": "$2.48B total regulatory AUM (SEC Form ADV Item 5.F as of 2024)",
+          "signals": [],
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.776
+        },
         {
           "name": "Callan Family Office, LLC",
           "type": "Undetermined",
@@ -64,8 +109,8 @@
           "name": "Geller Advisors LLC",
           "type": "Undetermined",
           "location": "NEW YORK, NY, United States",
-          "principal": "Beverly Duke — Chief Compliance Officer",
-          "aum": "$1.52B in 13(f) securities as of 12-31-2024 (SEC Form 13F, 253 positions)",
+          "principal": "Martin Jay Geller — Geller & Company President",
+          "aum": "$5.01B total regulatory AUM (SEC Form ADV Item 5.F as of 2023)",
           "signals": [
             "New 13F positions (12-31-2024): Berkley W R Corp, Brown & Brown Inc, Cadence Design System Inc, Canadian Pacific Kansas City, Copart Inc, Direxion Shs Etf Tr"
           ],
@@ -74,7 +119,7 @@
             "SEC 13F/SC filing",
             "SEC Form ADV registration"
           ],
-          "match": 0.638
+          "match": 0.656
         }
       ]
     },
@@ -112,9 +157,10 @@
       "answered": true,
       "mode": "extractive",
       "reason": "top similarity 0.86",
-      "answer": "Found 1 matching family office in the verified dataset:\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · [Medium confidence]",
+      "answer": "Found 2 matching family offices in the verified dataset:\n• MATTER FAMILY OFFICE — Multi-Family Office · ST LOUIS, MO, United States · [Medium confidence]\n• STORYONE FAMILY OFFICE — Multi-Family Office · OVERLAND PARK, KS, United States · AUM $118M · principal John Aaron Christensen — Owner/Cco · [Medium confidence]",
       "citations": [
-        "fo_a4cb68cd35"
+        "fo_a4cb68cd35",
+        "fo_f638fbd06f"
       ],
       "cards": [
         {
@@ -130,6 +176,20 @@
             "firm website"
           ],
           "match": 0.865
+        },
+        {
+          "name": "STORYONE FAMILY OFFICE",
+          "type": "Multi-Family Office",
+          "location": "OVERLAND PARK, KS, United States",
+          "principal": "John Aaron Christensen — Owner/Cco",
+          "aum": "$118M total regulatory AUM (SEC Form ADV Item 5.F as of 2024)",
+          "signals": [],
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.692
         }
       ]
     },
@@ -138,12 +198,12 @@
       "answered": true,
       "mode": "extractive",
       "reason": "top similarity 0.77",
-      "answer": "Found 4 matching family offices in the verified dataset:\n• SESTANTE FAMILY OFFICE — Multi-Family Office · CORONADO, CA, United States · [Medium confidence]\n• ANGELES FAMILY OFFICE — Undetermined · SANTA MONICA, CA, United States · [Medium confidence]\n• DCA FAMILY OFFICE, LLC — Undetermined · ROSEVILLE, CA, United States · [Medium confidence]\n• Tarbox Family Office, Inc. — Undetermined · NEWPORT BEACH, CA, United States · AUM $615.8M · principal Mary Sigler — Chief Operating Officer · phone +1 (949) 721-2330 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Costco Wholesale Corporation, Jpmorgan Chase & Co, Procter & Gamble Co, State Str Spdr S&p 500 Etf T, State Str Spdr S&p Midcap 40",
+      "answer": "Found 4 matching family offices in the verified dataset:\n• SESTANTE FAMILY OFFICE — Multi-Family Office · CORONADO, CA, United States · [Medium confidence]\n• ANGELES FAMILY OFFICE — Undetermined · SANTA MONICA, CA, United States · [Medium confidence]\n• Tarbox Family Office, Inc. — Undetermined · NEWPORT BEACH, CA, United States · AUM $615.8M · principal Mary Sigler — Chief Operating Officer · phone +1 (949) 721-2330 · [High confidence]\n    ↳ New 13F positions (03-31-2026): Abbott Laboratories, Costco Wholesale Corporation, Jpmorgan Chase & Co, Procter & Gamble Co, State Str Spdr S&p 500 Etf T, State Str Spdr S&p Midcap 40\n• DCA FAMILY OFFICE, LLC — Undetermined · ROSEVILLE, CA, United States · AUM $138M · principal Jennifer Rocca — Trustee · [Medium confidence]",
       "citations": [
         "fo_55e904bc2b",
         "fo_3171716a52",
-        "fo_80f649ced1",
-        "fo_15eb1b42d3"
+        "fo_15eb1b42d3",
+        "fo_80f649ced1"
       ],
       "cards": [
         {
@@ -175,20 +235,6 @@
           "match": 0.724
         },
         {
-          "name": "DCA FAMILY OFFICE, LLC",
-          "type": "Undetermined",
-          "location": "ROSEVILLE, CA, United States",
-          "principal": null,
-          "aum": null,
-          "signals": [],
-          "confidence": "Medium",
-          "verification": [
-            "SEC Form ADV registration",
-            "firm website"
-          ],
-          "match": 0.708
-        },
-        {
           "name": "Tarbox Family Office, Inc.",
           "type": "Undetermined",
           "location": "NEWPORT BEACH, CA, United States",
@@ -203,6 +249,20 @@
             "SEC Form ADV registration"
           ],
           "match": 0.66
+        },
+        {
+          "name": "DCA FAMILY OFFICE, LLC",
+          "type": "Undetermined",
+          "location": "ROSEVILLE, CA, United States",
+          "principal": "Jennifer Rocca — Trustee",
+          "aum": "$138M total regulatory AUM (SEC Form ADV Item 5.F as of 2023)",
+          "signals": [],
+          "confidence": "Medium",
+          "verification": [
+            "SEC Form ADV registration",
+            "firm website"
+          ],
+          "match": 0.674
         }
       ]
     },
