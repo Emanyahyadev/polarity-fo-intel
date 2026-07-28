@@ -1,8 +1,8 @@
 # Live URL — query transcript
 
 - **URL:** https://family-office-intelligence.onrender.com
-- **Captured (UTC):** 2026-07-28T22:26:15+00:00
-- **Health:** `{"status": "ok", "records": 57}`
+- **Captured (UTC):** 2026-07-28T23:05:50+00:00
+- **Health:** `{"status": "ok", "records": 60}`
 
 Reproduce: `py -3.12 scripts/capture_live_evidence.py`
 
@@ -11,21 +11,38 @@ Reproduce: `py -3.12 scripts/capture_live_evidence.py`
 **ANSWERED** · mode `llm` · matched an authoritative metadata filter (state/country/type/AUM)
 
 ```
-There are several multi-family offices in Texas, as shown in the records. 
-- **List of Multi-Family Offices in Texas:** 
-  - **PMG Family Office LLC**: located in Plano, TX, with $108.5M in AUM
-  - **818 FAMILY OFFICE, LLC**: located in Austin, TX
-  - **Virtus Family Office LLC**: located in El Paso, TX, with $117.2M in AUM
-  - **Custos Family Office, LLC**: located in Austin, TX, with $146.5M in AUM
-  - **NOBLEHOUSE FAMILY OFFICE, LLC**: located in Plano, TX, serving families with $5 million to $30 million in investable assets
+Here are the multi‑family offices that the records show are based in Texas:
+
+- **PMG Family Office LLC** – Plano, TX  
+  **AUM:** $108.5 M (13‑F securities, 114 positions, as of 06‑30‑2026)  
+  **Principal:** William F. Blake, Executive Director  
+  **Recent 13‑F adds (06‑30‑2026):** AbbVie, AMD, American Express, ASML, Cisco, Coca‑Cola  
+
+- **818 FAMILY OFFICE, LLC** – Austin, TX  
+  **Focus:** Invite‑only community emphasizing disciplined coordination, proactive tax strategy, and generational stewardship  
+
+- **Custos Family Office, LLC** – Austin, TX  
+  **AUM:** $146.5 M (13‑F securities, 60 positions, as of 12‑31‑2025)  
+  **Principal:** Mitchell Herr, Principal  
+  **Recent 13‑F adds (12‑31‑2025):** Merck & Co, Seagate Technology  
+
+- **Virtus Family Office LLC** – El Paso, TX  
+  **AUM:** $117.2 M (13‑F securities, 73 positions, as of 03‑31‑2026)  
+  **Principal:** Norma Angelica Peralta Morales, Chief Compliance Officer  
+  **Recent 13‑F adds (03‑31‑2026):** ADP, Cognizant, Cummins, Korn Ferry, Paycom, PayPal  
+
+- **NOBLEHOUSE FAMILY OFFICE, LLC** – Plano, TX  
+  **Target families:** $5 M–$30 M investable assets, integrated investment, tax, estate, and trust services  
+
+These entries reflect the current data; additional Texas multi‑family offices may exist beyond the provided records.
 ```
 
 Records (name · type · location · confidence · verified-via · match):
 
 - PMG Family Office LLC · Multi-Family Office · PLANO, TX, United States · Medium · SEC 13F/SC filing, SEC Form ADV registration, firm website · 0.726
 - 818 FAMILY OFFICE, LLC · Multi-Family Office · AUSTIN, TX, United States · Medium · SEC Form ADV registration, firm website · 0.801
-- Virtus Family Office LLC · Multi-Family Office · EL PASO, TX, United States · Medium · SEC 13F/SC filing, SEC Form ADV registration, firm website · 0.669
 - Custos Family Office, LLC · Multi-Family Office · AUSTIN, TX, United States · Medium · SEC 13F/SC filing, SEC Form ADV registration · 0.701
+- Virtus Family Office LLC · Multi-Family Office · EL PASO, TX, United States · Medium · SEC 13F/SC filing, SEC Form ADV registration, firm website · 0.669
 - NOBLEHOUSE FAMILY OFFICE, LLC · Multi-Family Office · PLANO, TX, United States · Medium · SEC Form ADV registration, firm website · 0.734
 
 ## family offices with AUM over $1 billion
@@ -33,14 +50,13 @@ Records (name · type · location · confidence · verified-via · match):
 **ANSWERED** · mode `llm` · matched an authoritative metadata filter (state/country/type/AUM)
 
 ```
-Family offices are private wealth management firms that manage the financial and personal affairs of high-net-worth individuals or families. 
-- **List of Family Offices with AUM over $1 billion:** 
-- WE Family Offices with $10.20B AUM
-- Geller Advisors LLC with $5.01B AUM
-- Callan Family Office, LLC with $4.41B AUM
-- JFG FAMILY OFFICE with $2.48B AUM
-- COLONY FAMILY OFFICES, LLC with $1.98B AUM 
-This is research context, not individualized financial advice.
+Here are the multi‑family offices in the records that report regulatory AUM above $1 billion:
+
+- **WE Family Offices** – *Location:* Coral Gables, FL – *AUM:* $10.20 B (SEC Form ADV, 2021) – *Principal:* Santiago Ulloa, Manager  
+- **JFG FAMILY OFFICE** – *Location:* Denver, CO – *AUM:* $2.48 B (SEC Form ADV, 2024) – *Principal:* Brandon Carroll Johnson, Member  
+- **Callan Family Office, LLC** – *Location:* Radnor, PA – *AUM:* $4.41 B in 13(F) securities (as of 03‑31‑2026) – *Principal:* John Ginter, CEO & CCO  
+- **Geller Advisors LLC** – *Location:* New York, NY – *AUM:* $5.01 B (SEC Form ADV, 2023) – *Principal:* Martin Jay Geller, President  
+- **COLONY FAMILY OFFICES, LLC** – *Location:* Charlotte, NC – *AUM:* $1.98 B (SEC Form ADV, 2021) – *Principal:* Eric Dean Ridenow, Managing Director
 ```
 
 Records (name · type · location · confidence · verified-via · match):
@@ -56,8 +72,14 @@ Records (name · type · location · confidence · verified-via · match):
 **ANSWERED** · mode `llm` · matched an authoritative metadata filter (state/country/type/AUM)
 
 ```
-Single-family offices in Belgium are private wealth management firms that serve the financial interests of one family. 
-- **Example Firm:** Korys, a single-family office of the Colruyt family, focused on conscious-consumer solutions, is based in Belgium, this is research context, not individualized financial advice.
+Single‑family offices in Belgium are relatively few; the most notable one in the records is Korys.
+
+- **Korys** – *Single‑Family Office*  
+  - **Family:** Colruyt family  
+  - **Investment focus:** Companies delivering conscious‑consumer solutions (products and services that address the challenges faced by mindful shoppers)  
+  - **Location:** Belgium  
+
+*General note:* Single‑family offices (SFOs) are dedicated investment entities that manage the wealth and affairs of a single affluent family, often emphasizing long‑term, mission‑aligned investing. This answer reflects the data available; other Belgian SFOs are not listed in the provided records. This is research context, not individualized financial advice.
 ```
 
 Records (name · type · location · confidence · verified-via · match):
@@ -69,11 +91,14 @@ Records (name · type · location · confidence · verified-via · match):
 **ANSWERED** · mode `llm` · top similarity 0.80
 
 ```
-WE Family Offices is a multi-family office that partners with ultra-high-net-worth families to manage, preserve, and grow their intergenerational wealth. 
-- **Location:** CORAL GABLES, FL, United States
-- **AUM:** $10.20B total regulatory AUM as of 2021
-- **Principal:** Santiago Ulloa, Manager
-- **Description:** WE Family Offices works with families to manage their wealth as a business, using the Wealth Enterprise approach, to help them achieve their legacy goals.
+- **Type:** Multi‑Family Office – provides wealth‑advisory services to ultra‑high‑net‑worth families, treating wealth as a business.  
+- **Brand:** WE stands for *Wealth Enterprise®*.  
+- **Location:** Coral Gables, Florida, United States.  
+- **AUM:** Approximately **$10.20 billion** total regulatory assets (SEC Form ADV Item 5.F, as of 2021).  
+- **Leadership:** Principal – Santiago Ulloa, Manager.  
+- **Service Focus:** Partners with families to manage, preserve, and grow intergenerational wealth, emphasizing legacy, stewardship, and integrated financial planning.  
+
+*This summary reflects the firm‑specific data on record; it is for research purposes, not individualized financial advice.*
 ```
 
 Records (name · type · location · confidence · verified-via · match):
@@ -81,21 +106,20 @@ Records (name · type · location · confidence · verified-via · match):
 - WE FAMILY OFFICES · Multi-Family Office · CORAL GABLES, FL, United States · High · SEC Form ADV registration, firm website · 0.798
 - COLLECTIVE FAMILY OFFICE LLC · Multi-Family Office · YORK, PA, United States · Medium · SEC 13F/SC filing, SEC Form ADV registration, firm website · 0.73
 - 818 FAMILY OFFICE, LLC · Multi-Family Office · AUSTIN, TX, United States · Medium · SEC Form ADV registration, firm website · 0.733
-- SESTANTE FAMILY OFFICE · Multi-Family Office · CORONADO, CA, United States · Medium · SEC Form ADV registration, firm website · 0.725
 - MATTER FAMILY OFFICE · Multi-Family Office · ST LOUIS, MO, United States · Medium · SEC Form ADV registration, firm website · 0.762
+- SESTANTE FAMILY OFFICE · Multi-Family Office · CORONADO, CA, United States · Medium · SEC Form ADV registration, firm website · 0.725
 
 ## family offices in California
 
 **ANSWERED** · mode `llm` · matched an authoritative metadata filter (state/country/type/AUM)
 
 ```
-There are several family offices located in California, as shown in the records. 
-- **List of Family Offices:** 
-  * SESTANTE FAMILY OFFICE, located in CORONADO, CA
-  * ANGELES FAMILY OFFICE, located in SANTA MONICA, CA
-  * Tarbox Family Office, Inc., located in NEWPORT BEACH, CA
-  * DCA FAMILY OFFICE, LLC, located in ROSEVILLE, CA 
-This is research context, not individualized financial advice.
+Several multi‑family offices are registered in California, based on the current records.
+
+- **Sestante Family Office** – Multi‑Family Office; located in **Coronado, CA**; focuses on personalized wealth‑management and lifestyle advisory (no AUM or principal listed).  
+- **Angeles Family Office** – Multi‑Family Office; located in **Santa Monica, CA**; provides outsourced chief‑investment‑office (OCIO) services to nonprofits, individuals and families (no AUM or principal listed).  
+- **Tarbox Family Office, Inc.** – Multi‑Family Office; located in **Newport Beach, CA**; **AUM:** $615.8 M in 13‑F securities (as of 03‑31‑2026); **Principal:** Mary Sigler, Chief Operating Officer.  
+- **DCA Family Office, LLC** – Multi‑Family Office; located in **Roseville, CA**; **AUM:** $138 M total regulatory AUM (as of 2023); **Principal:** Jennifer Rocca, Trustee.
 ```
 
 Records (name · type · location · confidence · verified-via · match):
