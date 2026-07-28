@@ -39,6 +39,9 @@ def _matches(meta: dict, filters: dict) -> bool:
                 return False
             if key == "aum_max" and aum > value:
                 return False
+        elif key == "hq_country":
+            if (meta.get("hq_country") or "").lower() != value.lower():
+                return False
         elif meta.get(key) != value:
             return False
     return True

@@ -1,6 +1,6 @@
 {
-  "n": 13,
-  "correct": 13,
+  "n": 17,
+  "correct": 17,
   "accuracy": 1.0,
   "results": [
     {
@@ -8,7 +8,7 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.77",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
         "fo_831b1d28ba"
       ],
@@ -19,7 +19,7 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.76",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
         "fo_1e72fff8ee",
         "fo_33a7413d76",
@@ -34,7 +34,7 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.81",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
         "fo_cfa2d51623",
         "fo_16837977fd",
@@ -49,13 +49,46 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.70",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
         "fo_4b474eef93",
         "fo_a6f6c19fed",
         "fo_0728fa18e5",
         "fo_77b15abad5",
         "fo_519c4712e1"
+      ],
+      "correct": true
+    },
+    {
+      "query": "single-family offices in Belgium",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_3642e17ac1"
+      ],
+      "correct": true
+    },
+    {
+      "query": "family offices in France",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_ca957ee5d5"
+      ],
+      "correct": true
+    },
+    {
+      "query": "family offices in Denmark",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_d27cc088a3"
       ],
       "correct": true
     },
@@ -77,11 +110,11 @@
       "mode": "extractive",
       "reason": "top similarity 0.77",
       "citations": [
+        "fo_a750611281",
         "fo_cfa2d51623",
-        "fo_611226b119",
-        "fo_16837977fd",
         "fo_33d228f849",
-        "fo_f638fbd06f"
+        "fo_611226b119",
+        "fo_16837977fd"
       ],
       "correct": true
     },
@@ -100,6 +133,15 @@
       "answered": false,
       "mode": "abstain",
       "reason": "best match similarity 0.57 is below the 0.68 threshold",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "best pizza in Texas",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.50 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },

@@ -25,10 +25,14 @@ QUERIES = [
     ("multi-family offices", True),
     ("family offices in Florida", True),
     ("family offices in New York", True),
+    ("single-family offices in Belgium", True),     # international: Korys (authoritative country+type filter)
+    ("family offices in France", True),             # international: Financière Agache
+    ("family offices in Denmark", True),            # international: KIRKBI
     ("Pathstone", True),
     ("family offices focused on private equity", True),
     ("what is the best pizza in Chicago", False),
     ("best pizza office in Chicago", False),        # domain-word probe: "office" must not defeat abstention
+    ("best pizza in Texas", False),                 # a state name must NOT force an off-topic answer
     ("cheap office space in Manhattan", False),     # domain-word probe
     ("how do I bake sourdough bread", False),
     ("tomorrow's weather forecast", False),

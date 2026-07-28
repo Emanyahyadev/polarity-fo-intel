@@ -11,7 +11,13 @@ Every answer carries citations (fo_ids) and never invents data.
 
 from __future__ import annotations
 
+import re
 from typing import Optional
+
+# An explicit family-office domain term. Guards the authoritative-filter shortcut so a
+# state/country name in an off-topic query cannot force an answer.
+_DOMAIN_TERM = re.compile(r"family offic|single[- ]family|multi[- ]family|\bsfos?\b|\bmfos?\b",
+                          re.IGNORECASE)
 
 from pydantic import BaseModel
 
@@ -140,7 +146,12 @@ def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Groundin
 
     filters = parse_filters(query)
     retrieved = retrieve(index, query, top_k=top_k, filters=filters)
-    answerable, reason = grounding.assess(retrieved, query)
+    # A hard metadata filter (state/country/type/AUM) is authoritative, but only trust it as
+    # a definitive match when the query is unambiguously in-domain (mentions a family office),
+    # so an off-topic query that merely names a state ("best pizza in Texas") still abstains.
+    hard = bool(set(filters) & {"hq_state", "hq_country", "fo_type", "aum_min", "aum_max"}) \
+        and bool(_DOMAIN_TERM.search(query))
+    answerable, reason = grounding.assess(retrieved, query, authoritative=hard)
     if not answerable:
         log.info("abstain", extra={"event": "abstain", "query": query, "reason": reason})
         return AnswerResult(query=query, answered=False, answer=ABSTAIN_MESSAGE,

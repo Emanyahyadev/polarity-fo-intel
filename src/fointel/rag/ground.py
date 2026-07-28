@@ -40,12 +40,17 @@ class Grounding:
     def __init__(self, min_score: float = 0.68):
         self.min_score = min_score
 
-    def assess(self, retrieved: list[Retrieved], query: str = "") -> tuple[bool, str]:
+    def assess(self, retrieved: list[Retrieved], query: str = "",
+               authoritative: bool = False) -> tuple[bool, str]:
         """Answerable if the best semantic match clears the threshold, OR the query names a
         retrieved firm (a firm-name lookup: BM25 caught it even if the bare name's cosine is
-        borderline). Otherwise abstain."""
+        borderline), OR an authoritative hard metadata filter matched (an in-domain query that
+        constrained by state/country/type/AUM — the filter match is definitive, so a low bare
+        cosine must not veto it). Otherwise abstain."""
         if not retrieved:
             return False, "no records matched the query"
+        if authoritative:
+            return True, "matched an authoritative metadata filter (state/country/type/AUM)"
         top = max(r.vector_score for r in retrieved)
         if top >= self.min_score:
             return True, f"top similarity {top:.2f}"

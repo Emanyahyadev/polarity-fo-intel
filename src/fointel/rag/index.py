@@ -43,6 +43,17 @@ US_STATES = {
     "virginia": "VA", "washington": "WA", "west virginia": "WV", "wisconsin": "WI", "wyoming": "WY",
 }
 
+# Country aliases -> the canonical hq_country string used in the dataset. Enables
+# country queries (now that the set includes international offices, e.g. Belgium,
+# Denmark, France). An unknown country simply yields no matches -> honest abstention.
+COUNTRIES = {
+    "united states": "United States", "usa": "United States", "u.s.": "United States",
+    "u.s.a.": "United States", "america": "United States",
+    "belgium": "Belgium", "france": "France", "denmark": "Denmark", "germany": "Germany",
+    "switzerland": "Switzerland", "monaco": "Monaco", "brazil": "Brazil",
+    "united kingdom": "United Kingdom", "uk": "United Kingdom", "canada": "Canada",
+}
+
 
 def record_text(r: FamilyOfficeRecord) -> str:
     parts = [r.name, r.fo_type.value]
@@ -176,6 +187,11 @@ def parse_filters(query: str) -> dict:
         if re.search(rf"\b{name}\b", q):
             filters["hq_state"] = abbr
             break
+    if "hq_state" not in filters:      # a US state is more specific than a country
+        for alias, canon in COUNTRIES.items():
+            if re.search(rf"\b{re.escape(alias)}\b", q):
+                filters["hq_country"] = canon
+                break
     filters.update(_parse_aum_filter(q))
     return filters
 
