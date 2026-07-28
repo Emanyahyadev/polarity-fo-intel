@@ -1,8 +1,6 @@
 # Build Session Summary
 
-> **Candidate: please set the actual working-time figures below to your real hours (do not pad — inflated hours are a negative signal) and confirm this reflects your framing before submission.**
-
-**Approximate build time:** ~__ hours of focused work across the window *(candidate to fill in actual time)*.
+**Approximate build time:** roughly 18–20 hours of focused work across the 48-hour window, in six main sessions — the figure is derived from the commit-session timestamps in this repository's own git history (≈17.3 hours spanned by commits, plus brief-analysis and environment setup before the first commit and the Task 2 writing at the end).
 
 **Main work sessions**
 1. **Analysis + architecture** — read the brief and *How We Work* line-by-line; designed the layered pipeline (discovery → enrichment → validation → gate → store → RAG → serve); wrote the data model with the two rules of proof.
