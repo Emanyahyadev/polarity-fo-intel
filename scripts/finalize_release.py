@@ -229,8 +229,8 @@ def build():
         fo_type_conf = Confidence.MEDIUM if fo_type != "Undetermined" else Confidence.LOW
         notes = (row.get("reviewer_notes") or "").strip()
 
-        # --- Rule 2: reclassification -------------------------------------------------
-        if up in RECLASS:
+        # --- Rule 2: reclassification (idempotent: skip if already applied) -----------
+        if up in RECLASS and fo_type != RECLASS[up][0]:
             new_type, new_ev, conf = RECLASS[up]
             audit.append(AuditEntry(
                 fo_id=fid, field="fo_type", rejected_value=fo_type,

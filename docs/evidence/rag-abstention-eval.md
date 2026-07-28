@@ -4,7 +4,7 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: multi-family offices in Texas
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
-- Found 2 matching family offices in the verified dataset:
+- Found 5 matching family offices in the verified dataset:
 
 ## Q: multi-family offices
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
@@ -51,11 +51,11 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: best pizza in Texas
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.50 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.51 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: cheap office space in Manhattan
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.55 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.57 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: how do I bake sourdough bread
@@ -67,7 +67,7 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: predict the price of bitcoin next year
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.58 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.59 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: family offices headquartered on the moon

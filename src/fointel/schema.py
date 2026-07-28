@@ -249,8 +249,10 @@ class FamilyOfficeRecord(BaseModel):
             if getattr(self, field, None) and field not in self.provenance:
                 violations.append((field, "populated without provenance"))
         for i, sig in enumerate(self.signals):
-            if not sig.source_url and sig.source_class is None:
-                violations.append((f"signal[{i}]", "signal without a source"))
+            # a dated signal must be traceable to a specific source document (URL), not just a
+            # source class — otherwise it is an unverifiable claim.
+            if not sig.source_url:
+                violations.append((f"signal[{i}]", "signal without a source_url"))
         return violations
 
     def independence_warnings(self) -> list[str]:

@@ -32,7 +32,10 @@ DATA_DICTIONARY = [
     ("corporate_linkedin", "Firm LinkedIn company page."),
     ("hq_city / hq_state / hq_country", "Headquarters location (SEC business address where available)."),
     ("hq_phone", "Authoritative firm main line (e.g. SEC filing) — verified contact intelligence."),
-    ("principal_name / principal_title", "Decision-maker identity where verified."),
+    ("principal_name / principal_title", "The person NAMED ON THE AUTHORITATIVE FILING — the "
+     "SEC Form 13F signatory (frequently a compliance/operations/legal officer, e.g. CCO/COO/GC), "
+     "the SEC Form ADV Schedule A control person, or a website-named principal. This is the "
+     "filing signatory, NOT necessarily the lead investment decision-maker (see KnownLimitations)."),
     ("principal_linkedin / principal_email / principal_phone", "Decision-maker contact; blank + could_not_verify when not verifiable."),
     ("principal_email_status", "deliverable / risky / could_not_verify (never a guessed 'verified')."),
     ("recent_signal_1..3 (+ _date, _source)", "Recent, dated activity. This build: SEC Form 13F "

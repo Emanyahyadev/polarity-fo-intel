@@ -1,8 +1,8 @@
 {
   "n": 55,
   "type": {
-    "Undetermined": 30,
-    "Multi-Family Office": 21,
+    "Multi-Family Office": 37,
+    "Undetermined": 14,
     "Single-Family Office": 4
   },
   "confidence": {
@@ -17,7 +17,7 @@
   },
   "verification_source": {
     "SEC IAPD / Form ADV (investment-adviser registration)": 40,
-    "SEC EDGAR (13F / SC / Form D filings)": 27,
+    "SEC EDGAR (13F / SC / Form D filings)": 28,
     "Firm Website": 32
   },
   "independence_verified": 45,

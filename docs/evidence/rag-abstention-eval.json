@@ -10,8 +10,11 @@
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
+        "fo_40030db7ab",
         "fo_831b1d28ba",
-        "fo_33d228f849"
+        "fo_c7b90e8baa",
+        "fo_33d228f849",
+        "fo_9220a272d8"
       ],
       "correct": true
     },
@@ -23,8 +26,8 @@
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
         "fo_cfa2d51623",
+        "fo_5d097b8c75",
         "fo_1e72fff8ee",
-        "fo_33a7413d76",
         "fo_b406883a90",
         "fo_a4cb68cd35"
       ],
@@ -39,9 +42,9 @@
       "citations": [
         "fo_cfa2d51623",
         "fo_16837977fd",
+        "fo_29e17a89bc",
         "fo_576ab240f6",
-        "fo_a2bc85f0ac",
-        "fo_29e17a89bc"
+        "fo_a2bc85f0ac"
       ],
       "correct": true
     },
@@ -122,9 +125,9 @@
       "citations": [
         "fo_cfa2d51623",
         "fo_611226b119",
-        "fo_33d228f849",
         "fo_16837977fd",
-        "fo_a750611281"
+        "fo_33d228f849",
+        "fo_beb7590905"
       ],
       "correct": true
     },
@@ -151,7 +154,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.50 is below the 0.68 threshold",
+      "reason": "best match similarity 0.51 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -160,7 +163,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.55 is below the 0.68 threshold",
+      "reason": "best match similarity 0.57 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -187,7 +190,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.58 is below the 0.68 threshold",
+      "reason": "best match similarity 0.59 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },

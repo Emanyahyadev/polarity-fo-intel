@@ -1,0 +1,387 @@
+{
+ "Allie Family Office LLC": {
+  "crd": "307144",
+  "cik": "1908612",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "JFG FAMILY OFFICE": {
+  "crd": "125101",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "Revisio Family Office": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Biltmore Family Office, LLC": {
+  "crd": "167174",
+  "cik": "1731123",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "WE FAMILY OFFICES": {
+  "crd": "109869",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "Fundus Heritage Ventures": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "INTREPID FAMILY OFFICE LLC": {
+  "crd": null,
+  "cik": "1596197",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "818 FAMILY OFFICE, LLC": {
+  "crd": "339082",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Custos Family Office, LLC": {
+  "crd": "294025",
+  "cik": "1904423",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "FIVE ELEVEN PARTNERS": {
+  "crd": "334002",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Tarbox Family Office, Inc.": {
+  "crd": "106079",
+  "cik": "1599603",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "CARPA FAMILY OFFICE": {
+  "crd": "329017",
+  "cik": null,
+  "scope": "INACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Duquesne Family Office LLC": {
+  "crd": null,
+  "cik": "1536411",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "MATTER FAMILY OFFICE": {
+  "crd": "106806",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "CVA Family Office, LLC": {
+  "crd": null,
+  "cik": "1802084",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "SESTANTE FAMILY OFFICE": {
+  "crd": "335152",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "COLLECTIVE FAMILY OFFICE LLC": {
+  "crd": "301274",
+  "cik": "1845066",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "STORYONE FAMILY OFFICE": {
+  "crd": "331394",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "Independent Family Office, LLC": {
+  "crd": "144811",
+  "cik": "1756485",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "COLONY FAMILY OFFICES, LLC": {
+  "crd": "167017",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "BOSTON FAMILY OFFICE LLC": {
+  "crd": "107141",
+  "cik": "1039807",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "NOBLEHOUSE FAMILY OFFICE, LLC": {
+  "crd": "338855",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Fortitude Family Office, LLC": {
+  "crd": "317615",
+  "cik": "1950506",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "LONG FAMILY OFFICE": {
+  "crd": "110990",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Kopp Family Office, LLC": {
+  "crd": null,
+  "cik": "1683689",
+  "scope": "NONE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "THE FAMILY OFFICE, LLC": {
+  "crd": "288530",
+  "cik": null,
+  "scope": "INACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Callan Family Office, LLC": {
+  "crd": "317446",
+  "cik": "1938970",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "DCA FAMILY OFFICE, LLC": {
+  "crd": "322047",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "Capitol Family Office, Inc.": {
+  "crd": "312005",
+  "cik": "1863768",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "DESTINY FAMILY OFFICE": {
+  "crd": "338015",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Pioneer Family Office, LLC": {
+  "crd": "142856",
+  "cik": "2135110",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "ANGELES FAMILY OFFICE": {
+  "crd": "338266",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "OneAscent Family Office, LLC": {
+  "crd": null,
+  "cik": "2055812",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "GRIT FAMILY OFFICE, LLC": {
+  "crd": "290066",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "Standard Family Office LLC": {
+  "crd": "301865",
+  "cik": "1809494",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "LONGWALL FAMILY OFFICE": {
+  "crd": "324336",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "FIDUCIARY FAMILY OFFICE, LLC": {
+  "crd": "326990",
+  "cik": "2020280",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "EAGLE BAY FAMILY OFFICE": {
+  "crd": "281675",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": true,
+  "type": "Multi-Family Office"
+ },
+ "Aurelius Family Office LLC": {
+  "crd": "323016",
+  "cik": "2053738",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "HOLDUN FAMILY OFFICE LLC": {
+  "crd": "158123",
+  "cik": null,
+  "scope": "INACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Timonier Family Office, LTD.": {
+  "crd": null,
+  "cik": "2038170",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "ARAGON FAMILY OFFICE LLC": {
+  "crd": "337597",
+  "cik": null,
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Virtus Family Office LLC": {
+  "crd": "298272",
+  "cik": "1913482",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "PMG Family Office LLC": {
+  "crd": "312154",
+  "cik": "2102299",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Wealthgate Family Office, LLC": {
+  "crd": "307858",
+  "cik": "1835441",
+  "scope": "INACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "CAMBIENT FAMILY OFFICE, LLC": {
+  "crd": "335128",
+  "cik": "2105684",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Geller Advisors LLC": {
+  "crd": "134062",
+  "cik": null,
+  "scope": "INACTIVE",
+  "reg_aum": true,
+  "type": "Undetermined"
+ },
+ "MARCUARD FAMILY OFFICE LTD": {
+  "crd": "155003",
+  "cik": "1538112",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Multi-Family Office"
+ },
+ "PATHSTONE FAMILY OFFICE, LLC": {
+  "crd": null,
+  "cik": "1511137",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Louis-Dreyfus Family Office LLC": {
+  "crd": null,
+  "cik": "1889527",
+  "scope": "ACTIVE",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Financi\u00e8re Agache": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Single-Family Office"
+ },
+ "KIRKBI": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Single-Family Office"
+ },
+ "Prime Opportunities Investment Group": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Undetermined"
+ },
+ "Korys": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Single-Family Office"
+ },
+ "Builders Vision": {
+  "crd": null,
+  "cik": null,
+  "scope": "n/a",
+  "reg_aum": false,
+  "type": "Single-Family Office"
+ }
+}

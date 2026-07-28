@@ -1,0 +1,110 @@
+[
+ {
+  "name": "FIDUCIARY FAMILY OFFICE, LLC",
+  "website": "https://www.fiduciaryfo.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "We serve as our clients\u2019 Chief Financial Officer \u2014 providing sophisticated tax, estate, and investment solutions concurrent with timely financial analysis to address the complexities of multi-generational wealth.",
+  "final_type": "Multi-Family Office",
+  "reason": "explicit multi-family/client quote",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "DESTINY FAMILY OFFICE",
+  "website": "https://destinyfamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "Callan Family Office, LLC",
+  "website": "https://callanfamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "EAGLE BAY FAMILY OFFICE",
+  "website": "https://eaglebayfamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": true,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "serving wealthy families nationwide",
+  "final_type": "Multi-Family Office",
+  "reason": "ADV Item 5.F regulatory AUM => registered adviser serving clients",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "DCA FAMILY OFFICE, LLC",
+  "website": "https://dcafamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": true,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Multi-Family Office",
+  "reason": "ADV Item 5.F regulatory AUM => registered adviser serving clients",
+  "scraped_chars": 4875
+ },
+ {
+  "name": "COLLECTIVE FAMILY OFFICE LLC",
+  "website": "https://www.collectivefamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 0
+ },
+ {
+  "name": "Revisio Family Office",
+  "website": "https://revisio-family.de/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 0
+ },
+ {
+  "name": "LONGWALL FAMILY OFFICE",
+  "website": "https://www.longwallfamilyoffice.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": true,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Multi-Family Office",
+  "reason": "ADV Item 5.F regulatory AUM => registered adviser serving clients",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "ANGELES FAMILY OFFICE",
+  "website": "https://www.angelesinvestments.com/",
+  "current": "Multi-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 9000
+ }
+]

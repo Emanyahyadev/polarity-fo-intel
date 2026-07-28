@@ -78,6 +78,25 @@ def test_no_duplicate_entities(records):
     assert len(doms) == len(set(doms)), "duplicate website domain"
 
 
+def test_key_docs_have_no_known_stale_numbers(records):
+    """Anti-drift for PROSE (not just machine artifacts): the hand-written headline docs must
+    not carry a number a fresh eval/run would contradict. Guards the exact regression that
+    shipped 'stale 50 records / 13/13' earlier."""
+    n = str(len(records))
+    stale = ["13/13", "recall 0.44", "recall of 0.44", "recall: 0.44", "FN-rate 0.56",
+             "9 false negative", '"records": 50', "'records': 50", "records\":50"]
+    docs = ["README.md", "docs/Validation.md", "docs/KnownLimitations.md",
+            "docs/evidence/README.md", "docs/ReleaseNotes.md"]
+    for d in docs:
+        p = Path(d)
+        if not p.exists():
+            continue
+        text = p.read_text(encoding="utf-8")
+        for s in stale:
+            assert s not in text, f"{d}: stale token {s!r}"
+    assert n in Path("README.md").read_text(encoding="utf-8"), "README omits the current record count"
+
+
 def test_audit_trail_nonempty_and_consistent(records):
     """Findings govern releases: the delivered xlsx must ship a non-empty Audit sheet whose
     rows reference real records."""

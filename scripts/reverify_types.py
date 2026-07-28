@@ -25,11 +25,11 @@ from fointel.rag.load import load_records_from_csv                # noqa: E402
 FC = os.environ.get("FIRECRAWL_API_KEY") or os.environ.get("FC", "")
 LLM = os.environ.get("LLM_API_KEY", "")
 
-# SFOs to re-verify (the directory 4 — Financière Agache/KIRKBI/Korys/Builders Vision —
-# already carry explicit single-family quotes and are kept).
-TARGETS = {"JFG FAMILY OFFICE", "WE FAMILY OFFICES", "818 FAMILY OFFICE, LLC",
-           "FIVE ELEVEN PARTNERS", "LONG FAMILY OFFICE", "GRIT FAMILY OFFICE, LLC",
-           "HOLDUN FAMILY OFFICE LLC", "PRIME OPPORTUNITIES INVESTMENT GROUP"}
+# Round 2: the 9 MFOs whose delivered evidence still contains a stale "not established"
+# fragment — re-verify single-vs-multi against the site and emit a clean quote (or demote).
+TARGETS = {"REVISIO FAMILY OFFICE", "COLLECTIVE FAMILY OFFICE LLC", "CALLAN FAMILY OFFICE, LLC",
+           "DCA FAMILY OFFICE, LLC", "DESTINY FAMILY OFFICE", "ANGELES FAMILY OFFICE",
+           "LONGWALL FAMILY OFFICE", "FIDUCIARY FAMILY OFFICE, LLC", "EAGLE BAY FAMILY OFFICE"}
 
 
 def scrape(url: str) -> str:
@@ -110,7 +110,8 @@ def main():
         if ev:
             print(f"        quote: \"{str(ev)[:120]}\"")
         time.sleep(0.3)
-    Path("data/adv/type_reverify.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+    outfile = os.environ.get("REVERIFY_OUT", "data/adv/type_reverify.json")
+    Path(outfile).write_text(json.dumps(out, indent=1), encoding="utf-8")
     from collections import Counter
     print("\nfinal types:", dict(Counter(o["final_type"] for o in out)))
 

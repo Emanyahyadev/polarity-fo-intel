@@ -4,10 +4,10 @@ A production-shaped pipeline that discovers, enriches, and **validates** a decis
 
 Built for the PolarityIQ Differentiator, Stage 1, Task 1.
 
-**▶ Live demo:** **https://family-office-intelligence.onrender.com** — try *"single-family offices in Texas"*, *"family offices in California"*, or *"Tell me about Pathstone"*. Ask something off-topic (*"best pizza in Chicago"*) and it declines instead of guessing. *(Hosted on a free tier and kept warm; a rare first request after idle may take a few seconds.)*
+**▶ Live demo:** **https://family-office-intelligence.onrender.com** — try *"multi-family offices in Texas"*, *"single-family offices in Belgium"*, or *"Tell me about Pathstone"*. Ask something off-topic (*"best pizza in Chicago"*) and it declines instead of guessing. *(Hosted on a free tier and kept warm; a rare first request after idle may take a few seconds.)*
 
 ## The idea in one line
-A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an answer **grounded in verified records** — or an honest "not enough evidence."
+A fund manager opens a URL, asks *"multi-family offices in Texas"*, and gets an answer **grounded in verified records** — or an honest "not enough evidence."
 
 ## Deliverables (assessment map)
 | Deliverable | Where |
@@ -27,7 +27,7 @@ A fund manager opens a URL, asks *"single-family offices in Texas"*, and gets an
 Beyond firm identity + contact, records that file **SEC Form 13F** carry authoritative, dated **principal** (name + title + direct phone, from the filing's signature block), **AUM** (aggregate 13(f) securities value), and **recent investments** (new positions vs the prior quarter) — ~25/55. **Investment thesis** (~19/55) is an attributable quote from the firm's own site. Everything unverifiable from a free authoritative source — corporate/principal LinkedIn, work email, and (for non-13F firms) principal/AUM — is honest `could_not_verify`, never guessed. See [KnownLimitations](docs/KnownLimitations.md) for the exact coverage and caveats (the principal is the 13F *signatory*; AUM is 13(f) securities, not total).
 
 ## Micro-RAG
-Layered: `rag/index` (fastembed/ONNX embeddings — no torch — + BM25 + metadata inc. **numeric AUM filter**) · `rag/retrieve` (RRF-fused hybrid) · `rag/ground` (**code-enforced** abstention below a tuned similarity threshold + verifies generated answers only name retrieved firms) · `rag/answer` (Groq LLM if a key is set, else deterministic extractive; both bounded by grounding) · `serve` (FastAPI + non-technical UI). Structured *and* semantic in one query — *"single-family offices in Texas with AUM over $500M"* filters type+state+AUM then ranks semantically; answers surface principal, AUM, and recent investments. Reads the committed deliverable CSV, so answers are reproducibly grounded. Abstention/grounding eval: **18/18** — declines plain off-topic (pizza/weather/bitcoin) *and* adversarial in-vocabulary probes ("best pizza **office** in chicago", "family offices headquartered on the **moon**") that borrow domain words to inflate similarity. Specific queries return only above-threshold matches (no top-k padding). Architecture diagram: [`docs/rag-architecture.html`](docs/rag-architecture.html). Run locally:
+Layered: `rag/index` (fastembed/ONNX embeddings — no torch — + BM25 + metadata inc. **numeric AUM filter**) · `rag/retrieve` (RRF-fused hybrid) · `rag/ground` (**code-enforced** abstention below a tuned similarity threshold + verifies generated answers only name retrieved firms) · `rag/answer` (Groq LLM if a key is set, else deterministic extractive; both bounded by grounding) · `serve` (FastAPI + non-technical UI). Structured *and* semantic in one query — *"multi-family offices with AUM over $1 billion"* filters type+AUM then ranks semantically; answers surface principal, AUM, and recent investments. Reads the committed deliverable CSV, so answers are reproducibly grounded. Abstention/grounding eval: **18/18** — declines plain off-topic (pizza/weather/bitcoin) *and* adversarial in-vocabulary probes ("best pizza **office** in chicago", "family offices headquartered on the **moon**") that borrow domain words to inflate similarity. Specific queries return only above-threshold matches (no top-k padding). Architecture diagram: [`docs/rag-architecture.html`](docs/rag-architecture.html). Run locally:
 ```bash
 uvicorn fointel.serve.app:app --port 8000    # then open http://localhost:8000
 ```
@@ -36,7 +36,7 @@ uvicorn fointel.serve.app:app --port 8000    # then open http://localhost:8000
 - **Rule 1 (cells):** every high-value value carries provenance (source + method + confidence).
 - **Rule 2 (firms):** a firm counts toward the 55 only with affirmative evidence it *is* a family office; SFO/MFO/Undetermined is labelled honestly, never relabelled.
 - **Findings govern releases:** anything that fails validation is withheld from delivered fields and recorded in an audit trail.
-- **Multi-source discovery:** SEC EDGAR Form ADV · IRS 990-PF · News/press — three independent lenses, not one source copied.
+- **Multi-source & independent:** the delivered set is discovered via SEC EDGAR (13F, 28), SEC IAPD / Form ADV registration (20), and a curated Wikipedia/Wikidata lens (7); every fact is *verified* against an authoritative source of a **different class than discovery** (45/55), never one source copied at scale. (SEC dominates free-tier US discovery — an honest, disclosed skew.)
 
 ## Repository layout
 ```

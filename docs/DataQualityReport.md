@@ -12,7 +12,7 @@ data — unverifiable fields are blanked and named in `could_not_verify`.
 ## 1. Coverage
 
 **Classification (honest, per the assessment's "say so if undetermined"):**
-**30** Undetermined, **21** Multi-Family Office, **4** Single-Family Office
+**37** Multi-Family Office, **14** Undetermined, **4** Single-Family Office
 
 **Record confidence (weakest-link aggregate):** **28** High, **25** Medium, **2** Low
 
@@ -37,7 +37,7 @@ Top US states: **7** FL, **5** TX, **5** NY, **4** NC, **4** CA, **3** CO, **2**
 **Discovery source (how the firm was FOUND):** **28** SEC EDGAR (13F / SC / Form D filings), **20** SEC IAPD / Form ADV (investment-adviser registration), **7** Curated directory / reference (Wikipedia, associations)
 
 **Verification source (how facts were PROVEN; a record may carry several):**
-**40** SEC IAPD / Form ADV (investment-adviser registration), **27** SEC EDGAR (13F / SC / Form D filings), **32** Firm Website
+**40** SEC IAPD / Form ADV (investment-adviser registration), **28** SEC EDGAR (13F / SC / Form D filings), **32** Firm Website
 
 **Discovery ≠ verification:** 45/55 records are verified by at least one
 authoritative source *of a different class* than the one that discovered them (e.g. a
@@ -100,6 +100,6 @@ source. Fully reproducible: `scripts/correct_contamination.py`.
 - **Contact enrichment:** corporate/principal LinkedIn and principal email are unverified
   across the set. These are verifiable through a licensed contact-data source (e.g. Apollo),
   which would be labelled honestly as a vendor source rather than a primary filing.
-- **Type resolution:** 30/55 remain Undetermined —
+- **Type resolution:** 14/55 remain Undetermined —
   proven family offices whose single/multi sub-type is not stated on an authoritative
   source. These are labelled honestly rather than guessed.

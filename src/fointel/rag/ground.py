@@ -29,6 +29,13 @@ _CANDIDATE_FIRM = re.compile(
 
 _FO_WORDS = re.compile(r"\b(family|offices?|llc|ltd|lp|inc|the|and)\b", re.I)
 
+# Generic tokens that must NOT count as grounding evidence in verify_answer — every
+# family-office name shares them, so matching on them lets invented firms through.
+_GENERIC_TOKENS = {"family", "office", "offices", "capital", "partners", "partner",
+                   "management", "advisors", "advisor", "advisory", "group", "llc", "lp",
+                   "inc", "ltd", "the", "and", "co", "holdings", "ventures", "associates",
+                   "wealth", "investments", "investment"}
+
 
 def _name_core(s: str) -> str:
     """Distinctive core of a name/query — drops common family-office words + punctuation, so
@@ -60,10 +67,14 @@ class Grounding:
         return False, f"best match similarity {top:.2f} is below the {self.min_score} threshold"
 
     def verify_answer(self, answer_text: str, retrieved: list[Retrieved]) -> list[str]:
-        """Return firm names asserted in the answer that are NOT in the retrieved set."""
+        """Return firm names asserted in the answer that are NOT in the retrieved set.
+
+        A partial/aliased reference is allowed ONLY when it shares a DISTINCTIVE token with a
+        retrieved firm — generic family-office words (family, office, capital, partners, …) do
+        not count, so an invented name like 'Zephyr Quantum Family Office' can no longer slip
+        through by matching the shared 'family'/'office' tokens."""
         allowed = {norm_name(r.record.name) for r in retrieved}
-        # allow any single-token subset match too (retrieved names are the source of truth)
-        allowed_tokens = {t for name in allowed for t in name.split()}
+        allowed_tokens = {t for name in allowed for t in name.split() if t not in _GENERIC_TOKENS}
         ungrounded = []
         for match in _CANDIDATE_FIRM.finditer(answer_text or ""):
             mentioned = norm_name(match.group(1))
@@ -71,7 +82,8 @@ class Grounding:
                 continue
             if mentioned in allowed:
                 continue
-            if any(tok in allowed_tokens for tok in mentioned.split()):
-                continue  # a partial/aliased reference to a retrieved firm
+            distinctive = [t for t in mentioned.split() if t not in _GENERIC_TOKENS]
+            if distinctive and any(t in allowed_tokens for t in distinctive):
+                continue  # shares a DISTINCTIVE token with a retrieved firm
             ungrounded.append(match.group(1))
         return sorted(set(ungrounded))

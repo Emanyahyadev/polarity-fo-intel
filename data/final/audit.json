@@ -3,7 +3,7 @@
   "fo_id": "fo_7ef75c02df",
   "field": "principal_phone",
   "rejected_value": "+1 (786) 635-7162",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -27,7 +27,7 @@
   "fo_id": "fo_c7e795ff94",
   "field": "principal_phone",
   "rejected_value": "+1 (203) 862-3372",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -51,7 +51,7 @@
   "fo_id": "fo_15eb1b42d3",
   "field": "principal_phone",
   "rejected_value": "+1 (949) 721-2330",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -59,7 +59,7 @@
   "fo_id": "fo_4b474eef93",
   "field": "principal_phone",
   "rejected_value": "+1 (212) 830-6500",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -67,7 +67,7 @@
   "fo_id": "fo_c1e06b1868",
   "field": "principal_phone",
   "rejected_value": "+1 (717) 893-5055",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -75,7 +75,7 @@
   "fo_id": "fo_a6f6c19fed",
   "field": "principal_phone",
   "rejected_value": "+1 (518) 452-8050",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -83,7 +83,7 @@
   "fo_id": "fo_89137929e9",
   "field": "principal_phone",
   "rejected_value": "+1 (617) 624-0800",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -107,7 +107,7 @@
   "fo_id": "fo_beb7590905",
   "field": "principal_phone",
   "rejected_value": "+1 (267) 250-2036",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -115,7 +115,7 @@
   "fo_id": "fo_7c7a0fc12b",
   "field": "principal_phone",
   "rejected_value": "+1 (503) 897-0236",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -131,7 +131,7 @@
   "fo_id": "fo_6103057a41",
   "field": "principal_phone",
   "rejected_value": "+1 (605) 496-7760",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -139,7 +139,7 @@
   "fo_id": "fo_576ab240f6",
   "field": "principal_phone",
   "rejected_value": "+1 (561) 353-4440",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -147,7 +147,7 @@
   "fo_id": "fo_1c9723ce52",
   "field": "principal_phone",
   "rejected_value": "+1 (603) 602-8550",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -163,7 +163,7 @@
   "fo_id": "fo_c7b90e8baa",
   "field": "principal_phone",
   "rejected_value": "+1 (915) 730-3885",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -171,7 +171,7 @@
   "fo_id": "fo_87876deee2",
   "field": "principal_phone",
   "rejected_value": "+1 (616) 330-2270",
-  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "reason": "equals the firm main line (SEC filing) — not a verified direct line for the principal; withheld",
   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
   "checked_at": "2026-07-28"
  },
@@ -181,6 +181,150 @@
   "rejected_value": "Single-Family Office",
   "reason": "reclassified to Undetermined after website re-verification (prior label over-relied on generic single-family language detection)",
   "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_7ef75c02df",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_33a7413d76",
+  "field": "fo_type",
+  "rejected_value": "Multi-Family Office",
+  "reason": "reclassified to Undetermined under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_4dcf965b7e",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_9220a272d8",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_15eb1b42d3",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_a6f6c19fed",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_89137929e9",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_da95e70bda",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_5d097b8c75",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_7c7a0fc12b",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_29e17a89bc",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_6103057a41",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_1c9723ce52",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_41fc928853",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_c7b90e8baa",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_40030db7ab",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_87876deee2",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_519c4712e1",
+  "field": "fo_type",
+  "rejected_value": "Undetermined",
+  "reason": "reclassified to Multi-Family Office under the uniform evidence rule (explicit quote / ADV Item 5.F / active registration); replaces a contradictory or unestablished prior label",
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
   "checked_at": "2026-07-28"
  }
 ]

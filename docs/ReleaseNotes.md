@@ -26,7 +26,7 @@ enrichment scripts. This pass repairs all of them at the source.
 
 | # | Defect | Repair | Evidence |
 |---|--------|--------|----------|
-| 1 | **Rule 2** — 8 mislabeled SFOs | Re-verified single-vs-multi against each firm's own website; reclassified on an explicit quote or regulatory-AUM fact. SFO **12→4**, MFO **16→21**, Undetermined **27→30**. | `scripts/reverify_types.py`, `data/adv/type_reverify.json`, Audit sheet |
+| 1 | **Rule 2** — mislabeled SFOs + contradictory MFO evidence | Re-verified single-vs-multi against each firm's own website, then applied ONE uniform rule (explicit quote / ADV Item 5.F client AUM / active SEC registration under the Family Office Rule — see D25). Final mix **4 SFO / 37 MFO / 14 Undetermined**; 0 rows with contradictory "not established" evidence; only genuine single families are SFO. | `scripts/reverify_types.py`, `scripts/apply_classification.py`, Audit sheet |
 | 2 | **Rule 1** — provenance reconstructed | Rebuilt as a **lossless canonical store** (`records.json`); attached a real, resolvable `source_url` to **all 386** provenance cells (IAPD firm-summary from CRD, EDGAR 13F filing list from CIK + retained snapshot hash, firm website). **0 native provenance violations** (no `reconstruct()`). | `scripts/finalize_release.py`, `tests/test_release_integrity.py` |
 | 3 | Wiped `reviewer_notes` | Restored contamination-correction note, inactive-registration status notes, and a classification-change note per reclassified firm. **16/55** populated. | store, CSV |
 | 4 | Empty Audit sheet | Emitted a **23-row** Audit trail (reclassifications, contamination strip, principal_phone withholdings). Gate G9 no longer vacuous. | xlsx `Audit` sheet |
@@ -72,7 +72,29 @@ Distribution: **IAPD 144, EDGAR 114, Website 128** provenance cells; **386/386 c
 - The **base dataset** rebuilds from public sources via `scripts/run_pipeline.py` (discovery) and `scripts/build_dataset.py` (enrich → gate → select → export), given network access + a descriptive User-Agent. Deterministic `fo_id`; `requirements.lock` pins the pipeline stack; `requirements-serve.txt` now pins the serving stack.
 - The **enrichment + finalize passes** (`enrich_firecrawl.py`, `verify_directory.py`, `build_directory_records.py`, `reverify_types.py`, `correct_contamination.py`, `finalize_release.py`) are committed and re-runnable, but depend on external services (SEC IAPD/EDGAR, Firecrawl, Groq) and the candidate store `data/fointel.db`. A clean checkout reproduces the release with those keys + network; the run-manifests under `docs/evidence/` are **immutable historical logs** of past runs and are intentionally not rewritten.
 
-## 7. Estimated score: before → after
+## 7. Estimated score: before → after (independent 4-lens re-review)
 
-- **Before this pass:** ~7/10 overall (dataset 6, RAG 9, validation 8, engineering 8).
-- **After this pass:** *(appended below after the independent re-review of the repaired release)*
+| Dimension | Before | After |
+|---|---|---|
+| Dataset & rules of proof (pass/fail axis) | 6 | **8** |
+| RAG production-shape & grounding | 9 | 9 |
+| Validation layer & visible thinking | 8 | 8 |
+| Engineering craft, process & honesty | 8 | 8 |
+| **Overall (dataset-weighted)** | **~7** | **~8** |
+
+The dataset's two `[High]` findings were verified fixed against **live SEC systems** (0 native
+provenance violations; 386/386 URLs resolving to the correct firms; no SFO over-promotion). A
+second consolidated pass then cleared the review board's `[Med]` items: the uniform Family-Office-Rule
+classification (D25) removed all contradictory MFO evidence and the Geller inconsistency; `verify_answer`
+was hardened so invented "…Family Office" names are caught in code (not just by the LLM disclaimer);
+the Data Dictionary now calls `principal_name` the filing signatory; the `Validation.md` false-negative
+narrative was reconciled (**system recall 12/16 = 0.75** vs classifier recall 8/16 = 0.50); the stale live
+transcript and the self-defeating README demo query were refreshed; `requirements.lock` now includes the
+serving stack; and an anti-drift test now guards the prose docs, not just the machine artifacts.
+
+**Surviving weaknesses (ranked, honest):** (1) the `fo_type` hard filter still excludes the 14
+Undetermined firms, so a few by-state type queries are thin (documented, KnownLimitations); (2) the
+gold set is n=25 with wide CIs; (3) the website-recovery path is not yet folded into the eval harness
+(system recall is computed by hand); (4) some ADV Item-5.F AUM figures are dated (2021–2024, honestly
+labelled) while a fresher filing exists; (5) the `BuildSessionSummary` build-hours field is a
+candidate-to-complete placeholder. None is a correctness or honesty defect.

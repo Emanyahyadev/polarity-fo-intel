@@ -30,3 +30,13 @@ typing-inspection==0.4.2
 typing_extensions==4.16.0
 tzdata==2026.3
 urllib3==2.7.0
+
+# --- serving / Micro-RAG stack (mirrors requirements-serve.txt; pinned so a clean
+# checkout reproduces the test + serving environment, not just the pipeline) ---
+fastapi==0.140.1
+fastembed==0.8.0
+groq==1.6.0
+onnxruntime==1.28.0
+rank-bm25==0.2.2
+tokenizers==0.23.1
+uvicorn==0.51.0
