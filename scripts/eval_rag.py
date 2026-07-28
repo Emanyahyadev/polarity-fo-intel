@@ -31,6 +31,11 @@ QUERIES = [
     ("single-family offices in Texas", False),      # regression: reclassification left NO true SFO in TX
     ("Pathstone", True),
     ("family offices focused on private equity", True),
+    ("who should I contact at a large multi-family office", True),  # research lookup — stays IN scope
+    ("how do I start my own family office", False),   # how-to: domain words, out-of-scope task
+    ("should I invest with a multi-family office", False),  # advice: must not pass via the type filter
+    ("what is a family office", False),               # definitional: scores ~0.80 but not a record lookup
+    ("write a poem about family offices", False),     # creative: deterministic decline, not luck
     ("what is the best pizza in Chicago", False),
     ("best pizza office in Chicago", False),        # domain-word probe: "office" must not defeat abstention
     ("best pizza in Texas", False),                 # a state name must NOT force an off-topic answer

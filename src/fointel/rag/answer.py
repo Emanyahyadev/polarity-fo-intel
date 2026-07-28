@@ -45,6 +45,13 @@ ABSTAIN_MESSAGE = (
     "try naming a family-office type (single- or multi-family), a US state, an "
     "investing focus, or a firm name.")
 
+OFF_SCOPE_MESSAGE = (
+    "That request is outside this service's scope. It answers research questions about "
+    "the verified family-office records — firms, types, locations, AUM, principals, and "
+    "recent activity — and does not provide advice, definitions, how-to guidance, or "
+    "general content. Try a research question like \"multi-family offices in Texas\" or "
+    "\"Tell me about Pathstone\".")
+
 
 class AnswerResult(BaseModel):
     query: str
@@ -155,7 +162,8 @@ def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Groundin
     answerable, reason = grounding.assess(retrieved, query, authoritative=hard)
     if not answerable:
         log.info("abstain", extra={"event": "abstain", "query": query, "reason": reason})
-        return AnswerResult(query=query, answered=False, answer=ABSTAIN_MESSAGE,
+        msg = OFF_SCOPE_MESSAGE if reason.startswith("out-of-scope") else ABSTAIN_MESSAGE
+        return AnswerResult(query=query, answered=False, answer=msg,
                             reason=reason, mode="abstain")
 
     # Trim semantic padding. With no hard metadata filter, keep only results at/above the

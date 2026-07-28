@@ -43,6 +43,23 @@ def _name_core(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", _FO_WORDS.sub("", (s or "").lower()))
 
 
+# Requests the dataset cannot answer even when they use domain vocabulary: advice,
+# how-to guidance, definitions, and creative/content tasks. Domain words push such
+# queries over the similarity threshold ("what is a family office" scores ~0.80), so
+# scope is enforced HERE in code, not left to the threshold or the prompt. Deliberately
+# conservative patterns; a query that names a verified firm bypasses this gate (asking
+# "how do I contact <firm>" is a legitimate record lookup).
+_OFF_TASK = re.compile(
+    r"\bhow (do|does|can|could|should|would) (i|we|you|one)\b|\bhow to\b"
+    r"|\bshould (i|we)\b(?!\s+contact)"
+    r"|\b(write|compose|draft) (me |us )?(a|an|some)\b"
+    r"|\b(poem|joke|story|essay|song|recipe|lyrics)\b"
+    r"|\b(advice|advise me|is it (wise|a good idea))\b"
+    r"|\b(start|starting|set up|setting up|launch|create|establish|open)\s+(my|your|our)\s+(own\s+)?family office\b"
+    r"|^\s*what (is|are) (a |an |the )?((single|multi)[- ]?family )?(family )?offices?\??\s*$",
+    re.IGNORECASE)
+
+
 class Grounding:
     def __init__(self, min_score: float = 0.68):
         self.min_score = min_score
@@ -56,14 +73,29 @@ class Grounding:
         cosine must not veto it). Otherwise abstain."""
         if not retrieved:
             return False, "no records matched the query"
+        top = max(r.vector_score for r in retrieved)
+        # firm mentioned in the query (either direction: bare-name lookup, or a longer
+        # question containing a verified firm's distinctive name) → an in-scope record
+        # lookup, which also bypasses the off-task gate below
+        qcore = _name_core(query)
+        named = False
+        for r in retrieved:
+            rcore = _name_core(r.record.name)
+            if rcore and ((len(qcore) >= 4 and qcore in rcore)
+                          or (len(rcore) >= 5 and rcore in qcore)):
+                named = True
+                break
+        # scope gate: advice / how-to / definitions / creative tasks are declined in code
+        # even when domain vocabulary clears the similarity threshold or a metadata filter
+        if not named and _OFF_TASK.search(query):
+            return False, ("out-of-scope request (advice / how-to / definition / creative) "
+                           "— this service answers research questions about the records")
+        if named:
+            return True, f"firm-name match (best similarity {top:.2f})"
         if authoritative:
             return True, "matched an authoritative metadata filter (state/country/type/AUM)"
-        top = max(r.vector_score for r in retrieved)
         if top >= self.min_score:
             return True, f"top similarity {top:.2f}"
-        qcore = _name_core(query)
-        if len(qcore) >= 4 and any(qcore in _name_core(r.record.name) for r in retrieved):
-            return True, f"firm-name match (best similarity {top:.2f})"
         return False, f"best match similarity {top:.2f} is below the {self.min_score} threshold"
 
     def verify_answer(self, answer_text: str, retrieved: list[Retrieved]) -> list[str]:

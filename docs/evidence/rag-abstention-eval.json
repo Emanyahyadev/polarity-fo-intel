@@ -1,6 +1,6 @@
 {
-  "n": 18,
-  "correct": 18,
+  "n": 23,
+  "correct": 23,
   "accuracy": 1.0,
   "results": [
     {
@@ -110,7 +110,7 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.72",
+      "reason": "firm-name match (best similarity 0.72)",
       "citations": [
         "fo_38a12a7ca6"
       ],
@@ -129,6 +129,57 @@
         "fo_3171716a52",
         "fo_611226b119"
       ],
+      "correct": true
+    },
+    {
+      "query": "who should I contact at a large multi-family office",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_831b1d28ba",
+        "fo_cfa2d51623",
+        "fo_c1e06b1868",
+        "fo_beb7590905",
+        "fo_a4cb68cd35"
+      ],
+      "correct": true
+    },
+    {
+      "query": "how do I start my own family office",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "should I invest with a multi-family office",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "what is a family office",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "citations": [],
+      "correct": true
+    },
+    {
+      "query": "write a poem about family offices",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
+      "citations": [],
       "correct": true
     },
     {
@@ -172,7 +223,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.40 is below the 0.68 threshold",
+      "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
       "citations": [],
       "correct": true
     },

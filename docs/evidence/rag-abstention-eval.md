@@ -35,12 +35,32 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: Pathstone
-- expected: answer · got: answer · ✓ · mode=extractive · top similarity 0.72
+- expected: answer · got: answer · ✓ · mode=extractive · firm-name match (best similarity 0.72)
 - Found 1 matching family office in the verified dataset:
 
 ## Q: family offices focused on private equity
 - expected: answer · got: answer · ✓ · mode=extractive · top similarity 0.82
 - Found 5 matching family offices in the verified dataset:
+
+## Q: who should I contact at a large multi-family office
+- expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
+- Found 5 matching family offices in the verified dataset:
+
+## Q: how do I start my own family office
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
+- That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
+
+## Q: should I invest with a multi-family office
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
+- That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
+
+## Q: what is a family office
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
+- That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
+
+## Q: write a poem about family offices
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
+- That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
 
 ## Q: what is the best pizza in Chicago
 - expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.47 is below the 0.68 threshold
@@ -59,8 +79,8 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: how do I bake sourdough bread
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.40 is below the 0.68 threshold
-- I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
+- That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
 
 ## Q: tomorrow's weather forecast
 - expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.53 is below the 0.68 threshold
