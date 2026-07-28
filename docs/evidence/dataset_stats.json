@@ -1,0 +1,257 @@
+{
+  "n": 50,
+  "type": {
+    "Undetermined": 27,
+    "Single-Family Office": 7,
+    "Multi-Family Office": 16
+  },
+  "confidence": {
+    "High": 28,
+    "Medium": 21,
+    "Low": 1
+  },
+  "discovery_source": {
+    "SEC EDGAR (13F / SC / Form D filings)": 28,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 20,
+    "Curated directory / reference (Wikipedia, associations)": 2
+  },
+  "verification_source": {
+    "SEC EDGAR (13F / SC / Form D filings)": 28,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 48,
+    "Firm Website": 27
+  },
+  "independence_verified": 48,
+  "geography": {
+    "countries": {
+      "United States": 46,
+      "Germany": 1,
+      "Monaco": 1,
+      "Brazil": 1,
+      "Switzerland": 1
+    },
+    "top_us_states": {
+      "FL": 7,
+      "TX": 5,
+      "NY": 5,
+      "NC": 4,
+      "CA": 4,
+      "CO": 3,
+      "PA": 2,
+      "AL": 2,
+      "CT": 2,
+      "MO": 1,
+      "KS": 1,
+      "MA": 1
+    }
+  },
+  "coverage": {
+    "website": {
+      "count": 28,
+      "pct": 56
+    },
+    "estimated_aum": {
+      "count": 32,
+      "pct": 64
+    },
+    "principal_name": {
+      "count": 35,
+      "pct": 70
+    },
+    "hq_phone": {
+      "count": 28,
+      "pct": 56
+    },
+    "investment_thesis": {
+      "count": 17,
+      "pct": 34
+    },
+    "investing_sectors": {
+      "count": 1,
+      "pct": 2
+    },
+    "recent_signal": {
+      "count": 25,
+      "pct": 50
+    },
+    "corporate_linkedin": {
+      "count": 0,
+      "pct": 0
+    }
+  },
+  "aum_source": {
+    "total": 32,
+    "13f": 24,
+    "adv": 8
+  },
+  "could_not_verify": {
+    "corporate_linkedin": 50,
+    "principal_linkedin": 50,
+    "principal_email": 50,
+    "principal_phone": 26,
+    "principal_name": 15,
+    "principal_title": 15,
+    "estimated_aum": 18,
+    "website": 1,
+    "investment_thesis": 1
+  },
+  "all_qualify": true,
+  "provenance_violations": 0,
+  "inactive_registration": {
+    "Allie Family Office LLC": {
+      "crd": "307144",
+      "scope": "ACTIVE"
+    },
+    "JFG FAMILY OFFICE": {
+      "crd": "125101",
+      "scope": "ACTIVE"
+    },
+    "Biltmore Family Office, LLC": {
+      "crd": "167174",
+      "scope": "ACTIVE"
+    },
+    "WE FAMILY OFFICES": {
+      "crd": "109869",
+      "scope": "ACTIVE"
+    },
+    "818 FAMILY OFFICE, LLC": {
+      "crd": "339082",
+      "scope": "ACTIVE"
+    },
+    "FIVE ELEVEN PARTNERS": {
+      "crd": "334002",
+      "scope": "ACTIVE"
+    },
+    "Tarbox Family Office, Inc.": {
+      "crd": "106079",
+      "scope": "ACTIVE"
+    },
+    "CARPA FAMILY OFFICE": {
+      "crd": "329017",
+      "scope": "INACTIVE"
+    },
+    "MATTER FAMILY OFFICE": {
+      "crd": "106806",
+      "scope": "ACTIVE"
+    },
+    "SESTANTE FAMILY OFFICE": {
+      "crd": "335152",
+      "scope": "ACTIVE"
+    },
+    "COLLECTIVE FAMILY OFFICE LLC": {
+      "crd": "301274",
+      "scope": "ACTIVE"
+    },
+    "STORYONE FAMILY OFFICE": {
+      "crd": "331394",
+      "scope": "ACTIVE"
+    },
+    "Independent Family Office, LLC": {
+      "crd": "144811",
+      "scope": "ACTIVE"
+    },
+    "COLONY FAMILY OFFICES, LLC": {
+      "crd": "167017",
+      "scope": "ACTIVE"
+    },
+    "BOSTON FAMILY OFFICE LLC": {
+      "crd": "107141",
+      "scope": "ACTIVE"
+    },
+    "NOBLEHOUSE FAMILY OFFICE, LLC": {
+      "crd": "338855",
+      "scope": "ACTIVE"
+    },
+    "Fortitude Family Office, LLC": {
+      "crd": "317615",
+      "scope": "ACTIVE"
+    },
+    "LONG FAMILY OFFICE": {
+      "crd": "110990",
+      "scope": "ACTIVE"
+    },
+    "THE FAMILY OFFICE, LLC": {
+      "crd": "288530",
+      "scope": "INACTIVE"
+    },
+    "Callan Family Office, LLC": {
+      "crd": "317446",
+      "scope": "ACTIVE"
+    },
+    "DCA FAMILY OFFICE, LLC": {
+      "crd": "322047",
+      "scope": "ACTIVE"
+    },
+    "Capitol Family Office, Inc.": {
+      "crd": "312005",
+      "scope": "ACTIVE"
+    },
+    "DESTINY FAMILY OFFICE": {
+      "crd": "338015",
+      "scope": "ACTIVE"
+    },
+    "Pioneer Family Office, LLC": {
+      "crd": "142856",
+      "scope": "ACTIVE"
+    },
+    "ANGELES FAMILY OFFICE": {
+      "crd": "338266",
+      "scope": "ACTIVE"
+    },
+    "GRIT FAMILY OFFICE, LLC": {
+      "crd": "290066",
+      "scope": "ACTIVE"
+    },
+    "Standard Family Office LLC": {
+      "crd": "301865",
+      "scope": "ACTIVE"
+    },
+    "LONGWALL FAMILY OFFICE": {
+      "crd": "324336",
+      "scope": "ACTIVE"
+    },
+    "FIDUCIARY FAMILY OFFICE, LLC": {
+      "crd": "326990",
+      "scope": "ACTIVE"
+    },
+    "EAGLE BAY FAMILY OFFICE": {
+      "crd": "281675",
+      "scope": "ACTIVE"
+    },
+    "Aurelius Family Office LLC": {
+      "crd": "323016",
+      "scope": "ACTIVE"
+    },
+    "HOLDUN FAMILY OFFICE LLC": {
+      "crd": "158123",
+      "scope": "INACTIVE"
+    },
+    "ARAGON FAMILY OFFICE LLC": {
+      "crd": "337597",
+      "scope": "ACTIVE"
+    },
+    "Virtus Family Office LLC": {
+      "crd": "298272",
+      "scope": "ACTIVE"
+    },
+    "PMG Family Office LLC": {
+      "crd": "312154",
+      "scope": "ACTIVE"
+    },
+    "Wealthgate Family Office, LLC": {
+      "crd": "307858",
+      "scope": "INACTIVE"
+    },
+    "CAMBIENT FAMILY OFFICE, LLC": {
+      "crd": "335128",
+      "scope": "ACTIVE"
+    },
+    "Geller Advisors LLC": {
+      "crd": "134062",
+      "scope": "INACTIVE"
+    },
+    "MARCUARD FAMILY OFFICE LTD": {
+      "crd": "155003",
+      "scope": "ACTIVE"
+    }
+  }
+}
