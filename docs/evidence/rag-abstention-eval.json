@@ -12,8 +12,8 @@
       "citations": [
         "fo_40030db7ab",
         "fo_831b1d28ba",
-        "fo_c7b90e8baa",
         "fo_9220a272d8",
+        "fo_c7b90e8baa",
         "fo_33d228f849"
       ],
       "correct": true
@@ -85,11 +85,11 @@
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
-        "fo_207554cfe7",
+        "fo_e2b48bb2d2",
         "fo_3642e17ac1",
+        "fo_207554cfe7",
         "fo_d80fbfc1d9",
-        "fo_d27cc088a3",
-        "fo_ca957ee5d5"
+        "fo_68c2c35a95"
       ],
       "correct": true
     },
@@ -126,6 +126,7 @@
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
+        "fo_68c2c35a95",
         "fo_ca957ee5d5"
       ],
       "correct": true
@@ -228,7 +229,7 @@
         "fo_831b1d28ba",
         "fo_55e904bc2b",
         "fo_3171716a52",
-        "fo_c1e06b1868"
+        "fo_f638fbd06f"
       ],
       "correct": true
     },
@@ -239,11 +240,11 @@
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
+        "fo_68c2c35a95",
+        "fo_e2b48bb2d2",
         "fo_207554cfe7",
         "fo_3642e17ac1",
-        "fo_d80fbfc1d9",
-        "fo_ca957ee5d5",
-        "fo_e8d9f15c57"
+        "fo_d80fbfc1d9"
       ],
       "correct": true
     },

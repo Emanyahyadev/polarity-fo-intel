@@ -52,6 +52,8 @@ COUNTRIES = {
     "belgium": "Belgium", "france": "France", "denmark": "Denmark", "germany": "Germany",
     "switzerland": "Switzerland", "monaco": "Monaco", "brazil": "Brazil",
     "united kingdom": "United Kingdom", "uk": "United Kingdom", "canada": "Canada",
+    "singapore": "Singapore", "netherlands": "Netherlands", "luxembourg": "Luxembourg",
+    "spain": "Spain", "nigeria": "Nigeria",
 }
 
 

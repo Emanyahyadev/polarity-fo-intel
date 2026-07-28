@@ -1,6 +1,6 @@
 # RAG grounding & abstention evaluation
 
-Dataset: 57 validated records. Abstention threshold: min cosine 0.68.
+Dataset: 60 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: multi-family offices in Texas
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
@@ -36,7 +36,7 @@ Dataset: 57 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: family offices in France
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
-- Found 1 matching family office in the verified dataset:
+- Found 2 matching family offices in the verified dataset:
 
 ## Q: family offices in Denmark
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)

@@ -4,7 +4,7 @@
 `scripts/quality_report.py` from the delivered `data/final/family_offices.csv`; none
 is hand-entered. Regenerate after any dataset change.*
 
-**Headline:** 57 validated family-office records. All 57 pass the Rule-2 evidence
+**Headline:** 60 validated family-office records. All 60 pass the Rule-2 evidence
 gate (`fo_type_evidence` present). Provenance completeness: **0
 violations** across all populated high-value fields (Rule 1). No fabricated contact
 data — unverifiable fields are blanked and named in `could_not_verify`.
@@ -12,38 +12,38 @@ data — unverifiable fields are blanked and named in `could_not_verify`.
 ## 1. Coverage
 
 **Classification (honest, per the assessment's "say so if undetermined"):**
-**37** Multi-Family Office, **14** Undetermined, **6** Single-Family Office
+**37** Multi-Family Office, **14** Undetermined, **9** Single-Family Office
 
-**Record confidence (weakest-link aggregate):** **35** Medium, **8** High, **14** Low
+**Record confidence (weakest-link aggregate):** **38** Medium, **8** High, **14** Low
 
-**Geography:** **50** United States, **1** Germany, **1** Monaco, **1** Brazil, **1** Switzerland, **1** France, **1** Denmark, **1** Belgium
+**Geography:** **50** United States, **1** Germany, **1** Monaco, **1** Brazil, **1** Switzerland, **2** France, **1** Denmark, **1** Belgium, **2** unknown
 Top US states: **7** FL, **7** NY, **5** TX, **4** NC, **4** CA, **3** CO, **2** PA, **2** AL, **2** CT, **2** ?, **1** MO, **1** KS
 
 **Field completeness**
 
 | Field | Populated | % |
 |-------|-----------|---|
-| Website | 35/57 | 61% |
-| Estimated AUM | 32/57 | 56% |
-| Principal (name) | 38/57 | 67% |
-| HQ phone (authoritative) | 28/57 | 49% |
-| Investment thesis | 21/57 | 37% |
-| ≥1 recent signal | 25/57 | 44% |
-| Investing sectors | 1/57 | 2% |
-| Corporate LinkedIn | 0/57 | 0% |
+| Website | 38/60 | 63% |
+| Estimated AUM | 32/60 | 53% |
+| Principal (name) | 38/60 | 63% |
+| HQ phone (authoritative) | 28/60 | 47% |
+| Investment thesis | 23/60 | 38% |
+| ≥1 recent signal | 25/60 | 42% |
+| Investing sectors | 1/60 | 2% |
+| Corporate LinkedIn | 0/60 | 0% |
 
 ## 2. Source diversity & independence
 
-**Discovery source (how the firm was FOUND):** **28** SEC EDGAR (13F / SC / Form D filings), **20** SEC IAPD / Form ADV (investment-adviser registration), **9** Curated directory / reference (Wikipedia, associations)
+**Discovery source (how the firm was FOUND):** **28** SEC EDGAR (13F / SC / Form D filings), **20** SEC IAPD / Form ADV (investment-adviser registration), **12** Curated directory / reference (Wikipedia, associations)
 
 **Verification source (how facts were PROVEN; a record may carry several):**
-**40** SEC IAPD / Form ADV (investment-adviser registration), **28** SEC EDGAR (13F / SC / Form D filings), **34** Firm Website
+**28** SEC EDGAR (13F / SC / Form D filings), **40** SEC IAPD / Form ADV (investment-adviser registration), **37** Firm Website
 
-**Discovery ≠ verification:** 47/57 records are verified by at least one
+**Discovery ≠ verification:** 50/60 records are verified by at least one
 authoritative source *of a different class* than the one that discovered them (e.g. a
 13F-discovered firm confirmed against its independent SEC IAPD / Form ADV registration).
 
-**AUM provenance:** 32/57 carry an AUM figure —
+**AUM provenance:** 32/60 carry an AUM figure —
 24 from Form 13F (13(f) securities), 8
 from Form ADV Item 5.F (total regulatory AUM). Website-scraped AUM is deliberately
 excluded as unreliable.
@@ -54,9 +54,9 @@ excluded as unreliable.
 listed **only** when we tried an authoritative source and it was not establishable
 (the schema forbids a field being both populated and listed):
 
-**57** corporate_linkedin, **57** principal_linkedin, **57** principal_email, **47** principal_phone, **19** principal_name, **19** principal_title, **25** estimated_aum, **1** website, **1** investment_thesis, **7** hq_phone
+**60** corporate_linkedin, **60** principal_linkedin, **60** principal_email, **50** principal_phone, **22** principal_name, **22** principal_title, **28** estimated_aum, **1** website, **1** investment_thesis, **10** hq_phone
 
-Corporate LinkedIn, principal LinkedIn and principal email are blank for all 57
+Corporate LinkedIn, principal LinkedIn and principal email are blank for all 60
 records: none could be authoritatively verified from free public sources, so none were
 guessed. This is the single biggest enrichment opportunity (see §6).
 
@@ -91,15 +91,15 @@ source. Fully reproducible: `scripts/correct_contamination.py`.
 
 ## 6. Gaps & known limitations (honest)
 
-- **Discovery concentration:** 48/57
+- **Discovery concentration:** 48/60
   records were discovered via SEC systems (EDGAR 13F + IAPD/ADV). SEC is the highest-signal
   free authoritative source for US advisers, but this skews the set US-heavy and toward
   registered/reporting firms. Non-SEC discovery (associations, curated references) is thin.
-- **International coverage:** 7/57 records are outside the US — a known gap;
+- **International coverage:** 10/60 records are outside the US — a known gap;
   free authoritative registries abroad are fragmented.
 - **Contact enrichment:** corporate/principal LinkedIn and principal email are unverified
   across the set. These are verifiable through a licensed contact-data source (e.g. Apollo),
   which would be labelled honestly as a vendor source rather than a primary filing.
-- **Type resolution:** 14/57 remain Undetermined —
+- **Type resolution:** 14/60 remain Undetermined —
   proven family offices whose single/multi sub-type is not stated on an authoritative
   source. These are labelled honestly rather than guessed.

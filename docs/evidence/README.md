@@ -29,11 +29,11 @@ Present now (Wave 1):
 | `01-discovery-source-distribution.csv` | pipeline | discovery is genuinely multi-source |
 | `01-discovery-harvest-summary.json` | pipeline | per-source yields + resolution actions |
 | `02-entity-resolution-decisions.jsonl` | merge decisions | every merge/kept-distinct decision + basis (no silent drops) |
-| `dataset-discovery-report.json` | pipeline | 398 discovered → 189 qualified → 68 released → 57 delivered, with rejection reasons |
+| `dataset-discovery-report.json` | pipeline | 398 discovered → 189 qualified → 68 released → 60 delivered, with rejection reasons |
 | `firmtype-goldset-eval.json` | validation report | firm-type precision 1.00 / FP-rate 0.00 / recall 0.50 + the false negatives |
 | `rag-abstention-eval.json` + `.md` | RAG eval | grounding/abstention 29/29 on labelled queries incl. adversarial in-vocabulary probes ("pizza office", "office space", "family offices on the moon") |
 | `run-manifest-discovery-*.json` / `run-manifest-dataset-*.json` | run manifest | ties pool + release to git commit + schema/pipeline version + counts |
-| `live-url-query-transcript.json` + `.md` | deployment | live URL verified — `/health` = 57 records + 6 real queries (4 answered with grounded records, 2 correct abstentions) |
+| `live-url-query-transcript.json` + `.md` | deployment | live URL verified — `/health` = 60 records + 6 real queries (4 answered with grounded records, 2 correct abstentions) |
 
 Planned / pending:
 
