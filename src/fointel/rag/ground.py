@@ -115,16 +115,21 @@ class Grounding:
     def verify_answer(self, answer_text: str, retrieved: list[Retrieved]) -> list[str]:
         """Return firm names asserted in the answer that are NOT in the retrieved set.
 
-        A partial/aliased reference is allowed ONLY when it shares a DISTINCTIVE token with a
-        retrieved firm — generic family-office words (family, office, capital, partners, …) do
-        not count, so an invented name like 'Zephyr Quantum Family Office' no longer slips
-        through by matching the shared 'family'/'office' tokens. An all-generic phrase is not
-        treated as a firm at all (so ordinary 'Wealth Management' prose is not rejected). Known
-        residual gap: an invented name that borrows ONE distinctive token from a retrieved firm
-        (e.g. 'Pathstone Ventures') is still treated as a partial reference; the LLM prompt +
-        abstention threshold are the backstops there."""
+        The allowlist is the CONTEXT the model was given: a mention is grounded if its
+        distinctive tokens appear in a retrieved firm's name OR anywhere in its record text
+        (e.g. 'LEGO Group' inside KIRKBI's evidence is a record fact, not an invention).
+        Generic family-office/finance words never count as grounding, so an invented name
+        like 'Zephyr Quantum Family Office' is flagged, and an all-generic phrase is not
+        treated as a firm at all (ordinary 'Wealth Management' prose is not rejected). Known
+        residual gap: an invented name that borrows ONE distinctive token from the retrieved
+        context (e.g. 'Pathstone Ventures') is still treated as a partial reference; the LLM
+        prompt + abstention threshold are the backstops there."""
+        from .index import record_text
         allowed = {norm_name(r.record.name) for r in retrieved}
         allowed_tokens = {t for name in allowed for t in name.split() if t not in _GENERIC_TOKENS}
+        for r in retrieved:   # entities inside the record text are record-grounded too
+            allowed_tokens.update(t for t in norm_name(record_text(r.record)).split()
+                                  if t not in _GENERIC_TOKENS)
         ungrounded = []
         for match in _CANDIDATE_FIRM.finditer(answer_text or ""):
             mentioned = norm_name(match.group(1))
