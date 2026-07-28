@@ -109,14 +109,26 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
     from groq import Groq
 
     context = "\n".join(f"[{r.record.fo_id}] {record_text(r.record)}" for r in retrieved)
-    system = ("You are a family-office intelligence assistant for institutional investors. "
-              "Answer ONLY from the records provided. Cite firm names exactly as written. "
-              "If the records do not answer the question, say so plainly. "
-              "Never invent firms, contacts, or facts.")
-    user = f"Records:\n{context}\n\nQuestion: {query}\n\nAnswer:"
+    system = (
+        "You are a Family Office Intelligence assistant for capital allocators (fund managers, "
+        "institutional investors). Answer the user's question in clear plain English using ONLY "
+        "the family-office records provided below — no outside knowledge, no invented firms, "
+        "contacts, or numbers.\n"
+        "Give a genuinely useful answer that combines EXPLANATION and DATA: briefly say what the "
+        "relevant firm(s) are and why they fit the question, and include the specific facts from "
+        "the records that answer it — type (single-/multi-family), location, AUM, principal "
+        "(name + title), recent investments, website. Cite firm names exactly as written.\n"
+        "Do NOT speculate about attributes the records do not state (never 'may/could/potentially "
+        "invests in X'); if a specific detail is not in the records, say it is not available.\n"
+        "Stay strictly within the family-office domain and these records. If the records do not "
+        "contain the answer, say so plainly and suggest a related question the data CAN answer "
+        "(e.g. by US state, family-office type, AUM range, investing focus, or a firm name). "
+        "Be concise and well-organised (2–5 sentences, or a short labelled list for multiple "
+        "firms) — neither a one-line fragment nor a raw data dump.")
+    user = f"RECORDS:\n{context}\n\nQUESTION: {query}\n\nGrounded answer:"
     client = Groq(api_key=settings.llm_api_key)
     resp = client.chat.completions.create(
-        model=settings.llm_model, temperature=0, max_tokens=500,
+        model=settings.llm_model, temperature=0.2, max_tokens=600,
         messages=[{"role": "system", "content": system}, {"role": "user", "content": user}])
     return (resp.choices[0].message.content or "").strip()
 
