@@ -39,15 +39,15 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - Found 1 matching family office in the verified dataset:
 
 ## Q: family offices focused on private equity
-- expected: answer · got: answer · ✓ · mode=extractive · top similarity 0.77
+- expected: answer · got: answer · ✓ · mode=extractive · top similarity 0.82
 - Found 5 matching family offices in the verified dataset:
 
 ## Q: what is the best pizza in Chicago
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.48 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.47 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: best pizza office in Chicago
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.57 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.52 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: best pizza in Texas
@@ -59,15 +59,15 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: how do I bake sourdough bread
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.43 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.40 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: tomorrow's weather forecast
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.45 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.53 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: predict the price of bitcoin next year
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.59 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.62 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: family offices headquartered on the moon

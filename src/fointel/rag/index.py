@@ -27,7 +27,7 @@ EMBED_MODEL = "BAAI/bge-small-en-v1.5"   # 384-dim, fastembed-supported, small
 # Precomputed document vectors (built at image build time) let the runtime load vectors
 # instead of running the ONNX model at startup — avoids the startup memory spike that
 # OOM-kills a 512 MB free instance. The model then loads lazily only on the first query.
-DOC_EMBEDDINGS_PATH = os.getenv("DOC_EMBEDDINGS_PATH", "data/final/doc_embeddings.npy")
+DOC_EMBEDDINGS_PATH = os.getenv("DOC_EMBEDDINGS_PATH", "data/final/doc_embeddings.npz")
 
 US_STATES = {
     "alabama": "AL", "alaska": "AK", "arizona": "AZ", "arkansas": "AR", "california": "CA",
@@ -73,6 +73,25 @@ def record_text(r: FamilyOfficeRecord) -> str:
                      + (f", {r.principal_title}" if r.principal_title else ""))
     for sig in r.signals:
         parts.append("Recent activity: " + sig.text)
+    return " | ".join(parts)
+
+
+def focus_text(r: FamilyOfficeRecord) -> str:
+    """The record's TOPICAL evidence only — thesis, sectors, and recent 13F holdings.
+
+    Embedded as a second, undiluted channel: in the full document these fragments are
+    averaged away by the generic family-office prose every record shares, so topical
+    queries ("family offices investing in healthcare") rank on prose richness instead
+    of actual holdings. Scored separately, "New 13F positions: Abbvie Inc, Merck & Co"
+    can match a healthcare query on its own. Empty string when a record carries no
+    topical evidence (its row is zeroed — it simply doesn't compete on this channel)."""
+    parts = []
+    if r.investment_thesis:
+        parts.append(r.investment_thesis)
+    if r.investing_sectors:
+        parts.append("Invests in sectors: " + ", ".join(r.investing_sectors))
+    for sig in r.signals:
+        parts.append("Recent investments: " + sig.text)
     return " | ".join(parts)
 
 
@@ -124,15 +143,27 @@ def embed_texts(texts: list[str], model_name: str = EMBED_MODEL) -> np.ndarray:
     return vecs / norms
 
 
+def embed_focus(records, model_name: str = EMBED_MODEL) -> np.ndarray:
+    """Embed each record's focus_text; rows with no topical evidence are zeroed so they
+    score 0 on the focus channel instead of matching on an empty-string artifact."""
+    texts = [focus_text(r) for r in records]
+    arr = embed_texts([t or " " for t in texts], model_name)
+    for i, t in enumerate(texts):
+        if not t:
+            arr[i] = 0.0
+    return arr
+
+
 def precompute_and_save(records, path: str = DOC_EMBEDDINGS_PATH) -> tuple:
-    """Embed every record's document text and save the matrix to `path`. Run at image
-    build time so the deployed runtime loads vectors instead of running the model at
-    startup (the startup model+batch spike is what OOM-kills a 512 MB instance)."""
-    docs = [record_text(r) for r in records]
-    arr = embed_texts(docs)
+    """Embed every record's full document AND its topical focus channel; save both
+    matrices to `path` (.npz). Run at image build time so the deployed runtime loads
+    vectors instead of running the model at startup (the startup model+batch spike is
+    what OOM-kills a 512 MB instance)."""
+    docs = embed_texts([record_text(r) for r in records])
+    focus = embed_focus(records)
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    np.save(path, arr)
-    return arr.shape
+    np.savez(path if path.endswith(".npz") else path + ".npz", docs=docs, focus=focus)
+    return docs.shape, focus.shape
 
 
 class RetrievalIndex:
@@ -149,24 +180,28 @@ class RetrievalIndex:
         self.meta = [record_meta(r) for r in records]
         self.bm25 = BM25Okapi([tokenize(d) for d in self.docs]) if records else None
         if embeddings is not None:
+            # injected (tests, no model): the focus channel stays inert (all-zero rows)
             self.embeddings = embeddings
+            self.focus = np.zeros_like(embeddings)
         else:
-            self.embeddings = self._load_or_embed()
+            self.embeddings, self.focus = self._load_or_embed()
 
-    def _load_or_embed(self) -> np.ndarray:
-        """Load precomputed doc vectors if present and shaped to match; else embed now.
-        Loading avoids importing/running the ONNX model at startup (memory)."""
+    def _load_or_embed(self) -> tuple[np.ndarray, np.ndarray]:
+        """Load precomputed doc+focus vectors if present and shaped to match; else embed
+        now. Loading avoids importing/running the ONNX model at startup (memory)."""
         if os.path.exists(DOC_EMBEDDINGS_PATH):
             try:
-                arr = np.load(DOC_EMBEDDINGS_PATH)
-                if arr.ndim == 2 and arr.shape[0] == len(self.docs) and arr.shape[0] > 0:
+                z = np.load(DOC_EMBEDDINGS_PATH)
+                docs, focus = z["docs"], z["focus"]
+                if docs.ndim == 2 and docs.shape[0] == len(self.docs) > 0 \
+                        and focus.shape == docs.shape:
                     log.info("loaded precomputed doc embeddings", extra={
-                        "event": "embeddings_loaded", "count": int(arr.shape[0])})
-                    return arr.astype(np.float32)
+                        "event": "embeddings_loaded", "count": int(docs.shape[0])})
+                    return docs.astype(np.float32), focus.astype(np.float32)
             except Exception as exc:
                 log.warning("precomputed embeddings unusable; embedding at runtime", extra={
                     "event": "embeddings_fallback", "error": str(exc)})
-        return embed_texts(self.docs, self.model_name)
+        return embed_texts(self.docs, self.model_name), embed_focus(self.records, self.model_name)
 
     def embed_query(self, query: str) -> np.ndarray:
         return embed_texts([query], self.model_name)[0]

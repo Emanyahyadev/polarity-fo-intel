@@ -58,15 +58,34 @@ def retrieve(index: RetrievalIndex, query: str, top_k: int = 5,
 
     qv = index.embed_query(query)
     vscores = {i: float(index.embeddings[i] @ qv) for i in allowed}
+    # focus channel: the record's topical evidence (thesis/sectors/13F holdings) embedded
+    # undiluted, so "investing in healthcare" can rank on actual holdings instead of the
+    # generic family-office prose every record shares. Zero rows (no topical evidence)
+    # simply don't compete on this channel.
+    fscores = {i: float(index.focus[i] @ qv) for i in allowed}
     bm = index.bm25.get_scores(tokenize(query))
     bscores = {i: float(bm[i]) for i in allowed}
 
+    # A channel only awards rank credit where it actually has signal: BM25 zeros and
+    # zero focus rows are EXCLUDED from their rank lists. (Ranking ties-at-zero used to
+    # hand arbitrary records nearly the same credit as a genuine keyword match — for a
+    # firm-name query, every irrelevant record got ~1/(k+1) BM25 credit "for free".)
     v_rank = {i: r for r, i in enumerate(sorted(allowed, key=lambda i: vscores[i], reverse=True))}
-    b_rank = {i: r for r, i in enumerate(sorted(allowed, key=lambda i: bscores[i], reverse=True))}
+    b_hits = [i for i in allowed if bscores[i] > 0.0]
+    b_rank = {i: r for r, i in enumerate(sorted(b_hits, key=lambda i: bscores[i], reverse=True))}
+    focussed = [i for i in allowed if fscores[i] > 0.0]
+    f_rank = {i: r for r, i in enumerate(sorted(focussed, key=lambda i: fscores[i], reverse=True))}
 
     def fused(i: int) -> float:
-        return 1.0 / (rrf_k + v_rank[i]) + 1.0 / (rrf_k + b_rank[i])
+        s = 1.0 / (rrf_k + v_rank[i])
+        if i in b_rank:
+            s += 1.0 / (rrf_k + b_rank[i])
+        if i in f_rank:
+            s += 1.0 / (rrf_k + f_rank[i])
+        return s
 
     ranked = sorted(allowed, key=fused, reverse=True)[:top_k]
-    return [Retrieved(record=index.records[i], vector_score=vscores[i],
+    # a record is as relevant as its BEST semantic channel — grounding and the displayed
+    # match score both use max(full-document, focus) similarity
+    return [Retrieved(record=index.records[i], vector_score=max(vscores[i], fscores[i]),
                       bm25_score=bscores[i], rrf=fused(i)) for i in ranked]
