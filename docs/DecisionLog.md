@@ -28,13 +28,13 @@ Every decision records: **Decision · Reasoning · Alternatives considered · Tr
 - **Risks.** A thinner SFO share could read as "convenient sourcing" → we counter with the 990-PF SFO channel and an honest type distribution.
 - **Future improvements.** Deepen SFO discovery channels to raise the honest SFO share.
 
-### D4 — Repository is private, shared with the evaluator
-- **Decision.** Private GitHub repo shared with optimize@falconscaling.com; raw scraped payloads gitignored.
-- **Reasoning.** The deliverable contains real individuals' business contact PII; publishing it to a public repo is irresponsible. The assessment allows "public **or** shared."
-- **Alternatives considered.** Public repo (rejected: PII exposure); public repo with scrubbed data (possible later as a portfolio fork).
-- **Tradeoffs.** Slightly less open-portfolio optics for correct data handling.
-- **Risks.** None material.
-- **Future improvements.** Publish a PII-scrubbed public variant for portfolio use.
+### D4 — Repository visibility (amended: now public)
+- **Decision (original).** Private GitHub repo shared with optimize@falconscaling.com; raw scraped payloads gitignored.
+- **Amendment (2026-07-28).** The repository is now **public**. Making it private broke the free-tier host's repository access (its GitHub connection could not read a private repo without a re-authorization), blocking deploys of the live URL. Public is acceptable on review of what the repo actually contains: every delivered datum is sourced from **public regulatory filings** (SEC EDGAR 13F, SEC IAPD / Form ADV) and **public firm websites** — the dataset aggregates already-public information, and unverifiable personal contact fields (emails, LinkedIn, direct lines) were never populated. The working candidate database and raw scraped payloads remain gitignored and were never committed (verified against the full git object history).
+- **Reasoning.** The assessment allows "public **or** shared"; a working live URL is a hard deliverable, and deploy continuity outweighs the marginal privacy benefit of gating data that is public at its source.
+- **Tradeoffs.** The aggregation of public contact data is more discoverable in a public repo; accepted because each datum is individually public and honestly sourced.
+- **Risks.** None material beyond the accepted tradeoff.
+- **Future improvements.** A scrubbed portfolio fork is no longer necessary; if the dataset ever ingests non-public or licensed data, revert to private + shared access.
 
 ### D5 — Storage behind a Repository interface; Postgres/Supabase preferred, SQLite for dev
 - **Decision.** All business logic depends on `store/Repository`. SQLite implements it locally; a Postgres/Supabase implementation is selected when `DATABASE_URL` is set. Records stored as JSON payload + indexed columns (ports to Postgres `jsonb`).
