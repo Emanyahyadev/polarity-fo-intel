@@ -51,9 +51,11 @@ class Settings:
     llm_provider: str = os.getenv("LLM_PROVIDER", "groq")   # free-tier default
     llm_api_key: str = os.getenv("LLM_API_KEY", "")
     llm_model: str = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
-    # Groq free-tier daily token quotas are PER MODEL: a smaller model with its own
-    # (larger) quota keeps conversational answers alive when the primary's quota is spent.
-    llm_model_fallback: str = os.getenv("LLM_MODEL_FALLBACK", "llama-3.1-8b-instant")
+    # Groq free-tier limits (daily tokens AND per-minute burst) are PER MODEL, so a
+    # comma-separated chain of fallback models — each with its own quota pool — keeps
+    # conversational answers alive under both quota exhaustion and rapid-fire bursts.
+    llm_model_fallback: str = os.getenv(
+        "LLM_MODEL_FALLBACK", "openai/gpt-oss-120b,llama-3.1-8b-instant")
     embed_model: str = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
     # --- retrieval / grounding control ---

@@ -12,6 +12,7 @@ Every answer carries citations (fo_ids) and never invents data.
 from __future__ import annotations
 
 import re
+import time
 from typing import Optional
 
 # An explicit family-office domain term. Guards the authoritative-filter shortcut so a
@@ -153,28 +154,47 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
         "multiple firms) — neither a one-line fragment nor a raw data dump.")
     user = f"RECORDS:\n{context}\n\nQUESTION: {query}\n\nGrounded answer:"
     client = Groq(api_key=settings.llm_api_key)
-    # Model-fallback chain: Groq free-tier daily quotas are PER MODEL, so when the
-    # primary's quota is spent the smaller fallback (with its own, larger quota) keeps
-    # conversational answers alive instead of dropping to the bare extractive listing.
-    # Grounding is unaffected either way — verify_answer bounds both models' output.
+    # Model-fallback chain: Groq free-tier limits (daily tokens AND per-minute burst)
+    # are PER MODEL, so on any model error the next model — with its own quota pool —
+    # answers instead of dropping to the bare extractive listing. A rate limit whose
+    # suggested wait is a few SECONDS (a burst limit, not a spent daily quota) is
+    # retried once on the same model. Grounding is unaffected throughout —
+    # verify_answer bounds every model's output identically.
     models = [settings.llm_model]
-    if settings.llm_model_fallback and settings.llm_model_fallback not in models:
-        models.append(settings.llm_model_fallback)
+    for m in (settings.llm_model_fallback or "").split(","):
+        if m.strip() and m.strip() not in models:
+            models.append(m.strip())
+
+    def _call(model: str) -> str:
+        resp = client.chat.completions.create(
+            model=model, temperature=0.2, max_tokens=600,
+            messages=[{"role": "system", "content": system},
+                      {"role": "user", "content": user}])
+        text = (resp.choices[0].message.content or "").strip()
+        # defensively strip reasoning traces some models emit
+        return re.sub(r"<think>.*?</think>\s*", "", text, flags=re.S).strip()
+
     last_exc: Exception = RuntimeError("no LLM model configured")
     for i, model in enumerate(models):
-        try:
-            resp = client.chat.completions.create(
-                model=model, temperature=0.2, max_tokens=600,
-                messages=[{"role": "system", "content": system},
-                          {"role": "user", "content": user}])
-            if i > 0:
-                log.info("llm fallback model answered", extra={
-                    "event": "llm_fallback", "model": model})
-            return (resp.choices[0].message.content or "").strip()
-        except Exception as exc:                      # rate limit, model error — try next
-            last_exc = exc
-            log.warning("llm model failed; trying next", extra={
-                "event": "llm_model_error", "model": model, "error": str(exc)[:200]})
+        for attempt in (0, 1):
+            try:
+                text = _call(model)
+                if i > 0 or attempt > 0:
+                    log.info("llm answered after fallback/retry", extra={
+                        "event": "llm_fallback", "model": model, "attempt": attempt})
+                return text
+            except Exception as exc:
+                last_exc = exc
+                # burst limit? ("try again in 3.5s" / "in 1m20s") — short waits are
+                # worth one same-model retry; long ones mean the daily quota is spent
+                m = re.search(r"try again in (?:(\d+)m)?([\d.]+)s", str(exc))
+                wait = (int(m.group(1) or 0) * 60 + float(m.group(2))) if m else None
+                if attempt == 0 and wait is not None and wait <= 7:
+                    time.sleep(wait + 0.3)
+                    continue
+                log.warning("llm model failed; trying next", extra={
+                    "event": "llm_model_error", "model": model, "error": str(exc)[:200]})
+                break
     raise last_exc
 
 

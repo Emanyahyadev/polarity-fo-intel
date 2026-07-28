@@ -33,8 +33,25 @@ _FO_WORDS = re.compile(r"\b(family|offices?|llc|ltd|lp|inc|the|and)\b", re.I)
 # family-office name shares them, so matching on them lets invented firms through.
 _GENERIC_TOKENS = {"family", "office", "offices", "capital", "partners", "partner",
                    "management", "advisors", "advisor", "advisory", "group", "llc", "lp",
-                   "inc", "ltd", "the", "and", "co", "holdings", "ventures", "associates",
-                   "wealth", "investments", "investment"}
+                   "inc", "ltd", "the", "and", "of", "co", "holdings", "ventures",
+                   "associates", "wealth", "investments", "investment",
+                   # type/concept vocabulary: answers legitimately explain "Single-Family
+                   # Office" / "Multi-Family Office" as CONCEPTS in Title Case — these are
+                   # domain terms, not firm names, and must not be flagged as hallucinated
+                   "single", "multi", "type", "types",
+                   # common financial-prose vocabulary that Title-Case answers produce
+                   # ("Regulatory Assets Under Management", "Portfolio Risk Services") —
+                   # none of these is the distinguishing token of any delivered firm name
+                   "assets", "under", "regulatory", "services", "service", "portfolio",
+                   "risk", "private", "global", "financial", "solutions", "strategies",
+                   "strategy", "planning", "legacy", "enterprise", "intergenerational",
+                   # family-office CATEGORY adjectives ("Outsourced/Virtual/Embedded
+                   # Family Office") — concept taxonomy, not firm names; an invented
+                   # firm still needs a proper-noun token and is still flagged
+                   "outsourced", "virtual", "embedded", "commercial", "traditional",
+                   "hybrid", "dedicated", "boutique", "independent", "professional",
+                   "direct", "unified", "integrated", "modern", "typical", "classic",
+                   "common", "structured", "form", "forms"}
 
 
 def _name_core(s: str) -> str:
