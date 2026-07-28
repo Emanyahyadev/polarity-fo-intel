@@ -65,8 +65,12 @@ def test_classified_without_evidence_is_a_violation():
 
 
 def test_signal_without_source_is_flagged():
-    # Signal requires source_class, so we exercise the missing-url branch via a signal
-    # that has a class but no url is allowed; a fully sourced signal is clean.
-    rec = _base(signals=[Signal(text="raised fund", source_class=SourceClass.NEWS,
-                                source_url="https://n.example/x")])
-    assert not any(f.startswith("signal") for f, _ in rec.provenance_violations())
+    # A dated signal must be traceable to a source URL. A signal WITHOUT a source_url is a
+    # provenance violation; a fully-sourced signal is clean.
+    dirty = _base(signals=[Signal(text="raised fund", source_class=SourceClass.NEWS,
+                                  source_url=None)])
+    assert any(f.startswith("signal") for f, _ in dirty.provenance_violations()), \
+        "a signal with no source_url must be flagged"
+    clean = _base(signals=[Signal(text="raised fund", source_class=SourceClass.NEWS,
+                                  source_url="https://n.example/x")])
+    assert not any(f.startswith("signal") for f, _ in clean.provenance_violations())

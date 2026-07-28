@@ -4,7 +4,7 @@ Full provenance for three delivered records, one per discovery lens. Each shows:
 
 ---
 
-## 1 · Callan Family Office, LLC  (`fo_beb7590905`) — SEC lens, High confidence, full depth
+## 1 · Callan Family Office, LLC  (`fo_beb7590905`) — SEC lens, Medium confidence, full depth
 
 | Step | Detail |
 |---|---|

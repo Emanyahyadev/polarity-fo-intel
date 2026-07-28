@@ -18,22 +18,25 @@ import pytest
 
 from fointel.rag.load import load_records_from_store, DEFAULT_STORE, DEFAULT_CSV
 
-STORE = Path(DEFAULT_STORE)
+# Resolve delivered artifacts from the repo root (NOT the cwd), so running pytest from a
+# subdirectory cannot make STORE.exists() falsely False and silently skip the whole suite.
+ROOT = Path(__file__).resolve().parents[1]
+STORE = ROOT / DEFAULT_STORE
 pytestmark = pytest.mark.skipif(not STORE.exists(), reason="no delivered store")
 
 
 @pytest.fixture(scope="module")
 def records():
-    return load_records_from_store()
+    return load_records_from_store(str(STORE))
 
 
 def test_store_csv_stats_counts_agree(records):
     """The delivered count must be identical across store, CSV, and the stats report —
     no derived artifact left behind."""
     n = len(records)
-    csv_rows = list(csv.DictReader(Path(DEFAULT_CSV).read_text(encoding="utf-8").splitlines()))
+    csv_rows = list(csv.DictReader((ROOT / DEFAULT_CSV).read_text(encoding="utf-8").splitlines()))
     assert len(csv_rows) == n, "CSV row count != store"
-    stats = json.loads(Path("docs/evidence/dataset_stats.json").read_text())
+    stats = json.loads((ROOT / "docs/evidence/dataset_stats.json").read_text(encoding="utf-8"))
     assert stats["n"] == n, "dataset_stats.json N != store"
     # type mix in the stats report must match the store
     from collections import Counter
@@ -88,20 +91,20 @@ def test_key_docs_have_no_known_stale_numbers(records):
     docs = ["README.md", "docs/Validation.md", "docs/KnownLimitations.md",
             "docs/evidence/README.md", "docs/ReleaseNotes.md"]
     for d in docs:
-        p = Path(d)
+        p = ROOT / d
         if not p.exists():
             continue
         text = p.read_text(encoding="utf-8")
         for s in stale:
             assert s not in text, f"{d}: stale token {s!r}"
-    assert n in Path("README.md").read_text(encoding="utf-8"), "README omits the current record count"
+    assert n in (ROOT / "README.md").read_text(encoding="utf-8"), "README omits the current record count"
 
 
 def test_audit_trail_nonempty_and_consistent(records):
     """Findings govern releases: the delivered xlsx must ship a non-empty Audit sheet whose
     rows reference real records."""
     openpyxl = pytest.importorskip("openpyxl")
-    wb = openpyxl.load_workbook("data/final/family_offices.xlsx", read_only=True)
+    wb = openpyxl.load_workbook(str(ROOT / "data/final/family_offices.xlsx"), read_only=True)
     au = wb["Audit"]
     rows = list(au.iter_rows(min_row=2, values_only=True))
     assert rows, "Audit sheet is empty — findings-govern-releases unproven"

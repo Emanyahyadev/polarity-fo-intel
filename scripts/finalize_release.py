@@ -58,6 +58,11 @@ for n, sc, p in con.execute("select name,source_class,payload from candidates"):
     if ids.get("crd"):
         crd_of.setdefault(k, str(ids["crd"]))
 
+# 13F filers whose CIK is registered under a former/alternate name in the candidate map
+# (e.g. Geller Advisors LLC files as CIK 1354739, former name "Geller Family Office Services").
+for _nm, _cik in {"Geller Advisors LLC": "1354739"}.items():
+    cik_of.setdefault(norm(_nm), _cik)
+
 # CIK -> retained EDGAR submissions snapshot (filename == sha256 content hash)
 snap_of = {}
 for f in Path("data/raw/snapshots").glob("*.json"):
@@ -329,6 +334,10 @@ def _enum(cls, v, default):
 
 def main():
     records = build()
+    # overall confidence is derived (weakest-link across name + type), never copied stale —
+    # a reclassification that lowers type confidence must dip the record confidence.
+    for r in records:
+        r.record_confidence = r.compute_record_confidence()
     # invariants
     for r in records:
         bad = [f for f in r.could_not_verify if getattr(r, f, None)]

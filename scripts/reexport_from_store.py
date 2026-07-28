@@ -24,7 +24,8 @@ AUDIT = Path("data/final/audit.json")
 
 def load_audit():
     if AUDIT.exists():
-        return [AuditEntry.model_validate(a) for a in json.loads(AUDIT.read_text())]
+        return [AuditEntry.model_validate(a)
+                for a in json.loads(AUDIT.read_text(encoding="utf-8"))]
     # fall back to recovering the audit trail from the current xlsx Audit sheet
     import openpyxl
     wb = openpyxl.load_workbook("data/final/family_offices.xlsx", read_only=True)

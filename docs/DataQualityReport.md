@@ -14,7 +14,7 @@ data — unverifiable fields are blanked and named in `could_not_verify`.
 **Classification (honest, per the assessment's "say so if undetermined"):**
 **37** Multi-Family Office, **14** Undetermined, **4** Single-Family Office
 
-**Record confidence (weakest-link aggregate):** **28** High, **25** Medium, **2** Low
+**Record confidence (weakest-link aggregate):** **33** Medium, **8** High, **14** Low
 
 **Geography:** **48** United States, **1** Germany, **1** Monaco, **1** Brazil, **1** Switzerland, **1** France, **1** Denmark, **1** Belgium
 Top US states: **7** FL, **5** TX, **5** NY, **4** NC, **4** CA, **3** CO, **2** PA, **2** AL, **2** CT, **2** ?, **1** MO, **1** KS

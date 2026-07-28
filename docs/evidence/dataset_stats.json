@@ -6,9 +6,9 @@
     "Single-Family Office": 4
   },
   "confidence": {
-    "High": 28,
-    "Medium": 25,
-    "Low": 2
+    "Medium": 33,
+    "High": 8,
+    "Low": 14
   },
   "discovery_source": {
     "SEC EDGAR (13F / SC / Form D filings)": 28,

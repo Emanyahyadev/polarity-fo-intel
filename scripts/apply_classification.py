@@ -36,7 +36,8 @@ from fointel.schema import (AuditEntry, Confidence, FOType,      # noqa: E402
                             SourceClass, SourceRef)
 
 AS_OF = date(2026, 7, 28)
-FO_STATUS = "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office"
+FO_STATUS = ("An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or "
+             "the firm's own website) identifies it as a family office")
 
 
 def norm(s):
@@ -81,8 +82,11 @@ def main():
         evl = ev.lower()
         clean = "not established" not in evl and "not establish" not in evl
 
-        # rule 0: PRESERVE an already-clean, non-contradictory type label
-        if rec.fo_type == FOType.SFO and clean and "single-family" in evl:
+        # rule 0: PRESERVE an already-clean, non-contradictory type label. The SFO gate matches
+        # the SFO invariant exactly (full "single-family office" phrase, no regulatory client AUM)
+        # so a preserved SFO can never fail the assert below.
+        if rec.fo_type == FOType.SFO and clean and "single-family office" in evl \
+                and "regulatory aum" not in aum.lower():
             new_type, new_ev, conf = FOType.SFO, ev, rec.fo_type_confidence or Confidence.MEDIUM
         elif rec.fo_type == FOType.MFO and clean and "multi-family" in evl:
             new_type, new_ev, conf = FOType.MFO, ev, rec.fo_type_confidence or Confidence.MEDIUM
@@ -118,7 +122,7 @@ def main():
                       f"source ({why}), so honestly labelled Undetermined rather than guessed.")
             conf = Confidence.LOW
 
-        if new_type != old or "not established" in ev:
+        if new_type != old or "not establish" in evl:
             if new_type != old:
                 audit.append(AuditEntry(
                     fo_id=rec.fo_id, field="fo_type", rejected_value=old.value,
@@ -131,10 +135,21 @@ def main():
             rec.fo_type_evidence = new_ev
             rec.fo_type_confidence = conf
 
+    # ADV Item 5.F regulatory (client) AUM is DEFINITIVE evidence of multi-family status, so
+    # such an MFO's type confidence is High regardless of which rule preserved/assigned it.
+    for r in records:
+        if r.fo_type == FOType.MFO and "regulatory AUM" in (r.estimated_aum or ""):
+            r.fo_type_confidence = Confidence.HIGH
+    # recompute overall confidence (weakest-link across name + type) so a lowered type
+    # confidence dips the record confidence — never leave an inflated stale value.
+    for r in records:
+        r.record_confidence = r.compute_record_confidence()
+
     # invariants
     for r in records:
         assert r.qualifies(), f"{r.name}: no fo_type_evidence"
-        assert "not established" not in (r.fo_type_evidence or "") or r.fo_type == FOType.UNDETERMINED
+        assert "not establish" not in (r.fo_type_evidence or "").lower() \
+            or r.fo_type == FOType.UNDETERMINED
         if r.fo_type == FOType.SFO:
             assert "single-family office" in (r.fo_type_evidence or "").lower()
             assert "regulatory aum" not in (r.estimated_aum or "").lower()
@@ -156,7 +171,7 @@ def main():
     print("  type:", dict(Counter(r.fo_type.value for r in records)))
     print(f"  audit rows: {len(audit)} | records: {res['records']}")
     # any residual contradictory evidence?
-    bad = [r.name for r in records if "not established" in (r.fo_type_evidence or "")
+    bad = [r.name for r in records if "not establish" in (r.fo_type_evidence or "").lower()
            and r.fo_type != FOType.UNDETERMINED]
     print("  MFO/SFO rows still saying 'not established':", bad or "none")
 

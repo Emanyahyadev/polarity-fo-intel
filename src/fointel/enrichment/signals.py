@@ -54,6 +54,8 @@ class SignalsEnricher:
             title = (art.get("title") or "").strip()
             if not title or anchor not in title.lower():   # keep only firm-relevant coverage
                 continue
+            if not art.get("url"):    # a dated signal must be traceable to a source URL, else drop it
+                continue
             key = title.lower()[:80]
             if key in seen_titles:
                 continue

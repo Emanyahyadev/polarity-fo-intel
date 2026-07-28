@@ -45,8 +45,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1908612&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -72,7 +72,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1908612&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "43b52854f44e0ed0e72c05ecf1207a275ae5887e73d7849938d06fb422916ab1",
     "snapshot_path": null
@@ -105,7 +105,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1908612&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "43b52854f44e0ed0e72c05ecf1207a275ae5887e73d7849938d06fb422916ab1",
     "snapshot_path": null
@@ -116,7 +116,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1908612&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "43b52854f44e0ed0e72c05ecf1207a275ae5887e73d7849938d06fb422916ab1",
     "snapshot_path": null
@@ -139,7 +139,7 @@
   "name": "JFG FAMILY OFFICE",
   "fo_type": "Multi-Family Office",
   "fo_type_evidence": "Firm website: \"We serve an exclusive clientele with fully integrated family office services\"; SEC Form ADV Item 5.F reports $2.48B regulatory (client) AUM — a registered adviser serving multiple clients, i.e. a multi-family office.",
-  "fo_type_confidence": "Medium",
+  "fo_type_confidence": "High",
   "description": "A better way to manage your family's wealth.",
   "investment_thesis": "Our human capital, philanthropic advising, financial planning, and investment management services are carefully tailored to meet the complex needs of high-net-worth individuals and families.",
   "investing_sectors": [],
@@ -172,8 +172,8 @@
     "url": "https://jfgfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
-  "record_confidence": "Medium",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -287,7 +287,7 @@
   "fo_id": "fo_33a7413d76",
   "name": "Revisio Family Office",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": "Ganzheitliche Betreuung von Familieninteressen, Nachlassverwaltung, Testamentsvollstreckung, Controlling, Compliance, Digitalisierung",
   "investment_thesis": null,
@@ -316,7 +316,7 @@
    }
   ],
   "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -431,8 +431,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1731123&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -457,7 +457,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1731123&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "061ec5dd36d6d677a66123fbccaee5eb46f4f2d577793847b65d6b06bce32cb1",
     "snapshot_path": null
@@ -490,7 +490,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1731123&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "061ec5dd36d6d677a66123fbccaee5eb46f4f2d577793847b65d6b06bce32cb1",
     "snapshot_path": null
@@ -501,7 +501,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1731123&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "061ec5dd36d6d677a66123fbccaee5eb46f4f2d577793847b65d6b06bce32cb1",
     "snapshot_path": null
@@ -512,7 +512,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1731123&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "061ec5dd36d6d677a66123fbccaee5eb46f4f2d577793847b65d6b06bce32cb1",
     "snapshot_path": null
@@ -535,7 +535,7 @@
   "name": "WE FAMILY OFFICES",
   "fo_type": "Multi-Family Office",
   "fo_type_evidence": "SEC Form ADV Item 5.F reports $10.20B regulatory (client) AUM and the firm states it \"partners with families\" (plural) — a multi-family office / registered adviser.",
-  "fo_type_confidence": "Medium",
+  "fo_type_confidence": "High",
   "description": "WE Family Offices is a different kind of wealth advisor. WE stands for Wealth Enterprise®, we work with UHNW families to manage their wealth as a business.",
   "investment_thesis": "See Details Your family, your wealth, your legacy WE Family Offices partners with families to manage, preserve and grow intergenerational wealth.",
   "investing_sectors": [],
@@ -568,8 +568,8 @@
     "url": "https://www.wefamilyoffices.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
-  "record_confidence": "Medium",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -683,7 +683,7 @@
   "fo_id": "fo_35450e2cea",
   "name": "Fundus Heritage Ventures",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": "European family office managing â¬3.1B across legacy real estate, AI research, and behavioral infrastructure. Seven generations since 1830.",
   "investment_thesis": "1830 - Seven Generations of Institutional Capital Skip to main content",
@@ -712,7 +712,7 @@
    }
   ],
   "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -796,7 +796,7 @@
   "fo_id": "fo_c7e795ff94",
   "name": "INTREPID FAMILY OFFICE LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -832,8 +832,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -848,7 +848,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -859,7 +859,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -870,7 +870,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -881,7 +881,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -892,7 +892,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -903,7 +903,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -914,7 +914,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596197&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1c80bdbf8987c757e33f924297f469ef81fcf1033dd84fe4894ba4fd2e3f4269",
     "snapshot_path": null
@@ -959,7 +959,7 @@
     "url": "https://818familyoffice.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -1086,8 +1086,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1904423&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -1112,7 +1112,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1904423&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d8884c6a7f966756a96d02a8ae329a5a31424ef049323fcc5de5b36c0aae9bb2",
     "snapshot_path": null
@@ -1145,7 +1145,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1904423&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d8884c6a7f966756a96d02a8ae329a5a31424ef049323fcc5de5b36c0aae9bb2",
     "snapshot_path": null
@@ -1156,7 +1156,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1904423&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d8884c6a7f966756a96d02a8ae329a5a31424ef049323fcc5de5b36c0aae9bb2",
     "snapshot_path": null
@@ -1167,7 +1167,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1904423&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d8884c6a7f966756a96d02a8ae329a5a31424ef049323fcc5de5b36c0aae9bb2",
     "snapshot_path": null
@@ -1223,7 +1223,7 @@
     "url": "https://www.five11partners.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -1359,8 +1359,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1599603&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -1386,7 +1386,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1599603&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d6a5e480bff62ff022989d3cbf2f7e47591155cf17b4855d33a290bf7ace351a",
     "snapshot_path": null
@@ -1419,7 +1419,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1599603&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d6a5e480bff62ff022989d3cbf2f7e47591155cf17b4855d33a290bf7ace351a",
     "snapshot_path": null
@@ -1430,7 +1430,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1599603&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "d6a5e480bff62ff022989d3cbf2f7e47591155cf17b4855d33a290bf7ace351a",
     "snapshot_path": null
@@ -1486,7 +1486,7 @@
     "url": "https://carpafamilyoffice.com/"
    }
   ],
-  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 329017) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via an independently verified firm website. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.)",
+  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 329017) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via an independently verified firm website. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.) [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -1549,7 +1549,7 @@
   "fo_id": "fo_4b474eef93",
   "name": "Duquesne Family Office LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -1585,8 +1585,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -1601,7 +1601,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1612,7 +1612,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1623,7 +1623,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1634,7 +1634,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1645,7 +1645,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1656,7 +1656,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1667,7 +1667,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1536411&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "7cedfe74a26fe6ffc34da9b19c56837ae31192faa9d9b1e983f703ccaa2759fa",
     "snapshot_path": null
@@ -1712,7 +1712,7 @@
     "url": "https://www.matterfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -1806,7 +1806,7 @@
   "fo_id": "fo_3eb2ccad75",
   "name": "CVA Family Office, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -1842,8 +1842,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -1857,7 +1857,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1868,7 +1868,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1879,7 +1879,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1890,7 +1890,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1901,7 +1901,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1912,7 +1912,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1923,7 +1923,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1934,7 +1934,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802084&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "2099e81fe18a49bb55a20341e7f5c64f646a8765d98affd456dcd8daefc51730",
     "snapshot_path": null
@@ -1979,7 +1979,7 @@
     "url": "http://sestante.com/"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -2112,8 +2112,8 @@
     "url": "https://www.collectivefamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2161,7 +2161,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1845066&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "b71e1ba9b711bc9919414d31e680e127f9a3c631cca8b91a487aa354923be80a",
     "snapshot_path": null
@@ -2205,7 +2205,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1845066&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "b71e1ba9b711bc9919414d31e680e127f9a3c631cca8b91a487aa354923be80a",
     "snapshot_path": null
@@ -2216,7 +2216,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1845066&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "b71e1ba9b711bc9919414d31e680e127f9a3c631cca8b91a487aa354923be80a",
     "snapshot_path": null
@@ -2239,7 +2239,7 @@
   "name": "STORYONE FAMILY OFFICE",
   "fo_type": "Multi-Family Office",
   "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language",
-  "fo_type_confidence": "Medium",
+  "fo_type_confidence": "High",
   "description": "StoryOne is a boutique multi-family office exclusively focused on offering sophisticated, comprehensive, individualized planning solutions for business owners, individuals and families with complex financial planning needs.",
   "investment_thesis": "We take this 360 degree approach to deliver comprehensive solutions to help you steward your wealth–and enhance the specific mission, vision, values and goals you have for yourself, your family, your business, and your community.",
   "investing_sectors": [],
@@ -2272,8 +2272,8 @@
     "url": "https://story-one.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2429,8 +2429,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1756485&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2456,7 +2456,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1756485&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ba1e17c94a55e568bd0a078d92ff5051d4eff3887f234979f0ac721b05435205",
     "snapshot_path": null
@@ -2489,7 +2489,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1756485&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ba1e17c94a55e568bd0a078d92ff5051d4eff3887f234979f0ac721b05435205",
     "snapshot_path": null
@@ -2500,7 +2500,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1756485&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ba1e17c94a55e568bd0a078d92ff5051d4eff3887f234979f0ac721b05435205",
     "snapshot_path": null
@@ -2523,7 +2523,7 @@
   "name": "COLONY FAMILY OFFICES, LLC",
   "fo_type": "Multi-Family Office",
   "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language",
-  "fo_type_confidence": "Medium",
+  "fo_type_confidence": "High",
   "description": "Wealth Planning, Investment Management & Fiduciary Services - Charlotte, NC",
   "investment_thesis": null,
   "investing_sectors": [],
@@ -2556,8 +2556,8 @@
     "url": "https://colonyfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2702,8 +2702,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1039807&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2729,7 +2729,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1039807&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cd8ff6726ffb24b663ab53023ad21d670c1d00589f1d2f16448d2640c4f21596",
     "snapshot_path": null
@@ -2762,7 +2762,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1039807&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cd8ff6726ffb24b663ab53023ad21d670c1d00589f1d2f16448d2640c4f21596",
     "snapshot_path": null
@@ -2773,7 +2773,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1039807&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cd8ff6726ffb24b663ab53023ad21d670c1d00589f1d2f16448d2640c4f21596",
     "snapshot_path": null
@@ -2829,7 +2829,7 @@
     "url": "https://www.noblehousefamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -2962,8 +2962,8 @@
     "url": "https://fortitudefo.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -2999,7 +2999,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1950506&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62762809d6b0ac27214b4cd0812273c1d249b12ed2417e62dad7a6e78cb211e6",
     "snapshot_path": null
@@ -3043,7 +3043,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1950506&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62762809d6b0ac27214b4cd0812273c1d249b12ed2417e62dad7a6e78cb211e6",
     "snapshot_path": null
@@ -3054,7 +3054,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1950506&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62762809d6b0ac27214b4cd0812273c1d249b12ed2417e62dad7a6e78cb211e6",
     "snapshot_path": null
@@ -3065,7 +3065,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1950506&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62762809d6b0ac27214b4cd0812273c1d249b12ed2417e62dad7a6e78cb211e6",
     "snapshot_path": null
@@ -3121,7 +3121,7 @@
     "url": "https://www.longfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Undetermined on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Undetermined on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -3184,7 +3184,7 @@
   "fo_id": "fo_685bea3a32",
   "name": "Kopp Family Office, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -3220,8 +3220,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -3235,7 +3235,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3246,7 +3246,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3257,7 +3257,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3268,7 +3268,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3279,7 +3279,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3290,7 +3290,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3301,7 +3301,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3312,7 +3312,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1683689&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dc4d66f264218176b69e3463eb8069f07e186b081bc67c9d8678093b4ab0f220",
     "snapshot_path": null
@@ -3323,7 +3323,7 @@
   "fo_id": "fo_c7fbed29da",
   "name": "THE FAMILY OFFICE, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": "SEC-registered investment adviser (IAPD / Form ADV, CRD 288530) based in Redmond, Washington, registered as a family-office adviser (also filed as 'Our Family Office, LLC'). SEC registration is currently inactive/withdrawn. An independent firm website, principal, and AUM could not be verified from authoritative free public sources.",
   "investment_thesis": null,
@@ -3351,7 +3351,7 @@
     "url": "https://adviserinfo.sec.gov/firm/summary/288530"
    }
   ],
-  "reviewer_notes": "CORRECTION (2026-07-28): the firm's generic name had caused an unrelated company's website (thefamilyoffice.com, a residential real-estate advisory) to be attached; all website-derived fields were removed. Retained facts are IAPD-verified only. SEC registration confirmed inactive/withdrawn (IAPD firm search, 2026-07-28).",
+  "reviewer_notes": "CORRECTION (2026-07-28): the firm's generic name had caused an unrelated company's website (thefamilyoffice.com, a residential real-estate advisory) to be attached; all website-derived fields were removed. Retained facts are IAPD-verified only. SEC registration confirmed inactive/withdrawn (IAPD firm search, 2026-07-28). [same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
   "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -3464,8 +3464,8 @@
     "url": "https://callanfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -3513,7 +3513,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1938970&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62bf3230b2a0e2f52a187756d2988233a6065af0963d87844110bcfbf6a6c87b",
     "snapshot_path": null
@@ -3557,7 +3557,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1938970&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62bf3230b2a0e2f52a187756d2988233a6065af0963d87844110bcfbf6a6c87b",
     "snapshot_path": null
@@ -3568,7 +3568,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1938970&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "62bf3230b2a0e2f52a187756d2988233a6065af0963d87844110bcfbf6a6c87b",
     "snapshot_path": null
@@ -3624,8 +3624,8 @@
     "url": "https://dcafamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -3770,8 +3770,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1863768&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -3797,7 +3797,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1863768&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cb88b96c579b13d221c965246b470252f02dd41c6fdec34115838f8e71eb2177",
     "snapshot_path": null
@@ -3830,7 +3830,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1863768&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cb88b96c579b13d221c965246b470252f02dd41c6fdec34115838f8e71eb2177",
     "snapshot_path": null
@@ -3841,7 +3841,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1863768&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cb88b96c579b13d221c965246b470252f02dd41c6fdec34115838f8e71eb2177",
     "snapshot_path": null
@@ -3897,7 +3897,7 @@
     "url": "https://destinyfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -4033,8 +4033,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2135110&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -4059,7 +4059,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2135110&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "4312641f550cfb4c00956f2dba3a31f1c7a4b7f5427ec19c53e80a3d8bbfdd6e",
     "snapshot_path": null
@@ -4092,7 +4092,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2135110&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "4312641f550cfb4c00956f2dba3a31f1c7a4b7f5427ec19c53e80a3d8bbfdd6e",
     "snapshot_path": null
@@ -4103,7 +4103,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2135110&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "4312641f550cfb4c00956f2dba3a31f1c7a4b7f5427ec19c53e80a3d8bbfdd6e",
     "snapshot_path": null
@@ -4114,7 +4114,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2135110&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "4312641f550cfb4c00956f2dba3a31f1c7a4b7f5427ec19c53e80a3d8bbfdd6e",
     "snapshot_path": null
@@ -4170,7 +4170,7 @@
     "url": "https://www.angelesinvestments.com/"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -4255,7 +4255,7 @@
   "fo_id": "fo_a61ece7638",
   "name": "OneAscent Family Office, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -4291,8 +4291,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -4306,7 +4306,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4317,7 +4317,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4328,7 +4328,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4339,7 +4339,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4350,7 +4350,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4361,7 +4361,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4372,7 +4372,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4383,7 +4383,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2055812&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1a7bd017bd76ed057e01a253857e8041da8098e36c4f0dd3c18f1b218768f1dc",
     "snapshot_path": null
@@ -4428,7 +4428,7 @@
     "url": "https://www.gritfo.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection.",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Multi-Family Office on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -4544,8 +4544,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1809494&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -4571,7 +4571,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1809494&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "102437f4774275313e8bdc64bde9f33142d3ed28b606744a49b2b467175b22ec",
     "snapshot_path": null
@@ -4604,7 +4604,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1809494&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "102437f4774275313e8bdc64bde9f33142d3ed28b606744a49b2b467175b22ec",
     "snapshot_path": null
@@ -4615,7 +4615,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1809494&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "102437f4774275313e8bdc64bde9f33142d3ed28b606744a49b2b467175b22ec",
     "snapshot_path": null
@@ -4677,8 +4677,8 @@
     "url": "https://www.longwallfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -4840,8 +4840,8 @@
     "url": "https://www.fiduciaryfo.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -4878,7 +4878,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2020280&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "eb28a7df2c67c22cfc2d780773da586da961c27107399a52363840dc6ed9303c",
     "snapshot_path": null
@@ -4922,7 +4922,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2020280&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "eb28a7df2c67c22cfc2d780773da586da961c27107399a52363840dc6ed9303c",
     "snapshot_path": null
@@ -4933,7 +4933,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2020280&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "eb28a7df2c67c22cfc2d780773da586da961c27107399a52363840dc6ed9303c",
     "snapshot_path": null
@@ -4989,8 +4989,8 @@
     "url": "https://eaglebayfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "Medium",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5135,8 +5135,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2053738&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5162,7 +5162,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2053738&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "fb38fb3e01f570f7c1d2922310216c834420a01d53413f1f8edbc1a4c0ccd2b7",
     "snapshot_path": null
@@ -5195,7 +5195,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2053738&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "fb38fb3e01f570f7c1d2922310216c834420a01d53413f1f8edbc1a4c0ccd2b7",
     "snapshot_path": null
@@ -5206,7 +5206,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2053738&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "fb38fb3e01f570f7c1d2922310216c834420a01d53413f1f8edbc1a4c0ccd2b7",
     "snapshot_path": null
@@ -5228,7 +5228,7 @@
   "fo_id": "fo_a2bc85f0ac",
   "name": "HOLDUN FAMILY OFFICE LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -5262,8 +5262,8 @@
     "url": "https://www.holdunfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": "Classification corrected Single-Family Office -> Undetermined on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [registration status] SEC IAPD registration (CRD 158123) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via an independently verified firm website. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.)",
-  "record_confidence": "Medium",
+  "reviewer_notes": "Classification corrected Single-Family Office -> Undetermined on 2026-07-28 after re-verifying single-vs-multi against the firm's own website; the prior label over-relied on generic 'single-family language' detection. [registration status] SEC IAPD registration (CRD 158123) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via an independently verified firm website. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.) [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website).",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5325,7 +5325,7 @@
   "fo_id": "fo_5deeb7a4e7",
   "name": "Timonier Family Office, LTD.",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -5361,8 +5361,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5376,7 +5376,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5387,7 +5387,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5398,7 +5398,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5409,7 +5409,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5420,7 +5420,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5431,7 +5431,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5442,7 +5442,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5453,7 +5453,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2038170&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "dda8b4198bf071cfdde8d9649b2e4b7d0a3aceb3bcf296396b9e062eeba1279f",
     "snapshot_path": null
@@ -5492,7 +5492,7 @@
     "url": "https://adviserinfo.sec.gov/firm/summary/337597"
    }
   ],
-  "reviewer_notes": null,
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
   "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -5603,8 +5603,8 @@
     "url": "https://virtusfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5630,7 +5630,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1913482&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cf80df38e20af64e7be68b34c083cdc4af629c5e9d30e9cd7a2f1522c75df2da",
     "snapshot_path": null
@@ -5674,7 +5674,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1913482&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cf80df38e20af64e7be68b34c083cdc4af629c5e9d30e9cd7a2f1522c75df2da",
     "snapshot_path": null
@@ -5685,7 +5685,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1913482&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "cf80df38e20af64e7be68b34c083cdc4af629c5e9d30e9cd7a2f1522c75df2da",
     "snapshot_path": null
@@ -5755,8 +5755,8 @@
     "url": "https://pmgfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5792,7 +5792,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2102299&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "f42d661083b2c2b8691b1402179e728b57d99ea8f0259c136a68691fa4f01302",
     "snapshot_path": null
@@ -5836,7 +5836,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2102299&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "f42d661083b2c2b8691b1402179e728b57d99ea8f0259c136a68691fa4f01302",
     "snapshot_path": null
@@ -5847,7 +5847,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2102299&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "f42d661083b2c2b8691b1402179e728b57d99ea8f0259c136a68691fa4f01302",
     "snapshot_path": null
@@ -5858,7 +5858,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2102299&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "f42d661083b2c2b8691b1402179e728b57d99ea8f0259c136a68691fa4f01302",
     "snapshot_path": null
@@ -5880,7 +5880,7 @@
   "fo_id": "fo_8994eb08a6",
   "name": "Wealthgate Family Office, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (registration inactive/withdrawn), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -5922,8 +5922,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835441&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 307858) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via a recent SEC Form 13F filing (period 2024-09-30). (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.)",
-  "record_confidence": "High",
+  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 307858) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via a recent SEC Form 13F filing (period 2024-09-30). (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.) [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -5948,7 +5948,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835441&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "8c9ddbb0e1ab6fef0dc2afe19ab6a622220e175b99c2bc71ae707f4458ebf90c",
     "snapshot_path": null
@@ -5981,7 +5981,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835441&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "8c9ddbb0e1ab6fef0dc2afe19ab6a622220e175b99c2bc71ae707f4458ebf90c",
     "snapshot_path": null
@@ -5992,7 +5992,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835441&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "8c9ddbb0e1ab6fef0dc2afe19ab6a622220e175b99c2bc71ae707f4458ebf90c",
     "snapshot_path": null
@@ -6003,7 +6003,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835441&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "8c9ddbb0e1ab6fef0dc2afe19ab6a622220e175b99c2bc71ae707f4458ebf90c",
     "snapshot_path": null
@@ -6067,8 +6067,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2105684&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -6094,7 +6094,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2105684&type=13F&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1e1e0cf85d490089d25800f6ee8f8fab7989f5c752e675aa19fc4f7f7bf4e372",
     "snapshot_path": null
@@ -6127,7 +6127,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2105684&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1e1e0cf85d490089d25800f6ee8f8fab7989f5c752e675aa19fc4f7f7bf4e372",
     "snapshot_path": null
@@ -6138,7 +6138,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2105684&type=13F&dateb=&owner=include&count=40",
     "confidence": "Medium",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "1e1e0cf85d490089d25800f6ee8f8fab7989f5c752e675aa19fc4f7f7bf4e372",
     "snapshot_path": null
@@ -6202,7 +6202,7 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1354739&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 134062) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via SEC Form ADV Item 5.F regulatory AUM and Form 13F filings. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.)",
+  "reviewer_notes": "[registration status] SEC IAPD registration (CRD 134062) is currently inactive/withdrawn (verified via IAPD firm search, 2026-07-28); the firm is independently evidenced as operating via SEC Form ADV Item 5.F regulatory AUM and Form 13F filings. (A withdrawn SEC registration is common for family offices exempt under the SEC Family Office Rule.) [same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (SEC IAPD / Form ADV (investment-adviser registration)).",
   "record_confidence": "High",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
@@ -6335,8 +6335,8 @@
     "url": "https://www.marcuardfamilyoffice.com/"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source justification] the discovery source class also documents this firm's facts via the underlying filing; INDEPENDENT cross-verification is provided by a different-class source (Firm Website, SEC IAPD / Form ADV (investment-adviser registration)).",
+  "record_confidence": "Medium",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -6420,7 +6420,7 @@
   "fo_id": "fo_38a12a7ca6",
   "name": "PATHSTONE FAMILY OFFICE, LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -6448,8 +6448,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511137&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -6467,7 +6467,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511137&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "59168b06429ce714ba77c0b040a5ec414fb53f33c088283d7e40ee50d56e059d",
     "snapshot_path": null
@@ -6478,7 +6478,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511137&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "59168b06429ce714ba77c0b040a5ec414fb53f33c088283d7e40ee50d56e059d",
     "snapshot_path": null
@@ -6489,7 +6489,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511137&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "59168b06429ce714ba77c0b040a5ec414fb53f33c088283d7e40ee50d56e059d",
     "snapshot_path": null
@@ -6500,7 +6500,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511137&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "59168b06429ce714ba77c0b040a5ec414fb53f33c088283d7e40ee50d56e059d",
     "snapshot_path": null
@@ -6511,7 +6511,7 @@
   "fo_id": "fo_4f2b68b968",
   "name": "Louis-Dreyfus Family Office LLC",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "SEC IAPD / Form ADV registration or the firm's own website identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": null,
   "investment_thesis": null,
@@ -6539,8 +6539,8 @@
     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1889527&type=13F&dateb=&owner=include&count=40"
    }
   ],
-  "reviewer_notes": null,
-  "record_confidence": "High",
+  "reviewer_notes": "[same-source: single authoritative source] verified via the firm's own SEC Form 13F filing, which both surfaced and documents it; no independent free-tier second source (IAPD registration / firm website) is available for this firm, so cross-verification is limited — disclosed, not fabricated.",
+  "record_confidence": "Low",
   "data_as_of": "2026-07-28",
   "could_not_verify": [
    "corporate_linkedin",
@@ -6558,7 +6558,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1889527&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ee01b03196b18a8d7cdd28f5af6fd78fc730a16c353be37485852e64fd06c3cc",
     "snapshot_path": null
@@ -6569,7 +6569,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1889527&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ee01b03196b18a8d7cdd28f5af6fd78fc730a16c353be37485852e64fd06c3cc",
     "snapshot_path": null
@@ -6580,7 +6580,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1889527&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ee01b03196b18a8d7cdd28f5af6fd78fc730a16c353be37485852e64fd06c3cc",
     "snapshot_path": null
@@ -6591,7 +6591,7 @@
     "checked_at": "2026-07-28",
     "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1889527&type=&dateb=&owner=include&count=40",
     "confidence": "High",
-    "note": null,
+    "note": "content_hash is the sha256 of the retained SEC EDGAR company submissions snapshot for this CIK; source_url is the cited 13F filing list",
     "fetched_at": null,
     "content_hash": "ee01b03196b18a8d7cdd28f5af6fd78fc730a16c353be37485852e64fd06c3cc",
     "snapshot_path": null
@@ -6828,7 +6828,7 @@
   "fo_id": "fo_a750611281",
   "name": "Prime Opportunities Investment Group",
   "fo_type": "Undetermined",
-  "fo_type_evidence": "Firm website self-identifies as \"a successful family office\" but does not establish single vs multi family; discovered via Wikipedia/Wikidata and verified as a family office against its own website.",
+  "fo_type_evidence": "An authoritative source (SEC Form 13F filing / SEC IAPD Form ADV registration, or the firm's own website) identifies it as a family office; single vs multi family not established from an authoritative source (adviser-registration status not verifiable by an exact identifier), so honestly labelled Undetermined rather than guessed.",
   "fo_type_confidence": "Low",
   "description": "US single-family office investing in public equities with a private-equity approach; roots in real-estate holdings and operating businesses.",
   "investment_thesis": "We invest only in publicly traded companies, and take a private equity approach to our investment process.",

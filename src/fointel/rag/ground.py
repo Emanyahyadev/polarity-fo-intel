@@ -71,8 +71,12 @@ class Grounding:
 
         A partial/aliased reference is allowed ONLY when it shares a DISTINCTIVE token with a
         retrieved firm — generic family-office words (family, office, capital, partners, …) do
-        not count, so an invented name like 'Zephyr Quantum Family Office' can no longer slip
-        through by matching the shared 'family'/'office' tokens."""
+        not count, so an invented name like 'Zephyr Quantum Family Office' no longer slips
+        through by matching the shared 'family'/'office' tokens. An all-generic phrase is not
+        treated as a firm at all (so ordinary 'Wealth Management' prose is not rejected). Known
+        residual gap: an invented name that borrows ONE distinctive token from a retrieved firm
+        (e.g. 'Pathstone Ventures') is still treated as a partial reference; the LLM prompt +
+        abstention threshold are the backstops there."""
         allowed = {norm_name(r.record.name) for r in retrieved}
         allowed_tokens = {t for name in allowed for t in name.split() if t not in _GENERIC_TOKENS}
         ungrounded = []
@@ -83,7 +87,10 @@ class Grounding:
             if mentioned in allowed:
                 continue
             distinctive = [t for t in mentioned.split() if t not in _GENERIC_TOKENS]
-            if distinctive and any(t in allowed_tokens for t in distinctive):
+            if not distinctive:
+                continue  # an all-generic phrase ("Wealth Management", "Capital Partners") is
+                # not a distinctive firm name — flagging it would reject valid grounded answers
+            if any(t in allowed_tokens for t in distinctive):
                 continue  # shares a DISTINCTIVE token with a retrieved firm
             ungrounded.append(match.group(1))
         return sorted(set(ungrounded))

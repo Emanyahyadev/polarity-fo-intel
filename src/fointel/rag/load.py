@@ -68,10 +68,12 @@ def _signals(row: dict) -> list[Signal]:
         if not text:
             continue
         d = row.get(f"recent_signal_{i}_date") or ""
-        out.append(Signal(
-            text=text, source_class=SourceClass.NEWS,
-            event_date=date.fromisoformat(d) if d else None,
-            source_url=(row.get(f"recent_signal_{i}_source") or None)))
+        url = row.get(f"recent_signal_{i}_source") or None
+        # infer the source class from the URL so the RAG's in-memory record matches the
+        # delivered store (13F portfolio-activity signals are SEC_EDGAR, not NEWS).
+        sc = SourceClass.SEC_EDGAR if url and "sec.gov" in url else SourceClass.NEWS
+        out.append(Signal(text=text, source_class=sc,
+                          event_date=date.fromisoformat(d) if d else None, source_url=url))
     return out
 
 
