@@ -7194,5 +7194,233 @@
     "snapshot_path": null
    }
   }
+ },
+ {
+  "fo_id": "fo_207554cfe7",
+  "name": "MSD Capital, L.P.",
+  "fo_type": "Single-Family Office",
+  "fo_type_evidence": "Firm's own website self-identifies as a single-family office: \"Established in 1998, exclusively manages the assets of Michael S. Dell and his family.\" Discovered via a non-SEC curated-reference lens; classification and firm identity verified against the firm's own website.",
+  "fo_type_confidence": "Medium",
+  "description": "Private investment firm that exclusively manages the assets of Michael S. Dell and his family.",
+  "investment_thesis": "MSD Capital utilizes a multi-disciplinary investment strategy focused on maximizing long-term capital appreciation by making investments across the globe in the equities of public and private companies, credit, real estate and other asset classes and securities.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://www.msdcapital.com/",
+  "corporate_linkedin": null,
+  "hq_city": "New York",
+  "hq_state": "NY",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "signals": [],
+  "discovery_source": "Curated directory / reference (Wikipedia, associations)",
+  "verification_sources": [
+   {
+    "source_class": "Firm Website",
+    "verifies": "single-family-office status, firm identity",
+    "accessed_at": "2026-07-29",
+    "url": "https://www.msdcapital.com/"
+   }
+  ],
+  "reviewer_notes": "Discovered via the curated/notable-reference lens (Wikipedia's family-office listings); classification and firm identity verified against the firm's own authoritative website (single verification source). AUM and individual contact details are not available from free authoritative sources and are left could_not_verify. The family the office serves is named in the classification evidence; it is deliberately NOT recorded as the office's principal, because the site does not name the office's own decision-maker. Wikipedia's family-office category lists this firm under its later corporate name (DFO Management, LLC); the firm's own site presents as MSD Capital, L.P., and the record uses the site's own name — identity verified against that site.",
+  "record_confidence": "Medium",
+  "data_as_of": "2026-07-29",
+  "could_not_verify": [
+   "estimated_aum",
+   "corporate_linkedin",
+   "principal_name",
+   "principal_title",
+   "principal_linkedin",
+   "principal_email",
+   "principal_phone",
+   "hq_phone"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "fo_type_evidence": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.msdcapital.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
+ },
+ {
+  "fo_id": "fo_d80fbfc1d9",
+  "name": "Willett Advisors LLC",
+  "fo_type": "Single-Family Office",
+  "fo_type_evidence": "Firm's own website self-identifies as a single-family office: \"manages the philanthropic assets of Michael R. Bloomberg\" — a dedicated office serving one named individual. Discovered via a non-SEC curated-reference lens; classification and firm identity verified against the firm's own website.",
+  "fo_type_confidence": "Medium",
+  "description": "Manages the philanthropic assets of Michael R. Bloomberg.",
+  "investment_thesis": "The firm's objective is to achieve long-term capital appreciation through the construction of a diversified investment portfolio.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://www.willettadvisors.com/",
+  "corporate_linkedin": null,
+  "hq_city": "New York",
+  "hq_state": "NY",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "signals": [],
+  "discovery_source": "Curated directory / reference (Wikipedia, associations)",
+  "verification_sources": [
+   {
+    "source_class": "Firm Website",
+    "verifies": "single-family-office status, firm identity",
+    "accessed_at": "2026-07-29",
+    "url": "https://www.willettadvisors.com/"
+   }
+  ],
+  "reviewer_notes": "Discovered via the curated/notable-reference lens (Wikipedia's family-office listings); classification and firm identity verified against the firm's own authoritative website (single verification source). AUM and individual contact details are not available from free authoritative sources and are left could_not_verify. The family the office serves is named in the classification evidence; it is deliberately NOT recorded as the office's principal, because the site does not name the office's own decision-maker.",
+  "record_confidence": "Medium",
+  "data_as_of": "2026-07-29",
+  "could_not_verify": [
+   "estimated_aum",
+   "corporate_linkedin",
+   "principal_name",
+   "principal_title",
+   "principal_linkedin",
+   "principal_email",
+   "principal_phone",
+   "hq_phone"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "fo_type_evidence": {
+    "source_class": "Firm Website",
+    "method": "firm website (Firecrawl scrape + verification)",
+    "checked_at": "2026-07-29",
+    "source_url": "https://www.willettadvisors.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
  }
 ]

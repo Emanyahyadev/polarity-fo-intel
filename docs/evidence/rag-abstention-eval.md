@@ -1,6 +1,6 @@
 # RAG grounding & abstention evaluation
 
-Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
+Dataset: 57 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: multi-family offices in Texas
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
@@ -24,7 +24,7 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: show me the single office families
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
-- Found 4 matching family offices in the verified dataset:
+- Found 5 matching family offices in the verified dataset:
 
 ## Q: family offices in NY
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
@@ -72,7 +72,7 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 
 ## Q: what are single family offices
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
-- Found 4 matching family offices in the verified dataset:
+- Found 5 matching family offices in the verified dataset:
 
 ## Q: write a poem about family offices
 - expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.67 is below the 0.68 threshold
