@@ -80,6 +80,15 @@ def test_retrieve_empty_on_unsatisfiable_filter(monkeypatch):
     assert retrieve(index, "x", filters={"hq_state": "CA"}) == []
 
 
+def test_grounding_firm_name_escape():
+    g = Grounding(min_score=0.68)
+    r = [Retrieved(record=_rec("a", "Pathstone Family Office, LLC"),
+                   vector_score=0.66, bm25_score=5, rrf=0.1)]
+    assert g.assess(r, "Pathstone")[0] is True          # query names the firm -> answer
+    assert g.assess(r, "family")[0] is False             # common word only -> abstain
+    assert g.assess(r, "best pizza in chicago")[0] is False  # off-topic -> abstain
+
+
 def test_grounding_abstains_below_threshold():
     g = Grounding(min_score=0.55)
     r_hi = [Retrieved(record=_rec("a", "A FO"), vector_score=0.7, bm25_score=1, rrf=0.1)]

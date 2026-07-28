@@ -27,18 +27,32 @@ _CANDIDATE_FIRM = re.compile(
     r"\s+(?:Family Office|Family Offices|Capital|Advisors|Partners|Management|Group|LLC|LP))\b")
 
 
+_FO_WORDS = re.compile(r"\b(family|offices?|llc|ltd|lp|inc|the|and)\b", re.I)
+
+
+def _name_core(s: str) -> str:
+    """Distinctive core of a name/query — drops common family-office words + punctuation, so
+    'Pathstone' matches 'PATHSTONE FAMILY OFFICE, LLC' but bare 'family' matches nothing."""
+    return re.sub(r"[^a-z0-9]", "", _FO_WORDS.sub("", (s or "").lower()))
+
+
 class Grounding:
     def __init__(self, min_score: float = 0.68):
         self.min_score = min_score
 
-    def assess(self, retrieved: list[Retrieved]) -> tuple[bool, str]:
-        """Answerable only if we retrieved something above the similarity threshold."""
+    def assess(self, retrieved: list[Retrieved], query: str = "") -> tuple[bool, str]:
+        """Answerable if the best semantic match clears the threshold, OR the query names a
+        retrieved firm (a firm-name lookup: BM25 caught it even if the bare name's cosine is
+        borderline). Otherwise abstain."""
         if not retrieved:
             return False, "no records matched the query"
         top = max(r.vector_score for r in retrieved)
-        if top < self.min_score:
-            return False, f"best match similarity {top:.2f} is below the {self.min_score} threshold"
-        return True, f"top similarity {top:.2f}"
+        if top >= self.min_score:
+            return True, f"top similarity {top:.2f}"
+        qcore = _name_core(query)
+        if len(qcore) >= 4 and any(qcore in _name_core(r.record.name) for r in retrieved):
+            return True, f"firm-name match (best similarity {top:.2f})"
+        return False, f"best match similarity {top:.2f} is below the {self.min_score} threshold"
 
     def verify_answer(self, answer_text: str, retrieved: list[Retrieved]) -> list[str]:
         """Return firm names asserted in the answer that are NOT in the retrieved set."""

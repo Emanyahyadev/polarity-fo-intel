@@ -21,10 +21,10 @@
       "mode": "extractive",
       "reason": "top similarity 0.77",
       "citations": [
-        "fo_1e72fff8ee",
         "fo_a4cb68cd35",
         "fo_b406883a90",
         "fo_311aa9d44c",
+        "fo_1e72fff8ee",
         "fo_f638fbd06f"
       ],
       "correct": true
@@ -38,9 +38,9 @@
       "citations": [
         "fo_cfa2d51623",
         "fo_16837977fd",
-        "fo_576ab240f6",
         "fo_a2bc85f0ac",
-        "fo_29e17a89bc"
+        "fo_576ab240f6",
+        "fo_c7e795ff94"
       ],
       "correct": true
     },
@@ -64,9 +64,13 @@
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
-      "reason": "top similarity 0.72",
+      "reason": "firm-name match (best similarity 0.54)",
       "citations": [
-        "fo_38a12a7ca6"
+        "fo_38a12a7ca6",
+        "fo_33a7413d76",
+        "fo_a4cb68cd35",
+        "fo_35450e2cea",
+        "fo_f638fbd06f"
       ],
       "correct": true
     },
@@ -81,7 +85,7 @@
         "fo_3171716a52",
         "fo_33d228f849",
         "fo_16837977fd",
-        "fo_311aa9d44c"
+        "fo_a4cb68cd35"
       ],
       "correct": true
     },
@@ -126,7 +130,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.45 is below the 0.68 threshold",
+      "reason": "best match similarity 0.46 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },

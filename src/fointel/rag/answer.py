@@ -128,7 +128,7 @@ def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Groundin
 
     filters = parse_filters(query)
     retrieved = retrieve(index, query, top_k=top_k, filters=filters)
-    answerable, reason = grounding.assess(retrieved)
+    answerable, reason = grounding.assess(retrieved, query)
     if not answerable:
         log.info("abstain", extra={"event": "abstain", "query": query, "reason": reason})
         return AnswerResult(query=query, answered=False, answer=ABSTAIN_MESSAGE,
