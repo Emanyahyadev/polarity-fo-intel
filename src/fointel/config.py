@@ -51,6 +51,9 @@ class Settings:
     llm_provider: str = os.getenv("LLM_PROVIDER", "groq")   # free-tier default
     llm_api_key: str = os.getenv("LLM_API_KEY", "")
     llm_model: str = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
+    # Groq free-tier daily token quotas are PER MODEL: a smaller model with its own
+    # (larger) quota keeps conversational answers alive when the primary's quota is spent.
+    llm_model_fallback: str = os.getenv("LLM_MODEL_FALLBACK", "llama-3.1-8b-instant")
     embed_model: str = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
     # --- retrieval / grounding control ---

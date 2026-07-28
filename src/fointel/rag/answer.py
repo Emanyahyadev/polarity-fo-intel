@@ -153,10 +153,29 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
         "multiple firms) — neither a one-line fragment nor a raw data dump.")
     user = f"RECORDS:\n{context}\n\nQUESTION: {query}\n\nGrounded answer:"
     client = Groq(api_key=settings.llm_api_key)
-    resp = client.chat.completions.create(
-        model=settings.llm_model, temperature=0.2, max_tokens=600,
-        messages=[{"role": "system", "content": system}, {"role": "user", "content": user}])
-    return (resp.choices[0].message.content or "").strip()
+    # Model-fallback chain: Groq free-tier daily quotas are PER MODEL, so when the
+    # primary's quota is spent the smaller fallback (with its own, larger quota) keeps
+    # conversational answers alive instead of dropping to the bare extractive listing.
+    # Grounding is unaffected either way — verify_answer bounds both models' output.
+    models = [settings.llm_model]
+    if settings.llm_model_fallback and settings.llm_model_fallback not in models:
+        models.append(settings.llm_model_fallback)
+    last_exc: Exception = RuntimeError("no LLM model configured")
+    for i, model in enumerate(models):
+        try:
+            resp = client.chat.completions.create(
+                model=model, temperature=0.2, max_tokens=600,
+                messages=[{"role": "system", "content": system},
+                          {"role": "user", "content": user}])
+            if i > 0:
+                log.info("llm fallback model answered", extra={
+                    "event": "llm_fallback", "model": model})
+            return (resp.choices[0].message.content or "").strip()
+        except Exception as exc:                      # rate limit, model error — try next
+            last_exc = exc
+            log.warning("llm model failed; trying next", extra={
+                "event": "llm_model_error", "model": model, "error": str(exc)[:200]})
+    raise last_exc
 
 
 def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Grounding] = None,
