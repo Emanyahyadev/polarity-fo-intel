@@ -24,10 +24,10 @@ BASE = (sys.argv[1] if len(sys.argv) > 1 else
         "https://family-office-intelligence.onrender.com").rstrip("/")
 
 QUERIES = [
-    "single-family offices in Texas",                 # structured: type + state
+    "multi-family offices in Texas",                  # structured: type + state
     "family offices with AUM over $1 billion",        # structured: numeric AUM filter
-    "who is the principal at Callan Family Office",    # principal (decision-maker) intelligence
-    "Tell me about Matter Family Office",             # entity attributes incl. investment thesis
+    "single-family offices in Belgium",               # international single-family office (Korys)
+    "Tell me about WE Family Offices",                # entity attributes (MFO, ADV AUM, principal)
     "family offices in California",                    # semantic + location
     "best pizza office in Chicago",                    # in-vocabulary probe -> must abstain
     "family offices headquartered on the moon",        # in-vocabulary probe -> must abstain
