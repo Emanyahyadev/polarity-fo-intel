@@ -20,6 +20,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from .discovery.base import Candidate
+from .enrichment.adv import AdvEnricher, AdvFacts
 from .enrichment.iapd import IapdEnricher, IapdFacts, facts_from_registry
 from .enrichment.sec import SecEnricher, SecFacts, sec_provenance
 from .enrichment.thirteenf import ThirteenFEnricher, ThirteenFFacts
@@ -158,6 +159,7 @@ class EnrichedFirm(BaseModel):
     iapd: Optional[IapdFacts] = None
     iapd_url: Optional[str] = None
     iapd_hash: Optional[str] = None
+    adv: Optional[AdvFacts] = None
     thirteenf: Optional[ThirteenFFacts] = None
     website: Optional[str] = None
     website_facts: Optional[WebsiteFacts] = None
@@ -166,7 +168,8 @@ class EnrichedFirm(BaseModel):
 
 
 def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnricher,
-                     iapd_enr: IapdEnricher, f13_enr: ThirteenFEnricher) -> EnrichedFirm:
+                     iapd_enr: IapdEnricher, f13_enr: ThirteenFEnricher,
+                     adv_enr: AdvEnricher) -> EnrichedFirm:
     facts = sec_url = sec_hash = None
     cik = cand.identifiers.get("cik") or cand.raw.get("cik")
     if cik:
@@ -210,6 +213,11 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
             log.warning("iapd enrich failed", extra={"event": "enrich_warn", "source": "iapd",
                                                      "firm": cand.name, "error": str(exc)})
 
+    # SEC Form ADV deep facts (total AUM + owner-principal) — pure lookup by CRD over the
+    # parsed bulk data; only registered advisers with a fresh filing are present.
+    crd = cand.raw.get("crd") or (iapd.crd if iapd else None) or cand.identifiers.get("crd")
+    adv = adv_enr.lookup(crd)
+
     website = wfacts = wiki_bg = None
     qid = cand.raw.get("qid")
     title = cand.hints.get("wikipedia_title")
@@ -246,9 +254,9 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
     website_text = wfacts.text_excerpt if wfacts else ""
     cls = classify(cand.name, sec_facts=facts, website_text=website_text, iapd=iapd)
     return EnrichedFirm(candidate=cand, sec_facts=facts, sec_url=sec_url, sec_hash=sec_hash,
-                        iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash, thirteenf=thirteenf,
-                        website=website, website_facts=wfacts, wikipedia_bg=wiki_bg,
-                        classification=cls)
+                        iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash, adv=adv,
+                        thirteenf=thirteenf, website=website, website_facts=wfacts,
+                        wikipedia_bg=wiki_bg, classification=cls)
 
 
 def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
@@ -376,6 +384,32 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
             verifies="principal (13F signatory), 13(f) portfolio value, recent holdings",
             accessed_at=as_of, url=f13_url))
 
+    # SEC Form ADV (Item 5.F + Schedule A) — supersedes 13F for AUM (TOTAL regulatory AUM, not
+    # just 13(f) securities) and principal (a Schedule A control person/owner — a truer
+    # decision-maker than the 13F signatory). The lookup is already freshness-filtered (>=2021).
+    if e.adv:
+        av = e.adv
+        adv_prov = Provenance(source_class=SourceClass.SEC_IAPD,
+                              method="SEC Form ADV Part 1A (Item 5.F total AUM / Schedule A control person)",
+                              checked_at=as_of, source_url=av.report_url, confidence=Confidence.HIGH)
+        if av.aum_text:
+            fields["estimated_aum"] = av.aum_text
+            prov["estimated_aum"] = adv_prov
+        if av.principal_name:
+            fields["principal_name"] = av.principal_name
+            prov["principal_name"] = adv_prov
+            fields.pop("principal_title", None)
+            if av.principal_title:
+                fields["principal_title"] = av.principal_title
+                prov["principal_title"] = adv_prov
+            # ADV gives no phone for the owner; drop any 13F-signatory phone (a different person).
+            fields.pop("principal_phone", None)
+            prov.pop("principal_phone", None)
+        vsources.append(SourceRef(
+            source_class=SourceClass.SEC_IAPD,
+            verifies="total regulatory AUM (ADV Item 5.F), owner/control person (ADV Schedule A)",
+            accessed_at=as_of, url=av.report_url))
+
     # Wikipedia background -> description only if we have nothing better (cited as background)
     if "description" not in fields and e.wikipedia_bg:
         fields["description"] = e.wikipedia_bg[:400]
@@ -409,7 +443,11 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
         reviewer_notes = ("same-source: discovered via SEC 13F full-text search on filings; "
                           "verified via the distinct SEC submissions registration record and the "
                           "firm's regulatory self-identification as a family office")
-    if fields.get("principal_name"):
+    if e.adv and (e.adv.aum_usd or e.adv.principal_name):
+        note = ("estimated_aum is TOTAL regulatory AUM (SEC Form ADV Item 5.F); principal is a "
+                "Form ADV Schedule A control person — an owner / executive officer of the firm")
+        reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
+    elif fields.get("principal_name"):
         note = ("principal fields are the firm's SEC Form 13F signatory (a named executive "
                 "officer, title exactly as filed — commonly the CCO/General Counsel, not "
                 "necessarily the lead investor); estimated_aum is the aggregate 13(f) "
@@ -440,7 +478,7 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, dict]:
     """Enrich + build all candidates. Returns (records, discovery_report)."""
     sec_enr, web_enr, iapd_enr = SecEnricher(), WebsiteEnricher(), IapdEnricher()
-    f13_enr = ThirteenFEnricher()
+    f13_enr, adv_enr = ThirteenFEnricher(), AdvEnricher()
     records: list[FamilyOfficeRecord] = []
     discovered_by_source: Counter = Counter()
     rejected_by_reason: Counter = Counter()
@@ -448,7 +486,7 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
 
     for cand in candidates:
         discovered_by_source[cand.source_class.value] += 1
-        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr, f13_enr)
+        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr, f13_enr, adv_enr)
         if not e.classification.qualifies:
             rejected_by_reason[e.classification.reject_reason or "unknown"] += 1
             continue

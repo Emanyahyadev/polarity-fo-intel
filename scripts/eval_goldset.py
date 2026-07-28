@@ -15,6 +15,7 @@ from pathlib import Path
 
 from fointel.assemble import enrich_candidate
 from fointel.discovery.base import Candidate
+from fointel.enrichment.adv import AdvEnricher
 from fointel.enrichment.iapd import IapdEnricher
 from fointel.enrichment.sec import SecEnricher
 from fointel.enrichment.thirteenf import ThirteenFEnricher
@@ -28,13 +29,14 @@ from fointel.validation.goldset import Prediction, evaluate, load_goldset
 def main() -> None:
     labels = load_goldset("goldset/firm_type_goldset.jsonl")
     pool = {norm_name(c.name): c for c in get_repository().all_candidates()}
-    sec, web, iapd, f13 = SecEnricher(), WebsiteEnricher(), IapdEnricher(), ThirteenFEnricher()
+    sec, web, iapd = SecEnricher(), WebsiteEnricher(), IapdEnricher()
+    f13, adv = ThirteenFEnricher(), AdvEnricher()
 
     predictions = []
     for lab in labels:
         cand = pool.get(norm_name(lab.firm_name)) or Candidate(
             name=lab.firm_name, source_class=SourceClass.OTHER)
-        e = enrich_candidate(cand, sec, web, iapd, f13)
+        e = enrich_candidate(cand, sec, web, iapd, f13, adv)
         predictions.append(Prediction(firm_name=lab.firm_name,
                                       qualifies=e.classification.qualifies,
                                       fo_type=e.classification.fo_type.value))
