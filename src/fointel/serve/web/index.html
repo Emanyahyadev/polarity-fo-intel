@@ -137,6 +137,12 @@ main{max-width:860px;width:100%;justify-self:center}
 .answer li{padding:7px 0;border-top:1px solid var(--line)}
 .answer li:first-child{border-top:none}
 .answer li .sub{display:block;color:var(--ink3);font-size:13px;margin-top:2px}
+.answer strong{font-weight:650;color:var(--ink)}
+.answer em{font-style:italic}
+.answer ul.md{margin:2px 0 12px;padding-left:4px;list-style:none}
+.answer ul.md li{padding:5px 0 5px 16px;border:none;position:relative;max-width:66ch}
+.answer ul.md li::before{content:"";position:absolute;left:2px;top:13px;width:5px;height:5px;
+  border-radius:50%;background:var(--accent)}
 .answer.abstain{background:var(--warn-bg);border-color:var(--warn-line)}
 .answer.abstain p{color:var(--warn);max-width:60ch}
 
@@ -470,6 +476,36 @@ function modeChip(m){
   return `<span class="mode ${cls}" title="${esc(tip)}">${esc(label)}</span>`;
 }
 
+// Safe markdown-lite renderer: escape everything first, then re-introduce ONLY
+// <strong>/<em>, bullet lists, and paragraphs. Stray pipe-tables (a model ignoring the
+// format instruction) are flattened into readable label rows instead of raw pipes.
+function inlineMD(s){
+  return esc(s)
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[\s(])\*([^*\n]+)\*(?=[\s).,;:!?]|$)/g, "$1<em>$2</em>");
+}
+function mdLite(text){
+  const blocks = text.replace(/^#{1,6}\s*/gm, "").split(/\n{2,}/);
+  const out = [];
+  for(const block of blocks){
+    const lines = block.split("\n").map(l=>l.trim()).filter(Boolean);
+    if(!lines.length) continue;
+    let list = [], para = [];
+    const flushP = () => { if(para.length){ out.push(`<p>${para.map(inlineMD).join("<br>")}</p>`); para=[]; } };
+    const flushL = () => { if(list.length){ out.push(`<ul class="md">${list.map(li=>`<li>${inlineMD(li)}</li>`).join("")}</ul>`); list=[]; } };
+    for(const ln of lines){
+      if(/^\|.*\|/.test(ln)){                                   // stray table row -> label row
+        if(/^\|[\s\-:|]+\|$/.test(ln)) continue;                // drop |---|---| separators
+        const cells = ln.split("|").map(c=>c.trim()).filter(Boolean);
+        flushP(); list.push(cells.join(" — "));
+      } else if(/^([-*•]|\d+[.)])\s+/.test(ln)){
+        flushP(); list.push(ln.replace(/^([-*•]|\d+[.)])\s+/, ""));
+      } else { flushL(); para.push(ln); }
+    }
+    flushP(); flushL();
+  }
+  return out.join("");
+}
 function answerHTML(d){
   const text = d.answer || "";
   // extractive answers arrive as "Found N…" + "• Firm — fact · fact" lines: render as rows
@@ -485,7 +521,7 @@ function answerHTML(d){
     const list = items.map(it=>`<li>${esc(it.main)}${it.subs.map(s=>`<span class="sub">${esc(s)}</span>`).join("")}</li>`).join("");
     return lead + (list ? `<ul>${list}</ul>` : "");
   }
-  return text.split(/\n{2,}/).map(p=>`<p>${esc(p.trim())}</p>`).join("");
+  return mdLite(text);
 }
 
 function factHTML(label, value, mono){
