@@ -538,8 +538,11 @@ function card(c, i){
 function render(d){
   const r = $("#results");
   if(d.answered === false){
+    const scopeDecline = (d.reason||"").startsWith("out-of-scope");
+    const title = scopeDecline ? "Declined — outside the service's scope"
+                               : "Declined — insufficient verified evidence";
     r.innerHTML = `<div class="reveal">
-      <div class="verdict"><span class="title">Declined — insufficient verified evidence</span>${modeChip("abstain")}</div>
+      <div class="verdict"><span class="title">${title}</span>${modeChip("abstain")}</div>
       <div class="answer abstain"><p>${esc(d.answer)}</p></div></div>`;
     return;
   }

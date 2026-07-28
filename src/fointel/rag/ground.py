@@ -59,7 +59,11 @@ _OFF_TASK = re.compile(
     r"|\b(ignore|disregard) (your|all|any|previous|prior) (instructions|rules|guidelines)\b"
     r"|\b(act|pose) as\b|\bpretend (to be|you are)\b|\b(system|your) prompt\b"
     r"|\b(start|starting|set up|setting up|launch|create|establish|open)\s+(my|your|our)\s+(own\s+)?family office\b"
-    r"|^\s*what (is|are) (a |an |the )?((single|multi)[- ]?family )?(family )?offices?\??\s*$",
+    # Only the SINGULAR form is definitional ("what is a family office?" asks for a
+    # concept the dataset cannot authoritatively define). The plural — "what are single
+    # family offices" — is a LISTING question in a research tool ("which are the SFOs?")
+    # and must be answered with the records, so it is deliberately NOT matched here.
+    r"|^\s*what is (a |an )?((single|multi)[- ]?family )?(family )?office\??\s*$",
     re.IGNORECASE)
 
 

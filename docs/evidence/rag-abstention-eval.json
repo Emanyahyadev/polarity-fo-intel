@@ -1,6 +1,6 @@
 {
-  "n": 28,
-  "correct": 28,
+  "n": 29,
+  "correct": 29,
   "accuracy": 1.0,
   "results": [
     {
@@ -215,6 +215,20 @@
       "mode": "abstain",
       "reason": "out-of-scope request (advice / how-to / definition / creative) \u2014 this service answers research questions about the records",
       "citations": [],
+      "correct": true
+    },
+    {
+      "query": "what are single family offices",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "extractive",
+      "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
+      "citations": [
+        "fo_3642e17ac1",
+        "fo_ca957ee5d5",
+        "fo_d27cc088a3",
+        "fo_e8d9f15c57"
+      ],
       "correct": true
     },
     {

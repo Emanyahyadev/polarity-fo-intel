@@ -70,6 +70,10 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
 - That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
 
+## Q: what are single family offices
+- expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
+- Found 4 matching family offices in the verified dataset:
+
 ## Q: write a poem about family offices
 - expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · out-of-scope request (advice / how-to / definition / creative) — this service answers research questions about the records
 - That request is outside this service's scope. It answers research questions about the verified family-office records — firms, types, locations, AUM, principals, and recent activity — and does not provide advice, definitions, how-to guidance, or general content. Try a research question like "multi-family offices in Texas" or "Tell me about Pathstone".
