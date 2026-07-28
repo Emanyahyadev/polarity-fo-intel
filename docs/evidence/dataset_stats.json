@@ -1,9 +1,9 @@
 {
   "n": 55,
   "type": {
-    "Undetermined": 27,
-    "Single-Family Office": 12,
-    "Multi-Family Office": 16
+    "Undetermined": 30,
+    "Multi-Family Office": 21,
+    "Single-Family Office": 4
   },
   "confidence": {
     "High": 28,
@@ -16,11 +16,11 @@
     "Curated directory / reference (Wikipedia, associations)": 7
   },
   "verification_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 28,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 48,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 40,
+    "SEC EDGAR (13F / SC / Form D filings)": 27,
     "Firm Website": 32
   },
-  "independence_verified": 53,
+  "independence_verified": 45,
   "geography": {
     "countries": {
       "United States": 48,
@@ -90,7 +90,7 @@
     "corporate_linkedin": 55,
     "principal_linkedin": 55,
     "principal_email": 55,
-    "principal_phone": 31,
+    "principal_phone": 45,
     "principal_name": 17,
     "principal_title": 17,
     "estimated_aum": 23,

@@ -98,7 +98,7 @@ independence, repository roundtrip + dedup + qualifying filter).
 **Harvest result (evidence: docs/evidence/01-*).** 191 unique candidates — SEC 119, 990-PF 50,
 Directory 22, News 0. Real, verifiable firms incl. Duquesne Family Office (Druckenmiller SFO),
 Pathstone, Veritable, Walton Enterprises, Bezos Expeditions, Kirkbi. Pool is pre-validation; Wave 2
-qualifies + balances the final-50 source mix (SEC is 62% of the raw pool but the selection controls the
+qualifies + balances the final-55 source mix (SEC is 62% of the raw pool but the selection controls the
 delivered distribution).
 
 **Judgment calls.** Kept news despite 0 discovery (honest, documents a real limitation; it earns its
@@ -108,7 +108,7 @@ test caught a name-extraction bug (leading "The" swallowed) before it shipped.
 **Tests.** 16 passing (added discovery pure-function tests).
 
 **Next.** Wave 2 — enrichment (SEC submissions, firm sites, per-firm GDELT signals) + validation layer
-(firm-type classifier, email verification), release gates, gold-set metrics, and the final 50.
+(firm-type classifier, email verification), release gates, gold-set metrics, and the final 55.
 
 ---
 

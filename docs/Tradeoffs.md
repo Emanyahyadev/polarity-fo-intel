@@ -11,16 +11,16 @@ The assessment demands a file that is **not mostly blanks** (must be sellable) *
 Priority order is fixed by the assessment: **dataset first, working functionality second, presentation third.** So depth concentrates on (a) discovery diversity + firm-type proof and (b) the grounding control — the two things most likely to be adversarially tested. We explicitly decline breadth (extra agents, extra sources, extra UI surface) that does not move those.
 
 ## T3 — Velocity vs. validation (the 45-hour clock)
-How We Work: "velocity without validation is recklessness," but the window is real. We buy speed by **scoping small** (50 records, 3 sources, one focused UI) and spend the saved time on validation evidence (gold set, audit trail, live-query logs), not on more features. Slower-but-right beats fast-but-unverifiable here by design.
+How We Work: "velocity without validation is recklessness," but the window is real. We buy speed by **scoping small** (55 records, 3 sources, one focused UI) and spend the saved time on validation evidence (gold set, audit trail, live-query logs), not on more features. Slower-but-right beats fast-but-unverifiable here by design.
 
 ## T4 — Coverage vs. verification cost per record
 Deep verification (MX/deliverability checks, multi-source corroboration, signal dating) is slow per record. Rather than thinly enrich a large pool, we discover a pool of ~4× and spend verification budget only on records that clear the firm-type gate — so effort lands on records that can actually ship.
 
 ## T5 — Automation vs. judgment
-The 50 must be pipeline-produced, not hand-assembled — but human judgment sets the inclusion standard, labels the gold set, and makes the SFO/MFO/Undetermined calls the classifier is unsure about. AI builds the pipeline; the human owns the standard. Those judgment points are logged in `BuildLog.md` so the reasoning is visible.
+The 55 must be pipeline-produced, not hand-assembled — but human judgment sets the inclusion standard, labels the gold set, and makes the SFO/MFO/Undetermined calls the classifier is unsure about. AI builds the pipeline; the human owns the standard. Those judgment points are logged in `BuildLog.md` so the reasoning is visible.
 
 ## T6 — Entity resolution: precision over recall (deliberate)
 We tuned resolution to favour **precision** (never falsely merge distinct firms) over **recall** (catch every duplicate). A false merge silently deletes a real firm and corrupts the count and source diversity; a missed merge merely leaves a flagged near-duplicate a human can reconcile. So fuzzy matches are *kept distinct and logged*, not auto-merged. The cost is a few genuine duplicates surviving into the pool (e.g. a typo variant), visible in the decisions log; the benefit is zero silent data loss.
 
 ## T7 — Reproducibility vs. repository weight / PII
-Full reproducibility wants every raw source snapshot committed; correct data-handling and repo hygiene want them out (bulky, third-party, PII). We split the difference: provenance carries url + fetched_at + content_hash in the committed dataset (so drift is detectable), working snapshots stay gitignored, and only the snapshots backing the released 50 are bundled into `docs/evidence/` at export. The committed repo is self-contained for the delivered records; the full candidate pool is regenerable, not archived.
+Full reproducibility wants every raw source snapshot committed; correct data-handling and repo hygiene want them out (bulky, third-party, PII). We split the difference: provenance carries url + fetched_at + content_hash in the committed dataset (so drift is detectable), working snapshots stay gitignored, and only the snapshots backing the released 55 are bundled into `docs/evidence/` at export. The committed repo is self-contained for the delivered records; the full candidate pool is regenerable, not archived.

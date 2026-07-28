@@ -39,7 +39,7 @@ Every run writes a manifest (`docs/evidence/run-manifest-*.json`) tying the pool
 ## 5. Material blind spots (discovery)
 
 - A family office with **no filing, no foundation, no notable-reference listing, and no press** is invisible to all four lenses — an inherent limit of a free-tier approach.
-- The pool is **SEC-heavy** (regulatory lens is the most productive). The final-50 selection applies a per-source cap so the *shipped* file is not source-dominated (see the release policy in `docs/Validation.md` and `KnownLimitations.md`).
+- The pool is **SEC-heavy** (regulatory lens is the most productive). The final-55 selection applies a per-source cap so the *shipped* file is not source-dominated (see the release policy in `docs/Validation.md` and `KnownLimitations.md`).
 - 990-PF returns many non-family-office entities (religious/educational/benefit orgs); these are filtered by validation, not by discovery.
 
 ## 6. Enrichment (Wave 2)

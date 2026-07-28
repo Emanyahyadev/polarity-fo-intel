@@ -35,7 +35,9 @@ DATA_DICTIONARY = [
     ("principal_name / principal_title", "Decision-maker identity where verified."),
     ("principal_linkedin / principal_email / principal_phone", "Decision-maker contact; blank + could_not_verify when not verifiable."),
     ("principal_email_status", "deliverable / risky / could_not_verify (never a guessed 'verified')."),
-    ("recent_signal_1..3 (+ _date, _source)", "Recent, dated activity (investments, hires, news)."),
+    ("recent_signal_1..3 (+ _date, _source)", "Recent, dated activity. This build: SEC Form 13F "
+     "portfolio changes (new positions vs the prior quarter), sourced to EDGAR; news/hire signals "
+     "were not available on free tiers (GDELT rate-limited to zero)."),
     ("*_confidence", "Per-field confidence, derived from the cell's evidence (never inflated)."),
     ("discovery_source", "How the firm was FOUND (discovery ≠ verification)."),
     ("verification_sources", "Independent authoritative sources used to PROVE facts."),
@@ -54,7 +56,7 @@ def export_dataset(records: list[FamilyOfficeRecord], audit: list[AuditEntry],
     dataset = pd.DataFrame([r.to_delivery_row() for r in records])
     provenance = pd.DataFrame([row for r in records for row in r.provenance_rows()])
     sources = pd.DataFrame([row for r in records for row in r.source_rows()])
-    audit_df = pd.DataFrame([a.model_dump() for a in audit]) if audit else pd.DataFrame(
+    audit_df = pd.DataFrame([a.model_dump(mode="json") for a in audit]) if audit else pd.DataFrame(
         columns=["fo_id", "field", "rejected_value", "reason", "source_class", "checked_at"])
     ddict = pd.DataFrame(DATA_DICTIONARY, columns=["column", "meaning"])
 

@@ -24,6 +24,17 @@ from ..schema import (
 )
 
 DEFAULT_CSV = "data/final/family_offices.csv"
+DEFAULT_STORE = "data/final/records.json"
+
+
+def load_records_from_store(path: str = DEFAULT_STORE) -> list[FamilyOfficeRecord]:
+    """Load the canonical, full-fidelity record store (lossless: keeps provenance,
+    reviewer_notes, verification-source URLs, content hashes). This is the authoritative
+    source of truth; the CSV/XLSX are exported from it. Rule-1 provenance is real here,
+    not reconstructed."""
+    import json
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    return [FamilyOfficeRecord.model_validate(d) for d in data]
 
 
 def _verification(cell: str, as_of: date) -> list[SourceRef]:

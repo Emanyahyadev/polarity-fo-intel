@@ -7,4 +7,4 @@ Runtime settings live in `src/fointel/config.py` (env-driven). This directory ho
   from the reference sample, normalised).
 - `seed_queries.yaml` — news/press discovery seed queries.
 - `inclusion_standard.md` — the human-authored minimum bar a firm must clear to count
-  toward the 50 (the standard the pipeline enforces).
+  toward the 55 (the standard the pipeline enforces).

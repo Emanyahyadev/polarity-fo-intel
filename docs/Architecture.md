@@ -4,7 +4,7 @@
 
 ## 1. What this system is, and the standard it is held to
 
-A production-shaped pipeline that produces a **decision-grade dataset of 50 family offices** and serves it through a **grounded Micro-RAG** with a non-technical, customer-facing UI.
+A production-shaped pipeline that produces a **decision-grade dataset of 55 family offices** and serves it through a **grounded Micro-RAG** with a non-technical, customer-facing UI.
 
 We build to the *validation-layer* standard from **How We Work**, not the task-completion model. Every build in this repo must answer two questions, and — critically — the *right* two, because the two build types carry different evidence standards:
 
@@ -50,7 +50,7 @@ The validation layer carries the higher burden: a false negative (a bad value we
 The unit is `FamilyOfficeRecord`. Two rules of proof are encoded structurally:
 
 * **Rule 1 (cell):** `provenance: dict[field -> Provenance]` gives every high-value cell a basis (source class + method + confidence + checked_at). Unverifiable values are left blank and named in `could_not_verify`.
-* **Rule 2 (firm):** `qualifies()` returns true only when `fo_type ∈ {SFO, MFO}` **and** `fo_type_evidence` is present. Only qualifying records count toward the 50.
+* **Rule 2 (firm):** `qualifies()` returns true only when `fo_type ∈ {SFO, MFO}` **and** `fo_type_evidence` is present. Only qualifying records count toward the 55.
 * **Findings govern releases:** failed values never sit in delivered fields; they go to `AuditEntry` rows in `data/audit/`.
 
 Delivered file = flat CSV/XLSX via `to_delivery_row()`; full cell lineage = a separate provenance sheet via `provenance_rows()`. This keeps the customer file readable while Rule 1 stays fully auditable.
@@ -112,7 +112,7 @@ G9 is protected by an automated invariant test in both directions. Rejected valu
 
 ## 5b. Source-diversity selection (the shipped file)
 
-The anti-"copy at scale" rule applies to the delivered 50, not the SEC-heavy raw pool. `select_final()` picks the final N from gate-approved records so no single **discovery** source exceeds a cap (default 40% of N), preferring higher-confidence records; if diversity is insufficient the cap is relaxed only with an explicit, logged justification (DecisionLog D18).
+The anti-"copy at scale" rule applies to the delivered 55, not the SEC-heavy raw pool. `select_final()` picks the final N from gate-approved records so no single **discovery** source exceeds a cap (default 40% of N), preferring higher-confidence records; if diversity is insufficient the cap is relaxed only with an explicit, logged justification (DecisionLog D18).
 
 ## 5c. Reproducibility
 
@@ -129,7 +129,7 @@ Python 3.12 · **Repository interface** with a SQLite backend for dev and **Post
 
 ## 8. Reproducibility
 
-* The 50-record file is an **output of committed pipeline code**, regenerable via `scripts/run_pipeline.py` — never hand-assembled.
+* The 55-record file is an **output of committed pipeline code**, regenerable via `scripts/run_pipeline.py` — never hand-assembled.
 * Raw source pulls cached under `data/raw/` (gitignored, bulky/PII); the pipeline can rebuild them.
 * Deterministic where possible; every significant claim in the docs links to an artifact in `docs/evidence/`.
 * `requirements.txt` now, frozen to `requirements.lock` before submission.

@@ -1,0 +1,98 @@
+[
+ {
+  "name": "Prime Opportunities Investment Group",
+  "website": "https://www.primeopp.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "Our long-term investment philosophy and disciplined risk management approach stem from our background as a successful family office with extensive real estate holdings and business operating experience. ... To date, our approach to long-term wealth creation has served our investors well.",
+  "final_type": "Multi-Family Office",
+  "reason": "explicit multi-family/client quote",
+  "scraped_chars": 9000
+ },
+ {
+  "name": "JFG FAMILY OFFICE",
+  "website": "https://jfgfamilyoffice.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": true,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "We serve an exclusive clientele with fully integrated family office services. Our human capital, philanthropic advising, financial planning, and investment management services are carefully tailored to meet the complex needs of high-net-worth individuals and families.",
+  "final_type": "Multi-Family Office",
+  "reason": "ADV Item 5.F regulatory AUM => registered adviser serving clients",
+  "scraped_chars": 1343
+ },
+ {
+  "name": "HOLDUN FAMILY OFFICE LLC",
+  "website": "https://www.holdunfamilyoffice.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Single-Family Office",
+  "serves": "one family",
+  "evidence": "HOLDUN FAMILY OFFICE LLC",
+  "final_type": "Single-Family Office",
+  "reason": "explicit single-family quote",
+  "scraped_chars": 986
+ },
+ {
+  "name": "LONG FAMILY OFFICE",
+  "website": "https://www.longfamilyoffice.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Undetermined",
+  "reason": "single vs multi not explicitly established",
+  "scraped_chars": 0
+ },
+ {
+  "name": "818 FAMILY OFFICE, LLC",
+  "website": "https://818familyoffice.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "We see client relationships as long-term partnerships",
+  "final_type": "Multi-Family Office",
+  "reason": "explicit multi-family/client quote",
+  "scraped_chars": 5485
+ },
+ {
+  "name": "FIVE ELEVEN PARTNERS",
+  "website": "https://www.five11partners.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "For a limited number of families, ... Created to meet the financial needs of ultra-high-net-worth families ... Five Eleven delivers a bespoke single-family office experience tailored to ultra-high-net-worth families",
+  "final_type": "Multi-Family Office",
+  "reason": "explicit multi-family/client quote",
+  "scraped_chars": 7192
+ },
+ {
+  "name": "GRIT FAMILY OFFICE, LLC",
+  "website": "https://www.gritfo.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": false,
+  "site_type": "Multi-Family Office",
+  "serves": "multiple families or clients",
+  "evidence": "HELPING FAMILIES MANAGE LIFE'S COMPLEXITIES",
+  "final_type": "Multi-Family Office",
+  "reason": "explicit multi-family/client quote",
+  "scraped_chars": 1332
+ },
+ {
+  "name": "WE FAMILY OFFICES",
+  "website": "https://www.wefamilyoffices.com/",
+  "current": "Single-Family Office",
+  "has_reg_aum": true,
+  "site_type": null,
+  "serves": null,
+  "evidence": null,
+  "final_type": "Multi-Family Office",
+  "reason": "ADV Item 5.F regulatory AUM => registered adviser serving clients",
+  "scraped_chars": 0
+ }
+]

@@ -1,16 +1,17 @@
 {
-  "n": 17,
-  "correct": 17,
+  "n": 18,
+  "correct": 18,
   "accuracy": 1.0,
   "results": [
     {
-      "query": "single-family offices in Texas",
+      "query": "multi-family offices in Texas",
       "expected_answer": true,
       "answered": true,
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
-        "fo_831b1d28ba"
+        "fo_831b1d28ba",
+        "fo_33d228f849"
       ],
       "correct": true
     },
@@ -21,11 +22,11 @@
       "mode": "extractive",
       "reason": "matched an authoritative metadata filter (state/country/type/AUM)",
       "citations": [
+        "fo_cfa2d51623",
         "fo_1e72fff8ee",
         "fo_33a7413d76",
-        "fo_a4cb68cd35",
         "fo_b406883a90",
-        "fo_311aa9d44c"
+        "fo_a4cb68cd35"
       ],
       "correct": true
     },
@@ -93,6 +94,15 @@
       "correct": true
     },
     {
+      "query": "single-family offices in Texas",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "no records matched the query",
+      "citations": [],
+      "correct": true
+    },
+    {
       "query": "Pathstone",
       "expected_answer": true,
       "answered": true,
@@ -110,11 +120,11 @@
       "mode": "extractive",
       "reason": "top similarity 0.77",
       "citations": [
-        "fo_a750611281",
         "fo_cfa2d51623",
-        "fo_33d228f849",
         "fo_611226b119",
-        "fo_16837977fd"
+        "fo_33d228f849",
+        "fo_16837977fd",
+        "fo_a750611281"
       ],
       "correct": true
     },
@@ -123,7 +133,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.47 is below the 0.68 threshold",
+      "reason": "best match similarity 0.48 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     },
@@ -186,7 +196,7 @@
       "expected_answer": false,
       "answered": false,
       "mode": "abstain",
-      "reason": "best match similarity 0.63 is below the 0.68 threshold",
+      "reason": "best match similarity 0.65 is below the 0.68 threshold",
       "citations": [],
       "correct": true
     }

@@ -2,9 +2,9 @@
 
 Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 
-## Q: single-family offices in Texas
+## Q: multi-family offices in Texas
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
-- Found 1 matching family office in the verified dataset:
+- Found 2 matching family offices in the verified dataset:
 
 ## Q: multi-family offices
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
@@ -30,6 +30,10 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - expected: answer · got: answer · ✓ · mode=extractive · matched an authoritative metadata filter (state/country/type/AUM)
 - Found 1 matching family office in the verified dataset:
 
+## Q: single-family offices in Texas
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · no records matched the query
+- I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
+
 ## Q: Pathstone
 - expected: answer · got: answer · ✓ · mode=extractive · top similarity 0.72
 - Found 1 matching family office in the verified dataset:
@@ -39,7 +43,7 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - Found 5 matching family offices in the verified dataset:
 
 ## Q: what is the best pizza in Chicago
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.47 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.48 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: best pizza office in Chicago
@@ -67,5 +71,5 @@ Dataset: 55 validated records. Abstention threshold: min cosine 0.68.
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.
 
 ## Q: family offices headquartered on the moon
-- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.63 is below the 0.68 threshold
+- expected: ABSTAIN · got: ABSTAIN · ✓ · mode=abstain · best match similarity 0.65 is below the 0.68 threshold
 - I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.

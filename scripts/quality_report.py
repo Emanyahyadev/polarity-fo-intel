@@ -38,9 +38,16 @@ def reconstruct(rec):
 
 
 def main() -> None:
-    recs = load_records_from_csv()
-    for r in recs:
-        reconstruct(r)
+    # Prefer the canonical full-fidelity store: Rule-1 provenance is REAL there (source_url
+    # per cell), so no reconstruct() crutch is needed. Fall back to CSV only if absent.
+    from pathlib import Path as _P
+    from fointel.rag.load import load_records_from_store, DEFAULT_STORE
+    if _P(DEFAULT_STORE).exists():
+        recs = load_records_from_store()
+    else:
+        recs = load_records_from_csv()
+        for r in recs:
+            reconstruct(r)
     n = len(recs)
 
     def pc(c):

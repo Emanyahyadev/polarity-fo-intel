@@ -1,0 +1,186 @@
+[
+ {
+  "fo_id": "fo_7ef75c02df",
+  "field": "principal_phone",
+  "rejected_value": "+1 (786) 635-7162",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_eca2b3bb02",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Multi-Family Office after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_cfa2d51623",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Multi-Family Office after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_c7e795ff94",
+  "field": "principal_phone",
+  "rejected_value": "+1 (203) 862-3372",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_831b1d28ba",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Multi-Family Office after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_77b15abad5",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Multi-Family Office after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_15eb1b42d3",
+  "field": "principal_phone",
+  "rejected_value": "+1 (949) 721-2330",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_4b474eef93",
+  "field": "principal_phone",
+  "rejected_value": "+1 (212) 830-6500",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_c1e06b1868",
+  "field": "principal_phone",
+  "rejected_value": "+1 (717) 893-5055",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_a6f6c19fed",
+  "field": "principal_phone",
+  "rejected_value": "+1 (518) 452-8050",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_89137929e9",
+  "field": "principal_phone",
+  "rejected_value": "+1 (617) 624-0800",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_5d097b8c75",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Undetermined after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_c7fbed29da",
+  "field": "website",
+  "rejected_value": "https://www.thefamilyoffice.com/",
+  "reason": "unrelated company's site (residential real-estate advisory) attached via a generic firm name; removed, fields reset to IAPD-verified only",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_beb7590905",
+  "field": "principal_phone",
+  "rejected_value": "+1 (267) 250-2036",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_7c7a0fc12b",
+  "field": "principal_phone",
+  "rejected_value": "+1 (503) 897-0236",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_15dda82176",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Multi-Family Office after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_6103057a41",
+  "field": "principal_phone",
+  "rejected_value": "+1 (605) 496-7760",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_576ab240f6",
+  "field": "principal_phone",
+  "rejected_value": "+1 (561) 353-4440",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_1c9723ce52",
+  "field": "principal_phone",
+  "rejected_value": "+1 (603) 602-8550",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_a2bc85f0ac",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Undetermined after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_c7b90e8baa",
+  "field": "principal_phone",
+  "rejected_value": "+1 (915) 730-3885",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_87876deee2",
+  "field": "principal_phone",
+  "rejected_value": "+1 (616) 330-2270",
+  "reason": "equals the firm main line (SEC filing) \u2014 not a verified direct line for the principal; withheld",
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+  "checked_at": "2026-07-28"
+ },
+ {
+  "fo_id": "fo_a750611281",
+  "field": "fo_type",
+  "rejected_value": "Single-Family Office",
+  "reason": "reclassified to Undetermined after website re-verification (prior label over-relied on generic single-family language detection)",
+  "source_class": "Firm Website",
+  "checked_at": "2026-07-28"
+ }
+]

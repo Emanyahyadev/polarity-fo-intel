@@ -21,13 +21,14 @@ from fointel.rag.load import load_records_from_csv
 
 # (query, should_answer)
 QUERIES = [
-    ("single-family offices in Texas", True),
+    ("multi-family offices in Texas", True),        # TX has MFOs (818, NobleHouse)
     ("multi-family offices", True),
     ("family offices in Florida", True),
     ("family offices in New York", True),
     ("single-family offices in Belgium", True),     # international: Korys (authoritative country+type filter)
     ("family offices in France", True),             # international: Financière Agache
     ("family offices in Denmark", True),            # international: KIRKBI
+    ("single-family offices in Texas", False),      # regression: reclassification left NO true SFO in TX
     ("Pathstone", True),
     ("family offices focused on private equity", True),
     ("what is the best pizza in Chicago", False),

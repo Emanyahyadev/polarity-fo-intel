@@ -54,7 +54,7 @@ A holding company for a family's **operating businesses**.
 - **Manual-review trigger:** holdco vs. family office ambiguous.
 
 ### Type = Undetermined
-A record may qualify as a **proven family office** while its SFO/MFO type is honestly **Undetermined** (evidence establishes FO-status but not single vs. multi). This is candour, not a defect, and still counts toward the 50 — provided `fo_type_evidence` proves FO-status.
+A record may qualify as a **proven family office** while its SFO/MFO type is honestly **Undetermined** (evidence establishes FO-status but not single vs. multi). This is candour, not a defect, and still counts toward the 55 — provided `fo_type_evidence` proves FO-status.
 
 ---
 

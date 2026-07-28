@@ -39,12 +39,12 @@ A **25-record** hand-labelled gold set (`goldset/firm_type_goldset.jsonl`) evalu
 |---|---|---|
 | **Precision** | **1.00** | of the firms we shipped as family offices, **100% really are** |
 | **False-positive rate** | **0.00** | **zero** non-FOs classified as FOs — the domain-critical guarantee |
-| Recall | 0.44 | of the real FOs in the set, we caught 44% |
-| False-negative rate | 0.56 | we missed 56% — see below |
-| Accuracy | 0.64 | |
-| Type accuracy | 0.57 | of correctly-qualified FOs with a known type, SFO/MFO correct 57% |
+| Recall | 0.50 | of the real FOs in the set, we caught 50% |
+| False-negative rate | 0.50 | we missed 50% — see below |
+| Accuracy | 0.68 | |
+| Type accuracy | 0.50 | of correctly-qualified FOs with a known type, SFO/MFO correct 50% |
 
-**Interpretation — a deliberate precision-over-recall tradeoff.** In this domain the deadly error is a false *positive* (presenting an unconfirmed firm as a proven family office — "the most serious error"). The classifier's **false-positive rate is zero**: it never ships a non-FO. The cost is recall — the 9 false negatives are **exactly the famous single-family offices that hide** (Walton Enterprises, Bezos Expeditions, Kirkbi, Mousse Partners, DFO Management, Builders Vision, Veritable, Korys, Financière Agache): no SEC filing, no adviser registration, no resolvable public website, so no free-tier authoritative evidence. Per the inclusion standard we **reject rather than guess**. This is the right tradeoff for decision-grade intelligence: a missed real FO costs a lead; a shipped fake FO costs the client's trust.
+**Interpretation — a deliberate precision-over-recall tradeoff.** In this domain the deadly error is a false *positive* (presenting an unconfirmed firm as a proven family office — "the most serious error"). The classifier's **false-positive rate is zero**: it never ships a non-FO. The cost is recall — the 8 false negatives are **exactly the famous single-family offices that hide** (Walton Enterprises, Bezos Expeditions, Kirkbi, Mousse Partners, Builders Vision, Veritable, Korys, Financière Agache): no SEC filing, no adviser registration, no resolvable public website, so no free-tier authoritative evidence. Per the inclusion standard we **reject rather than guess**. This is the right tradeoff for decision-grade intelligence: a missed real FO costs a lead; a shipped fake FO costs the client's trust.
 
 **Root cause of the false negatives:** free-tier verification scarcity, not a classifier logic error — the same scarcity quantified in the discovery report. **Improvement path:** paid data (ADV Part-1 bulk, a business-registry API) or reputable-press corroboration would recover several; documented in `KnownLimitations.md`.
 
