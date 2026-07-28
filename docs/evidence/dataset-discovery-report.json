@@ -6,16 +6,16 @@
     "Curated directory / reference (Wikipedia, associations)": 22
   },
   "qualified_by_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 31,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 156,
-    "IRS 990-PF (ProPublica Nonprofit Explorer)": 8,
+    "SEC EDGAR (13F / SC / Form D filings)": 30,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 152,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 3,
     "Curated directory / reference (Wikipedia, associations)": 3
   },
   "rejected_by_reason": {
-    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 117,
-    "public company (SEC tickers/exchanges present)": 41,
+    "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)": 114,
+    "public company (SEC tickers/exchanges present)": 42,
     "employee benefit / pension plan": 21,
-    "membership / association / network, not a family office": 9,
+    "membership / association / network, not a family office": 21,
     "insurance entity": 5,
     "educational institution": 3,
     "government / municipal entity": 2,
@@ -23,7 +23,7 @@
     "religious organization": 1
   },
   "total_discovered": 398,
-  "qualified_before_dedup": 198,
+  "qualified_before_dedup": 188,
   "post_enrichment_merges": [
     {
       "kept": "Custos Family Office, LLC",
@@ -54,10 +54,10 @@
       "basis": "name+state+country"
     }
   ],
-  "total_qualified_pre_gate": 194,
+  "total_qualified_pre_gate": 184,
   "released": 66,
   "withheld_gate_reasons": {
-    "mandatory_fields_complete": 128
+    "mandatory_fields_complete": 118
   },
   "selected": 50,
   "selection": {
