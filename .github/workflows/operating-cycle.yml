@@ -38,10 +38,15 @@ jobs:
       - name: Run the operating cycle (LangGraph)
         run: python operations/operate.py --simulate
 
-      - name: Upload operating trace
+      - name: Regenerate observability history (run/build/session)
+        run: python scripts/generate_history.py
+
+      - name: Upload operating trace + history artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: operating-logs
-          path: logs/operating/
+          path: |
+            logs/operating/
+            notes/
           retention-days: 7
