@@ -20,6 +20,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from ..observability import get_logger
@@ -94,6 +95,7 @@ def _stats(records) -> dict:
 
 
 app = FastAPI(title="Family Office Intelligence", version="1.0.0", lifespan=lifespan)
+app.mount("/static", StaticFiles(directory=WEB), name="static")
 
 
 class Query(BaseModel):
