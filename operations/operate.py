@@ -51,7 +51,7 @@ def run_operating_cycle(simulate: bool = True, inputs: dict | None = None,
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Autonomous operating-cycle runner")
-    ap.add_argument("--simulate", action="store_true", default=True,
+    ap.add_argument("--simulate", action="store_true", default=False,
                     help="run without network discovery (quiet-window cycle)")
     ap.add_argument("--engine", choices=["langgraph", "orchestrator"], default=None,
                     help="override FOINTEL_ENGINE for this run")
