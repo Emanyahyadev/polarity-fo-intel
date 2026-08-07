@@ -21,7 +21,8 @@ from fointel.operate.policy_engine import ActionStatus
 
 EMPTY_INPUTS = {"sources": [], "per_source_limit": 0}
 CYCLE_ORDER = ["scheduler", "engineering", "discovery", "entity",
-               "validation", "classification", "governance", "release",
+               "duplicate", "enrichment", "validation", "classification",
+               "governance", "release", "embedding", "freshness", "monitoring",
                "logging"]
 
 

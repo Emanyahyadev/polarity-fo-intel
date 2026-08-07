@@ -71,6 +71,16 @@ class Settings:
     # gap. Queries engineered to land in that band are the ambiguous zone (KnownLimitations).
     min_retrieval_score: float = _float("MIN_RETRIEVAL_SCORE", 0.68)
 
+    # --- resource guard (operate layer) ---
+    # Hard caps on the shared cycle state so a runaway candidate pool or a
+    # misbehaving employee can never exhaust the process. Applied by
+    # operate.guard.ResourceGuard before and after every graph node.
+    max_cycle_items: int = _int("MAX_CYCLE_ITEMS", 2000)
+    max_cycle_state_bytes: int = _int("MAX_CYCLE_STATE_BYTES", 1_000_000)
+    # How long an operating cycle waits for the process-wide cycle lock before
+    # refusing to start (thread-safety: no two cycles write one trace/repo).
+    cycle_lock_timeout_seconds: float = _float("CYCLE_LOCK_TIMEOUT", 60.0)
+
     # --- paths ---
     data_dir: str = os.getenv("DATA_DIR", "data")
     db_path: str = os.getenv("DB_PATH", "data/fointel.db")

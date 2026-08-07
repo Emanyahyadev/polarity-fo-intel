@@ -31,6 +31,7 @@
         "governance.approve": "autonomous",
         "governance.quarantine": "autonomous",
         "release.publish": "autonomous",
+        "embedding.update": "autonomous",
         "logging.write": "autonomous",
         "monitoring.check_health": "autonomous"
       }

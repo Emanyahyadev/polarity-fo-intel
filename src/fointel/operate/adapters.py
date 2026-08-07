@@ -232,6 +232,93 @@ class SchedulerEmployee(_DelegatingEmployee):
         self._agent = agents["scheduler"]
 
 
+class DuplicateDetectionEmployee(_DelegatingEmployee):
+    name = "duplicate"
+    contract = EmployeeContract(
+        mission="Post-enrichment dedup: detect duplicate records and merge them "
+                "with affirmative evidence; ALWAYS emit every merge decision.",
+        inputs=("records", "resolved"),
+        outputs=("kept", "merges", "possible_duplicates", "decisions"),
+        authority=("duplicate.detect", "duplicate.flag_ambiguous"),
+        skills=("duplicate-detection", "evidence-resolution"),
+        decision_rule="merge only on shared domain or name+geo evidence",
+        escalation_rule="ambiguous duplicates stay distinct and flag for review, never merge",
+    )
+
+    def __init__(self, agents: AgentBase) -> None:
+        self._agent = agents["duplicate"]
+
+
+class EnrichmentEmployee(_DelegatingEmployee):
+    name = "enrichment"
+    contract = EmployeeContract(
+        mission="Fetch authoritative facts (SEC, IAPD/ADV, 13F, firm website) and "
+                "fill candidate fields WITH provenance; never guess a blank.",
+        inputs=("candidates",),
+        outputs=("enriched", "filled", "report"),
+        authority=("enrichment.fetch", "enrichment.fill_field",
+                   "enrichment.collect_evidence"),
+        skills=("authoritative-fetch", "evidence-collection"),
+        decision_rule="fill only with sourced values carrying provenance",
+        escalation_rule="an unconfirmable field stays honestly blank (could_not_verify)",
+    )
+
+    def __init__(self, agents: AgentBase) -> None:
+        self._agent = agents["enrichment"]
+
+
+class FreshnessEmployee(_DelegatingEmployee):
+    name = "freshness"
+    contract = EmployeeContract(
+        mission="Detect how current every release record is; flag stale records "
+                "for governance refresh.",
+        inputs=("records",),
+        outputs=("snapshot", "stale"),
+        authority=("freshness.detect_stale", "freshness.refresh",
+                   "freshness.mark_inactive"),
+        skills=("staleness-detection",),
+        decision_rule="report only measured data_as_of vs today",
+        escalation_rule="stale/inactive flags escalate to governance; never dropped",
+    )
+
+    def __init__(self, agents: AgentBase) -> None:
+        self._agent = agents["freshness"]
+
+
+class MonitoringEmployee(_DelegatingEmployee):
+    name = "monitoring"
+    contract = EmployeeContract(
+        mission="Emit a run health + coverage snapshot (counts, trace size, "
+                "errors, escalations). Passive observer; never decides.",
+        inputs=("state",),
+        outputs=("snapshot",),
+        authority=("monitoring.check_health",),
+        skills=("health-monitoring",),
+        decision_rule="report measured state, never an opinion",
+        escalation_rule="n/a — passive observer",
+    )
+
+    def __init__(self, agents: AgentBase) -> None:
+        self._agent = agents["monitoring"]
+
+
+class EmbeddingUpdateEmployee(_DelegatingEmployee):
+    name = "embedding"
+    contract = EmployeeContract(
+        mission="Refresh the RAG vector corpus after a governance release so the "
+                "live service answers from today's dataset, idempotently.",
+        inputs=("state", "out_dir"),
+        outputs=("updated", "records"),
+        authority=("embedding.update",),
+        skills=("vector-index-refresh",),
+        decision_rule="update only when the release changed the served dataset",
+        escalation_rule="never embed unapproved records; skip is the safe default",
+    )
+
+    def __init__(self, agents: AgentBase) -> None:
+        self._agent = agents["embedding"]
+
+
 # Factory: build the registry from an already-registered Orchestrator's agents.
 def load_employees(agents: dict[str, AgentBase]) -> dict[str, AIEmployee]:
     registry = {
@@ -244,6 +331,11 @@ def load_employees(agents: dict[str, AgentBase]) -> dict[str, AIEmployee]:
         "release": ReleaseEmployee,
         "logging": LoggingEmployee,
         "scheduler": SchedulerEmployee,
+        "duplicate": DuplicateDetectionEmployee,
+        "enrichment": EnrichmentEmployee,
+        "freshness": FreshnessEmployee,
+        "monitoring": MonitoringEmployee,
+        "embedding": EmbeddingUpdateEmployee,
     }
     out: dict[str, AIEmployee] = {}
     for name, cls in registry.items():

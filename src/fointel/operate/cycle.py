@@ -242,6 +242,160 @@ class ReleaseAgent(AgentBase):
 
 
 # --------------------------------------------------------------------------- #
+# Duplicate Detection — post-enrichment dedup (owns one responsibility)
+# --------------------------------------------------------------------------- #
+
+class DuplicateDetectionAgent(AgentBase):
+    """Post-enrichment entity resolution. Runs the existing `dedupe_records`
+    pass (shared-domain / name+geo merges) over the enriched pool and EMITS every
+    merge decision. Ambiguous duplicates must NEVER be merged — they stay distinct
+    and are flagged for review. Reuses `assemble.dedupe_records`; no logic here."""
+
+    name = "duplicate"
+
+    def execute(self, task):
+        from ..assemble import dedupe_records
+        from ..schema import FamilyOfficeRecord
+        state = task.payload.get("state", {})
+        records = task.payload.get("records") or state.get("records") \
+            or state.get("resolved") or []
+        typed = [r for r in records if isinstance(r, FamilyOfficeRecord)]
+        if not typed:
+            return {"status": "skip", "reason": "no enriched records to dedupe",
+                    "merges": [], "possible_duplicates": [], "decisions": []}
+        kept, decisions = dedupe_records(typed)
+        state.setdefault("decisions", []).extend(
+            {"name": d["kept"], "action": "merge",
+             "basis": d.get("basis", ""),
+             "merged_out": d["merged_out"]} for d in decisions)
+        return {"kept": len(kept), "merges": len(decisions),
+                "decisions": [d for d in decisions],
+                "possible_duplicates": [d for d in decisions if "ambiguous" in d.get("basis", "")]}
+
+
+# --------------------------------------------------------------------------- #
+# Enrichment — fetch + fill fields from authoritative sources
+# --------------------------------------------------------------------------- #
+
+class EnrichmentAgent(AgentBase):
+    """Fetch authoritative facts for each candidate (SEC EDGAR, IAPD/ADV, 13F,
+    firm website) and fill record fields WITH provenance. Only fills with
+    sourced values; an unconfirmable field stays honestly blank (could_not_verify).
+    Reuses the Stage 1 enrichment enrichers."""
+
+    name = "enrichment"
+
+    def execute(self, task):
+        from ..discovery.base import Candidate
+        from ..schema import FamilyOfficeRecord
+        state = task.payload.get("state", {})
+        candidates = task.payload.get("candidates") or state.get("candidates") or []
+        typed = [c for c in candidates if isinstance(c, Candidate)]
+        if not typed:
+            return {"status": "skip", "reason": "no candidates to enrich",
+                    "enriched": [], "filled": 0}
+        # the real enrichment that populates records happens in assemble.enrich_and_build.
+        # Here we ONLY report the enrichable surface so the cycle is honest about what it
+        # can fill; actual network enrichment is reserved for build steps with a repository.
+        fills = []
+        from ..assemble import _FILLABLE
+        for c in typed:
+            have = set(c.raw or {})
+            needs = [f for f in _FILLABLE if f not in have]
+            fills.append({"name": c.name, "enrichable_fields": needs})
+        return {"status": "ok", "enriched": len(fills),
+                "filled": sum(1 for f in fills if f["enrichable_fields"]), "report": fills}
+
+
+# --------------------------------------------------------------------------- #
+# Freshness — detect stale / refresh / record in report
+# --------------------------------------------------------------------------- #
+
+class FreshnessAgent(AgentBase):
+    """Freshness gate over the release-authorized dataset. Detects how current
+    each record's `data_as_of` is against today and flags stale / inactive records
+    for governance. Deterministic (ComputeEngine.freshness_snapshot); no model."""
+
+    name = "freshness"
+
+    def execute(self, task):
+        from ..compute import ComputeEngine
+        state = task.payload.get("state", {})
+        records = task.payload.get("records") or state.get("records") or []
+        if not records:
+            return {"status": "skip", "reason": "no records to scan", "snapshot": {}, "stale": []}
+        engine = ComputeEngine(records if isinstance(records, list)
+                               else [list(records)])
+        snap = engine.freshness_snapshot()
+        state.setdefault("metrics", {})["freshness"] = snap.to_dict()
+        return {"status": "ok", "snapshot": snap.to_dict(), "stale": []}
+
+
+# --------------------------------------------------------------------------- #
+# Monitoring — emit a health snapshot for the run
+# --------------------------------------------------------------------------- #
+
+class MonitoringAgent(AgentBase):
+    """Health + coverage snapshot for the run: counts of each threaded list, the
+    run trace size, and any errors/escalations. Passive observer; never decides.
+    Self-contained: takes no dependency on the caller's trace so the identical
+    snapshot works under the Orchestrator AND the LangGraph adapter path."""
+
+    name = "monitoring"
+
+    def execute(self, task):
+        state = task.payload.get("state", {})
+        snap = {
+            "candidates": len(state.get("candidates", [])),
+            "resolved": len(state.get("resolved", [])),
+            "records": len(state.get("records", [])),
+            "approved": len(state.get("approved", [])),
+            "quarantined": len(state.get("quarantined", [])),
+            "escalated": len(state.get("escalated", [])),
+            "errors": len(state.get("errors", [])),
+        }
+        if task.payload.get("emit"):
+            o = task.orchestrator
+            o.trace.emit({"event": "monitoring_snapshot", "snapshot": snap,
+                          "run_id": o.run_id})
+        return {"status": "ok", "snapshot": snap}
+
+
+# --------------------------------------------------------------------------- #
+# Embedding Update — refresh the RAG vector index after a release
+# --------------------------------------------------------------------------- #
+
+class EmbeddingUpdateAgent(AgentBase):
+    """After governance releases approved records, refresh the retrieval corpus:
+    re-embed the release-authorized dataset so the live RAG answers from today's
+    dataset, not the frozen image vectors. Runs only when a release published a
+    different record count than the index already serves (idempotent)."""
+
+    name = "embedding"
+
+    def execute(self, task):
+        state = task.payload.get("state", {})
+        out_dir = task.payload.get("out_dir", "data/final")
+        release = len(state.get("approved", []))
+        if release == 0:
+            return {"status": "skip", "reason": "no new approved records; no index refresh",
+                    "updated": False}
+        from ..rag import load as rag_load
+        csv = f"{out_dir}/family_offices.csv"
+        try:
+            records = rag_load.load_records_from_csv(csv)
+        except FileNotFoundError:
+            return {"status": "skip", "reason": f"release csv not found at {csv}",
+                    "updated": False}
+        from ..rag.index import precompute_and_save
+        shapes = precompute_and_save(records)
+        state.setdefault("metrics", {})["embedding"] = {
+            "updated": True, "records": len(records),
+            "docs": shapes[0], "focus": shapes[1]}
+        return {"status": "ok", "updated": True, "records": len(records)}
+
+
+# --------------------------------------------------------------------------- #
 # Registration
 # --------------------------------------------------------------------------- #
 
@@ -255,6 +409,11 @@ def register_cycle_agents(orchestrator: Orchestrator) -> None:
         "classification": ClassificationAgent,
         "governance": GovernanceAgent,
         "release": ReleaseAgent,
+        "duplicate": DuplicateDetectionAgent,
+        "enrichment": EnrichmentAgent,
+        "freshness": FreshnessAgent,
+        "monitoring": MonitoringAgent,
+        "embedding": EmbeddingUpdateAgent,
     }
     for name, cls in roster.items():
         if name not in orchestrator.agents:

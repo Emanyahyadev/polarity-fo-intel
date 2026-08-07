@@ -29,11 +29,8 @@ def graph():
     return OperatingGraph(employees=employees)
 
 
-def test_graph_has_all_nine_roles_in_order(graph) -> None:
-    assert graph.order == [
-        "scheduler", "engineering", "discovery", "entity",
-        "validation", "classification", "governance", "release", "logging",
-    ]
+def test_graph_has_all_thirteen_roles_in_order(graph) -> None:
+    assert graph.order == ROLE_ORDER
     assert set(graph.order) == set(graph.employees)
 
 

@@ -32,6 +32,7 @@ def test_every_employee_has_full_contract_surface(employees) -> None:
     assert set(employees) == {
         "engineering", "discovery", "entity", "validation", "classification",
         "governance", "release", "logging", "scheduler",
+        "duplicate", "enrichment", "freshness", "monitoring", "embedding",
     }
     for name, emp in employees.items():
         assert isinstance(emp, AIEmployee)

@@ -60,7 +60,8 @@ def _run_employee(emp: AIEmployee, state: dict[str, Any]) -> dict[str, Any]:
 
 
 ROLE_ORDER = ["scheduler", "engineering", "discovery", "entity",
-              "validation", "classification", "governance", "release",
+              "duplicate", "enrichment", "validation", "classification",
+              "governance", "release", "embedding", "freshness", "monitoring",
               "logging"]
 
 

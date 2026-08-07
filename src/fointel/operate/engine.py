@@ -37,35 +37,68 @@ def run_operating_cycle(inputs: dict[str, Any] | None = None,
     compatible with `Orchestrator.summary()` + the raw trace path.
 
     The Orchestrator is always constructed (it owns the agent registry, the
-    Policy Engine, the JSONL trace and the human-review queue); the selected
+    Policy Engine, the JSONL trace and the cycle-state); the selected
     engine then drives those same agents.
+
+    Every cycle is governed by a ResourceGuard at the OUTERMOST gate: the
+    engine refuses to start a cycle whose input already violates the resource
+    budget, and it refuses results whose threaded state would overflow. This
+    wraps BOTH engines identically, so the guard is a single enforcement point
+    no matter which executor is selected (Release-gate P0). A process-wide
+    CycleLock also guarantees only one cycle writes a given trace at a time.
     """
+    from .guard import CycleLock, ResourceGuard, ResourceLimitError
+
     engine = (engine or select_engine()).lower()
-    inputs = inputs or {}
+    inputs = dict(inputs or {})
+
+    # Resource gate BEFORE any work: refuse an input that already overflows.
+    pre_state = dict(inputs.get("state", {}))
+    for k, v in inputs.items():
+        if k not in ("state",):
+            pre_state[k] = v
+    ResourceGuard().check(pre_state)
 
     orch = Orchestrator()
     orch.register_defaults()
 
-    if engine == "langgraph":
-        result = _run_graph_cycle(orch, inputs)
-    elif engine == "orchestrator":
-        result = orch.run_cycle(dict(inputs))
-    else:
-        raise ValueError(f"unknown FOINTEL_ENGINE {engine!r} "
-                         "(expected 'langgraph' or 'orchestrator')")
+    lock = CycleLock()
+    if not lock.acquire():
+        raise ResourceLimitError(
+            f"cannot start cycle {orch.run_id}: the cycle lock is held by another "
+            "operating run (scheduler overlap guard)."
+        )
+    try:
+        if engine == "langgraph":
+            result = _run_langgraph_cycle(orch, inputs)
+        elif engine == "orchestrator":
+            result = orch.run_cycle(dict(inputs))
+        else:
+            raise ValueError(f"unknown FOINTEL_ENGINE {engine!r} "
+                             "(expected 'langgraph' or 'orchestrator')")
 
-    orch.dump_summary()
-    return {
-        "engine": engine,
-        "state": result.get("state", result.get("cycle", {})),
-        "steps": result.get("steps", []),
-        "summary": orch.summary(),
-        "trace": str(orch.trace.path),
-        "pending_review": [i.to_dict() for i in orch.policies.queue.pending()],
-    }
+        # Resource gate AFTER the cycle: threaded state must stay within budget.
+        cycle_state = result.get("state", result.get("cycle", {})) or {}
+        ResourceGuard().check(cycle_state)
+
+        orch.dump_summary()
+        return {
+            "engine": engine,
+            "state": cycle_state,
+            "steps": result.get("steps", []),
+            "summary": orch.summary(),
+            "trace": str(orch.trace.path),
+            "pending_review": _pending(orch),
+        }
+    finally:
+        lock.release()
 
 
-def _run_graph_cycle(orch: Orchestrator, inputs: dict[str, Any]) -> dict[str, Any]:
+def _pending(orch) -> list[dict]:
+    return [i.to_dict() for i in orch.policies.queue.pending()]
+
+
+def _run_langgraph_cycle(orch: Orchestrator, inputs: dict[str, Any]) -> dict[str, Any]:
     """Drive the LangGraph path, then replay its auditable steps into the same
     JSONL trace and human-review queue the legacy loop uses, so consumers see an
     identical record regardless of engine."""
