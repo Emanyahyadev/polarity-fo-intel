@@ -1,0 +1,43 @@
+name: ci
+
+# Continuous integration: every push and pull request must pass the full test
+# suite before merge. This is the release gate — a red suite blocks deployment.
+# The scheduler (operating-cycle) and Render keepalive are separate workflows.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project + test/execution deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e . --no-deps
+          pip install -r requirements.txt
+
+      - name: Run the full test suite (release gate)
+        run: pytest -o addopts="" --tb=short
+
+      - name: Verify packaging + a simulated operating cycle (both engines)
+        run: |
+          python -c "import fointel, fointel.operate, fointel.rag, fointel.serve; print('imports OK')"
+          python -c "from fointel.operate.engine import run_operating_cycle; out=run_operating_cycle({'sources':[],'per_source_limit':0}, engine='langgraph'); print('langgraph cycle OK', out['engine'])"
+          python -c "from fointel.operate.engine import run_operating_cycle; out=run_operating_cycle({'sources':[],'per_source_limit':0}, engine='orchestrator'); print('orchestrator cycle OK (rollback)', out['engine'])"
+
+      - name: Validate policies are loadable (Policy Engine single authority)
+        run: |
+          python -c "from fointel.operate.policy_engine import PolicyEngine; p=PolicyEngine(); assert 'release.publish' in p.authority['authority_matrix']['tier_1_autonomous']['actions']; print('policies OK')"
