@@ -17,6 +17,8 @@ on:
 jobs:
   operate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -38,10 +40,21 @@ jobs:
         run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
 
       - name: Run the operating cycle (LangGraph)
-        run: python operations/operate.py --simulate
+        run: python operations/operate.py
+        env:
+          TARGET_RECORDS: 500
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
 
       - name: Regenerate observability history (run/build/session)
         run: python scripts/generate_history.py
+
+      - name: Commit data back to repository
+        run: |
+          git config --global user.name "Family Office AI Agents"
+          git config --global user.email "ai@polarityiq.com"
+          git add -f data/final/verified_records.csv || true
+          git commit -m "chore(data): autonomous data update via operating cycle" || echo "No changes to commit"
+          git push
 
       - name: Upload operating trace + history artifacts
         if: always()
