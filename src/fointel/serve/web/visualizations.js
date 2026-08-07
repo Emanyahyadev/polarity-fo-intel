@@ -283,24 +283,24 @@ export function generateTimelineHtml(d) {
     
     const records = d.cards ? d.cards.length : 0;
     
-    return \`
+    return `
     <div class="panel" style="margin: 20px 0; padding: 16px;">
         <details class="exp" open>
             <summary style="font-weight: 650; font-size: 14px;">AI Investigation Timeline</summary>
             <div class="body" style="font-family: var(--mono); font-size: 12px; line-height: 1.8; margin-top: 12px;">
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(1)}</span> <span style="color:var(--ink2)">Scheduler triggered (Agentic Cycle start)</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(2)}</span> <span style="color:var(--ink2)">Engineering Judgment created search plan</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(3)}</span> <span style="color:var(--ink2)">Discovery found initial candidate records</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(5)}</span> <span style="color:var(--ink2)">Entity Resolution merged duplicates</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(7)}</span> <span style="color:var(--ink2)">Validation accepted authoritative evidence</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(8)}</span> <span style="color:var(--ink2)">Classification labeled family office structures</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(9)}</span> <span style="color:var(--ok)">Governance approved release to production index</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(12)}</span> <span style="color:var(--accent); font-weight:600;">Live RAG query executed against verified index</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">\${ts(15)}</span> <span style="color:var(--ink)">Answer synthesized from \${records} verified record(s)</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(1)}</span> <span style="color:var(--ink2)">Scheduler triggered (Agentic Cycle start)</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(2)}</span> <span style="color:var(--ink2)">Engineering Judgment created search plan</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(3)}</span> <span style="color:var(--ink2)">Discovery found initial candidate records</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(5)}</span> <span style="color:var(--ink2)">Entity Resolution merged duplicates</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(7)}</span> <span style="color:var(--ink2)">Validation accepted authoritative evidence</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(8)}</span> <span style="color:var(--ink2)">Classification labeled family office structures</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(9)}</span> <span style="color:var(--ok)">Governance approved release to production index</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(12)}</span> <span style="color:var(--accent); font-weight:600;">Live RAG query executed against verified index</span></div>
+                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(15)}</span> <span style="color:var(--ink)">Answer synthesized from ${records} verified record(s)</span></div>
             </div>
         </details>
     </div>
-    \`;
+    `;
 }
 
 // 7. Verification Funnel
