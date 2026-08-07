@@ -26,6 +26,7 @@ from langgraph.graph import END, START, StateGraph
 
 from .adapters import load_employees
 from .employee import AIEmployee, EmployeeSkip
+from .policy_engine import ActionStatus, PolicyEngine
 
 
 class CycleState(TypedDict, total=False):
@@ -66,21 +67,41 @@ ROLE_ORDER = ["scheduler", "engineering", "discovery", "entity",
 class OperatingGraph:
     """A LangGraph StateGraph whose nodes are framework-neutral AI Employees.
 
-    Build once with the employee registry produced from a real Orchestrator's
-    agents. `compile()` returns the runnable graph (add checkpointing in Phase 6).
+    Every node is POLICY-GATED: before its employee runs, the node consults the
+    Policy Engine for the action, and if the engine marks it ESCALATE or REFUSE the
+    employee is NOT run — the step is recorded and the cycle halts at that node
+    (conditional edge routes to END). The graph never bypasses the Policy Engine.
     """
 
-    def __init__(self, employees: dict[str, AIEmployee], order: list[str] | None = None) -> None:
+    def __init__(self, employees: dict[str, AIEmployee], order: list[str] | None = None,
+                 policies: PolicyEngine | None = None) -> None:
         self.employees = employees
         self.order = order or ROLE_ORDER
+        self.policies = policies or PolicyEngine()
         self.graph = self._build()
 
     def _node(self, name: str):
         emp = self.employees[name]
+        action_for_role = emp.contract.authority[0] if emp.contract.authority else name
 
         def run(state: _State) -> _State:
             cycle = state.get("cycle", {})
-            step = {"name": name, "outcome": "queued"}
+            # POLICY GATE — the engine is the sole authority. Consulted before work.
+            decision = self.policies.decide(action_for_role, {})
+            d = decision.to_dict()
+            d.pop("at", None)          # trace timestamps already capture ts; keep tools deterministic
+            step = {"name": name, "action": action_for_role,
+                    "decision": d, "outcome": "queued",
+                    "results": {}}
+            if not decision.is_autonomous():
+                # engine refused or escalated: do NOT run the employee.
+                step["outcome"] = decision.status  # 'refuse' | 'escalate'
+                cycle.setdefault("escalated", [])
+                cycle["escalated"].append({"action": action_for_role,
+                                           "reason": decision.reason})
+                steps = list(state.get("steps", [])) + [step]
+                return {"cycle": cycle, "steps": steps}
+            # engine approved: run the employee (delegation only).
             outcome = _run_employee(emp, cycle)
             step["outcome"] = outcome.get("outcome", "ok")
             step["results"] = outcome.get("results", {})
@@ -90,6 +111,21 @@ class OperatingGraph:
         run.__name__ = f"node_{name}"
         return run
 
+    def _router(self, next_role: str | None):
+        """After a node, continue to the next role UNLESS the policy gate halted
+        the cycle (refuse/escalate) — then route to END. Control never continues
+        past an action the Policy Engine did not approve."""
+
+        def route(state: _State) -> str:
+            steps = state.get("steps", [])
+            last = steps[-1] if steps else {}
+            if last.get("outcome") in ("refuse", "escalate"):
+                return END
+            return next_role if next_role else END
+
+        route.__name__ = f"route_after"
+        return route
+
     def _build(self) -> StateGraph:
         g = StateGraph(_State)
         for name in self.order:
@@ -97,7 +133,8 @@ class OperatingGraph:
                 raise KeyError(f"no employee registered for graph node {name!r}")
             g.add_node(name, self._node(name))
         for i in range(len(self.order) - 1):
-            g.add_edge(self.order[i], self.order[i + 1])
+            g.add_conditional_edges(self.order[i], self._router(self.order[i + 1]),
+                                    {self.order[i + 1]: self.order[i + 1], END: END})
         g.add_edge(START, self.order[0])
         g.add_edge(self.order[-1], END)
         return g
@@ -108,13 +145,15 @@ class OperatingGraph:
 
 
 def build_operating_graph(agents: dict[str, AIEmployee],
-                          order: list[str] | None = None) -> OperatingGraph:
-    return OperatingGraph(employees=agents, order=order)
+                          order: list[str] | None = None,
+                          policies: PolicyEngine | None = None) -> OperatingGraph:
+    return OperatingGraph(employees=agents, order=order, policies=policies)
 
 
 def run_cycle(inputs: dict[str, Any] | None = None,
               agents: dict[str, AIEmployee] | None = None,
-              checkpointer=None) -> dict[str, Any]:
+              checkpointer=None,
+              policies: PolicyEngine | None = None) -> dict[str, Any]:
     """Run one full operating cycle through the graph.
 
     Mirrors `Orchestrator.run_cycle` semantics (see tests for A/B equivalence).
@@ -127,7 +166,7 @@ def run_cycle(inputs: dict[str, Any] | None = None,
         orch.register_defaults()
         agents = load_employees(orch.agents)
     inputs = inputs or {}
-    graph = OperatingGraph(employees=agents)
+    graph = OperatingGraph(employees=agents, policies=policies)
     compiled = graph.compile(checkpointer=checkpointer)
     result = compiled.invoke({"cycle": dict(inputs), "steps": []})
     return {"cycle": result.get("cycle", {}), "steps": result.get("steps", [])}
