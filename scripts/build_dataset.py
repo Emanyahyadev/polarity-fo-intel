@@ -113,6 +113,10 @@ def main() -> None:
         write_manifest(manifest)
         print(f"\n===== EXPORT =====\n{json.dumps(result, indent=2)}")
 
+        from fointel.rag.index import precompute_and_save
+        docs_shape, focus_shape = precompute_and_save(selected)
+        print(f"\n===== EMBEDDINGS =====\nRecomputed RAG index: {docs_shape[0]} documents")
+
 
 if __name__ == "__main__":
     main()
