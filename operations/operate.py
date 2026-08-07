@@ -56,7 +56,11 @@ def main() -> None:
     ap.add_argument("--engine", choices=["langgraph", "orchestrator"], default=None,
                     help="override FOINTEL_ENGINE for this run")
     args = ap.parse_args()
-    run_operating_cycle(simulate=args.simulate, engine=args.engine)
+    
+    from fointel.config import settings
+    inputs = {"per_source_limit": settings.target_records}
+    
+    run_operating_cycle(simulate=args.simulate, inputs=inputs, engine=args.engine)
 
 
 if __name__ == "__main__":
