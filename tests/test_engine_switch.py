@@ -44,7 +44,7 @@ def test_langgraph_engine_runs_cycle_and_writes_trace() -> None:
     assert Path(out["trace"]).exists()
     lines = list(Path(out["trace"]).read_text(encoding="utf-8").splitlines())
     assert lines  # an audit record exists
-    # all nine employees produced a decision line
+    # all fourteen employees produced a decision line
     assert out["pending_review"] == []
     assert out["state"].get("approved", []) == []
 

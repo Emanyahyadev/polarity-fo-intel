@@ -1,10 +1,12 @@
-"""Cycle 3: the 13 AI Employees now form the full operating cycle.
+"""Cycle 3: the 14 AI Employees now form the full operating cycle.
 
 Every realized employee runs through the Policy Engine as a Tier-1 node in the
 canonical mission order, records an auditable step, and never invents work on an
-empty window. The 4 newly-realized roles (duplicate, enrichment, freshness,
-monitoring) reuse existing deterministic business logic — they must not crash and
-must emit structured results.
+empty window. The 4 roles realized in this cycle (duplicate, enrichment,
+freshness, monitoring) reuse existing deterministic business logic — they must
+not crash and must emit structured results. Together with the embedding /
+scheduler / engineering / release / validation / classification / governance /
+logging roles the cycle is the full 14-engineer roster.
 """
 
 from __future__ import annotations
@@ -37,7 +39,7 @@ def test_mission_order_is_full_cycle(graph) -> None:
     assert len(graph.order) == 14
 
 
-def test_all_thirteen_run_and_produce_evidence(graph) -> None:
+def test_all_fourteen_run_and_produce_evidence(graph) -> None:
     out = graph.compile().invoke({"cycle": dict(EMPTY_INPUTS), "steps": []})
     step_names = [s["name"] for s in out["steps"]]
     assert step_names == MISSION_ORDER
@@ -61,7 +63,7 @@ def test_new_roles_are_quiet_skips_not_guesses(graph) -> None:
                     "quarantined": 0, "escalated": 0, "errors": 0}
 
 
-def test_ab_equivalence_holds_with_thirteen_roles() -> None:
+def test_ab_equivalence_holds_with_fourteen_roles() -> None:
     """Legacy Orchestrator and LangGraph must still agree on the quiet outcome
     after extending the roster to 13 — only the executor differs."""
     orch = Orchestrator()

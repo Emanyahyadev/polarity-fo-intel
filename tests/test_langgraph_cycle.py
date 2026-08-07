@@ -1,7 +1,7 @@
 """
 LangGraph migration — Phase 3: employees wrapped as LangGraph nodes.
 
-Verifies the StateGraph (graph.py) drives the SAME 9 employees in the SAME order
+Verifies the StateGraph (graph.py) drives the SAME 14 employees in the SAME order
 as the legacy Orchestrator, and produces an equivalent outcome (A/B equivalence).
 Absent an LLM and a non-empty candidate pool this is a clean, deterministic skip —
 the graph must never invent work, and it must not crash on an empty window.
@@ -29,7 +29,7 @@ def graph():
     return OperatingGraph(employees=employees)
 
 
-def test_graph_has_all_thirteen_roles_in_order(graph) -> None:
+def test_graph_has_all_fourteen_roles_in_order(graph) -> None:
     assert graph.order == ROLE_ORDER
     assert set(graph.order) == set(graph.employees)
 

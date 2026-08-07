@@ -6,7 +6,7 @@ Operating-cycle driver (migration Phase 5) — the routing switch.
     FOINTEL_ENGINE=langgraph   -> LangGraph StateGraph (default for CLI/cron)
     FOINTEL_ENGINE=orchestrator-> the legacy deterministic loop (rollback path)
 
-BOTH engines run the SAME 9 AI Employees through the SAME Policy Engine, thread
+BOTH engines run the SAME 14 AI Employees through the SAME Policy Engine, thread
 the same cycle state, write the same JSONL run trace, and fill the same
 human-review queue. The only difference is the executor. Flipping the env var is
 the rollback: no code change, immediate revert to the pre-migration runtime.
