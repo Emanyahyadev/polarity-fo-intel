@@ -1,9 +1,12 @@
 name: operating-cycle
 
-# The autonomous operating window (Eman Phase 1 Steps 4-7): on a schedule, the
-# scheduler agent wakes and runs the orchestrator's deterministic brain over the
-# Tier-1 action surface. Policy decisions are audited to logs/operating/*.jsonl.
-# Any action the Policy Engine marks Tier 2/3 is NOT run — it is queued for
+# The autonomous operating window (Eman Phase 1 Steps 4-7, LangGraph migration
+# Phase 8): on a schedule, the scheduler agent wakes and runs the AI Employee
+# operating cycle. Execution engine = LangGraph StateGraph by default
+# (FOINTEL_ENGINE=langgraph); set FOINTEL_ENGINE=orchestrator in the repo vars to
+# run the legacy deterministic loop (the rollback path). Both engines run the same
+# employees, respect the same Policy Engine, and audit to logs/operating/*.jsonl.
+# Any decision the Policy Engine marks Tier 2/3 is NOT run — it is queued for
 # human review instead (never guessed, never silently published).
 
 on:
@@ -23,12 +26,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install project (lightweight, no GPU/embedding deps needed)
+      - name: Install project + LangGraph execution engine
         run: |
           python -m pip install --upgrade pip
           pip install -e . --no-deps   # editable install of the local package only
+          pip install "langgraph>=0.3,<0.4"
 
-      - name: Run the operating cycle
+      - name: Set execution engine (LangGraph by default; orchestrator = rollback)
+        run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
+
+      - name: Run the operating cycle (LangGraph)
         run: python operations/operate.py --simulate
 
       - name: Upload operating trace
