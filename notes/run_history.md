@@ -1,8 +1,8 @@
 # Run History
 
-Generated: 2026-08-07 13:02 UTC  ·  source: `logs/operating/*-summary.json` (never hand-edited).
+Generated: 2026-08-07 13:18 UTC  ·  source: `logs/operating/*-summary.json` (never hand-edited).
 
-**98 operating-cycle run(s)** indexed.
+**105 operating-cycle run(s)** indexed.
 
 | Run | Tasks | Statuses | Escalated | Trace |
 |---|---|---|---|---|
@@ -104,3 +104,10 @@ Generated: 2026-08-07 13:02 UTC  ·  source: `logs/operating/*-summary.json` (ne
 | `run-20260807T125717-dee17e` | 15 | {'done': 14, 'failed': 1} | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T125717-dee17e.jsonl |
 | `run-20260807T125722-056f1b` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T125722-056f1b.jsonl |
 | `run-20260807T130001-c252ec` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T130001-c252ec.jsonl |
+| `run-20260807T131706-335072` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131706-335072.jsonl |
+| `run-20260807T131706-a2278c` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131706-a2278c.jsonl |
+| `run-20260807T131706-cfd730` | 15 | {'done': 14, 'failed': 1} | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131706-cfd730.jsonl |
+| `run-20260807T131706-fc3ba1` | 15 | {'done': 14, 'failed': 1} | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131706-fc3ba1.jsonl |
+| `run-20260807T131708-e99955` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131708-e99955.jsonl |
+| `run-20260807T131809-fb7d18` | 0 | - | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131809-fb7d18.jsonl |
+| `run-20260807T131811-513c9e` | 15 | {'done': 14, 'failed': 1} | 0 | D:\Projects\Polarity IQ Stage 2\Polarity IQ Stage 1\polarity-fo-intel\logs\operating\run-20260807T131811-513c9e.jsonl |

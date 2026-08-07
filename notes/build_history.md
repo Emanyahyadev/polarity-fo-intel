@@ -1,11 +1,12 @@
 # Build History
 
-Generated: 2026-08-07 13:02 UTC  ·  source: `git log`.
+Generated: 2026-08-07 13:18 UTC  ·  source: `git log`.
 
 **40 commits** in the current `main` view.
 
 | Commit | Date | Summary |
 |---|---|---|
+| `050905a` | 2026-08-07 | observability: history generator + durable run/build/session artifacts |
 | `7bfef23` | 2026-08-07 | ci: add test-gate workflow (push/PR) + verify both engines |
 | `7d0f5af` | 2026-08-07 | cycle: resource guard, 4 new employees, embedding node (13-employee cycle) |
 | `90d8c1f` | 2026-08-07 | langgraph phase8: cron launches the LangGraph engine |
@@ -45,4 +46,3 @@ Generated: 2026-08-07 13:02 UTC  ·  source: `git log`.
 | `ce67d79` | 2026-07-28 | release: final release-candidate repair â€” Rule 1 provenance, Rule 2 classification, audit trail |
 | `b438c9f` | 2026-07-28 | data+rag: discovery diversity â€” add 5 non-SEC family offices, wire country filtering |
 | `622a591` | 2026-07-28 | docs: data-quality / coverage / source-diversity report + reproducible generator |
-| `2ab6ea3` | 2026-07-28 | data: website+IAPD verification pass â€” resolve firm types, correct a contaminated record |
