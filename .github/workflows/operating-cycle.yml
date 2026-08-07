@@ -54,7 +54,7 @@ jobs:
         run: |
           git config --global user.name "Family Office AI Agents"
           git config --global user.email "ai@polarityiq.com"
-          git add -f data/final/verified_records.csv || true
+          git add -f data/final/* || true
           git commit -m "chore(data): autonomous data update via operating cycle" || echo "No changes to commit"
           git push
 
