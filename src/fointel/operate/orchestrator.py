@@ -134,29 +134,6 @@ class DiscoveryAgent(AgentBase):
             return {"status": "failed", "error": str(exc), "yielded": 0}
 
 
-class ValidationAgent(AgentBase):
-    """Runs the release gates. Any classification/confidence/source conflict
-    escalates; hard failures refuse; only fully-clean records move on."""
-
-    name = "validation"
-
-    def execute(self, task: Task) -> dict:
-        from ..validation.gates import ReleaseGate
-        from ..schema import FamilyOfficeRecord
-        record_data = task.payload.get("record")
-        if record_data is None:
-            return {"status": "noop"}
-        try:
-            if isinstance(record_data, FamilyOfficeRecord):
-                rec = record_data
-            else:
-                rec = FamilyOfficeRecord(**record_data)
-            verdict = ReleaseGate().evaluate(rec)
-            return {"gate_verdict": verdict.model_dump()}
-        except Exception as exc:  # noqa: BLE001
-            return {"gate_error": str(exc), "status": "failed_to_evaluate"}
-
-
 class LoggingAgent(AgentBase):
     """Tier 1: write logs, reports, metrics, audit trails."""
 
@@ -193,7 +170,6 @@ class Orchestrator:
     def register_defaults(self) -> None:
         self.register(SchedulerAgent(self))
         self.register(DiscoveryAgent(self))
-        self.register(ValidationAgent(self))
         self.register(LoggingAgent(self))
         self.register_cycle_agents()
 

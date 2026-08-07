@@ -1,0 +1,351 @@
+[
+  {
+    "contract_name": "scheduler",
+    "implementation_employee_class": "SchedulerEmployee",
+    "implementation_delegate_agent": "SchedulerAgent",
+    "repository_location": [
+      "src/fointel/operate/orchestrator.py",
+      "src/fointel/operate/adapters.py",
+      "src/fointel/operate/guard.py"
+    ],
+    "langgraph_node_binding": 0,
+    "policy_engine_integration": "scheduler.wake -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "3 claim(s)",
+    "metrics": "0 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py",
+      "test_fourteen_employees.py",
+      "test_stage2_operate.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_engine_switch.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "engineering",
+    "implementation_employee_class": "EngineeringEmployee",
+    "implementation_delegate_agent": "EngineeringAgent",
+    "repository_location": [
+      "src/fointel/operate/cycle.py",
+      "src/fointel/operate/adapters.py",
+      "policies/authority.json"
+    ],
+    "langgraph_node_binding": 1,
+    "policy_engine_integration": "engineering.dispatch -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "1 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py",
+      "test_fourteen_employees.py",
+      "test_stage2_operate.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_engine_switch.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "discovery",
+    "implementation_employee_class": "DiscoveryEmployee",
+    "implementation_delegate_agent": "DiscoveryAgent",
+    "repository_location": [
+      "src/fointel/discovery/harvest.py",
+      "src/fointel/operate/adapters.py",
+      "src/fointel/operate/orchestrator.py",
+      "policies/authority.json"
+    ],
+    "langgraph_node_binding": 2,
+    "policy_engine_integration": "discovery.search -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "2 claim(s)",
+    "metrics": "4 claim(s)",
+    "unit_tests_declared": [
+      "test_discovery.py",
+      "test_employee_contract.py",
+      "test_stage2_operate.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_engine_switch.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "entity",
+    "implementation_employee_class": "EntityResolutionEmployee",
+    "implementation_delegate_agent": "EntityResolutionAgent",
+    "repository_location": [
+      "src/fointel/entity_resolution.py",
+      "src/fointel/operate/cycle.py",
+      "src/fointel/operate/adapters.py"
+    ],
+    "langgraph_node_binding": 3,
+    "policy_engine_integration": "entity.resolve -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "3 claim(s)",
+    "unit_tests_declared": [
+      "test_entity_resolution.py",
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_fourteen_employees.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "duplicate",
+    "implementation_employee_class": "DuplicateDetectionEmployee",
+    "implementation_delegate_agent": "DuplicateDetectionAgent",
+    "repository_location": [
+      "src/fointel/assemble.py",
+      "src/fointel/operate/cycle.py",
+      "src/fointel/operate/adapters.py"
+    ],
+    "langgraph_node_binding": 4,
+    "policy_engine_integration": "duplicate.detect -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "3 claim(s)",
+    "unit_tests_declared": [
+      "test_dedupe.py",
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_fourteen_employees.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "enrichment",
+    "implementation_employee_class": "EnrichmentEmployee",
+    "implementation_delegate_agent": "EnrichmentAgent",
+    "repository_location": [
+      "src/fointel/assemble.py",
+      "src/fointel/enrichment/",
+      "src/fointel/operate/cycle.py",
+      "src/fointel/operate/adapters.py"
+    ],
+    "langgraph_node_binding": 5,
+    "policy_engine_integration": "enrichment.fetch -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "2 claim(s)",
+    "unit_tests_declared": [
+      "test_enrichment_sec.py",
+      "test_enrichment_website.py"
+    ],
+    "integration_tests_declared": [
+      "test_fourteen_employees.py",
+      "test_langgraph_cycle.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "validation",
+    "implementation_employee_class": "ValidationEmployee",
+    "implementation_delegate_agent": "ValidationAgent",
+    "repository_location": [
+      "src/fointel/validation/gates.py",
+      "src/fointel/schema.py",
+      "src/fointel/operate/cycle.py"
+    ],
+    "langgraph_node_binding": 6,
+    "policy_engine_integration": "validation.review -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "2 claim(s)",
+    "unit_tests_declared": [
+      "test_gates.py",
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_fourteen_employees.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "classification",
+    "implementation_employee_class": "ClassificationEmployee",
+    "implementation_delegate_agent": "ClassificationAgent",
+    "repository_location": [
+      "src/fointel/validation/firm_type.py",
+      "src/fointel/operate/cycle.py"
+    ],
+    "langgraph_node_binding": 7,
+    "policy_engine_integration": "classification.classify -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "2 claim(s)",
+    "unit_tests_declared": [
+      "test_firm_type.py",
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_policy_gates_graph.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "governance",
+    "implementation_employee_class": "GovernanceEmployee",
+    "implementation_delegate_agent": "GovernanceAgent",
+    "repository_location": [
+      "src/fointel/operate/policy_engine.py",
+      "src/fointel/operate/graph.py",
+      "src/fointel/operate/checkpoint.py",
+      "policies/authority.json"
+    ],
+    "langgraph_node_binding": 8,
+    "policy_engine_integration": "governance.release_decision -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "3 claim(s)",
+    "unit_tests_declared": [
+      "test_policy_gates_graph.py",
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_checkpoint_interrupt.py",
+      "test_langgraph_cycle.py",
+      "test_fourteen_employees.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "release",
+    "implementation_employee_class": "ReleaseEmployee",
+    "implementation_delegate_agent": "ReleaseAgent",
+    "repository_location": [
+      "src/fointel/export.py",
+      "src/fointel/operate/cycle.py",
+      "data/final"
+    ],
+    "langgraph_node_binding": 9,
+    "policy_engine_integration": "release.publish -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "1 claim(s)",
+    "unit_tests_declared": [
+      "test_export.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_engine_switch.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "embedding",
+    "implementation_employee_class": "EmbeddingUpdateEmployee",
+    "implementation_delegate_agent": "EmbeddingUpdateAgent",
+    "repository_location": [
+      "src/fointel/rag/index.py",
+      "src/fointel/rag/load.py",
+      "src/fointel/operate/cycle.py"
+    ],
+    "langgraph_node_binding": 10,
+    "policy_engine_integration": "embedding.update -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "1 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py",
+      "test_fourteen_employees.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "freshness",
+    "implementation_employee_class": "FreshnessEmployee",
+    "implementation_delegate_agent": "FreshnessAgent",
+    "repository_location": [
+      "src/fointel/compute.py",
+      "src/fointel/operate/cycle.py"
+    ],
+    "langgraph_node_binding": 11,
+    "policy_engine_integration": "freshness.detect_stale -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "2 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py",
+      "test_fourteen_employees.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "monitoring",
+    "implementation_employee_class": "MonitoringEmployee",
+    "implementation_delegate_agent": "MonitoringAgent",
+    "repository_location": [
+      "src/fointel/operate/cycle.py",
+      "src/fointel/operate/adapters.py"
+    ],
+    "langgraph_node_binding": 12,
+    "policy_engine_integration": "monitoring.check_health -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "1 claim(s)",
+    "metrics": "1 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py",
+      "test_fourteen_employees.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_stage2_operate.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  },
+  {
+    "contract_name": "logging",
+    "implementation_employee_class": "LoggingEmployee",
+    "implementation_delegate_agent": "LoggingAgent",
+    "repository_location": [
+      "src/fointel/operate/orchestrator.py",
+      "src/fointel/operate/adapters.py"
+    ],
+    "langgraph_node_binding": 13,
+    "policy_engine_integration": "logging.write -> autonomous (tier 1)",
+    "framework_independence": "yes",
+    "structured_logging": "2 claim(s)",
+    "metrics": "1 claim(s)",
+    "unit_tests_declared": [
+      "test_employee_contract.py"
+    ],
+    "integration_tests_declared": [
+      "test_langgraph_cycle.py",
+      "test_engine_switch.py"
+    ],
+    "contract_compliance": "PASS",
+    "remaining_gaps": []
+  }
+]

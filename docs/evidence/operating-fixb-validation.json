@@ -1,0 +1,111 @@
+{
+  "mode": "binding + live cycle",
+  "step1_registration_sequence": {
+    "scheduler": "fointel.operate.orchestrator.SchedulerAgent",
+    "discovery": "fointel.operate.orchestrator.DiscoveryAgent",
+    "logging": "fointel.operate.orchestrator.LoggingAgent",
+    "engineering": "fointel.operate.cycle.EngineeringAgent",
+    "entity": "fointel.operate.cycle.EntityResolutionAgent",
+    "validation": "fointel.operate.cycle.ValidationAgent",
+    "classification": "fointel.operate.cycle.ClassificationAgent",
+    "governance": "fointel.operate.cycle.GovernanceAgent",
+    "release": "fointel.operate.cycle.ReleaseAgent",
+    "duplicate": "fointel.operate.cycle.DuplicateDetectionAgent",
+    "enrichment": "fointel.operate.cycle.EnrichmentAgent",
+    "freshness": "fointel.operate.cycle.FreshnessAgent",
+    "monitoring": "fointel.operate.cycle.MonitoringAgent",
+    "embedding": "fointel.operate.cycle.EmbeddingUpdateAgent"
+  },
+  "step1_validation_resolves_to_cycle_agent": true,
+  "step1_legacy_orchestrator_agent_removed": true,
+  "cycle_offline_override": "discovery stubbed to a quiet agent (no network); all other 13 employees ran real business logic.",
+  "elapsed_seconds": 1.461,
+  "step3_execution_trace_validation": {
+    "outcome": "ok",
+    "action": "validation.review",
+    "results": {
+      "validated": [
+        {
+          "error": "3 validation errors for FamilyOfficeRecord\nfo_id\n  Field required [type=missing, input_value={'name': 'Cascade Family ...scadefamilyoffice.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndiscovery_source\n  Field required [type=missing, input_value={'name': 'Cascade Family ...scadefamilyoffice.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndata_as_of\n  Field required [type=missing, input_value={'name': 'Cascade Family ...scadefamilyoffice.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+          "candidate": "{'name': 'Cascade Family Office LLC', 'h"
+        },
+        {
+          "error": "3 validation errors for FamilyOfficeRecord\nfo_id\n  Field required [type=missing, input_value={'name': 'Cascade Family ...: {'cik': '0001234567'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndiscovery_source\n  Field required [type=missing, input_value={'name': 'Cascade Family ...: {'cik': '0001234567'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndata_as_of\n  Field required [type=missing, input_value={'name': 'Cascade Family ...: {'cik': '0001234567'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+          "candidate": "{'name': 'Cascade Family Office', 'hq_ci"
+        },
+        {
+          "error": "3 validation errors for FamilyOfficeRecord\nfo_id\n  Field required [type=missing, input_value={'name': 'Bluewater Capit...in': 'bluewatercp.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndiscovery_source\n  Field required [type=missing, input_value={'name': 'Bluewater Capit...in': 'bluewatercp.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\ndata_as_of\n  Field required [type=missing, input_value={'name': 'Bluewater Capit...in': 'bluewatercp.com'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+          "candidate": "{'name': 'Bluewater Capital Partners', '"
+        }
+      ],
+      "passed": 0
+    }
+  },
+  "step4_contract_outputs_returned": "contract expects {validated, passed, failures}; returned keys=['passed', 'validated']",
+  "full_cycle_step_sequence": [
+    [
+      "scheduler",
+      "ok"
+    ],
+    [
+      "engineering",
+      "ok"
+    ],
+    [
+      "discovery",
+      "ok"
+    ],
+    [
+      "entity",
+      "ok"
+    ],
+    [
+      "duplicate",
+      "ok"
+    ],
+    [
+      "enrichment",
+      "ok"
+    ],
+    [
+      "validation",
+      "ok"
+    ],
+    [
+      "classification",
+      "ok"
+    ],
+    [
+      "governance",
+      "ok"
+    ],
+    [
+      "release",
+      "ok"
+    ],
+    [
+      "embedding",
+      "ok"
+    ],
+    [
+      "freshness",
+      "ok"
+    ],
+    [
+      "monitoring",
+      "ok"
+    ],
+    [
+      "logging",
+      "ok"
+    ]
+  ],
+  "step5_log_files": {
+    "validation.log": 418
+  },
+  "regression_tests_proving_failure_cannot_recur": [
+    "tests/test_employee_contract_regressions.py::test_validation_binds_to_cycle_list_agent_not_orchestrator",
+    "tests/test_employee_contract_regressions.py::test_validation_produces_contract_outputs_on_real_input"
+  ],
+  "verdict": "passed"
+}

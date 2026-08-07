@@ -1,0 +1,78 @@
+{
+  "contract": "entity",
+  "method": "Real duplicate pair coerced via _as_candidates, EntityResolver.resolve run directly, structured logs captured under a throwaway LOG_DIR.",
+  "step1_input_before_coercion": [
+    {
+      "name": "Cascade Family Office LLC",
+      "hq_city": "New York",
+      "hq_state": "NY",
+      "source": "curated",
+      "identifiers": {
+        "domain": "cascadefamilyoffice.com"
+      }
+    },
+    {
+      "name": "Cascade Family Office",
+      "hq_city": "New York",
+      "hq_state": "NY",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "identifiers": {
+        "cik": "0001234567"
+      }
+    }
+  ],
+  "step2_typed_candidates_after_coercion": [
+    {
+      "name": "Cascade Family Office LLC",
+      "source_class": "Other",
+      "identifiers": {}
+    },
+    {
+      "name": "Cascade Family Office",
+      "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+      "identifiers": {}
+    }
+  ],
+  "step3_entity_resolver_source": "src/fointel/entity_resolution.py::EntityResolver.resolve",
+  "step4_normalized_entities": [
+    {
+      "name": "Cascade Family Office LLC",
+      "dedup_key": "name:cascade family office|geo:?",
+      "identifiers": {}
+    }
+  ],
+  "step5_merge_decisions": [
+    {
+      "incoming": "Cascade Family Office LLC",
+      "matched": null,
+      "action": "new",
+      "basis": "",
+      "reason": "distinct firm"
+    },
+    {
+      "incoming": "Cascade Family Office",
+      "matched": "Cascade Family Office LLC",
+      "action": "merge",
+      "basis": "name+geo",
+      "reason": "same firm (identifier or name+geography agreement)"
+    }
+  ],
+  "step6_structured_logs": [
+    {
+      "ts": "2026-08-07T21:46:10",
+      "level": "INFO",
+      "channel": "validation",
+      "msg": "entity merge",
+      "event": "merge",
+      "incoming": "Cascade Family Office",
+      "kept": "Cascade Family Office LLC",
+      "basis": "name+geo"
+    }
+  ],
+  "step6_log_dir": "C:\\Users\\Hp\\AppData\\Local\\Temp\\operating-verify-u_wkr0dp",
+  "unit_tests_covering_path": [
+    "tests/test_employee_contract_regressions.py::test_entity_succeeds_on_raw_dict_candidate",
+    "tests/test_fourteen_employees.py::test_all_fourteen_run_and_produce_evidence"
+  ],
+  "verdict": "passed"
+}

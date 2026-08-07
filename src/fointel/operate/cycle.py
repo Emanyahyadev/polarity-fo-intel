@@ -93,6 +93,44 @@ class EngineeringAgent(AgentBase):
 # Entity Resolution
 # --------------------------------------------------------------------------- #
 
+def _as_candidates(candidates) -> list:
+    """Coerce cycle candidates (typed `Candidate` or raw dicts) to `Candidate`.
+    Never guesses: a raw dict with no usable identity becomes a bare Candidate
+    carrying the raw payload for provenance, so the resolver sees typed input."""
+    from ..discovery.base import Candidate
+    from ..schema import SourceClass
+    typed = []
+    for cand in candidates or []:
+        if isinstance(cand, Candidate):
+            typed.append(cand)
+        elif isinstance(cand, dict):
+            name = str(cand.get("name") or cand.get("record_name") or "").strip()
+            source = cand.get("source") or cand.get("source_class") or "Other"
+            try:
+                source_class = SourceClass(source) if isinstance(source, str) else SourceClass.OTHER
+            except ValueError:
+                source_class = SourceClass.OTHER
+            typed.append(Candidate(name=name, source_class=source_class,
+                                   raw=cand, hints=cand.get("hints", {})))
+        # skip anything else; never guess a candidate from an invalid shape
+    return typed
+
+
+def _as_typed_records(records) -> list:
+    """Coerce raw dicts to `FamilyOfficeRecord` for the cycle's typed expectations."""
+    from ..schema import FamilyOfficeRecord
+    out = []
+    for rec in records or []:
+        if isinstance(rec, FamilyOfficeRecord):
+            out.append(rec)
+        elif isinstance(rec, dict):
+            try:
+                out.append(FamilyOfficeRecord(**rec))
+            except Exception:  # noqa: BLE001 — skip records that can't be typed
+                continue
+    return out
+
+
 class EntityResolutionAgent(AgentBase):
     """Normalize names, resolve aliases/identifiers, merge obvious duplicates.
     Uses the existing EntityResolver (evidence-first, never merges without
@@ -103,8 +141,9 @@ class EntityResolutionAgent(AgentBase):
     def execute(self, task):
         from ..entity_resolution import EntityResolver
         candidates = task.payload.get("candidates") or task.payload.get("state", {}).get("candidates", [])
+        typed = _as_candidates(candidates)
         resolver = EntityResolver()
-        resolved, decisions = resolver.resolve(candidates)
+        resolved, decisions = resolver.resolve(typed)
         state = task.payload.get("state", {})
         state["resolved"] = candidates  # resolved keeps membership
         return {
@@ -183,6 +222,32 @@ class ClassificationAgent(AgentBase):
 # Governance — apply policy engine
 # --------------------------------------------------------------------------- #
 
+def _confidence_score(value) -> float:
+    """Normalise a confidence to a 0..1 score for the governance policy gate.
+
+    Accepts the numeric forms already used by the policy engine (0..1 or 0..100)
+    AND the qualitative `Confidence` label emitted by `firm_type.classify`
+    (High / Medium / Low). The label never exceeds the classifier's evidence:
+    High = 2+ authoritative sources (auto-release band), Medium = 1 authoritative
+    source (governance-review band), Low = no affirmative evidence (quarantine).
+    """
+    from ..validation.firm_type import Confidence
+    if isinstance(value, Confidence):
+        value = value.value
+    if isinstance(value, str):
+        mapping = {Confidence.HIGH.value: 0.90, Confidence.MEDIUM.value: 0.80,
+                   Confidence.LOW.value: 0.30}
+        if value.strip().lower() in ("high", "medium", "low", "auto"):
+            return mapping.get(value.strip().title(), 0.30)
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            # never fabricate a number from an unknown label; treat as no evidence
+            return 0.30
+    confidence = float(value or 0)
+    return confidence / 100.0 if confidence > 1.0 else confidence
+
+
 class GovernanceAgent(AgentBase):
     """Apply the Policy Engine to every classified candidate:
        approve / quarantine / escalate-for-human. Uses the same confidence
@@ -191,14 +256,10 @@ class GovernanceAgent(AgentBase):
     name = "governance"
 
     def execute(self, task):
-        from .policy_engine import PolicyEngine
-        eng = PolicyEngine()
         classified = task.payload.get("records") or task.payload.get("state", {}).get("classified", [])
         decisions = []
         for rec in classified:
-            confidence = float(rec.get("confidence", 0) or 0) / 100.0 \
-                if isinstance(rec.get("confidence"), (int, float)) and rec["confidence"] > 1 \
-                else float(rec.get("confidence", 0.0))
+            confidence = _confidence_score(rec.get("confidence", 0))
             # escalate undetermined / low confidence, never approve blindly
             if rec.get("fo_type") == "Undetermined" or confidence < 0.85:
                 decisions.append({"name": rec["name"], "action": "escalate",
