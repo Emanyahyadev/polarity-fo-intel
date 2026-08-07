@@ -153,11 +153,13 @@ def build_operating_graph(agents: dict[str, AIEmployee],
 def run_cycle(inputs: dict[str, Any] | None = None,
               agents: dict[str, AIEmployee] | None = None,
               checkpointer=None,
-              policies: PolicyEngine | None = None) -> dict[str, Any]:
+              policies: PolicyEngine | None = None,
+              config: dict[str, Any] | None = None) -> dict[str, Any]:
     """Run one full operating cycle through the graph.
 
     Mirrors `Orchestrator.run_cycle` semantics (see tests for A/B equivalence).
     `agents` may be injected (tests) or built from a fresh orchestrator registry.
+    `checkpointer` enables checkpoint/resume; `config` may carry a `thread_id`.
     """
     from .orchestrator import Orchestrator
 
@@ -168,9 +170,52 @@ def run_cycle(inputs: dict[str, Any] | None = None,
     inputs = inputs or {}
     graph = OperatingGraph(employees=agents, policies=policies)
     compiled = graph.compile(checkpointer=checkpointer)
-    result = compiled.invoke({"cycle": dict(inputs), "steps": []})
+    result = compiled.invoke({"cycle": dict(inputs), "steps": []}, config=config or {})
     return {"cycle": result.get("cycle", {}), "steps": result.get("steps", [])}
 
 
+def run_cycle_with_human_review(inputs: dict[str, Any] | None = None,
+                                agents: dict[str, AIEmployee] | None = None,
+                                policies=None,
+                                checkpointer=None,
+                                config: dict[str, Any] | None = None,
+                                queue=None) -> dict[str, Any]:
+    """Run a cycle that parks at a human-approval node after governance when
+    `cycle["require_human_review"]` is set. `queue` is the HumanReviewQueue holding
+    the pending items (`policies.queue` if not given)."""
+    from .checkpoint import make_human_approval
+    from .orchestrator import Orchestrator
+
+    if agents is None:
+        orch = Orchestrator()
+        orch.register_defaults()
+        agents = load_employees(orch.agents)
+    if policies is None:
+        from .policy_engine import PolicyEngine
+        policies = PolicyEngine()
+    inputs = inputs or {}
+    hq = queue or (policies.queue if policies is not None else None)
+    human_node = make_human_approval(hq, require=bool(inputs.get("require_human_review")))
+
+    graph = OperatingGraph(employees=agents, policies=policies)
+    # insert the human-approval node between governance and release
+    g = graph.graph
+    g.add_node("human_approval", human_node)
+    _safe_remove_edge(g, "governance", "release")
+    g.add_edge("governance", "human_approval")
+    g.add_edge("human_approval", "release")
+    compiled = g.compile(checkpointer=checkpointer)
+    result = compiled.invoke({"cycle": dict(inputs), "steps": []}, config=config or {})
+    return {"cycle": result.get("cycle", {}), "steps": result.get("steps", [])}
+
+
+def _safe_remove_edge(g, a, b) -> None:
+    try:
+        g.remove_edge(a, b)
+    except Exception:  # noqa: BLE001 — conditional edges may alias; best-effort
+        pass
+
+
 __all__ = ["OperatingGraph", "build_operating_graph", "run_cycle",
+           "run_cycle_with_human_review",
            "ROLE_ORDER", "CycleState"]
