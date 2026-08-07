@@ -20,6 +20,10 @@ uvicorn[standard]
 jinja2
 groq
 
+# orchestration execution engine (migration Phase 3)
+langgraph>=0.3,<0.4
+langgraph-checkpoint-sqlite>=2,<3
+
 # Postgres/Supabase backend (deploy): pip install 'psycopg[binary]>=3'
 
 # Frozen to requirements.lock (pip freeze) for reproducibility.

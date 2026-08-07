@@ -93,6 +93,25 @@ class DiscoveryEmployee(_DelegatingEmployee):
         escalation_rule="one failed source must not sink the cycle; degrade to a logged gap",
     )
 
+    def execute(self, state: dict[str, Any]) -> EmployeeResult:
+        # discovery needs the injected sources/limit from the cycle state so it can
+        # run quietly (empty window) or with real sources; never silently defaults
+        if not isinstance(state, dict):
+            raise EmployeeSkip("no state provided")
+        tasks = Task(task_id="emp-discovery", agent=self._agent.name,
+                     action="discovery.search",
+                     payload={"state": state,
+                              "sources": state.get("sources"),
+                              "per_source_limit": state.get("per_source_limit", 0)})
+        try:
+            out = self._agent.execute(tasks)
+            return EmployeeResult(outcome="ok", results=out or {})
+        except EmployeeSkip:
+            raise
+        except Exception as exc:  # noqa: BLE001
+            return EmployeeResult(outcome="failed", results={},
+                                  notes=[f"discovery: {exc}"])
+
     def __init__(self, agents: AgentBase) -> None:
         self._agent = agents["discovery"]
 

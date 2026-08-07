@@ -85,7 +85,12 @@ def test_employee_delegates_identical_result(employees) -> None:
 
 
 def test_load_employees_is_framework_free(employees) -> None:
-    """No langgraph import anywhere on the employee path — this must never leak in."""
-    import sys
-    base = {m for m in sys.modules if m.startswith("langgraph")}
-    assert not base
+    """The employee layer must never import langgraph — only the graph executor may.
+    Verified at the source level so sibling test modules importing langgraph cannot
+    pollute the check."""
+    import inspect
+    from fointel.operate import employee, adapters
+    for mod in (employee, adapters):
+        src = inspect.getsource(mod)
+        assert "langgraph" not in src, f"{mod.__name__} leaked langgraph"
+        assert "langchain" not in src, f"{mod.__name__} leaked langchain"
