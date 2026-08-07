@@ -39,8 +39,10 @@ jobs:
       - name: Set execution engine (LangGraph by default; orchestrator = rollback)
         run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
 
-      - name: Run the operating cycle (LangGraph)
-        run: python operations/operate.py
+      - name: Run the operating cycle (Pipeline)
+        run: |
+          python scripts/run_pipeline.py discovery --per-source 100
+          python scripts/build_dataset.py --target 500 --export
         env:
           TARGET_RECORDS: 500
           LLM_PROVIDER: nvidia
