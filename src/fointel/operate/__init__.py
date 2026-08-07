@@ -2,5 +2,7 @@
 
 from .policy_engine import PolicyEngine, AuthorityDecision, HumanReviewQueue
 from .orchestrator import Orchestrator
+from .engine import select_engine, run_operating_cycle
 
-__all__ = ["PolicyEngine", "AuthorityDecision", "HumanReviewQueue", "Orchestrator"]
+__all__ = ["PolicyEngine", "AuthorityDecision", "HumanReviewQueue", "Orchestrator",
+           "select_engine", "run_operating_cycle"]
