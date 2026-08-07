@@ -5,7 +5,7 @@ How the system decides what is trustworthy enough to ship, and how well that dec
 ## 1. Two build types, two evidence standards
 
 - **Production systems** (discovery, enrichment, retrieval, serving) — judged operationally: do they run end-to-end without silent failure, and how do they behave under load/edge cases.
-- **The validation layer** (firm-type classification, email verification, the release gate) — judged by measurement: accuracy, precision, recall, FP rate, **FN rate**, confusion matrix, against a hand-labelled gold set. A false negative (a bad value we labelled good) is the deadly error because it ships downstream with the system's confidence.
+- **The validation layer** (firm-type classification, email verification, the release gate) — judged by measurement: accuracy, precision, recall, FP rate, **FN rate**, confusion matrix, against a machine-drafted gold set (DRAFT, pending human review/confirmation). A false negative (a bad value we labelled good) is the deadly error because it ships downstream with the system's confidence.
 
 ## 2. The release gate — single publication authority
 
@@ -33,7 +33,7 @@ Enforced in code, not documentation:
 
 ## 4. Gold-set evaluation (measured)
 
-A **25-record** hand-labelled gold set (`goldset/firm_type_goldset.jsonl`) evaluates the firm-type classifier. Full run: `python scripts/eval_goldset.py` → `docs/evidence/firmtype-goldset-eval.json`.
+A **25-record** machine-drafted gold set (DRAFT, pending human review/confirmation; `goldset/firm_type_goldset.jsonl`) evaluates the firm-type classifier. Full run: `python scripts/eval_goldset.py` → `docs/evidence/firmtype-goldset-eval.json`.
 
 | Metric | Value | Reading |
 |---|---|---|

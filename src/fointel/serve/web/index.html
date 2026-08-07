@@ -169,6 +169,7 @@ main{max-width:860px;width:100%;justify-self:center}
 .fact .micro{display:block;margin-bottom:1px}
 .fact .v{font-size:13.5px;color:var(--ink2)}
 .fact .v.num{font-size:13px;color:var(--ink)}
+.fact .role{font-size:11px;color:var(--ink3);font-style:italic;font-weight:400;letter-spacing:.01em}
 .match{display:flex;align-items:center;gap:8px;margin-top:12px}
 .match .bar{flex:1;max-width:150px;height:3px;background:var(--line);border-radius:2px;overflow:hidden}
 .match .bar i{display:block;height:100%;background:var(--accent);border-radius:2px;
@@ -524,10 +525,10 @@ function answerHTML(d){
   return mdLite(text);
 }
 
-function factHTML(label, value, mono){
+function factHTML(label, value, mono, sub){
   if(!value) return "";
   return `<div class="fact"><span class="micro">${label}</span>
-    <span class="v${mono?" num":""}">${value}</span></div>`;
+    <span class="v${mono?" num":""}">${value}${sub?` <span class="role">${esc(sub)}</span>`:""}</span></div>`;
 }
 
 function card(c, i){
@@ -550,7 +551,7 @@ function card(c, i){
     <div class="facts">
       ${factHTML("Location", esc(c.location))}
       ${factHTML("AUM", esc(c.aum), true)}
-      ${factHTML("Principal", esc(c.principal))}
+      ${factHTML("Principal", esc(c.principal), true, esc(c.principal_role||""))}
       ${factHTML("Phone", phone)}
     </div>
     ${typeof c.match === "number" ? `<div class="match" title="Semantic retrieval similarity for this query">
@@ -703,7 +704,7 @@ $("#dir-body").addEventListener("click", e=>{
   const d = document.createElement("tr"); d.className = "detail reveal";
   d.innerHTML = `<td colspan="5">
     <div class="facts">
-      ${factHTML("Principal", esc(r.principal))}
+      ${factHTML("Principal", esc(r.principal), false, esc(r.principal_role||""))}
       ${factHTML("Phone", esc(r.phone), true)}
       ${factHTML("Website", r.website?`<a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(r.website).replace(/^https?:\/\/(www\.)?/,"")}</a>`:"")}
       ${factHTML("Data as of", esc(r.data_as_of), true)}

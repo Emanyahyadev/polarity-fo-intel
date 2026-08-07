@@ -1,7 +1,61 @@
 {
-  "n": 29,
-  "correct": 29,
+  "n": 42,
+  "correct": 42,
   "accuracy": 1.0,
+  "coverage": {
+    "listing": {
+      "n": 12,
+      "correct": 12
+    },
+    "lookup": {
+      "n": 1,
+      "correct": 1
+    },
+    "research": {
+      "n": 1,
+      "correct": 1
+    },
+    "educational": {
+      "n": 1,
+      "correct": 1
+    },
+    "advice": {
+      "n": 2,
+      "correct": 2
+    },
+    "definition": {
+      "n": 2,
+      "correct": 2
+    },
+    "off-topic": {
+      "n": 9,
+      "correct": 9
+    },
+    "security": {
+      "n": 1,
+      "correct": 1
+    },
+    "count": {
+      "n": 4,
+      "correct": 4
+    },
+    "total": {
+      "n": 3,
+      "correct": 3
+    },
+    "compound": {
+      "n": 2,
+      "correct": 2
+    },
+    "universal": {
+      "n": 2,
+      "correct": 2
+    },
+    "off-topic-aggregate": {
+      "n": 2,
+      "correct": 2
+    }
+  },
   "results": [
     {
       "query": "multi-family offices in Texas",
@@ -16,6 +70,7 @@
         "fo_c7b90e8baa",
         "fo_33d228f849"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -31,6 +86,7 @@
         "fo_55e904bc2b",
         "fo_f638fbd06f"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -46,6 +102,7 @@
         "fo_29e17a89bc",
         "fo_7ef75c02df"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -61,6 +118,7 @@
         "fo_207554cfe7",
         "fo_519c4712e1"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -76,6 +134,7 @@
         "fo_4b474eef93",
         "fo_519c4712e1"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -91,6 +150,7 @@
         "fo_d80fbfc1d9",
         "fo_68c2c35a95"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -106,6 +166,7 @@
         "fo_207554cfe7",
         "fo_519c4712e1"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -117,6 +178,7 @@
       "citations": [
         "fo_3642e17ac1"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -129,6 +191,7 @@
         "fo_68c2c35a95",
         "fo_ca957ee5d5"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -140,6 +203,7 @@
       "citations": [
         "fo_d27cc088a3"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -149,6 +213,7 @@
       "mode": "abstain",
       "reason": "no records matched the query",
       "citations": [],
+      "class": "listing",
       "correct": true
     },
     {
@@ -160,6 +225,7 @@
       "citations": [
         "fo_38a12a7ca6"
       ],
+      "class": "lookup",
       "correct": true
     },
     {
@@ -175,6 +241,7 @@
         "fo_3171716a52",
         "fo_611226b119"
       ],
+      "class": "listing",
       "correct": true
     },
     {
@@ -190,6 +257,7 @@
         "fo_beb7590905",
         "fo_a4cb68cd35"
       ],
+      "class": "research",
       "correct": true
     },
     {
@@ -201,6 +269,7 @@
       "citations": [
         "fo_cfa2d51623"
       ],
+      "class": "educational",
       "correct": true
     },
     {
@@ -216,6 +285,7 @@
         "fo_c1e06b1868",
         "fo_33d228f849"
       ],
+      "class": "advice",
       "correct": true
     },
     {
@@ -231,6 +301,7 @@
         "fo_3171716a52",
         "fo_f638fbd06f"
       ],
+      "class": "definition",
       "correct": true
     },
     {
@@ -246,6 +317,7 @@
         "fo_e6bc01c928",
         "fo_3642e17ac1"
       ],
+      "class": "definition",
       "correct": true
     },
     {
@@ -255,6 +327,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.67 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -270,6 +343,7 @@
         "fo_16837977fd",
         "fo_beb7590905"
       ],
+      "class": "advice",
       "correct": true
     },
     {
@@ -279,6 +353,7 @@
       "mode": "abstain",
       "reason": "out-of-scope request (instruction override) \u2014 queries are treated as questions about the records, never as instructions",
       "citations": [],
+      "class": "security",
       "correct": true
     },
     {
@@ -288,6 +363,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.47 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -297,6 +373,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.52 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -306,6 +383,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.51 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -315,6 +393,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.57 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -324,6 +403,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.40 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -333,6 +413,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.53 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -342,6 +423,7 @@
       "mode": "abstain",
       "reason": "best match similarity 0.62 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
       "correct": true
     },
     {
@@ -351,6 +433,189 @@
       "mode": "abstain",
       "reason": "best match similarity 0.65 is below the 0.68 threshold",
       "citations": [],
+      "class": "off-topic",
+      "correct": true
+    },
+    {
+      "query": "how many family offices are in the dataset",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "count",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "count",
+      "correct": true
+    },
+    {
+      "query": "how many multi-family offices are there",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "count",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "count",
+      "correct": true
+    },
+    {
+      "query": "how many family offices in Texas",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "count",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "count",
+      "correct": true
+    },
+    {
+      "query": "how many single-family offices are in Belgium",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "count",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "count",
+      "correct": true
+    },
+    {
+      "query": "total 13f securities across all family offices",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "total",
+      "reason": "deterministic",
+      "citations": [
+        "fo_15eb1b42d3",
+        "fo_1c9723ce52",
+        "fo_29e17a89bc",
+        "fo_3eb2ccad75",
+        "fo_40030db7ab",
+        "fo_4b474eef93",
+        "fo_4dcf965b7e",
+        "fo_576ab240f6",
+        "fo_5deeb7a4e7",
+        "fo_6103057a41",
+        "fo_685bea3a32",
+        "fo_7c7a0fc12b",
+        "fo_7ef75c02df",
+        "fo_87876deee2",
+        "fo_89137929e9",
+        "fo_8994eb08a6",
+        "fo_9220a272d8",
+        "fo_a61ece7638",
+        "fo_a6f6c19fed",
+        "fo_beb7590905",
+        "fo_c1e06b1868",
+        "fo_c7b90e8baa",
+        "fo_c7e795ff94",
+        "fo_da95e70bda"
+      ],
+      "class": "total",
+      "correct": true
+    },
+    {
+      "query": "what is the total regulatory aum",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "total",
+      "reason": "deterministic",
+      "citations": [
+        "fo_0728fa18e5",
+        "fo_311aa9d44c",
+        "fo_519c4712e1",
+        "fo_611226b119",
+        "fo_80f649ced1",
+        "fo_cfa2d51623",
+        "fo_eca2b3bb02",
+        "fo_f638fbd06f"
+      ],
+      "class": "total",
+      "correct": true
+    },
+    {
+      "query": "total estimated wealth of the family offices",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "total",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "total",
+      "correct": true
+    },
+    {
+      "query": "how many multi-family offices and their total 13f securities",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "compound",
+      "reason": "deterministic",
+      "citations": [
+        "fo_15eb1b42d3",
+        "fo_1c9723ce52",
+        "fo_29e17a89bc",
+        "fo_40030db7ab",
+        "fo_4dcf965b7e",
+        "fo_576ab240f6",
+        "fo_6103057a41",
+        "fo_7c7a0fc12b",
+        "fo_7ef75c02df",
+        "fo_87876deee2",
+        "fo_89137929e9",
+        "fo_9220a272d8",
+        "fo_a6f6c19fed",
+        "fo_beb7590905",
+        "fo_c1e06b1868",
+        "fo_c7b90e8baa",
+        "fo_da95e70bda"
+      ],
+      "class": "compound",
+      "correct": true
+    },
+    {
+      "query": "how many family offices in Texas and their total regulatory aum",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "compound",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "compound",
+      "correct": true
+    },
+    {
+      "query": "every family office in the dataset files a 13f",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.67 is below the 0.68 threshold",
+      "citations": [],
+      "class": "universal",
+      "correct": true
+    },
+    {
+      "query": "all family offices have a principal email",
+      "expected_answer": true,
+      "answered": true,
+      "mode": "universal",
+      "reason": "deterministic",
+      "citations": [],
+      "class": "universal",
+      "correct": true
+    },
+    {
+      "query": "how many toasters are in Texas",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.59 is below the 0.68 threshold",
+      "citations": [],
+      "class": "off-topic-aggregate",
+      "correct": true
+    },
+    {
+      "query": "what is the total price of pizza in Chicago",
+      "expected_answer": false,
+      "answered": false,
+      "mode": "abstain",
+      "reason": "best match similarity 0.56 is below the 0.68 threshold",
+      "citations": [],
+      "class": "off-topic-aggregate",
       "correct": true
     }
   ]

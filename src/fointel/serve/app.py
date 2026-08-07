@@ -26,6 +26,7 @@ from ..observability import get_logger
 from ..rag.answer import answer_query
 from ..rag.index import RetrievalIndex
 from ..rag.load import load_records_from_csv
+from ..rag.roles import principal_role
 
 log = get_logger("api")
 WEB = Path(__file__).parent / "web"
@@ -61,6 +62,7 @@ def _row(r) -> dict:
         "aum": r.estimated_aum, "website": r.website, "phone": r.hq_phone,
         "principal": (f"{r.principal_name} — {r.principal_title}"
                       if r.principal_name and r.principal_title else r.principal_name),
+        "principal_role": principal_role(r.verification_sources),
         "confidence": r.record_confidence.value,
         "evidence": r.fo_type_evidence,
         "signals": [s.text for s in r.signals],

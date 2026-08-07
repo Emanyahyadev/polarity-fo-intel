@@ -14,7 +14,7 @@ A fund manager opens a URL, asks *"multi-family offices in Texas"*, and gets an 
 |---|---|
 | Dataset — 61 validated records (8 High / 39 Medium / 14 Low confidence) | `data/final/family_offices.xlsx` / `.csv` |
 | Methodology | [docs/Methodology.md](docs/Methodology.md) |
-| Validation + gold-set metrics (precision 1.00, FP-rate 0.00) | [docs/Validation.md](docs/Validation.md) |
+| Validation + gold-set metrics (precision 1.00, FP-rate 0.00 · recall 0.50, accuracy 0.68, 8 FNs · system recall 0.75) | [docs/Validation.md](docs/Validation.md) |
 | 3 validation chains | [docs/ValidationChains.md](docs/ValidationChains.md) |
 | Micro-RAG (hybrid retrieval + code-enforced grounding) | `src/fointel/rag/`, [eval](docs/evidence/rag-abstention-eval.md) |
 | **Live customer-facing URL** | **https://family-office-intelligence.onrender.com** ([Deployment](docs/Deployment.md), [live transcript](docs/evidence/live-url-query-transcript.md)) |
@@ -50,7 +50,7 @@ src/fointel/
   rag/             retrieval + grounded generation (code-enforced abstention)
   serve/           presentation layer: FastAPI + static UI
 data/              raw (gitignored) · interim · audit · final (the deliverable)
-goldset/           hand-labelled truth for validation metrics
+goldset/           machine-drafted gold set (DRAFT; pending human review/confirmation)
 docs/              Architecture, DecisionLog, Tradeoffs, Methodology, Validation, evidence/
 scripts/           run_pipeline.py (CLI entry)
 ```

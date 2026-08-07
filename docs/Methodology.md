@@ -55,7 +55,7 @@ Each candidate is enriched with **authoritative** facts, each snapshotted (conte
 ## 7. Validation (Wave 2)
 
 - **Firm-type classification** (`validation/firm_type.py`) enforces `config/inclusion_standard.md`: a firm qualifies only with **affirmative family-office evidence from an authoritative source** (SEC 13F self-identification, IAPD/ADV alias, or firm website) — never a name alone or a discovery-only reference. Non-qualifying orgs (public companies, funds, banks, pensions, religious/educational/network entities, individual trustees) are rejected with a reason recorded for the discovery report. Type is SFO/MFO from explicit language, honest **Undetermined** otherwise; **High** confidence requires two independent authoritative sources.
-- **Gold-set evaluation** (`validation/goldset.py`, `docs/evidence/firmtype-goldset-eval.json`): a hand-labelled set measures accuracy/precision/recall/**FP-rate**/FN-rate/confusion. In this domain the deadly error is a false *positive* (a non-FO shipped as an FO), so precision is the headline.
+- **Gold-set evaluation** (`validation/goldset.py`, `docs/evidence/firmtype-goldset-eval.json`): a machine-drafted gold set (DRAFT, pending human review/confirmation) measures accuracy/precision/recall/**FP-rate**/FN-rate/confusion. In this domain the deadly error is a false *positive* (a non-FO shipped as an FO), so precision is the headline.
 - **Release gate + selection** as in `docs/Validation.md`. Discovery vs verification are kept separate in every record; a firm discovered via 13F full-text search and verified via the distinct IAPD/submissions records + firm site is a multi-verified record, not a "same source" one.
 
 ## 8. The scarcity finding (evidence-backed)

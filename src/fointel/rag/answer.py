@@ -29,6 +29,7 @@ from ..config import settings
 from ..observability import get_logger
 from ..schema import SourceClass
 from .ground import Grounding
+from .roles import principal_role
 
 _VERIFY_LABEL = {
     SourceClass.SEC_EDGAR.value: "SEC 13F/SC filing",
@@ -82,6 +83,7 @@ def _card(r: Retrieved) -> dict:
         "phone": rec.hq_phone, "website": rec.website, "linkedin": rec.corporate_linkedin,
         "description": rec.description, "aum": rec.estimated_aum,
         "principal": _principal(rec), "principal_phone": rec.principal_phone,
+        "principal_role": principal_role(rec.verification_sources),
         "signals": [s.text for s in rec.signals],
         "confidence": rec.record_confidence.value, "classification_evidence": rec.fo_type_evidence,
         "verification": sorted({_VERIFY_LABEL.get(s.source_class.value, s.source_class.value)
@@ -113,7 +115,7 @@ def extractive_answer(retrieved: list[Retrieved]) -> str:
         if aum:
             bits.append(f"AUM {aum}")
         if rec.principal_name:
-            bits.append(f"principal {_principal(rec)}")
+            bits.append(f"principal {_principal(rec)} ({principal_role(rec.verification_sources)})")
         if rec.hq_phone:
             bits.append(f"phone {rec.hq_phone}")
         bits.append(f"[{rec.record_confidence.value} confidence]")
@@ -209,6 +211,55 @@ _RE_COUNT_Q = re.compile(r"\b(?:how many|count(?: of| the)?|number of|total numb
                          re.IGNORECASE)
 _RE_TOTAL_Q = re.compile(r"\b(?:total|sum of|combined)\b", re.IGNORECASE)
 
+# Universal-coverage claims ("all / every / each family office has X") are answered
+# from a whole-dataset coverage check, not from a retrieved listing — so "every
+# family office has a principal email" returns the truthful count (0/61) instead of
+# an implied "yes" from a record list. (Stage-2 Correction 6.)
+_RE_UNIVERSAL = re.compile(r"\b(?:all|every|each|none|no|any) family offices?\b", re.IGNORECASE)
+_RE_HAS = re.compile(r"\b(?:have|has|carry|own|include|list|are|hold)\b", re.IGNORECASE)
+
+# field name -> (regex to match the claim's subject, predicate reading truth, label)
+_COVERAGE = [
+    ("principal_email", re.compile(r"principal\s*(?:e-?mail|email)", re.IGNORECASE),
+     lambda r: bool((r.get("principal_email") or "").strip()),
+     "a principal email"),
+    ("principal_phone", re.compile(r"principal\s*phone", re.IGNORECASE),
+     lambda r: bool((r.get("principal_phone") or "").strip()),
+     "a principal phone number"),
+    ("website", re.compile(r"website|web\s*site", re.IGNORECASE),
+     lambda r: bool((r.get("website") or "").strip()),
+     "a website"),
+    ("phone", re.compile(r"phone|telephone|hq\s*phone", re.IGNORECASE),
+     lambda r: bool((r.get("hq_phone") or "").strip()),
+     "a head-office phone number"),
+    ("13f", re.compile(r"13f|13\(f\)|securit", re.IGNORECASE),
+     lambda r: bool(re.search(r"13f|13\(f\)|securit", (r.get("estimated_aum") or ""), re.IGNORECASE)),
+     "13F securities value on file"),
+]
+
+
+def _universal_claim_answer(index: RetrievalIndex, query: str):
+    """Deterministic coverage answer for an all/every-claim, or None if not one."""
+    q = query.lower().strip()
+    if not (_RE_UNIVERSAL.search(q) and _RE_HAS.search(q)):
+        return None
+    if not bool(_DOMAIN_TERM.search(q)):
+        return None
+    records = [(r.model_dump(mode="json") if hasattr(r, "model_dump") else dict(r))
+               for r in index.records]
+    for key, subj, pred, label in _COVERAGE:
+        if not subj.search(q):
+            continue
+        hits = [r for r in records if pred(r)]
+        n = len(records)
+        return AnswerResult(query=query, answered=True,
+                            answer=(f"{len(hits)} of {n} family offices in the verified dataset "
+                                    f"have {label}."),
+                            reason="deterministic", mode="universal",
+                            citations=[], cards=[],
+                            compute={"claim": key, "have_field": len(hits), "total": n})
+    return None
+
 
 def _aggregate_answer(index: RetrievalIndex, query: str) -> Optional[AnswerResult]:
     """Answer count/total questions DETERMINISTICALLY over the complete dataset.
@@ -233,33 +284,35 @@ def _aggregate_answer(index: RetrievalIndex, query: str) -> Optional[AnswerResul
     conds = {k: v for k, v in parse_filters(query).items()
              if k in ("fo_type", "hq_state", "hq_country")}
 
-    # ---- totals (measure-type-safe) ----
-    if _RE_TOTAL_Q.search(q):
-        basis = None
-        if re.search(r"13f|13\(f\)|securities", q):
-            basis = "13F_securities_value"
-        elif re.search(r"regulatory|adv\b", q):
-            basis = "regulatory_aum"
-        elif re.search(r"estimated|wealth|aum", q):
-            basis = "estimated_wealth"
-        if basis:
-            try:
-                agg = engine.total(measure_type=basis, **conds)
-            except Exception:
-                return None
-            label = {"13F_securities_value": "13F securities",
-                     "regulatory_aum": "regulatory AUM",
-                     "estimated_wealth": "estimated wealth"}[basis]
-            cited = sorted({i["fo_id"] for i in agg.recompute["items"] if i.get("fo_id")})
-            text = (f"Total {label}: ${agg.value:,.2f} — computed from "
-                    f"{agg.scope.included_in_calc} of {agg.scope.total_records} verified records "
-                    f"carrying that measure type.")
-            return AnswerResult(query=query, answered=True, answer=text, reason="deterministic",
-                                mode="total", citations=cited,
-                                cards=[], compute=agg.to_dict())
+    _LABEL = {"13F_securities_value": "13F securities",
+              "regulatory_aum": "regulatory AUM",
+              "estimated_wealth": "estimated wealth"}
 
-    # ---- counts ----
-    if _RE_COUNT_Q.search(q):
+    def _basis(s: str) -> str | None:
+        if re.search(r"13f|13\(f\)|securities", s):
+            return "13F_securities_value"
+        if re.search(r"regulatory|adv\b", s):
+            return "regulatory_aum"
+        if re.search(r"estimated|wealth|aum", s):
+            return "estimated_wealth"
+        return None
+
+    def _total_part(s: str) -> dict | None:
+        basis = _basis(s)
+        if not basis:
+            return None
+        try:
+            agg = engine.total(measure_type=basis, **conds)
+        except Exception:
+            return None
+        cited = sorted({i["fo_id"] for i in agg.recompute["items"] if i.get("fo_id")})
+        text = (f"Total {_LABEL[basis]}: ${agg.value:,.2f} — computed from "
+                f"{agg.scope.included_in_calc} of {agg.scope.total_records} verified records "
+                f"carrying that measure type.")
+        return {"key": "total", "resolved_by": f"ComputeEngine.total({basis!r})",
+                "text": text, "answer": agg, "citations": cited}
+
+    def _count_part(s: str) -> dict:
         agg = engine.count(**conds)
         parts = []
         if conds.get("fo_type"):
@@ -278,8 +331,45 @@ def _aggregate_answer(index: RetrievalIndex, query: str) -> Optional[AnswerResul
         text = (f"Found {agg.value} matching {label} in the verified dataset "
                 f"(searched all {agg.scope.total_records} verified records; "
                 f"{agg.scope.qualified} matched).")
-        return AnswerResult(query=query, answered=True, answer=text, reason="deterministic",
-                            mode="count", citations=[], cards=[], compute=agg.to_dict())
+        return {"key": "count", "resolved_by": "ComputeEngine.count",
+                "text": text, "answer": agg, "citations": []}
+
+    want_count = bool(_RE_COUNT_Q.search(q))
+    want_total = bool(_RE_TOTAL_Q.search(q))
+
+    # ---- compound (count AND total) — decompose; never silently drop a part ----
+    if want_count and want_total:
+        count_part = _count_part(q)
+        total_part = _total_part(q)
+        if count_part and total_part:
+            text = "\n".join([count_part["text"], total_part["text"]])
+            cited = sorted(total_part["citations"])
+            deco = engine.decompose(query, [
+                {"key": count_part["key"], "resolved_by": count_part["resolved_by"],
+                 "answer": count_part["answer"].to_dict(), "gap": False},
+                {"key": total_part["key"], "resolved_by": total_part["resolved_by"],
+                 "answer": total_part["answer"].to_dict(), "gap": False}])
+            return AnswerResult(query=query, answered=True, answer=text, reason="deterministic",
+                                mode="compound", citations=cited, cards=[],
+                                compute={**deco, "parts": [count_part["answer"].to_dict(),
+                                                           total_part["answer"].to_dict()]})
+
+    # ---- single totals (measure-type-safe) ----
+    if want_total:
+        tot = _total_part(q)
+        if tot:
+            return AnswerResult(query=query, answered=True, answer=tot["text"],
+                                reason="deterministic", mode="total",
+                                citations=tot["citations"], cards=[],
+                                compute=tot["answer"].to_dict())
+
+    # ---- single counts ----
+    if want_count:
+        cnt = _count_part(q)
+        if cnt:
+            return AnswerResult(query=query, answered=True, answer=cnt["text"],
+                                reason="deterministic", mode="count",
+                                citations=[], cards=[], compute=cnt["answer"].to_dict())
 
     return None
 
@@ -288,6 +378,12 @@ def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Groundin
                  top_k: Optional[int] = None) -> AnswerResult:
     grounding = grounding or Grounding(settings.min_retrieval_score)
     top_k = top_k or settings.retrieval_top_k
+
+    # Universal-coverage claims are answered deterministically over the COMPLETE
+    # dataset (an all/every-claim must not be implied "yes" by a record listing).
+    univ = _universal_claim_answer(index, query)
+    if univ is not None:
+        return univ
 
     # Aggregate questions (counts/totals) are answered deterministically over the
     # COMPLETE dataset — never from retrieved top-k. (Stage-1 count bug fix.)

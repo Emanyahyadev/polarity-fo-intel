@@ -208,3 +208,68 @@ def test_answer_query_returns_deterministic_aggregate(agg_index) -> None:
     assert r.answered
     assert r.mode == "count"
     assert r.compute["value"] == 10
+
+
+# --------------------------------------------------------------------------- #
+# Correction 8 / 6: compound aggregation + universal-coverage (deterministic)
+# --------------------------------------------------------------------------- #
+
+def test_compound_count_and_total_is_decomposed(agg_index) -> None:
+    from fointel.rag.answer import _aggregate_answer
+    r = _aggregate_answer(agg_index, "how many multi-family offices and their total 13f securities")
+    assert r is not None and r.mode == "compound"
+    assert "Found 37 matching" in r.answer          # count part answered
+    assert "Total 13F securities" in r.answer        # total part answered — nothing dropped
+    assert r.compute["decomposed"] is True
+    assert len(r.compute["parts"]) == 2
+
+
+def test_compound_mixed_scope_reports_trace(agg_index) -> None:
+    from fointel.rag.answer import _aggregate_answer
+    r = _aggregate_answer(agg_index, "how many family offices in Texas and their total regulatory aum")
+    assert r is not None and r.mode == "compound"
+    assert "Found 5 matching" in r.answer
+    assert "Total regulatory AUM" in r.answer
+    assert len(r.compute["parts"]) == 2
+    # deterministic recompute trace is still reported even when zero TX records carry the measure
+    assert len(r.compute['parts']) == 2
+
+
+def test_single_branches_unaffected_by_compound_refactor(agg_index) -> None:
+    from fointel.rag.answer import _aggregate_answer
+    assert _aggregate_answer(agg_index, "how many toasters") is None
+    assert _aggregate_answer(agg_index, "total price of pizza") is None
+    r = _aggregate_answer(agg_index, "how many family offices")
+    assert r.mode == "count"
+
+
+def test_universal_coverage_returns_truthful_count(agg_index) -> None:
+    from fointel.rag.answer import _universal_claim_answer
+    r = _universal_claim_answer(agg_index, "all family offices have a principal email")
+    assert r is not None and r.mode == "universal"
+    assert "have a principal email" in r.answer
+    assert r.compute["have_field"] == 0
+    assert r.compute["total"] == 61
+
+
+def test_universal_claim_13f_coverage(agg_index) -> None:
+    from fointel.rag.answer import _universal_claim_answer
+    r = _universal_claim_answer(agg_index, "every family office has a 13f")
+    assert r is not None and r.mode == "universal"
+    assert r.compute["claim"] == "13f"
+    assert r.compute["have_field"] == 24
+    assert r.compute["total"] == 61
+    assert "24 of 61" in r.answer
+
+
+# ---------------------------------------------------------------------------
+# Correction-10: evidence-bounded principal role labels
+# ---------------------------------------------------------------------------
+
+def test_principal_role_is_evidence_bounded(agg_index) -> None:
+    from fointel.rag.roles import principal_role
+    edgar = type("S", (), {"source_class": type("C", (), {"value": "SEC EDGAR (13F / SC / Form D filings)"})()})()
+    label = principal_role([edgar])
+    assert label == "filing signatory (13F)"
+    # unknown source never claims a role the evidence did not establish
+    assert "decision" not in label.lower() and "owner" not in label.lower()
