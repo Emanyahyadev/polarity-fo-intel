@@ -43,6 +43,8 @@ jobs:
         run: python operations/operate.py
         env:
           TARGET_RECORDS: 500
+          LLM_PROVIDER: nvidia
+          LLM_MODEL: NVIDIABuild-Autogen-08
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
 
       - name: Regenerate observability history (run/build/session)

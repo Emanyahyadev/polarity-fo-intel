@@ -19,6 +19,7 @@ fastapi
 uvicorn[standard]
 jinja2
 groq
+openai
 
 # orchestration execution engine (migration Phase 3)
 langgraph>=0.3,<0.4

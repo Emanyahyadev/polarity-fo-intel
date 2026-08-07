@@ -127,8 +127,6 @@ def extractive_answer(retrieved: list[Retrieved]) -> str:
 
 
 def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
-    from groq import Groq
-
     context = "\n".join(f"[{r.record.fo_id}] {record_text(r.record)}" for r in retrieved)
     system = (
         "You are a Family Office Intelligence assistant for capital allocators (fund managers, "
@@ -162,7 +160,17 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
         "concept answer; for firm listings, one bullet per firm with its key facts. "
         "Genuinely explanatory, never a raw data dump.")
     user = f"RECORDS:\n{context}\n\nQUESTION: {query}\n\nGrounded answer:"
-    client = Groq(api_key=settings.llm_api_key)
+    
+    if settings.llm_provider == "nvidia":
+        from openai import OpenAI
+        client = OpenAI(
+            base_url="https://integrate.api.nvidia.com/v1",
+            api_key=settings.llm_api_key
+        )
+    else:
+        from groq import Groq
+        client = Groq(api_key=settings.llm_api_key)
+
     # Model-fallback chain: Groq free-tier limits (daily tokens AND per-minute burst)
     # are PER MODEL, so on any model error the next model — with its own quota pool —
     # answers instead of dropping to the bare extractive listing. A rate limit whose
