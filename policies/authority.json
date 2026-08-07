@@ -1,0 +1,90 @@
+{
+  "authority_matrix": {
+    "tier_1_autonomous": {
+      "comment": "Low-risk, repeatable operational tasks. These agents NEVER publish business data; they only collect, organize, or observe.",
+      "actions": {
+        "scheduler.wake": "autonomous",
+        "scheduler.retry_transient": "autonomous",
+        "scheduler.schedule": "autonomous",
+        "scheduler.skip_overlap": "autonomous",
+        "scheduler.sleep": "autonomous",
+        "engineering.dispatch": "autonomous",
+        "engineering.prioritize": "autonomous",
+        "engineering.pause_for_recovery": "autonomous",
+        "discovery.search": "autonomous",
+        "discovery.collect_candidate": "autonomous",
+        "discovery.retry": "autonomous",
+        "entity.normalize": "autonomous",
+        "entity.resolve": "autonomous",
+        "entity.merge_high_confidence_duplicate": "autonomous",
+        "duplicate.detect": "autonomous",
+        "duplicate.flag_ambiguous": "escalate",
+        "enrichment.fetch": "autonomous",
+        "enrichment.fill_field": "autonomous",
+        "enrichment.collect_evidence": "autonomous",
+        "freshness.detect_stale": "autonomous",
+        "freshness.refresh": "autonomous",
+        "freshness.mark_inactive": "autonomous",
+        "validation.review": "autonomous",
+        "classification.classify": "autonomous",
+        "governance.release_decision": "autonomous",
+        "governance.approve": "autonomous",
+        "governance.quarantine": "autonomous",
+        "release.publish": "autonomous",
+        "logging.write": "autonomous",
+        "monitoring.check_health": "autonomous"
+      }
+    },
+    "tier_2_escalate": {
+      "comment": "Business-impacting. Agent proposes; human or governance decides. Agent MUST NOT guess.",
+      "triggers": [
+        "classification evidence conflicting or confidence below threshold",
+        "validation: required fields missing",
+        "validation: conflicting sources",
+        "validation: insufficient evidence",
+        "confidence in the gray zone 0.70-0.85",
+        "governance: policy conflict, unusual data, release exception",
+        "engineering: cannot determine a safe workflow, or multiple critical failures occurred"
+      ],
+      "examples": [
+        "Is this an SFO or MFO? -> weak evidence -> escalate, do not guess",
+        "CEO differs between two sources -> escalate",
+        "Only one source confirms the record -> escalate"
+      ]
+    },
+    "tier_3_refuse": {
+      "comment": "High business risk. The agent must NEVER act autonomously on these.",
+      "never": [
+        "publish records without passing validation",
+        "guess SFO/MFO classification",
+        "delete production records permanently",
+        "overwrite manually verified data",
+        "fabricate missing information",
+        "claim confidence without evidence",
+        "bypass governance rules",
+        "ignore policy violations",
+        "hide errors from logs",
+        "modify system policies automatically"
+      ],
+      "returns": [
+        {"status": "escalated", "reason": "Classification evidence is insufficient"},
+        {"status": "quarantined", "reason": "Conflicting evidence between official website and registry"}
+      ]
+    }
+  },
+  "governance_policy_engine": {
+    "publish_record": {"require_validation": true, "minimum_confidence": 0.85, "minimum_sources": 2},
+    "classify_sfo": {"require_independent_evidence": true, "allow_guessing": false},
+    "classify_mfo": {"require_independent_evidence": true, "allow_guessing": false},
+    "delete_record": {"autonomous": false},
+    "overwrite_human_verified": {"autonomous": false},
+    "refresh_record": {"autonomous": true},
+    "retry_failed_search": {"autonomous": true}
+  },
+  "confidence_authority": [
+    {"min": 0.90, "action": "auto_release", "note": "if all policies pass"},
+    {"min": 0.85, "max": 0.89, "action": "auto_release_medium", "note": "log as medium confidence"},
+    {"min": 0.70, "max": 0.84, "action": "hold_governance_review"},
+    {"min": -1.0, "max": 0.70, "action": "quarantine", "note": "do not publish"}
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "documented": "2026-08-07",
+  "purpose": "The autonomous operating cycle. One run = Scheduler Wake -> Engineering Judgment -> Discovery -> Entity Resolution -> Validation -> Classification -> Governance -> Release -> Logging -> Scheduler Sleep. Every agent integrates with the existing Orchestrator + Policy Engine and emits structured logs.",
+  "baseline": "Stage 1 pipeline + existing backbone (policy_engine, orchestrator, compute engine, logging) are PRESERVED and reused, not redesigned.",
+  "cycle": [
+    "scheduler.wake",
+    "engineering.dispatch",
+    "discovery.search",
+    "entity.resolve",
+    "validation.review",
+    "classification.classify",
+    "governance.release_decision",
+    "release.publish",
+    "logging.report",
+    "scheduler.sleep"
+  ],
+  "agents": {
+    "scheduler": {
+      "mission": "Wake automatically, run a full operating cycle, prune failures, sleep. The heartbeat of the platform.",
+      "autonomous": ["wake", "tick", "schedule", "retry_transient", "sleep", "skip_overlap"],
+      "never": ["run_cycle_out_of_window", "modify policy"],
+      "escalate": "multiple critical failures in a row -> pause and escalate"
+    },
+    "engineering": {
+      "mission": "Chief Engineer. Inspect system state and dispatch the cycle's work, prioritizing tasks and pausing when the state is unsafe.",
+      "autonomous": ["dispatch", "prioritize", "route", "pause_for_recovery"],
+      "never": ["bypass policy", "override a governance decision"],
+      "escalate": "a subsystem reports critical failure or evidence is missing for a required decision"
+    },
+    "discovery": {
+      "mission": "Discover candidate family offices from configured public sources and enqueue candidate records.",
+      "autonomous": ["search", "collect_candidate", "retry"],
+      "never": ["publish", "guess classification"],
+      "escalate": "source returns zero candidates or errors repeatedly"
+    },
+    "entity": {
+      "mission": "Normalize org names, resolve aliases/identifiers, and merge obvious duplicates.",
+      "autonomous": ["normalize", "merge_high_confidence_duplicate", "resolve"],
+      "never": ["merge without identifier or name+geo evidence"],
+      "escalate": "ambiguous duplicate (flag_ambiguous -> escalate, never guess)"
+    },
+    "validation": {
+      "mission": "Verify candidate evidence against authoritative sources and produce structured results.",
+      "autonomous": ["review", "check", "collect_evidence"],
+      "never": ["auto-pass missing evidence"],
+      "escalate": "conflicting sources or insufficient evidence"
+    },
+    "classification": {
+      "mission": "Classify a record as SFO / MFO / Undetermined. Never guess.",
+      "autonomous": ["classify_sfo", "classify_mfo"],
+      "never": ["guess", "classify with confidence below threshold"],
+      "escalate": "evidence insufficient or confidence in gray zone"
+    },
+    "governance": {
+      "mission": "Apply the policy engine to every candidate: approve, quarantine, or escalate for human review.",
+      "autonomous": ["approve", "quarantine", "apply_policy"],
+      "never": ["bypass policy engine", "approve below minimum confidence/sources"],
+      "escalate": "policy conflict, unusual data, release exception"
+    },
+    "release": {
+      "mission": "Publish only approved records into the production dataset and version the release.",
+      "autonomous": ["publish", "version_release", "refresh_index_doc"],
+      "never": ["publish unapproved", "overwrite manually verified data", "delete production records"],
+      "escalate": "release gate not fully passed"
+    },
+    "logging": {
+      "mission": "Emit structured logs and the run report for every step of every cycle.",
+      "autonomous": ["write", "report", "metric"],
+      "never": ["hide errors", "delete logs"],
+      "escalate": "never; always passive observer"
+    }
+  }
+}

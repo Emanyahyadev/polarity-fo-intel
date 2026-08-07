@@ -36,7 +36,9 @@ def harvest(repo: Repository, per_source_limit: int,
             sources: Optional[list[DiscoverySource]] = None,
             limits: Optional[dict[str, int]] = None) -> dict:
     """`limits` maps a source_class value -> its own cap, overriding per_source_limit."""
-    sources = sources or default_sources()
+    sources = None if sources is None else list(sources)
+    if sources is None:
+        sources = default_sources()
     limits = limits or {}
     collected = []
     per_source: dict[str, dict] = {}

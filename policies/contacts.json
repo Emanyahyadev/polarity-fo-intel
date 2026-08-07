@@ -1,0 +1,74 @@
+{
+  "contact_standard": {
+    "goal": ">= 200 verified named-person emails out of 500 production records; every contact traceable, legally sourced from public info, confidence scored.",
+    "tiers": [
+      {
+        "id": "T1_gold_auto_accept",
+        "confidence_range": [0.95, 1.00],
+        "sources": [
+          {"name": "Official company website (Team/Leadership/Contact pages)", "named_person": true, "email": true, "verification": "website reachable + domain matches"},
+          {"name": "Official company press release", "named_person": true, "email": true, "verification": "same domain"},
+          {"name": "Official regulatory filing (when applicable)", "named_person": true, "email": true, "verification": "filing reference"}
+        ],
+        "rule": "Named person + corporate domain + public official source = automatically accepted"
+      },
+      {
+        "id": "T2_silver_accept_after_validation",
+        "confidence_range": [0.85, 0.94],
+        "sources": [
+          {"name": "LinkedIn profile + official website", "verification": "names must match, company must match"},
+          {"name": "Company directory", "verification": "domain validation required"},
+          {"name": "Speaker / conference page", "verification": "confirm employment on official website"},
+          {"name": "Foundation / board membership", "verification": "cross-check company affiliation"}
+        ]
+      },
+      {
+        "id": "T3_bronze_governance_review",
+        "confidence_range": [0.70, 0.84],
+        "sources": ["Hunter.io", "Apollo", "RocketReach", "ContactOut", "SignalHire"],
+        "rule": "Vendor enrichment != primary evidence; must be corroborated before promotion"
+      },
+      {
+        "id": "T4_never_publish_alone",
+        "confidence_range": [0.0, 0.69],
+        "sources": ["AI-generated guesses", "email permutations", "probably this address", "unverified scraped lists", "anonymous databases", "cached pages with no corroboration"],
+        "rule": "Even if the email syntax looks correct, do not treat it as verified"
+      }
+    ],
+    "verification_pipeline": [
+      "discovery", "named_person_found", "corporate_email_found", "verify_domain",
+      "verify_company", "verify_person", "cross_source_check", "assign_confidence",
+      "governance", "publish"
+    ],
+    "rules": {
+      "r1_named_person": {"accept": "Named person + title", "reject": ["info@", "contact@", "hello@"]},
+      "r2_corporate_domain": {"accept": "person@corporate-domain.com", "reject": ["personal email providers unless product explicitly supports them"]},
+      "r3_company_match": {"note": "Person must belong to that company"},
+      "r4_domain_verification": ["company website", "MX exists", "website reachable", "domain matches email"],
+      "r5_cross_source_verification": "website + linkedin + email confirmation increases confidence"
+    },
+    "confidence_model": {
+      "official_website": 45,
+      "corporate_email_domain": 20,
+      "linkedin_confirms_role": 15,
+      "company_registry_matches": 10,
+      "news_press_release_confirms": 10,
+      "total": 100,
+      "score_to_confidence": [
+        {"score_min": 90, "confidence": "0.95-1.00"},
+        {"score_min": 80, "confidence": 0.90},
+        {"score_min": 70, "confidence": 0.85},
+        {"score_min": 0, "confidence": "governance_review"}
+      ]
+    },
+    "governance_rules": {
+      "auto_publish": ["named person", "corporate email", "official website evidence", "confidence >= 0.90"],
+      "human_review": ["role mismatch", "domain mismatch", "one source only", "vendor-only evidence", "conflicting titles"],
+      "reject": ["no named person", "generic email only", "personal email only", "AI guessed email", "cannot verify affiliation"]
+    },
+    "contact_data_model_fields": [
+      "person_name", "job_title", "email", "email_type", "company", "source_type",
+      "source_url", "verified", "verification_method", "confidence", "last_verified", "review_status"
+    ]
+  }
+}

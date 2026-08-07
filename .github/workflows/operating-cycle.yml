@@ -1,0 +1,40 @@
+name: operating-cycle
+
+# The autonomous operating window (Eman Phase 1 Steps 4-7): on a schedule, the
+# scheduler agent wakes and runs the orchestrator's deterministic brain over the
+# Tier-1 action surface. Policy decisions are audited to logs/operating/*.jsonl.
+# Any action the Policy Engine marks Tier 2/3 is NOT run — it is queued for
+# human review instead (never guessed, never silently published).
+
+on:
+  schedule:
+    - cron: "30 8,16 * * *"   # twice daily (08:30 / 16:30 UTC) — can tune per env
+  workflow_dispatch: {}        # allow a manual operating-cycle run
+
+jobs:
+  operate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project (lightweight, no GPU/embedding deps needed)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e . --no-deps   # editable install of the local package only
+
+      - name: Run the operating cycle
+        run: python operations/operate.py --simulate
+
+      - name: Upload operating trace
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: operating-logs
+          path: logs/operating/
+          retention-days: 7

@@ -40,6 +40,7 @@ _VERIFY_LABEL = {
 }
 from .index import RetrievalIndex, parse_filters, record_text
 from .retrieve import Retrieved, retrieve
+from ..compute import ComputeEngine
 
 log = get_logger("retrieval")
 
@@ -64,6 +65,7 @@ class AnswerResult(BaseModel):
     mode: str                       # "llm" | "extractive" | "extractive-fallback" | "abstain"
     citations: list[str] = []
     cards: list[dict] = []
+    compute: dict = {}              # deterministic aggregate recompute trace (count/total)
 
 
 def _principal(rec) -> Optional[str]:
@@ -203,10 +205,95 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
     raise last_exc
 
 
+_RE_COUNT_Q = re.compile(r"\b(?:how many|count(?: of| the)?|number of|total number of)\b",
+                         re.IGNORECASE)
+_RE_TOTAL_Q = re.compile(r"\b(?:total|sum of|combined)\b", re.IGNORECASE)
+
+
+def _aggregate_answer(index: RetrievalIndex, query: str) -> Optional[AnswerResult]:
+    """Answer count/total questions DETERMINISTICALLY over the complete dataset.
+
+    Never answers an aggregate from the retrieved top-k (the Stage-1 count bug:
+    'how many X' returned len(top-k) as if it were the dataset count). Every
+    aggregate states its scope (searched/qualified/included vs total records)
+    and ships a recompute trace so the number can be independently re-added.
+    """
+    q = query.lower().strip()
+    is_aggregate = _RE_COUNT_Q.search(q) or _RE_TOTAL_Q.search(q)
+    has_domain = bool(_DOMAIN_TERM.search(q))
+    has_measure = bool(re.search(r"13f|13\(f\)|securities|regulatory|adv\b|estimated|wealth|aum", q))
+    # An aggregate question needs a clear in-domain or capital-measure signal; an
+    # off-topic 'how many toasters'/'total price in Texas' query must not force an answer.
+    if not is_aggregate or not (has_domain or has_measure):
+        return None
+
+    records = [(r.model_dump(mode="json") if hasattr(r, "model_dump") else dict(r))
+               for r in index.records]
+    engine = ComputeEngine(records)
+    conds = {k: v for k, v in parse_filters(query).items()
+             if k in ("fo_type", "hq_state", "hq_country")}
+
+    # ---- totals (measure-type-safe) ----
+    if _RE_TOTAL_Q.search(q):
+        basis = None
+        if re.search(r"13f|13\(f\)|securities", q):
+            basis = "13F_securities_value"
+        elif re.search(r"regulatory|adv\b", q):
+            basis = "regulatory_aum"
+        elif re.search(r"estimated|wealth|aum", q):
+            basis = "estimated_wealth"
+        if basis:
+            try:
+                agg = engine.total(measure_type=basis, **conds)
+            except Exception:
+                return None
+            label = {"13F_securities_value": "13F securities",
+                     "regulatory_aum": "regulatory AUM",
+                     "estimated_wealth": "estimated wealth"}[basis]
+            cited = sorted({i["fo_id"] for i in agg.recompute["items"] if i.get("fo_id")})
+            text = (f"Total {label}: ${agg.value:,.2f} — computed from "
+                    f"{agg.scope.included_in_calc} of {agg.scope.total_records} verified records "
+                    f"carrying that measure type.")
+            return AnswerResult(query=query, answered=True, answer=text, reason="deterministic",
+                                mode="total", citations=cited,
+                                cards=[], compute=agg.to_dict())
+
+    # ---- counts ----
+    if _RE_COUNT_Q.search(q):
+        agg = engine.count(**conds)
+        parts = []
+        if conds.get("fo_type"):
+            parts.append(conds["fo_type"].replace("-", " ").lower())
+        if conds.get("hq_state"):
+            parts.append(f"in {conds['hq_state']}")
+        if conds.get("hq_country"):
+            parts.append(f"in {conds['hq_country']}")
+        label = "family offices"
+        if parts:
+            base = "family offices"
+            if conds.get("fo_type"):
+                base = conds["fo_type"].replace("-", " ").lower()
+            loc = " ".join(p for p in parts if p.startswith("in"))
+            label = (base + " " + loc).strip()
+        text = (f"Found {agg.value} matching {label} in the verified dataset "
+                f"(searched all {agg.scope.total_records} verified records; "
+                f"{agg.scope.qualified} matched).")
+        return AnswerResult(query=query, answered=True, answer=text, reason="deterministic",
+                            mode="count", citations=[], cards=[], compute=agg.to_dict())
+
+    return None
+
+
 def answer_query(index: RetrievalIndex, query: str, grounding: Optional[Grounding] = None,
                  top_k: Optional[int] = None) -> AnswerResult:
     grounding = grounding or Grounding(settings.min_retrieval_score)
     top_k = top_k or settings.retrieval_top_k
+
+    # Aggregate questions (counts/totals) are answered deterministically over the
+    # COMPLETE dataset — never from retrieved top-k. (Stage-1 count bug fix.)
+    agg = _aggregate_answer(index, query)
+    if agg is not None:
+        return agg
 
     filters = parse_filters(query)
     retrieved = retrieve(index, query, top_k=top_k, filters=filters)

@@ -16,6 +16,9 @@ data/*.db
 data/*.db-wal
 data/*.db-shm
 
+# runtime run-traces / operating-cycle artifacts (regenerated every run)
+logs/
+
 # Model / embedding caches
 .cache/
 *.log
