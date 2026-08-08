@@ -12,7 +12,7 @@ A fund manager opens a URL, asks *"multi-family offices in Texas"*, and gets an 
 ## Deliverables (assessment map)
 | Deliverable | Where |
 |---|---|
-| Dataset — 61 validated records (8 High / 39 Medium / 14 Low confidence) | `data/final/family_offices.xlsx` / `.csv` |
+| Dataset — 80 validated records (25 Medium / 55 Low confidence; 10 Single-Family, 15 Multi-Family, 55 Undetermined) | `data/final/family_offices.xlsx` / `.csv` |
 | Methodology | [docs/Methodology.md](docs/Methodology.md) |
 | Validation + gold-set metrics (precision 1.00, FP-rate 0.00 · recall 0.50, accuracy 0.68, 8 FNs · system recall 0.75) | [docs/Validation.md](docs/Validation.md) |
 | 3 validation chains | [docs/ValidationChains.md](docs/ValidationChains.md) |

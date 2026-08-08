@@ -100,6 +100,33 @@ def test_key_docs_have_no_known_stale_numbers(records):
     assert n in (ROOT / "README.md").read_text(encoding="utf-8"), "README omits the current record count"
 
 
+def test_verified_sfo_tier_not_dropped_by_operating_cycles(records):
+    """Anti-drift for the SFO tier: the website-verified single-family offices are the
+    dataset's commercially weakest and most valuable records, and a live discovery run
+    once replaced the whole store with the pipeline pool, deleting them (9c125e6). The
+    delivery must retain every one of these fo_ids — a fresh run may REFRESH them, never
+    silently drop them."""
+    required_sfo = {
+        "fo_207554cfe7",  # MSD Capital, L.P. (Dell)
+        "fo_d80fbfc1d9",  # Willett Advisors LLC (Bloomberg)
+        "fo_d27cc088a3",  # KIRKBI (Kirk Kristiansen / LEGO)
+        "fo_3642e17ac1",  # Korys (Colruyt)
+        "fo_e2b48bb2d2",  # Blue Haven Initiative
+        "fo_f36be5c2a3",  # Cherng Family Trust
+        "fo_68c2c35a95",  # Artémis (Pinault)
+        "fo_ca957ee5d5",  # Financière Agache (Arnault)
+        "fo_e6bc01c928",  # MacAndrews & Forbes Incorporated (Perelman)
+        "fo_e8d9f15c57",  # Builders Vision (Lukas Walton)
+    }
+    stored = {r.fo_id for r in records}
+    dropped = sorted(required_sfo - stored)
+    assert not dropped, f"verified SFO records dropped by operating cycle: {dropped}"
+    for r in records:
+        if r.fo_id in required_sfo:
+            assert r.fo_type.value == "Single-Family Office", \
+                f"{r.name}: verified SFO reclassified to {r.fo_type.value}"
+
+
 def test_audit_trail_nonempty_and_consistent(records):
     """Findings govern releases: the delivered xlsx must ship a non-empty Audit sheet whose
     rows reference real records."""

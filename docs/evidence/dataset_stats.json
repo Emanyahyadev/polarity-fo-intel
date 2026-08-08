@@ -1,67 +1,72 @@
 {
-  "n": 68,
+  "n": 80,
   "type": {
-    "Multi-Family Office": 14,
-    "Undetermined": 54
+    "Multi-Family Office": 15,
+    "Undetermined": 55,
+    "Single-Family Office": 10
   },
   "confidence": {
-    "Medium": 14,
-    "Low": 54
+    "Medium": 25,
+    "Low": 55
   },
   "discovery_source": {
     "SEC EDGAR (13F / SC / Form D filings)": 30,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 36,
-    "Curated directory / reference (Wikipedia, associations)": 2
+    "SEC IAPD / Form ADV (investment-adviser registration)": 37,
+    "Curated directory / reference (Wikipedia, associations)": 13
   },
   "verification_source": {
     "SEC EDGAR (13F / SC / Form D filings)": 30,
-    "Firm Website": 47,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 57
+    "SEC IAPD / Form ADV (investment-adviser registration)": 58,
+    "Firm Website": 58
   },
-  "independence_verified": 59,
+  "independence_verified": 70,
   "geography": {
     "countries": {
-      "United States": 64,
+      "United States": 69,
       "Germany": 1,
       "Switzerland": 1,
       "Monaco": 1,
-      "Brazil": 1
+      "Brazil": 1,
+      "France": 2,
+      "Denmark": 1,
+      "Belgium": 1,
+      "unknown": 3
     },
     "top_us_states": {
       "FL": 11,
-      "NY": 7,
+      "NY": 9,
       "CA": 6,
       "NC": 5,
       "CO": 5,
       "TX": 5,
       "PA": 3,
+      "AL": 3,
       "WA": 2,
       "AZ": 2,
       "CT": 2,
-      "AL": 2,
       "OH": 2
     }
   },
   "coverage": {
     "website": {
-      "count": 47,
-      "pct": 69
+      "count": 59,
+      "pct": 74
     },
     "estimated_aum": {
       "count": 8,
-      "pct": 12
+      "pct": 10
     },
     "principal_name": {
-      "count": 9,
-      "pct": 13
+      "count": 12,
+      "pct": 15
     },
     "hq_phone": {
       "count": 30,
-      "pct": 44
+      "pct": 38
     },
     "investment_thesis": {
-      "count": 33,
-      "pct": 49
+      "count": 40,
+      "pct": 50
     },
     "investing_sectors": {
       "count": 0,
@@ -82,13 +87,14 @@
     "adv": 8
   },
   "could_not_verify": {
-    "corporate_linkedin": 68,
-    "principal_linkedin": 68,
-    "principal_email": 68,
-    "principal_name": 59,
-    "principal_title": 59,
-    "principal_phone": 68,
-    "estimated_aum": 60
+    "corporate_linkedin": 80,
+    "principal_linkedin": 80,
+    "principal_email": 80,
+    "principal_name": 68,
+    "principal_title": 68,
+    "principal_phone": 80,
+    "estimated_aum": 72,
+    "hq_phone": 11
   },
   "all_qualify": true,
   "provenance_violations": 0,

@@ -7,7 +7,7 @@ and serves the exact committed dataset (`data/final/family_offices.csv`).
 
 - **URL:** https://family-office-intelligence.onrender.com
 - **Host:** Render free web service (Docker), deployed from this repo via `render.yaml` (Blueprint).
-- **Health:** `GET /health` → `{"status":"ok","records":61}`
+- **Health:** `GET /health` → `{"status":"ok","records":80}`
 - **Verified queries:** see [`docs/evidence/live-url-query-transcript.md`](evidence/live-url-query-transcript.md)
   — on-topic queries answer with grounded records; off-topic ("best pizza in Chicago")
   and empty-hard-filter ("multi-family offices in New York") queries correctly abstain.
@@ -43,7 +43,7 @@ and serves the exact committed dataset (`data/final/family_offices.csv`).
 - `Dockerfile` — python:3.12-slim, installs `requirements.txt`, pre-downloads the fastembed
   ONNX embedding model at build (no torch → small image), runs `uvicorn` on port 7860.
 - `src/fointel/serve/app.py` — the API (`/`, `/health`, `/query`).
-- `data/final/family_offices.csv` — the 61 validated records the RAG answers from.
+- `data/final/family_offices.csv` — the 80 validated records the RAG answers from.
 
 ## One-command deploy
 Create a write token at https://huggingface.co/settings/tokens, then:
@@ -70,7 +70,7 @@ and replaced by the extractive answer.
 ```bash
 uvicorn fointel.serve.app:app --host 0.0.0.0 --port 8000
 # GET  http://localhost:8000/           -> UI
-# GET  http://localhost:8000/health      -> {"status":"ok","records":61}
+# GET  http://localhost:8000/health      -> {"status":"ok","records":80}
 # POST http://localhost:8000/query {"query":"single-family offices in Texas"}
 ```
 
