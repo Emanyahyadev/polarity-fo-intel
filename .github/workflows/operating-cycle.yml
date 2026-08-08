@@ -11,7 +11,8 @@ name: operating-cycle
 
 on:
   schedule:
-    - cron: "30 8,16 * * *"   # twice daily (08:30 / 16:30 UTC) — can tune per env
+    - cron: "30 8,16 * * *"   # twice daily (08:30 / 16:30 UTC)
+    - cron: "31 10 * * *"     # 3:31 PM PKT (10:31 UTC)
   workflow_dispatch: {}        # allow a manual operating-cycle run
 
 jobs:
