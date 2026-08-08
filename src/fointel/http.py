@@ -51,7 +51,7 @@ class HttpClient:
             try:
                 resp = self.session.get(url, params=params, timeout=self.timeout)
                 if resp.status_code == 429:
-                    log.warning("rate limited", extra={"event": "http_429", "url": url})
+                    log.debug("rate limited", extra={"event": "http_429", "url": url})
                     resp.raise_for_status()
                 resp.raise_for_status()
                 return resp
@@ -59,7 +59,7 @@ class HttpClient:
                 last_exc = exc
                 if attempt + 1 < self.max_attempts:
                     time.sleep(min(2 ** attempt, 20))  # backoff between retries only
-        log.error("http_get_failed", extra={"event": "http_error", "url": url,
+        log.warning("http_get_failed", extra={"event": "http_error", "url": url,
                                              "params": params, "error": str(last_exc)})
         raise last_exc  # type: ignore[misc]
 

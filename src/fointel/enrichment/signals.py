@@ -32,9 +32,9 @@ class SignalsEnricher:
     DOC = "https://api.gdeltproject.org/api/v2/doc/doc"
 
     def __init__(self):
-        # GDELT rate-limits aggressively; fail FAST (no retry/backoff) so a throttled firm
-        # is skipped instantly rather than stalling a batch. >=5s pacing between calls.
-        self.http = HttpClient(pause=6.0, accept="application/json", timeout=15, max_attempts=1)
+        # GDELT rate-limits aggressively. We retry with exponential backoff up to 4 times
+        # to ensure we don't miss signals due to temporary rate limits. >=6s base pacing.
+        self.http = HttpClient(pause=6.0, accept="application/json", timeout=15, max_attempts=4)
 
     def firm_signals(self, firm_name: str, max_signals: int = 3,
                      timespan: str = "12months") -> list[Signal]:
@@ -43,7 +43,7 @@ class SignalsEnricher:
                 "query": f'"{firm_name}"', "mode": "artlist", "format": "json",
                 "maxrecords": 20, "sort": "datedesc", "timespan": timespan})
         except Exception as exc:
-            log.warning("signals fetch failed", extra={"event": "enrich_warn", "source": "signals",
+            log.debug("signals fetch failed", extra={"event": "enrich_warn", "source": "signals",
                         "firm": firm_name, "error": str(exc)})
             return []
         articles = data.get("articles", []) if isinstance(data, dict) else []
