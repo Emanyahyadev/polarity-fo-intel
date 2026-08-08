@@ -53,13 +53,15 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Autonomous operating-cycle runner")
     ap.add_argument("--simulate", action="store_true", default=False,
                     help="run without network discovery (quiet-window cycle)")
+    ap.add_argument("--per-source", type=int, default=0,
+                    help="real discovery cap per source (0 = settings.target_records)")
     ap.add_argument("--engine", choices=["langgraph", "orchestrator"], default=None,
                     help="override FOINTEL_ENGINE for this run")
     args = ap.parse_args()
-    
+
     from fointel.config import settings
-    inputs = {"per_source_limit": settings.target_records}
-    
+    inputs = {"per_source_limit": args.per_source or settings.target_records}
+
     run_operating_cycle(simulate=args.simulate, inputs=inputs, engine=args.engine)
 
 

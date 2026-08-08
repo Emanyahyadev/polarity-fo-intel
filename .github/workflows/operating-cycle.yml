@@ -40,7 +40,14 @@ jobs:
       - name: Set execution engine (LangGraph by default; orchestrator = rollback)
         run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
 
-      - name: Run the operating cycle (Pipeline)
+      - name: Wake the operating cycle (all 14 AI employees, real discovery)
+        run: |
+          python operations/operate.py --per-source 100
+        env:
+          TARGET_RECORDS: 500
+          FOINTEL_ENGINE: langgraph
+
+      - name: Discovery evidence + materialize dataset + refresh retrieval index
         run: |
           python scripts/run_pipeline.py discovery --per-source 100
           python scripts/build_dataset.py --target 500 --export
