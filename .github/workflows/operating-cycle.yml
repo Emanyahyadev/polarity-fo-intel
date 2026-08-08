@@ -50,7 +50,7 @@ jobs:
       - name: Discovery evidence + materialize dataset + refresh retrieval index
         run: |
           python scripts/run_pipeline.py discovery --per-source 100
-          python scripts/build_dataset.py --target 500 --export
+          python scripts/reexport_from_store.py
         env:
           TARGET_RECORDS: 500
           LLM_PROVIDER: nvidia
