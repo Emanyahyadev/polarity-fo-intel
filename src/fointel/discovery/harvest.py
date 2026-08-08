@@ -19,10 +19,12 @@ from ..observability import get_logger
 from ..store import Repository
 from .base import DiscoverySource
 from .directory import DirectorySource
+from .exa_search import get_exa_source
 from .iapd_search import IapdSearchSource
 from .irs_990pf import Irs990pfSource
 from .news import NewsSource
 from .sec_edgar import SecEdgarSource
+from .serper_search import get_serper_source
 from .tavily_search import get_tavily_source
 
 log = get_logger("discovery")
@@ -32,6 +34,8 @@ def default_sources() -> list[DiscoverySource]:
     sources = [SecEdgarSource(), IapdSearchSource(), Irs990pfSource(),
                DirectorySource(), NewsSource()]
     sources.append(get_tavily_source())
+    sources.append(get_exa_source())
+    sources.append(get_serper_source())
     return sources
 
 

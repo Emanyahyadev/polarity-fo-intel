@@ -36,6 +36,8 @@ PER_SOURCE_LIMITS = {
     SourceClass.DIRECTORY.value: 80,
     SourceClass.NEWS.value: 40,
     SourceClass.WEB.value: 50,          # Tavily web search (keyed, low rate unlike news)
+    SourceClass.EXA.value: 50,          # EXA web search (keyed)
+    SourceClass.SERP.value: 50,         # Serper web search (keyed)
 }
 
 

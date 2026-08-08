@@ -43,11 +43,14 @@ class Settings:
     request_timeout: int = _int("REQUEST_TIMEOUT", 30)
     request_pause_seconds: float = _float("REQUEST_PAUSE", 0.5)  # polite rate limiting
 
-    # --- web search (discovery agent) ---
-    # Tavily search API key. When set, the web-search discovery source uses Tavily's
-    # API (robust, keyed) instead of the rate-limited DuckDuckGo HTML endpoint. When
-    # unset, the Tavily source is skipped so discovery still runs on the other sources.
+# --- web search (discovery agent) ---
+    # Three independent keyed web-search backends. When a key is set the
+    # corresponding discovery source runs (Tavily + EXA + Serper are separate API
+    # products with separate rate/deal pools); when unset that source is skipped
+    # so discovery still runs on the remaining keyed sources.
     tavily_api_key: str = os.getenv("TAVILY_API_KEY", "")
+    exa_api_key: str = os.getenv("EXA_API_KEY", "")
+    serper_api_key: str = os.getenv("SERPER_API_KEY", "")
 
     # --- email verification (validation layer) ---
     smtp_from: str = os.getenv("SMTP_FROM", "verify@example.com")

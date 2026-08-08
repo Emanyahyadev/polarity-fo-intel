@@ -69,6 +69,8 @@ class SourceClass(str, Enum):
     NEWS = "News / Press (GDELT)"
     DIRECTORY = "Curated directory / reference (Wikipedia, associations)"
     WEB = "Web search (Tavily)"
+    EXA = "Web search (EXA)"
+    SERP = "Web search (Serper)"
     # Proof / enrichment source classes (not used for discovery)
     SEC_IAPD = "SEC IAPD / Form ADV (investment-adviser registration)"
     FIRM_SITE = "Firm Website"
@@ -84,6 +86,8 @@ DISCOVERY_SOURCE_CLASSES = {
     SourceClass.NEWS,
     SourceClass.DIRECTORY,
     SourceClass.WEB,
+    SourceClass.EXA,
+    SourceClass.SERP,
 }
 
 
