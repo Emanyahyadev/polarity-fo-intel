@@ -46,6 +46,7 @@ jobs:
         env:
           TARGET_RECORDS: 500
           FOINTEL_ENGINE: langgraph
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
 
       - name: Discovery evidence + materialize dataset + refresh retrieval index
         run: |
@@ -56,6 +57,7 @@ jobs:
           LLM_PROVIDER: nvidia
           LLM_MODEL: NVIDIABuild-Autogen-08
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
 
       - name: Regenerate observability history (run/build/session)
         run: python scripts/generate_history.py

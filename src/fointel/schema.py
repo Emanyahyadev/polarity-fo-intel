@@ -68,6 +68,7 @@ class SourceClass(str, Enum):
     IRS_990PF = "IRS 990-PF (ProPublica Nonprofit Explorer)"
     NEWS = "News / Press (GDELT)"
     DIRECTORY = "Curated directory / reference (Wikipedia, associations)"
+    WEB = "Web search (Tavily)"
     # Proof / enrichment source classes (not used for discovery)
     SEC_IAPD = "SEC IAPD / Form ADV (investment-adviser registration)"
     FIRM_SITE = "Firm Website"
@@ -82,6 +83,7 @@ DISCOVERY_SOURCE_CLASSES = {
     SourceClass.IRS_990PF,
     SourceClass.NEWS,
     SourceClass.DIRECTORY,
+    SourceClass.WEB,
 }
 
 

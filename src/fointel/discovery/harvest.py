@@ -23,13 +23,16 @@ from .iapd_search import IapdSearchSource
 from .irs_990pf import Irs990pfSource
 from .news import NewsSource
 from .sec_edgar import SecEdgarSource
+from .tavily_search import get_tavily_source
 
 log = get_logger("discovery")
 
 
 def default_sources() -> list[DiscoverySource]:
-    return [SecEdgarSource(), IapdSearchSource(), Irs990pfSource(),
-            DirectorySource(), NewsSource()]
+    sources = [SecEdgarSource(), IapdSearchSource(), Irs990pfSource(),
+               DirectorySource(), NewsSource()]
+    sources.append(get_tavily_source())
+    return sources
 
 
 def harvest(repo: Repository, per_source_limit: int,

@@ -43,6 +43,12 @@ class Settings:
     request_timeout: int = _int("REQUEST_TIMEOUT", 30)
     request_pause_seconds: float = _float("REQUEST_PAUSE", 0.5)  # polite rate limiting
 
+    # --- web search (discovery agent) ---
+    # Tavily search API key. When set, the web-search discovery source uses Tavily's
+    # API (robust, keyed) instead of the rate-limited DuckDuckGo HTML endpoint. When
+    # unset, the Tavily source is skipped so discovery still runs on the other sources.
+    tavily_api_key: str = os.getenv("TAVILY_API_KEY", "")
+
     # --- email verification (validation layer) ---
     smtp_from: str = os.getenv("SMTP_FROM", "verify@example.com")
     smtp_timeout: int = _int("SMTP_TIMEOUT", 10)

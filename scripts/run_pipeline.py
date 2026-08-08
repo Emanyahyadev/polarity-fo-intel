@@ -35,6 +35,7 @@ PER_SOURCE_LIMITS = {
     SourceClass.IRS_990PF.value: 60,
     SourceClass.DIRECTORY.value: 80,
     SourceClass.NEWS.value: 40,
+    SourceClass.WEB.value: 50,          # Tavily web search (keyed, low rate unlike news)
 }
 
 
