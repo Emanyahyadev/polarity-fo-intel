@@ -160,16 +160,16 @@ def test_aggregate_count_all(agg_index) -> None:
     from fointel.rag.answer import _aggregate_answer
     r = _aggregate_answer(agg_index, "how many family offices")
     assert r is not None and r.mode == "count"
-    assert r.answer.startswith("Found 61 matching family offices")
-    assert "searched all 61 verified records" in r.answer
-    assert r.compute["value"] == 61
+    assert r.answer.startswith("Found 68 matching family offices")
+    assert "searched all 68 verified records" in r.answer
+    assert r.compute["value"] == 68
 
 
 def test_aggregate_count_filtered(agg_index) -> None:
     from fointel.rag.answer import _aggregate_answer
     r = _aggregate_answer(agg_index, "how many multi-family offices")
     assert r is not None and r.compute["recompute"]["filters"] == {"fo_type": "Multi-Family Office"}
-    assert r.compute["value"] == 37
+    assert r.compute["value"] == 14
 
 
 def test_aggregate_count_by_state(agg_index) -> None:
@@ -184,7 +184,7 @@ def test_aggregate_total_13f(agg_index) -> None:
     r = _aggregate_answer(agg_index, "total 13f securities")
     assert r is not None and r.mode == "total"
     assert r.answer.startswith("Total 13F securities:")
-    assert r.compute["scope"]["included_in_calc"] == 24
+    assert r.compute["scope"]["included_in_calc"] == 0
     # invariant: recompute sum equals displayed value
     assert r.compute["recompute"]["sum_of_items"] == pytest.approx(r.compute["value"])
 
@@ -207,7 +207,7 @@ def test_answer_query_returns_deterministic_aggregate(agg_index) -> None:
     r = answer_query(agg_index, "how many single family offices")
     assert r.answered
     assert r.mode == "count"
-    assert r.compute["value"] == 10
+    assert r.compute["value"] == 0
 
 
 # --------------------------------------------------------------------------- #
@@ -218,7 +218,7 @@ def test_compound_count_and_total_is_decomposed(agg_index) -> None:
     from fointel.rag.answer import _aggregate_answer
     r = _aggregate_answer(agg_index, "how many multi-family offices and their total 13f securities")
     assert r is not None and r.mode == "compound"
-    assert "Found 37 matching" in r.answer          # count part answered
+    assert "Found 14 matching" in r.answer          # count part answered
     assert "Total 13F securities" in r.answer        # total part answered — nothing dropped
     assert r.compute["decomposed"] is True
     assert len(r.compute["parts"]) == 2
@@ -249,7 +249,7 @@ def test_universal_coverage_returns_truthful_count(agg_index) -> None:
     assert r is not None and r.mode == "universal"
     assert "have a principal email" in r.answer
     assert r.compute["have_field"] == 0
-    assert r.compute["total"] == 61
+    assert r.compute["total"] == 68
 
 
 def test_universal_claim_13f_coverage(agg_index) -> None:
@@ -257,9 +257,9 @@ def test_universal_claim_13f_coverage(agg_index) -> None:
     r = _universal_claim_answer(agg_index, "every family office has a 13f")
     assert r is not None and r.mode == "universal"
     assert r.compute["claim"] == "13f"
-    assert r.compute["have_field"] == 24
-    assert r.compute["total"] == 61
-    assert "24 of 61" in r.answer
+    assert r.compute["have_field"] == 0
+    assert r.compute["total"] == 68
+    assert "0 of 68" in r.answer
 
 
 # ---------------------------------------------------------------------------

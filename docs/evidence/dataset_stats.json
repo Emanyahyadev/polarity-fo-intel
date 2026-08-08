@@ -1,81 +1,75 @@
 {
-  "n": 61,
+  "n": 68,
   "type": {
-    "Multi-Family Office": 37,
-    "Undetermined": 14,
-    "Single-Family Office": 10
+    "Multi-Family Office": 14,
+    "Undetermined": 54
   },
   "confidence": {
-    "Medium": 39,
-    "High": 8,
-    "Low": 14
+    "Medium": 14,
+    "Low": 54
   },
   "discovery_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 28,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 20,
-    "Curated directory / reference (Wikipedia, associations)": 13
+    "SEC EDGAR (13F / SC / Form D filings)": 30,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 36,
+    "Curated directory / reference (Wikipedia, associations)": 2
   },
   "verification_source": {
-    "SEC IAPD / Form ADV (investment-adviser registration)": 40,
-    "SEC EDGAR (13F / SC / Form D filings)": 28,
-    "Firm Website": 38
+    "SEC EDGAR (13F / SC / Form D filings)": 30,
+    "Firm Website": 47,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 57
   },
-  "independence_verified": 51,
+  "independence_verified": 59,
   "geography": {
     "countries": {
-      "United States": 50,
+      "United States": 64,
       "Germany": 1,
-      "Monaco": 1,
-      "Brazil": 1,
       "Switzerland": 1,
-      "France": 2,
-      "Denmark": 1,
-      "Belgium": 1,
-      "unknown": 3
+      "Monaco": 1,
+      "Brazil": 1
     },
     "top_us_states": {
-      "FL": 7,
+      "FL": 11,
       "NY": 7,
+      "CA": 6,
+      "NC": 5,
+      "CO": 5,
       "TX": 5,
-      "NC": 4,
-      "CA": 4,
-      "CO": 3,
-      "PA": 2,
-      "AL": 2,
+      "PA": 3,
+      "WA": 2,
+      "AZ": 2,
       "CT": 2,
-      "?": 2,
-      "MO": 1,
-      "KS": 1
+      "AL": 2,
+      "OH": 2
     }
   },
   "coverage": {
     "website": {
-      "count": 39,
-      "pct": 64
+      "count": 47,
+      "pct": 69
     },
     "estimated_aum": {
-      "count": 32,
-      "pct": 52
+      "count": 8,
+      "pct": 12
     },
     "principal_name": {
-      "count": 38,
-      "pct": 62
+      "count": 9,
+      "pct": 13
     },
     "hq_phone": {
-      "count": 28,
-      "pct": 46
+      "count": 30,
+      "pct": 44
     },
     "investment_thesis": {
-      "count": 24,
-      "pct": 39
+      "count": 33,
+      "pct": 49
     },
     "investing_sectors": {
-      "count": 1,
-      "pct": 2
+      "count": 0,
+      "pct": 0
     },
     "recent_signal": {
-      "count": 25,
-      "pct": 41
+      "count": 0,
+      "pct": 0
     },
     "corporate_linkedin": {
       "count": 0,
@@ -83,21 +77,18 @@
     }
   },
   "aum_source": {
-    "total": 32,
-    "13f": 24,
+    "total": 8,
+    "13f": 0,
     "adv": 8
   },
   "could_not_verify": {
-    "corporate_linkedin": 61,
-    "principal_linkedin": 61,
-    "principal_email": 61,
-    "principal_phone": 51,
-    "principal_name": 23,
-    "principal_title": 23,
-    "estimated_aum": 29,
-    "website": 1,
-    "investment_thesis": 1,
-    "hq_phone": 11
+    "corporate_linkedin": 68,
+    "principal_linkedin": 68,
+    "principal_email": 68,
+    "principal_name": 59,
+    "principal_title": 59,
+    "principal_phone": 68,
+    "estimated_aum": 60
   },
   "all_qualify": true,
   "provenance_violations": 0,
