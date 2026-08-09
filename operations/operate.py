@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,6 +29,78 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "services"))
+
+MARKER_PATH = ROOT / "data" / ".cycle-marker.json"
+
+
+def record_skipped_window(reason: str) -> None:
+    """Log a skipped window through the EXISTING scheduler.skip_overlap action
+    (Tier 1 autonomous), then exit cleanly — an active cycle is never duplicated."""
+    from fointel.operate.orchestrator import Orchestrator
+
+    orch = Orchestrator()
+    orch.register_defaults()
+    task = orch._submit(agent="scheduler", action="scheduler.skip_overlap",
+                        payload={"operation": "skip_overlap", "reason": reason})
+    orch.run_task(task)
+    orch.dump_summary()
+    print(f"WINDOW_SKIPPED: {reason}")
+    print(f"trace: {orch.trace.path}")
+
+
+def start_heartbeat(marker, interval_seconds: float = 30.0) -> tuple[threading.Thread, threading.Event]:
+    """Daemon heartbeat so a legitimately long cycle is never judged stale."""
+    stop = threading.Event()
+
+    def _beat() -> None:
+        while not stop.wait(interval_seconds):
+            marker.heartbeat()
+
+    t = threading.Thread(target=_beat, daemon=True, name="cycle-marker-heartbeat")
+    t.start()
+    return t, stop
+
+
+def guard_operating_floor(mode: str, run_id: str,
+                          stale_seconds: float = 300.0) -> tuple[bool, object | None]:
+    """Gate EVERY operating entrypoint through the overlap marker.
+
+    Returns (ok, marker_or_None). When another window is ACTIVE the entrypoint
+    must skip (recorded via scheduler.skip_overlap) — never queue, never run a
+    duplicate cycle side by side.
+    """
+    from fointel.operate.marker import CycleMarker
+
+    marker = CycleMarker(MARKER_PATH, stale_after_seconds=stale_seconds)
+    ok, reason = marker.try_acquire(run_id, mode=mode)
+    if not ok:
+        return False, None
+    return True, marker
+
+
+def _fresh_run_id() -> str:
+    import uuid
+    return (f"run-{datetime.now(timezone.utc):%Y%m%dT%H%M%S}-{uuid.uuid4().hex[:6]}")
+
+
+def _run_guarded(mode: str, fn, args) -> None:
+    """Run `fn` under the operating-floor guard: acquire the marker, heartbeat
+    it for the whole run, release in all exits; skip (never queue/duplicate)
+    when another window holds the floor."""
+    if args.no_overlap_guard:
+        fn()
+        return
+    ok, marker = guard_operating_floor(mode, run_id=_fresh_run_id(),
+                                       stale_seconds=args.overlap_stale)
+    if not ok:
+        record_skipped_window(f"{mode} window skipped by overlap guard")
+        return
+    beat, stop_beat = start_heartbeat(marker)
+    try:
+        fn()
+    finally:
+        stop_beat.set()
+        marker.release()
 
 
 def run_operating_cycle(simulate: bool = True, inputs: dict | None = None,
@@ -142,6 +215,11 @@ def main() -> None:
                     help="time budget in hours for continuous mode (default 48)")
     ap.add_argument("--target", type=int, default=700,
                     help="verified contacts to collect in continuous mode (default 700)")
+    ap.add_argument("--overlap-stale", type=float, default=300.0,
+                    help="seconds without a heartbeat before a cycle marker is "
+                         "judged stale and taken over (default 300)")
+    ap.add_argument("--no-overlap-guard", action="store_true", default=False,
+                    help="skip the cross-process overlap guard (tests/overnight only)")
     args = ap.parse_args()
 
     if args.continuous and args.simulate:
@@ -152,11 +230,21 @@ def main() -> None:
               "max_build": args.max_build or None}
 
     if args.continuous:
-        run_continuous(inputs, interval_min=args.interval, budget_hours=args.hours,
-                       target=args.target, engine=args.engine)
+        _run_guarded("continuous",
+                     lambda: run_continuous(inputs, interval_min=args.interval,
+                                            budget_hours=args.hours,
+                                            target=args.target, engine=args.engine),
+                     args)
         return
 
-    run_operating_cycle(simulate=args.simulate, inputs=inputs, engine=args.engine)
+    if args.simulate:
+        run_operating_cycle(simulate=True, inputs=inputs, engine=args.engine)
+        return
+
+    _run_guarded("cycle",
+                 lambda: run_operating_cycle(simulate=False, inputs=inputs,
+                                             engine=args.engine),
+                 args)
 
 
 if __name__ == "__main__":

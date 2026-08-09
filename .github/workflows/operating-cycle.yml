@@ -11,13 +11,13 @@ name: operating-cycle
 
 on:
   schedule:
-    - cron: "30 8,16 * * *"   # twice daily (08:30 / 16:30 UTC)
-    - cron: "31 10 * * *"     # 3:31 PM PKT (10:31 UTC)
+    - cron: "0 */2 * * *"      # every 2 hours (12 windows/day, UTC; :00 on the hour)
   workflow_dispatch: {}        # allow a manual operating-cycle run
 
-# One runner at a time on the shared data/final workspace (the 48h
-# continuous-collect marathon and the twice-daily cycle must never write
-# the dataset concurrently).
+# One runner at a time on the shared data/final workspace, and — on top of that —
+# the operate.py entrypoint holds a heartbeat marker (data/.cycle-marker.json):
+# if a window is STILL RUNNING when the next 2-hour window fires, the later one
+# SKIPS and logs scheduler.skip_overlap instead of queuing a duplicate cycle.
 concurrency:
   group: polarity-fointel-operate
   cancel-in-progress: false
