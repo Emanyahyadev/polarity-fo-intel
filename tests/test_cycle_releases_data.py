@@ -22,7 +22,8 @@ import pytest
 
 from fointel.operate import Orchestrator
 from fointel.operate.adapters import load_employees
-from fointel.schema import AuditEntry, Confidence, FamilyOfficeRecord, FOType, SourceClass
+from fointel.schema import (AuditEntry, Confidence, FamilyOfficeRecord, FOType,
+                            Provenance, SourceClass)
 
 # An approved-quality record built like the enrichment stage would (evidence-backed):
 # SFO, High classification confidence, one verification source, provenance on name.
@@ -34,15 +35,25 @@ def _approved_record(fo_id: str, name: str) -> FamilyOfficeRecord:
         fo_id=fo_id, name=name, fo_type=FOType.SFO,
         fo_type_evidence="firm self-identifies as a family office; SEC IAPD registration record",
         fo_type_confidence=Confidence.HIGH, hq_city="New York", hq_state="NY",
-        hq_country="United States", estimated_aum=AUM_TEXT,
-        discovery_source=SourceClass.SEC_IAPD,
+        hq_country="United States", website="https://testrelease.example.com",
+        estimated_aum=AUM_TEXT,
+        discovery_source=SourceClass.SEC_EDGAR,
         data_as_of=date(2026, 8, 1),
         record_confidence=Confidence.HIGH,
         verification_sources=[
             {"source_class": SourceClass.SEC_IAPD.value,
              "verifies": "firm registration, family-office status, type",
              "accessed_at": date(2026, 8, 1).isoformat()},
+            {"source_class": SourceClass.FIRM_SITE.value,
+             "verifies": "firm operations, website reachable",
+             "accessed_at": date(2026, 8, 1).isoformat()},
         ],
+        provenance={f: Provenance(source_class=SourceClass.SEC_IAPD,
+                                  method="SEC IAPD registration",
+                                  checked_at=date(2026, 8, 1),
+                                  confidence=Confidence.HIGH)
+                    for f in ("name", "fo_type_evidence", "fo_type",
+                              "hq_country", "website", "estimated_aum")},
     )
 
 

@@ -64,6 +64,20 @@ def test_validation_produces_contract_outputs_on_real_input() -> None:
     assert result.results["passed"] == 0  # raw slot missing required gates
 
 
+XDG = {"source_class": "SEC EDGAR (13F / SC / Form D filings)",
+       "verifies": "13(f) holdings", "accessed_at": "2026-08-01"}
+SITE = {"source_class": "Firm Website", "verifies": "self-identification",
+        "accessed_at": "2026-08-01"}
+
+
+def _built(name: str, sources: list) -> dict:
+    return {"name": name, "fo_id": (name or "x").replace(" ", ""),
+            "fo_type": "Single-Family Office",
+            "fo_type_evidence": "SEC IAPD registration; firm website",
+            "fo_type_confidence": "High", "hq_country": "United States",
+            "verification_sources": sources}
+
+
 def test_governance_accepts_classifier_confidence_label() -> None:
     """classification emits `Confidence` string labels (High/Medium/Low); the
     policy gate must interpret them instead of crashing on float('Low')."""
@@ -73,7 +87,8 @@ def test_governance_accepts_classifier_confidence_label() -> None:
              "confidence": "High", "evident": True},
             {"name": "LowSignal", "fo_type": "Undetermined",
              "confidence": "Low", "evident": False},
-        ]})
+        ],
+        "records": [_built("Cascade", [XDG, SITE])]})
     assert result.outcome == "ok"
     by_name = {d["name"]: d for d in result.results["decisions"]}
     assert by_name["Cascade"]["action"] == "approve"
@@ -87,8 +102,36 @@ def test_governance_accepts_numeric_confidence() -> None:
         "classified": [
             {"name": "A", "fo_type": "Single-Family Office", "confidence": 0.95},
             {"name": "B", "fo_type": "Single-Family Office", "confidence": 60.0},
-        ]})
+        ],
+        "records": [_built("A", [XDG, SITE])]})
     assert result.outcome == "ok"
     by_name = {d["name"]: d for d in result.results["decisions"]}
     assert by_name["A"]["action"] == "approve"
     assert by_name["B"]["action"] == "escalate"  # 60/100 = 0.60 < 0.85
+
+
+def test_governance_requires_two_authoritative_sources() -> None:
+    """min-2-sources from the BUILT record: one authoritative source is the
+    governance-review band (escalate), two approve, DIRECTORY never counts."""
+    result = _employees()["governance"].execute({
+        "classified": [
+            {"name": "OneSrc", "fo_type": "Single-Family Office",
+             "confidence": "High", "evident": True},
+            {"name": "TwoSrc", "fo_type": "Single-Family Office",
+             "confidence": "High", "evident": True},
+            {"name": "DirOnly", "fo_type": "Single-Family Office",
+             "confidence": "High", "evident": True},
+        ],
+        "records": [
+            _built("OneSrc", [XDG]),
+            _built("TwoSrc", [XDG, SITE]),
+            _built("DirOnly", [{"source_class": "Curated directory / reference (Wikipedia, associations)",
+                                "verifies": "listing", "accessed_at": "2026-08-01"}]),
+        ]})
+    by_name = {d["name"]: d for d in result.results["decisions"]}
+    assert by_name["TwoSrc"]["action"] == "approve"
+    assert by_name["TwoSrc"]["n_sources"] == 2
+    assert by_name["OneSrc"]["action"] == "escalate"
+    assert "insufficient independent sources" in by_name["OneSrc"]["reason"]
+    assert by_name["DirOnly"]["action"] == "escalate"
+    assert by_name["DirOnly"]["n_sources"] == 0

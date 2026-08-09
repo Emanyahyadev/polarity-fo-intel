@@ -29,6 +29,7 @@ from typing import Optional
 
 from .orchestrator import Orchestrator, AgentBase, Task, RunTrace
 from .policy_engine import ActionStatus
+from ..schema import SourceClass
 
 # --------------------------------------------------------------------------- #
 # Cycle state
@@ -288,30 +289,72 @@ def _confidence_score(value) -> float:
     return confidence / 100.0 if confidence > 1.0 else confidence
 
 
+def _authoritative_source_count(rec) -> int:
+    """Authoritative verification sources on a built record (dict or object).
+    Directory-class sources can never verify, so they never count toward the
+    minimum; anything unusable is treated as absent (never invented)."""
+    from ..validation.gates import DISCOVERY_ONLY
+
+    raw = (rec.get("verification_sources") if isinstance(rec, dict)
+           else getattr(rec, "verification_sources", [])) or []
+    n = 0
+    for s in raw:
+        sc = (s.get("source_class") if isinstance(s, dict)
+              else getattr(s, "source_class", None))
+        if sc is None:
+            continue
+        try:
+            cls = sc if not isinstance(sc, str) else SourceClass(sc)
+        except (TypeError, ValueError):
+            continue
+        if cls not in DISCOVERY_ONLY:
+            n += 1
+    return n
+
+
 class GovernanceAgent(AgentBase):
     """Apply the Policy Engine to every classified candidate:
        approve / quarantine / escalate-for-human. Uses the same confidence
-       bands and minimum-source rule the entire platform already enforces."""
+       bands and minimum-source rule the entire platform already enforces —
+       a record is NOT approvable unless it carries >= 2 AUTHORITATIVE
+       verification sources on the BUILT record (SEC/IAPD/13F/website evidence,
+       never a directory listing) plus the classification confidence band."""
 
     name = "governance"
 
     def execute(self, task):
         state = task.payload.get("state", {})
-        classified = task.payload.get("records") or state.get("classified", [])
+        classified = task.payload.get("classified") or state.get("classified", [])
+        pool = task.payload.get("records") or state.get("records") or []
+        by_id = {c.get("fo_id"): c for c in pool if isinstance(c, dict) and c.get("fo_id")}
+        by_name = {c.get("name"): c for c in pool if isinstance(c, dict) and c.get("name")}
         decisions = []
         for rec in classified:
             confidence = _confidence_score(rec.get("confidence", 0))
             name = rec.get("name")
             fo_id = rec.get("fo_id")
-            # escalate undetermined / low confidence, never approve blindly
+            built = by_id.get(fo_id) or by_name.get(name) or {}
+            sources = _authoritative_source_count(built)
+            # escalate undetermined / low confidence / under-sourced, never approve blindly
             if rec.get("fo_type") == "Undetermined" or confidence < 0.85 \
-                    or not rec.get("evident", True):
+                    or not rec.get("evident", True) or sources < 2:
+                reasons = []
+                if sources < 2:
+                    reasons.append(f"insufficient independent sources ({sources} "
+                                   f"authoritative; minimum 2)")
+                if rec.get("fo_type") == "Undetermined" or not rec.get("evident", True):
+                    reasons.append("undetermined or no affirmative evidence")
+                if confidence < 0.85:
+                    reasons.append("low confidence")
                 decisions.append({"name": name, "fo_id": fo_id, "action": "escalate",
-                                  "reason": "undetermined or low confidence",
-                                  "confidence": confidence})
+                                  "reason": "; ".join(reasons) or "governance review",
+                                  "confidence": confidence,
+                                  "n_sources": sources})
             else:
                 decisions.append({"name": name, "fo_id": fo_id, "action": "approve",
-                                  "reason": "approved by policy", "confidence": confidence})
+                                  "reason": "approved by policy",
+                                  "confidence": confidence,
+                                  "n_sources": sources})
         state["decisions"] = decisions
         approved = [d["name"] for d in decisions if d["action"] == "approve"]
         return {"decisions": decisions, "approved": approved,
@@ -340,6 +383,7 @@ class ReleaseAgent(AgentBase):
         from ..export import export_dataset
         from ..rag.load import load_records_from_store
         from ..schema import AuditEntry, FamilyOfficeRecord
+        from ..validation.gates import ReleaseGate
         state = task.payload.get("state", {})
         decisions = task.payload.get("decisions") or state.get("decisions", [])
         approved_ids = {d.get("fo_id") for d in decisions
@@ -348,6 +392,21 @@ class ReleaseAgent(AgentBase):
         out_dir = task.payload.get("out_dir") or state.get("out_dir") or "data/final"
         out = Path(out_dir)
         store_path = out / "records.json"
+
+        # persisted audit trail feeds the export's Audit sheet (findings govern releases)
+        # and lets the release gate re-assert no rejected value is ever shipped (G9).
+        audit: list[AuditEntry] = []
+        audit_path = out / "audit.json"
+        if audit_path.exists():
+            try:
+                audit = [AuditEntry.model_validate(a)
+                         for a in json.loads(audit_path.read_text(encoding="utf-8"))]
+            except Exception:  # noqa: BLE001
+                audit = []
+        audit_by_fo: dict[str, list[AuditEntry]] = {}
+        for a in audit:
+            audit_by_fo.setdefault(a.fo_id, []).append(a)
+        gate = ReleaseGate(audit_by_fo=audit_by_fo)
 
         # assemble the approved records this window from the built pool
         approved_records = []
@@ -374,6 +433,7 @@ class ReleaseAgent(AgentBase):
 
         have_ids = {r.fo_id for r in existing}
         added: list[FamilyOfficeRecord] = []
+        withheld: list[dict] = []
         for rec in approved_records:
             rdict = rec if isinstance(rec, dict) else rec.model_dump(mode="json")
             try:
@@ -382,12 +442,23 @@ class ReleaseAgent(AgentBase):
                 continue
             if obj.fo_id in have_ids:
                 continue  # already released (curated or a previous window): existing wins
+            # RE-ASSERT the release gates at the release boundary: governance
+            # approval alone never ships — only gate-passing records enter the store.
+            outcome = gate.evaluate(obj)
+            if not outcome.passed:
+                withheld.append({"fo_id": obj.fo_id,
+                                 "failed": [c.name for c in outcome.failures()]})
+                state.setdefault("errors", []).append(
+                    f"release withheld {obj.fo_id} on gate re-assertion: "
+                    f"{', '.join(c.name for c in outcome.failures())}")
+                continue
             added.append(obj)
 
         if not added:
             state["approved"] = state.get("approved", [])
-            return {"published": [], "count": 0,
-                    "note": "approved records already in store; nothing new to publish",
+            return {"published": [], "count": 0, "withheld": withheld,
+                    "note": ("approved records already in store or blocked by gate "
+                             "re-assertion; nothing new to publish"),
                     "store_file": str(store_path)}
 
         merged = existing + added
@@ -397,22 +468,15 @@ class ReleaseAgent(AgentBase):
                        ensure_ascii=False), encoding="utf-8")
 
         # persisted audit trail feeds the export's Audit sheet (findings govern releases)
-        audit: list[AuditEntry] = []
-        audit_path = out / "audit.json"
-        if audit_path.exists():
-            try:
-                audit = [AuditEntry.model_validate(a)
-                         for a in json.loads(audit_path.read_text(encoding="utf-8"))]
-            except Exception:  # noqa: BLE001
-                audit = []
-
         res = export_dataset(merged, audit=audit, out_dir=out_dir)
         released_names = [r.name for r in added]
         state["approved"] = released_names
         state.setdefault("metrics", {})["release"] = {
-            "published": len(added), "store_total": len(merged), **res}
+            "published": len(added), "store_total": len(merged),
+            "withheld_on_gates": len(withheld), **res}
         return {"published": released_names, "count": len(added),
                 "store_file": str(store_path), "store_total": len(merged),
+                "withheld": withheld,
                 "note": f"merged {len(added)} new records; {len(merged)} total in store"}
 
 
