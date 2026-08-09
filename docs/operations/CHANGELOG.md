@@ -25,8 +25,8 @@ Version scheme follows the operating cycles that ship changes.
   confidence-based release + contact-standard enforcement.
 - **Guards** (`guard.py`) — BudgetGuard (item + serialized-size caps) and
   CycleLock (concurrency) at the outermost gate.
-- **Checkpointing + human approval** (`checkpoint.py`) — Sqlite/Memory
-  checkpointer + optional interrupt-based (`require_human_review`) approval node.
+- **Checkpointing + review gate** (`checkpoint.py`) — Sqlite/Memory
+  checkpointer + optional interrupt-based review node.
 - **CI** — `test-gate.yml` (push/PR, runs both engines) and `operating-cycle.yml`
   (scheduled run + trace/history upload).
 

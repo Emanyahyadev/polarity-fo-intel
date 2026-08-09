@@ -88,7 +88,7 @@ routes).
 - `orchestrator` — the legacy deterministic loop (rollback path).
 
 **Both engines run identical employees, the same Policy Engine, thread the same
-cycle state, write the same JSONL trace, fill the same human-review queue.** The
+cycle state, write the same JSONL trace, fill the same review queue.** The
 only difference is the executor (see `engine.py`, Phase 5). The env var is the
 rollback: flip it, no code change. ADR-004 records the migration bet.
 
@@ -108,15 +108,15 @@ FOINTEL_ENGINE=orchestrator python operations/operate.py --simulate
 The guards are orchestration concerns that do **not** duplicate policy
 decisions; the Policy Engine remains the sole authority on *business* actions.
 
-## 6. Checkpointing & human approval
+## 6. Checkpointing & review gate
 
 - Checkpointing is orchestration, routed through the same `Repository`
   abstraction as data — SQLite in dev, Postgres/Supabase when `DATABASE_URL` is
   set. A cycle paused on one layer resumes on the other with no decision
   difference.
-- `human_approval` node sits **between governance and release**. It is opt-in
+- A review node sits **between governance and release**. It is opt-in
   (`cycle["require_human_review"]=True`): it parks via a LangGraph `interrupt`
-  listing pending `HumanReviewQueue` items; resume with
+  listing pending queue items; resume with
   `{"decision": "approved"}` continues. **Default OFF** keeps the autonomous
   path identical.
 
@@ -132,7 +132,7 @@ decisions; the Policy Engine remains the sole authority on *business* actions.
 - `logs/operating/*-summary.json` — canonical per-run summary.
 - `notes/{run,build,session}_history.md` — durable history index, **generated**
   by `scripts/generate_history.py` from the traces + git (never hand-edited).
-- `HumanReviewQueue` — the seat where Eman's judgment is applied.
+- `HumanReviewQueue` — the review queue where judgment is applied.
 
 ## 9. Key files
 
@@ -143,7 +143,7 @@ src/fointel/operate/graph.py    LangGraph StateGraph + ROLE_ORDER
 src/fointel/operate/adapters.py  14 employee adapters
 src/fointel/operate/policy_engine.py  authority in code
 src/fointel/operate/guard.py     resource + concurrency guards
-src/fointel/operate/checkpoint.py checkpointing + human approval
+src/fointel/operate/checkpoint.py checkpointing + review gate
 scripts/generate_history.py      history artifact generator
 .github/workflows/*.yml          cron + test gate + operating cycle
 ```

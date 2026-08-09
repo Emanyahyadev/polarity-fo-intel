@@ -66,7 +66,7 @@ tested outside the loop.
 ## Open questions for the next cycle
 - When (if ever) does an on-box monitoring endpoint become authorized? (ADR-005
   says not yet.)
-- Should the human-approval pause be enabled by default on real (non-simulated)
+- Should the review-gate pause be enabled by default on real (non-simulated)
   discovery windows, or remain opt-in? (ADR-004 keeps it OFF.)
 
 Related: [Operations](Operations.md) · [Runbook](Runbook.md) ·

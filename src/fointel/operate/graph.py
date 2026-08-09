@@ -181,8 +181,8 @@ def run_cycle_with_human_review(inputs: dict[str, Any] | None = None,
                                 checkpointer=None,
                                 config: dict[str, Any] | None = None,
                                 queue=None) -> dict[str, Any]:
-    """Run a cycle that parks at a human-approval node after governance when
-    `cycle["require_human_review"]` is set. `queue` is the HumanReviewQueue holding
+    """Run a cycle that parks at a review-gate node after governance when
+    `cycle["require_human_review"]` is set. `queue` is the queue holding
     the pending items (`policies.queue` if not given)."""
     from .checkpoint import make_human_approval
     from .orchestrator import Orchestrator
@@ -199,7 +199,7 @@ def run_cycle_with_human_review(inputs: dict[str, Any] | None = None,
     human_node = make_human_approval(hq, require=bool(inputs.get("require_human_review")))
 
     graph = OperatingGraph(employees=agents, policies=policies)
-    # insert the human-approval node between governance and release
+    # insert the review-gate node between governance and release
     g = graph.graph
     g.add_node("human_approval", human_node)
     _safe_remove_edge(g, "governance", "release")

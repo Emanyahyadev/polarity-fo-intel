@@ -9,7 +9,7 @@ This validates the **14 AI Employees** of the autonomous operating cycle (`agent
 - `docs/evidence/employee-contract-audit.json` — contract vs implementation matrix.
 - `docs/evidence/operating-fixes-entity-path.json` — Fix A real-input entity trace.
 - `docs/evidence/operating-fixb-validation.json` — Fix B binding + live cycle trace.
-- Full test suite: **170 passed, 1 skipped, 1 warning in 34.39s**.
+- Full test suite: **171 passed, 1 skipped, 1 warning in 53.13s**.
 
 ## Defects fixed during this verification
 
@@ -269,4 +269,4 @@ scheduler ok -> engineering ok -> discovery ok -> entity ok -> duplicate ok -> e
 | `operating-fixb-validation.json` | Fix B binding + live full-cycloe trace |
 | `operating-fixes-verification.md` | human-readable verification summary |
 
-The directives above are entirely derived from the repository and the recorded verification outputs. Nothing here claims a human approval step that has not been recorded in the human-review queue.
+The directives above are entirely derived from the repository and the recorded verification outputs. Nothing here claims a review step that has not been recorded in the review queue.

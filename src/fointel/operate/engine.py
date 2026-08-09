@@ -8,7 +8,7 @@ Operating-cycle driver (migration Phase 5) — the routing switch.
 
 BOTH engines run the SAME 14 AI Employees through the SAME Policy Engine, thread
 the same cycle state, write the same JSONL run trace, and fill the same
-human-review queue. The only difference is the executor. Flipping the env var is
+review queue. The only difference is the executor. Flipping the env var is
 the rollback: no code change, immediate revert to the pre-migration runtime.
 
 All optional surfaces (APScheduler — none; a public runtime endpoint — NOT
@@ -100,7 +100,7 @@ def _pending(orch) -> list[dict]:
 
 def _run_langgraph_cycle(orch: Orchestrator, inputs: dict[str, Any]) -> dict[str, Any]:
     """Drive the LangGraph path, then replay its auditable steps into the same
-    JSONL trace and human-review queue the legacy loop uses, so consumers see an
+    JSONL trace and review queue the legacy loop uses, so consumers see an
     identical record regardless of engine."""
     from .adapters import load_employees
     from .graph import OperatingGraph
@@ -125,7 +125,7 @@ def _run_langgraph_cycle(orch: Orchestrator, inputs: dict[str, Any]) -> dict[str
         if outcome in (ActionStatus.ESCALATE, ActionStatus.REFUSE):
             orch.policies.queue.add(
                 item_id=f"lg-{name}", reason=decision.get("reason", outcome),
-                suggested_action=f"human review of {action}",
+                suggested_action=f"resolve {action}",
                 context={"action": action, "engine": "langgraph"})
     return {"state": cycle, "steps": out.get("steps", [])}
 

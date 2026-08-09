@@ -26,7 +26,7 @@ Monitoring → Logging (`graph.py::ROLE_ORDER`). Each stage is a
 
 ## 4. The authority model — tiers
 - **Tier 1 — autonomous:** on the allow-list; the employee runs.
-- **Tier 2 — escalate:** queued to human review; the employee does not run.
+- **Tier 2 — escalate:** queued for review; the employee does not run.
 - **Tier 3 — refuse:** hard `never`; permanently off.
 On refuse/escalate the graph routes to END — control never continues past an
 unapproved action.
@@ -43,9 +43,9 @@ consumers cannot tell the executor apart.
 - **CycleLock:** process-wide mutex preventing concurrent cycles on one repo.
 (ADR-005 boundaries; see `guard.py`.)
 
-## 7. Checkpointing & human approval
+## 7. Checkpointing & review gate
 Checkpointing routes through the same `Repository` abstraction as data (SQLite →
-Postgres/Supabase via `DATABASE_URL`). A `human_approval` node between
+Postgres/Supabase via `DATABASE_URL`). A review node between
 governance and release parks on `interrupt()` when
 `cycle["require_human_review"]` is set; otherwise the autonomous path is
 unchanged (ADR-004).

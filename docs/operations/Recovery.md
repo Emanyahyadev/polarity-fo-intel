@@ -78,7 +78,7 @@ Recovery:
 3. If the scheduler missed a window, check GH Actions; rerun the operating
    cycle; recommit notes. A silent gap is a post-mortem incident, not a shrug.
 
-## 6 — a pending human-review item is orphaned
+## 6 — a pending review item is orphaned
 
 Symptom: the `HumanReviewQueue` holds an item that will never be decided.
 

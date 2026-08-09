@@ -5,7 +5,7 @@ self-identification quote, else SKIP). Candidate pond: European family investmen
 holdings and US family/impact offices known to run public sites; guessed URLs are safe
 because the identity guard rejects any wrong site.
 
-Writes data/adv/sfo_batch2_verified.json for human review. No dataset is touched here.
+Writes data/adv/sfo_batch2_verified.json for review. No dataset is touched here.
     FIRECRAWL_API_KEY=... LLM_API_KEY=... py -3.12 scripts/verify_sfo_batch2.py
 """
 from __future__ import annotations

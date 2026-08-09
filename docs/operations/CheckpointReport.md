@@ -58,7 +58,7 @@ that was not. ADRs: **ADR-001…006**.
 ## 7. What remains uncertain
 - Whether the scheduled cycle runs end-to-end in CI on the hosted runner with the
   pinned deps (the workflow exists; a scheduled run's success is the proof).
-- Whether human-approval pause should become the default for real (non-simulated)
+- Whether the review-gate pause should become the default for real (non-simulated)
   discovery windows (currently opt-in; **ADR-004** keeps it OFF).
 - Whether a public runtime monitoring endpoint will be authorized later
   (**ADR-005** currently forbids it).

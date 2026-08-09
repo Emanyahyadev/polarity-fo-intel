@@ -51,7 +51,7 @@ class AuthorityDecision:
 
 @dataclass
 class ReviewItem:
-    """A record/decision routed to the human review queue (Eman's seat)."""
+    """A record/decision that requires a review decision before proceeding."""
     id: str
     reason: str
     suggested_action: str
@@ -186,7 +186,7 @@ class PolicyEngine:
     # ------------------------------------------------------------------ #
     def contact_review(self, person: str, email: str, email_type: str,
                        source_type: str, confidence: float) -> AuthorityDecision:
-        """Apply Eman's contact governance rules: auto-publish / human-review / reject.
+        """Apply Eman's contact governance rules: auto-publish / review / reject.
 
         A generic mailbox (info@/contact@/hello@) or a personal email NEVER counts
         as a named-person route. This is enforced in control flow, not prose.

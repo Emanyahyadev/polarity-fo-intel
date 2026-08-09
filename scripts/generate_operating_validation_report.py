@@ -138,8 +138,8 @@ def main() -> None:
         f"| `operating-fixes-verification.md` | human-readable verification summary |",
         "",
         "The directives above are entirely derived from the repository and the "
-        "recorded verification outputs. Nothing here claims a human approval step that "
-        "has not been recorded in the human-review queue.",
+        "recorded verification outputs. Nothing here claims a review step that "
+        "has not been recorded in the review queue.",
     ]
     OUT.write_text("\n".join(lines), encoding="utf-8")
     print(f"wrote {OUT}")

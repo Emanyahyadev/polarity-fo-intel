@@ -79,7 +79,7 @@ def _render_one(name: str, s: dict) -> str:
         f"**Logs produced.** {_bullet(s.get('structured_logs_generated'))}\n\n"
         f"**Metrics produced.** {_bullet(s.get('metrics_produced'))}\n\n"
         f"**Checkpoint support.** {s.get('checkpoint_support')}  ·  "
-        f"**Human approval.** {s.get('human_approval_conditions')}\n\n"
+        f"**Review gate.** {s.get('human_approval_conditions')}\n\n"
         f"**Framework independence.** {s.get('framework_independence')}\n\n"
         f"**Repository location.** {_inline(s.get('related_repository_files'))}\n\n"
         f"**Unit tests.** {_bullet(s.get('unit_tests'))}\n\n"

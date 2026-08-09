@@ -159,7 +159,7 @@ class ClassificationEmployee(_DelegatingEmployee):
         authority=("classification.classify",),
         skills=("firm-type-classification",),
         decision_rule="assign a concrete type only when classify() qualifies",
-        escalation_rule="undetermined or low evidence escalates for human review",
+        escalation_rule="undetermined or low evidence escalates for review",
     )
 
     def __init__(self, agents: AgentBase) -> None:

@@ -6,7 +6,7 @@ exact quote). Candidates come from the curated/notable-reference lens (Wikipedia
 Category:Family_offices and the project's existing candidate pool); Wikipedia remains
 discovery-only — the firm's own site is the verification.
 
-Writes data/adv/sfo_targets_verified.json for human review. No dataset is touched here.
+Writes data/adv/sfo_targets_verified.json for review. No dataset is touched here.
     FIRECRAWL_API_KEY=... LLM_API_KEY=... py -3.12 scripts/verify_sfo_targets.py
 """
 from __future__ import annotations

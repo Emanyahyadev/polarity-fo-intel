@@ -1,18 +1,18 @@
 """
-Checkpointing + human-approval interrupt helpers (migration Phase 6).
+Checkpointing + review-gate interrupt helpers (migration Phase 6).
 
 LangGraph responsibilities per the approved architecture:
   * state checkpointing / resume across restarts;
-  * human-approval nodes (interrupt -> wait on the HumanReviewQueue -> resume).
+  * review-gate nodes (interrupt -> wait on the review queue -> resume).
 
 Thumb rule kept here: checkpointing is an ORCHESTRATION concern. It routes through
 the SAME Repository abstraction as the data layer — SQLite in dev, Postgres/Supabase
 when DATABASE_URL is set — so a cycle paused on one layer resumes on the other with
 no confidence/decision difference. Business logic is not touched.
 
-The human-approval interrupt is opt-in via the cycle state key
+The review interrupt is opt-in via the cycle state key
 `cycle["require_human_review"]`; when set, the graph parks and emits a LangGraph
-`interrupt` payload listing the items waiting for a human. Resuming with
+`interrupt` payload listing the items waiting for review. Resuming with
 `{"decision": "approved"}` continues the cycle. Default is OFF so the autonomous
 happy path is unchanged (A/B equivalence intact).
 """
@@ -45,7 +45,7 @@ def build_checkpointer(conn_string: str | None = None):
 
 
 def make_human_approval(queue: HumanReviewQueue, require: bool = True) -> Callable:
-    """Build the human-approval graph node.
+    """Build the review-gate graph node.
 
     When `require` is True the node parks via `interrupt()` listing pending review
     items. On resume (LangGraph passes `resume=` into the node) the human's

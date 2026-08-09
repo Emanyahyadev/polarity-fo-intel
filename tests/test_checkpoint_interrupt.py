@@ -1,11 +1,11 @@
 """
-LangGraph migration — Phase 6: checkpointing + human-approval interrupts.
+LangGraph migration — Phase 6: checkpointing + review-gate interrupts.
 
 Checkpointing: a cycle run with a persistent checkpointer (SqliteSaver) must be
 resumable under the same thread_id without re-running completed work.
-Human approval: when `require_human_review` is set, the graph parks at a
+Review gate: when `require_human_review` is set, the graph parks at a
 human_approval node via LangGraph's `interrupt()`, listing pending items; it
-resumes only when a human decision is supplied through `Command(resume=...)` and
+resumes only when a decision is supplied through `Command(resume=...)` and
 records that decision in the HumanReviewQueue (single source of truth).
 
 Default stays fully autonomous: with no interrupt request the graph runs the same
@@ -80,7 +80,7 @@ def test_human_approval_parks_and_resumes_with_decision() -> None:
 
 
 def test_autonomous_path_not_parked_without_request() -> None:
-    """Without require_human_review the human node must not park on empty queue."""
+    """Without require_human_review the review node must not park on empty queue."""
     queue = PolicyEngine().queue
     node = make_human_approval(queue, require=False)
     assert node({}) != {} or True  # pass-through; nothing raised

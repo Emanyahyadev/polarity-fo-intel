@@ -61,7 +61,7 @@ artifacts always reconcile with what actually happened on disk.
 There is **no** production dashboards in this phase (per ADR-005, a public
 runtime endpoint is NOT authorized). Instead:
 
-- **Human review seat** — the `HumanReviewQueue` printed by `operate.py` (the
+- **Review seat** — the `HumanReviewQueue` printed by `operate.py` (the
   `pending_review` block). This is the operator's natural dashboard.
 - **History artifacts** — the generated `notes/*.md` ARE the dashboard-as-commit.
 - **CI log** — `operating-cycle.yml` prints the summary each scheduled run.

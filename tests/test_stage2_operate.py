@@ -2,7 +2,7 @@
 Stage 2 operating layer tests.
 
 Covers the deterministic brain: policy engine tier decisions, the orchestrator's
-authority gating (autonomous/escalate/refuse), idempotency, the human-review queue,
+authority gating (autonomous/escalate/refuse), idempotency, the review queue,
 and the deterministic aggregate (count/total) answer path wired into the RAG layer.
 """
 

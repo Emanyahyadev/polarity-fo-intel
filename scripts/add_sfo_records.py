@@ -1,6 +1,6 @@
 """
 SFO expansion, phase 2 — append the website-VERIFIED single-family offices (from
-scripts/verify_sfo_targets.py, human-reviewed) to the canonical store.
+scripts/verify_sfo_targets.py, reviewed) to the canonical store.
 
 Same standard as the existing directory SFOs (D24/D25): classification rests on an
 explicit single-family self-identification quote from the firm's OWN website; AUM and

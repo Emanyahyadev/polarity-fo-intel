@@ -26,7 +26,7 @@ sampling, freshness on a schedule.
   with `notes/run_history.md`.
 - **No public runtime dashboard** (ADR-005) — observability is committed,
   auditable artifacts, not a marketing endpoint.
-- **Human review is a feature.** The queue that keeps judgment with Eman is a
+- **The review seat is a feature.** The queue that keeps judgment with Eman is a
   sales point ("AI builds, human owns the standard"), not a bug to hide.
 
 ## 4. Recurring revenue mechanics (from the operating system's view)
