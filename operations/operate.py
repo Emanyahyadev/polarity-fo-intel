@@ -125,7 +125,6 @@ def run_operating_cycle(simulate: bool = True, inputs: dict | None = None,
 
 
 def collect_progress() -> tuple[int, int]:
-    """(total released records, verified contacts) in the canonical store right now."""
     from fointel.operate.continuous import contact_count
     from fointel.rag.load import load_records_from_store
 
@@ -134,6 +133,33 @@ def collect_progress() -> tuple[int, int]:
         return len(records), contact_count(records)
     except Exception:
         return 0, 0
+
+
+def run_backfill(args, inputs: dict):
+    """Checkpointed catch-up: repeated operating cycles until the gate-passing
+    target, the deadline, or the safety limit ends the run. Holds the operating
+    floor (mode="backfill") so scheduled windows skip for the whole run."""
+    from fointel.operate.backfill import BackfillRunner
+
+    def each_cycle() -> dict:
+        cycle = run_operating_cycle(simulate=False, inputs=inputs, engine=args.engine)
+        print(f"  backfill: cycle store rows = {cycle['summary'].get('stored_records', 'n/a')}")
+        return cycle
+
+    runner = BackfillRunner(
+        target=args.backfill_target, deadline=args.deadline,
+        safety_limit=args.safety_limit,
+        state_dir=ROOT / "data" / "backfill",
+        cycle_fn=each_cycle)
+    cp = runner.run()
+    print(json.dumps({"backfill": cp.to_dict()}, indent=2, default=str))
+    if cp.status == "target":
+        print(f"BACKFILL_TARGET_REACHED: {cp.gate_passing} gate-passing records "
+              f"(target {cp.target})")
+    else:
+        print(f"BACKFILL_STOPPED: status={cp.status} gate_passing={cp.gate_passing} "
+              f"target={cp.target} detail={cp.detail}")
+    return cp
 
 
 def run_continuous(inputs: dict, interval_min: float, budget_hours: float,
@@ -220,14 +246,30 @@ def main() -> None:
                          "judged stale and taken over (default 300)")
     ap.add_argument("--no-overlap-guard", action="store_true", default=False,
                     help="skip the cross-process overlap guard (tests/overnight only)")
+    ap.add_argument("--backfill", action="store_true", default=False,
+                    help="checkpointed catch-up mode: repeated cycles until "
+                         "--backfill-target gate-passing records release or --deadline")
+    ap.add_argument("--backfill-target", type=int, default=500,
+                    help="gate-passing records to reach in backfill mode (default 500)")
+    ap.add_argument("--deadline", type=str, default="2026-08-11T17:00:00+00:00",
+                    help="ISO-8601 wall-clock (UTC) ending the backfill run")
+    ap.add_argument("--safety-limit", type=int, default=3,
+                    help="consecutive fatal cycle failures that end the run (default 3)")
     args = ap.parse_args()
 
     if args.continuous and args.simulate:
         ap.error("--continuous and --simulate are mutually exclusive")
+    if args.backfill and (args.continuous or args.simulate):
+        ap.error("--backfill is exclusive with --continuous and --simulate")
 
     from fointel.config import settings
     inputs = {"per_source_limit": args.per_source or settings.target_records,
               "max_build": args.max_build or None}
+
+    if args.backfill:
+        _run_guarded("backfill",
+                     lambda: run_backfill(args, inputs), args)
+        return
 
     if args.continuous:
         _run_guarded("continuous",
