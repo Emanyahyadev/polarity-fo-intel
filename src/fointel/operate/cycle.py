@@ -96,9 +96,11 @@ class EngineeringAgent(AgentBase):
 def _as_candidates(candidates) -> list:
     """Coerce cycle candidates (typed `Candidate` or raw dicts) to `Candidate`.
     Never guesses: a raw dict with no usable identity becomes a bare Candidate
-    carrying the raw payload for provenance, so the resolver sees typed input."""
-    from ..discovery.base import Candidate
-    from ..schema import SourceClass
+    carrying the raw payload for provenance, so the resolver sees typed input.
+    Full-fidelity re-typing: when a candidate came FROM the discovery harvest its
+    identifiers/source_url/dedup_key round-trip so downstream enrichment can still
+    resolve CIK/CRD/qid — never loses a strong identifier."""
+    from ..schema import Candidate, SourceClass
     typed = []
     for cand in candidates or []:
         if isinstance(cand, Candidate):
@@ -110,8 +112,14 @@ def _as_candidates(candidates) -> list:
                 source_class = SourceClass(source) if isinstance(source, str) else SourceClass.OTHER
             except ValueError:
                 source_class = SourceClass.OTHER
-            typed.append(Candidate(name=name, source_class=source_class,
-                                   raw=cand, hints=cand.get("hints", {})))
+            typed.append(Candidate(
+                name=name, source_class=source_class,
+                source_url=cand.get("source_url"),
+                discovered_at=cand.get("discovered_at"),
+                dedup_key=cand.get("dedup_key"),
+                identifiers=cand.get("identifiers") or {},
+                discovery_sources=cand.get("discovery_sources") or [],
+                raw=cand, hints=cand.get("hints", {})))
         # skip anything else; never guess a candidate from an invalid shape
     return typed
 
@@ -145,7 +153,7 @@ class EntityResolutionAgent(AgentBase):
         resolver = EntityResolver()
         resolved, decisions = resolver.resolve(typed)
         state = task.payload.get("state", {})
-        state["resolved"] = candidates  # resolved keeps membership
+        state["resolved"] = [c.model_dump(mode="json") for c in resolved]
         return {
             "resolved": len(resolved),
             "merges": sum(1 for d in decisions if d.action == "merge"),
@@ -161,28 +169,35 @@ class EntityResolutionAgent(AgentBase):
 
 class ValidationAgent(AgentBase):
     """Verify candidate evidence against the existing ReleaseGate. Produces a
-    structured validation result per candidate (gate checks, pass/fail)."""
+    structured validation result per record (gate checks, pass/fail). Prefers the
+    enriched `records` built by the enrichment stage; falls back to raw candidates
+    so driving the agent directly stays honest about missing gates."""
 
     name = "validation"
 
     def execute(self, task):
         from ..validation.gates import ReleaseGate
         from ..schema import FamilyOfficeRecord
-        candidates = task.payload.get("candidates") or task.payload.get("state", {}).get("candidates", [])
+        state = task.payload.get("state", {})
+        records = (task.payload.get("records") or state.get("records")
+                   or state.get("candidates") or task.payload.get("candidates") or [])
         out = []
-        for cand in candidates:
+        for cand in records:
             try:
                 if isinstance(cand, FamilyOfficeRecord):
                     rec = cand
                 else:
                     rec = FamilyOfficeRecord(**cand)
                 verdict = ReleaseGate().evaluate(rec)
-                out.append({"fo_id": rec.fo_id, "passed": verdict.passed,
+                out.append({"fo_id": rec.fo_id, "name": rec.name, "passed": verdict.passed,
                             "failures": [c.detail for c in verdict.failures()]})
             except Exception as exc:  # noqa: BLE001
-                out.append({"error": str(exc), "candidate": getattr(cand, "name", str(cand)[:40])})
-        task.payload.get("state", {})["validated"] = out
-        return {"validated": out, "passed": sum(1 for r in out if r.get("passed"))}
+                out.append({"error": str(exc),
+                            "candidate": getattr(cand, "name", str(cand)[:40])})
+        state["validated"] = [o for o in out if not o.get("error")]
+        return {"validated": out,
+                "passed": sum(1 for r in out if r.get("passed")),
+                "failures": sum(1 for r in out if r.get("failures"))}
 
 
 # --------------------------------------------------------------------------- #
@@ -190,20 +205,44 @@ class ValidationAgent(AgentBase):
 # --------------------------------------------------------------------------- #
 
 class ClassificationAgent(AgentBase):
-    """Classify as SFO / MFO / Undetermined using the existing firm_type.classify.
-    Never guesses: only assigns a concrete type when affirmative evidence exists.
-    Everything else stays 'Undetermined' and escalates for human review."""
+    """Assign the SFO / MFO / Undetermined label per record.
+    Never guesses: records built by the enrichment stage carry an evidence-bound
+    classification (`fo_type` + `fo_type_evidence` from the firm-type classifier
+    run over the authoritative facts). A type claimed WITHOUT evidence is treated
+    as Undetermined and escalates; when driven on raw candidates (no built records)
+    it falls back to the existing firm_type.classify over the name and escalates
+    everything without affirmative evidence."""
 
     name = "classification"
 
     def execute(self, task):
         from ..validation.firm_type import classify
-        # candidate records with name + evidence
-        records = task.payload.get("records") or task.payload.get("state", {}).get("resolved", [])
+        state = task.payload.get("state", {})
+        records = (task.payload.get("records") or state.get("records")
+                   or state.get("resolved") or state.get("candidates") or [])
         out = []
         escalated = []
         for rec in records:
             name = rec.get("name") if isinstance(rec, dict) else getattr(rec, "name", "")
+            # Built/enriched record path: surface the evidence-bound classification
+            # the enrichment stage already produced.
+            if isinstance(rec, dict) and rec.get("fo_type"):
+                claimed = rec.get("fo_type")
+                evidence = rec.get("fo_type_evidence")
+                confidence = rec.get("fo_type_confidence") or rec.get("record_confidence") or "Low"
+                if claimed != "Undetermined" and evidence:
+                    out.append({"name": name, "fo_id": rec.get("fo_id"),
+                                "fo_type": claimed, "confidence": confidence,
+                                "evident": True})
+                else:
+                    out.append({"name": name, "fo_id": rec.get("fo_id"),
+                                "fo_type": "Undetermined", "confidence": confidence,
+                                "evident": False,
+                                "reason": evidence or "no affirmative classification evidence"})
+                    escalated.append(name)
+                continue
+            # Raw-candidate path (unbuilt): never assign a type from the name alone —
+            # the name-only classifier rejects without evidence, so this escalates.
             cl = classify(name)
             if cl.qualifies:
                 out.append({"name": name, "fo_type": cl.fo_type.value,
@@ -213,7 +252,8 @@ class ClassificationAgent(AgentBase):
                             "confidence": cl.confidence.value, "evident": False,
                             "reason": cl.reject_reason})
                 escalated.append(name)
-        task.payload.get("state", {})["classified"] = out
+        state["classified"] = out
+        state["escalated"] = escalated or state.get("escalated", [])
         return {"classified": out, "escalated_uncertain": escalated,
                 "assigned": len(out) - len(escalated)}
 
@@ -256,19 +296,23 @@ class GovernanceAgent(AgentBase):
     name = "governance"
 
     def execute(self, task):
-        classified = task.payload.get("records") or task.payload.get("state", {}).get("classified", [])
+        state = task.payload.get("state", {})
+        classified = task.payload.get("records") or state.get("classified", [])
         decisions = []
         for rec in classified:
             confidence = _confidence_score(rec.get("confidence", 0))
+            name = rec.get("name")
+            fo_id = rec.get("fo_id")
             # escalate undetermined / low confidence, never approve blindly
-            if rec.get("fo_type") == "Undetermined" or confidence < 0.85:
-                decisions.append({"name": rec["name"], "action": "escalate",
+            if rec.get("fo_type") == "Undetermined" or confidence < 0.85 \
+                    or not rec.get("evident", True):
+                decisions.append({"name": name, "fo_id": fo_id, "action": "escalate",
                                   "reason": "undetermined or low confidence",
                                   "confidence": confidence})
             else:
-                decisions.append({"name": rec["name"], "action": "approve",
+                decisions.append({"name": name, "fo_id": fo_id, "action": "approve",
                                   "reason": "approved by policy", "confidence": confidence})
-        task.payload.get("state", {})["decisions"] = decisions
+        state["decisions"] = decisions
         approved = [d["name"] for d in decisions if d["action"] == "approve"]
         return {"decisions": decisions, "approved": approved,
                 "to_release": len(approved)}
@@ -281,25 +325,95 @@ class GovernanceAgent(AgentBase):
 class ReleaseAgent(AgentBase):
     """Publish ONLY approved records into the production dataset (data/final)
     and version the release. Uses the existing export_dataset writer.
-    Refuses to release anything not approved by governance."""
+
+    The store (`out_dir/records.json`) is the lossless canonical source of truth;
+    the CSV/XLSX are exported from it. The merge NEVER drops an existing curated
+    record — new approved records are added by `fo_id`, existing ones win. Nothing
+    is written unless governance approved at least one NEW record this window
+    (empty windows stay a clean no-op)."""
 
     name = "release"
 
     def execute(self, task):
+        import json
+        from pathlib import Path
         from ..export import export_dataset
-        decisions = task.payload.get("decisions") or task.payload.get("state", {}).get("decisions", [])
-        approved = task.payload.get("approved") or [d["name"] for d in decisions
-                                                    if d.get("action") == "approve"]
-        out_dir = task.payload.get("out_dir", "data/final")
-        released = []
-        for name in approved:
-            # placeholders: here the approved record is built/persisted. For the
-            # closed-loop demo we only count what governance approved.
-            released.append(name)
-        written = {"released": released, "count": len(released), "out_dir": out_dir}
-        task.payload.get("state", {})["approved"] = released
-        return {"published": released, "count": len(released),
-                "note": "release versioned; export_dataset used for real records"}
+        from ..rag.load import load_records_from_store
+        from ..schema import AuditEntry, FamilyOfficeRecord
+        state = task.payload.get("state", {})
+        decisions = task.payload.get("decisions") or state.get("decisions", [])
+        approved_ids = {d.get("fo_id") for d in decisions
+                        if d.get("action") == "approve" and d.get("fo_id")}
+        approved_names = {d.get("name") for d in decisions if d.get("action") == "approve"}
+        out_dir = task.payload.get("out_dir") or state.get("out_dir") or "data/final"
+        out = Path(out_dir)
+        store_path = out / "records.json"
+
+        # assemble the approved records this window from the built pool
+        approved_records = []
+        pool = state.get("records") or task.payload.get("records") or []
+        for rec in pool:
+            rid = rec.get("fo_id") if isinstance(rec, dict) else getattr(rec, "fo_id", None)
+            rname = rec.get("name") if isinstance(rec, dict) else getattr(rec, "name", "")
+            if (rid and rid in approved_ids) or (rid is None and rname in approved_names):
+                approved_records.append(rec)
+
+        if not approved_records:
+            state["approved"] = state.get("approved", [])
+            return {"published": [], "count": 0,
+                    "note": "no approved records this window; nothing written",
+                    "store_file": str(store_path)}
+
+        # canonical store: existing records win by fo_id, new approved are added
+        existing: list[FamilyOfficeRecord] = []
+        if store_path.exists():
+            try:
+                existing = load_records_from_store(str(store_path))
+            except Exception as exc:  # noqa: BLE001 — never delete on a bad read
+                state.setdefault("errors", []).append(f"release store read: {exc}")
+
+        have_ids = {r.fo_id for r in existing}
+        added: list[FamilyOfficeRecord] = []
+        for rec in approved_records:
+            rdict = rec if isinstance(rec, dict) else rec.model_dump(mode="json")
+            try:
+                obj = FamilyOfficeRecord.model_validate(rdict)
+            except Exception:  # noqa: BLE001 — a record that won't round-trip is not shipped
+                continue
+            if obj.fo_id in have_ids:
+                continue  # already released (curated or a previous window): existing wins
+            added.append(obj)
+
+        if not added:
+            state["approved"] = state.get("approved", [])
+            return {"published": [], "count": 0,
+                    "note": "approved records already in store; nothing new to publish",
+                    "store_file": str(store_path)}
+
+        merged = existing + added
+        out.mkdir(parents=True, exist_ok=True)
+        store_path.write_text(
+            json.dumps([r.model_dump(mode="json") for r in merged], indent=2,
+                       ensure_ascii=False), encoding="utf-8")
+
+        # persisted audit trail feeds the export's Audit sheet (findings govern releases)
+        audit: list[AuditEntry] = []
+        audit_path = out / "audit.json"
+        if audit_path.exists():
+            try:
+                audit = [AuditEntry.model_validate(a)
+                         for a in json.loads(audit_path.read_text(encoding="utf-8"))]
+            except Exception:  # noqa: BLE001
+                audit = []
+
+        res = export_dataset(merged, audit=audit, out_dir=out_dir)
+        released_names = [r.name for r in added]
+        state["approved"] = released_names
+        state.setdefault("metrics", {})["release"] = {
+            "published": len(added), "store_total": len(merged), **res}
+        return {"published": released_names, "count": len(added),
+                "store_file": str(store_path), "store_total": len(merged),
+                "note": f"merged {len(added)} new records; {len(merged)} total in store"}
 
 
 # --------------------------------------------------------------------------- #
@@ -340,32 +454,37 @@ class DuplicateDetectionAgent(AgentBase):
 
 class EnrichmentAgent(AgentBase):
     """Fetch authoritative facts for each candidate (SEC EDGAR, IAPD/ADV, 13F,
-    firm website) and fill record fields WITH provenance. Only fills with
-    sourced values; an unconfirmable field stays honestly blank (could_not_verify).
-    Reuses the Stage 1 enrichment enrichers."""
+    firm website) and fill record fields WITH provenance. Then reports the
+    enrichable surface honestly. Reuses the Stage 1 enrichers + `enrich_and_build`,
+    so every populated cell carries provenance and only qualifying, classified
+    records enter the cycle's `records` channel for validation/gate/release."""
 
     name = "enrichment"
 
     def execute(self, task):
-        from ..discovery.base import Candidate
-        from ..schema import FamilyOfficeRecord
+        from datetime import date
+        from ..assemble import enrich_and_build
         state = task.payload.get("state", {})
-        candidates = task.payload.get("candidates") or state.get("candidates") or []
-        typed = [c for c in candidates if isinstance(c, Candidate)]
+        candidates = (task.payload.get("candidates") or state.get("resolved")
+                      or state.get("candidates") or [])
+        typed = _as_candidates(candidates)
         if not typed:
             return {"status": "skip", "reason": "no candidates to enrich",
-                    "enriched": [], "filled": 0}
-        # the real enrichment that populates records happens in assemble.enrich_and_build.
-        # Here we ONLY report the enrichable surface so the cycle is honest about what it
-        # can fill; actual network enrichment is reserved for build steps with a repository.
-        fills = []
-        from ..assemble import _FILLABLE
-        for c in typed:
-            have = set(c.raw or {})
-            needs = [f for f in _FILLABLE if f not in have]
-            fills.append({"name": c.name, "enrichable_fields": needs})
-        return {"status": "ok", "enriched": len(fills),
-                "filled": sum(1 for f in fills if f["enrichable_fields"]), "report": fills}
+                    "enriched": 0, "filled": 0, "report": {}}
+        # optional build cap: bound the first live runs so a large harvest does not
+        # stall the window with per-candidate SEC/IAPD/13F/website fetches ("max_build"
+        # may arrive via task payload or the cycle state inputs).
+        max_build = task.payload.get("max_build") or state.get("max_build")
+        if max_build:
+            typed = typed[: int(max_build)]
+        records, report = enrich_and_build(typed, as_of=date.today())
+        state["records"] = [r.model_dump(mode="json") for r in records]
+        # "filled" = records that cleared classification with at least one
+        # independent verification source (evidence-backed, never invented).
+        filled = sum(1 for r in records if len(r.verification_sources) >= 1)
+        return {"status": "ok", "enriched": len(records), "filled": filled,
+                "cap_applied": int(max_build) if max_build else None,
+                "report": report}
 
 
 # --------------------------------------------------------------------------- #
@@ -383,10 +502,10 @@ class FreshnessAgent(AgentBase):
         from ..compute import ComputeEngine
         state = task.payload.get("state", {})
         records = task.payload.get("records") or state.get("records") or []
-        if not records:
+        typed = _as_typed_records(records)
+        if not typed:
             return {"status": "skip", "reason": "no records to scan", "snapshot": {}, "stale": []}
-        engine = ComputeEngine(records if isinstance(records, list)
-                               else [list(records)])
+        engine = ComputeEngine(typed)
         snap = engine.freshness_snapshot()
         state.setdefault("metrics", {})["freshness"] = snap.to_dict()
         return {"status": "ok", "snapshot": snap.to_dict(), "stale": []}

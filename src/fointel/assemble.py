@@ -28,6 +28,7 @@ from .enrichment.website import WebsiteEnricher, WebsiteFacts
 from .observability import get_logger
 from .schema import (
     Confidence,
+    EmailStatus,
     FamilyOfficeRecord,
     FOType,
     Provenance,
@@ -65,7 +66,10 @@ def _parse_period(period: Optional[str]) -> Optional[date]:
 
 
 # principal-contact fields that cannot be verified from free authoritative sources
-# and are therefore honestly recorded as could_not_verify when blank (never guessed).
+# when absent from the firm's own published pages — recorded as could_not_verify when
+# blank (never guessed). An email/LinkedIn that the firm's OFFICIAL site publishes is
+# extracted by website enrichment and populated WITH provenance, so it never appears
+# in this list (the schema rejects a populated field flagged could_not_verify).
 _UNVERIFIABLE_CONTACT = ("corporate_linkedin", "principal_linkedin", "principal_email")
 
 
@@ -345,6 +349,27 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                 method="firm website (stated investment approach / mission)", checked_at=as_of,
                 source_url=wf.url, confidence=Confidence.MEDIUM)
 
+    # Contact intelligence the firm's OWN site publishes: its contact mailbox(es)
+    # and the LinkedIn company page it links. The email is the firm's published
+    # outreach inbox (status=RISKY — a firm mailbox, not the principal's
+    # personally-verified address); the LinkedIn page is the firm's own page, so
+    # the site vouches for both. Nothing is guessed or scraped off-page.
+    if e.website_facts and e.website_facts.resolved:
+        wf = e.website_facts
+        if wf.emails:
+            fields["principal_email"] = wf.emails[0]
+            prov["principal_email"] = Provenance(
+                source_class=SourceClass.FIRM_SITE,
+                method="firm website (published contact / mailto link)", checked_at=as_of,
+                source_url=wf.url, confidence=Confidence.MEDIUM)
+            fields["principal_email_status"] = EmailStatus.RISKY
+        if wf.linkedin:
+            fields["corporate_linkedin"] = wf.linkedin
+            prov["corporate_linkedin"] = Provenance(
+                source_class=SourceClass.FIRM_SITE,
+                method="LinkedIn company page linked from the official site", checked_at=as_of,
+                source_url=wf.url, confidence=Confidence.MEDIUM)
+
     # SEC Form 13F deep facts — authoritative principal (signatory name/title/phone), the
     # aggregate 13(f) securities value (a dated AUM figure), and recent-investment holdings.
     # Only firms that actually file 13F contribute here; nothing is inferred.
@@ -452,6 +477,10 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                 "officer, title exactly as filed — commonly the CCO/General Counsel, not "
                 "necessarily the lead investor); estimated_aum is the aggregate 13(f) "
                 "securities value, not total assets under management")
+        reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
+    if fields.get("principal_email") and fields.get("principal_email_status") == EmailStatus.RISKY:
+        note = ("principal_email is the firm's published contact inbox (official site) — "
+                "not the principal's personally-verified address")
         reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
 
     # Honest could_not_verify: contact intelligence that free authoritative sources do not

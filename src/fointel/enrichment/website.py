@@ -16,7 +16,7 @@ import re
 from typing import Optional
 
 from bs4 import BeautifulSoup
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from ..evidence import EvidenceRef
 from ..http import HttpClient
@@ -70,6 +70,64 @@ _AUM = re.compile(
 _AUM2 = re.compile(r"(\$[\d.,]+\s*(?:billion|million|bn|mn)\b)[^.]{0,30}"
                    r"(?:assets|aum|under management)", re.IGNORECASE)
 
+# Contact intelligence the SITE itself publishes (mailto links + its LinkedIn page).
+# Only the firm's OWN published outreach channels count; foreign-domain mailboxes
+# (hosting/marketing vendors) and boilerplate addresses are ignored.
+_EMAIL_RE = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,24}")
+_ROLE_INBOX = re.compile(r"^(info|contact|office|hello|admin|mail|invest|connect|enquir|"
+                         r"family[- ]?office|reception|manage|team)@", re.I)
+_LINKEDIN_RE = re.compile(r"(?:https?://)?(?:www\.)?linkedin\.com/"
+                          r"(?:company|pages/company|showcase)/([A-Za-z0-9_\-]+)")
+_LINKEDIN_JUNK = {"jobs", "life", "about", "careers", "people", "topics", "posts", "feed"}
+_BAD_TLDS = {"png", "jpg", "jpeg", "gif", "svg", "webp", "css", "js"}
+_BAD_MAIL = re.compile(r"(noreply|no-?reply|donotreply|example|test|pixel|tracking|"
+                       r"wixpress|sentry|campaign|newsletter@)", re.I)
+
+
+def _site_domain(url: Optional[str]) -> str:
+    """Own registrable host of the fetched page (www-stripped), '' if unknown."""
+    m = re.search(r"https?://(?:www\.)?([^/?#]+)", (url or "").strip().lower())
+    return (m.group(1) or "") if m else ""
+
+
+def extract_contacts(text: str, url: Optional[str] = None) -> tuple[list[str], Optional[str]]:
+    """(emails, linkedin_company_url) that the firm's own site publishes.
+
+    Emails: only mailboxes on the site's OWN domain (or one of its subdomains),
+    junk local parts (noreply/example/pixel/vendor) filtered, the site's role
+    inbox (info@ / contact@ / office@ ...) preferred. Never a guess: everything
+    here was on the firm's official pages. Foreign-domain addresses (hosting or
+    marketing vendors) are dropped — they are not the firm's outreach channel.
+    """
+    own = _site_domain(url)
+    emails, seen = [], set()
+    for raw in re.findall(_EMAIL_RE, text or ""):
+        e = raw.strip().strip(".")
+        name, _, dom = e.partition("@")
+        tld = dom.rsplit(".", 1)[-1].lower()
+        if len(e) < 7 or len(dom) < 5 or tld in _BAD_TLDS:
+            continue
+        if _BAD_MAIL.search(name) or _BAD_MAIL.search(dom):
+            continue
+        if own and dom != own and not dom.endswith("." + own):
+            continue
+        key = e.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        emails.append(e)
+    emails.sort(key=lambda e: (_ROLE_INBOX.search(e) is None, "." in e.split("@")[1]))
+    if not own and not emails:
+        emails = []
+    li = None
+    for slug in _LINKEDIN_RE.findall(text or ""):
+        s = slug.rstrip("/").split("?")[0]
+        if not s or s.lower() in _LINKEDIN_JUNK:
+            continue
+        li = f"https://www.linkedin.com/company/{s}"
+        break
+    return emails, li
+
 
 class WebsiteFacts(BaseModel):
     url: Optional[str] = None
@@ -79,6 +137,8 @@ class WebsiteFacts(BaseModel):
     description: Optional[str] = None
     aum_text: Optional[str] = None
     thesis: Optional[str] = None
+    emails: list[str] = Field(default_factory=list)   # contact mailboxes published on the site
+    linkedin: Optional[str] = None                    # LinkedIn company page the site links
     text_excerpt: str = ""
 
 
@@ -158,12 +218,30 @@ class WebsiteEnricher:
             desc = meta["content"].strip()[:400]
 
         fo_language, type_hint, aum = analyze_text(text)
+        mail_hrefs = [h[7:].split("?")[0] for h in
+                      (a.get("href", "") for a in soup.find_all("a", href=True))
+                      if h.lower().startswith("mailto:")]
+        emails, linkedin = extract_contacts("\n".join(mail_hrefs) + "\n" + text, resp.url)
         return WebsiteFacts(
             url=resp.url, resolved=True, fo_language=fo_language,
             fo_type_hint=type_hint, description=desc, aum_text=aum,
-            thesis=extract_thesis(text), text_excerpt=text[:1500]), ref
+            thesis=extract_thesis(text), emails=emails, linkedin=linkedin,
+            text_excerpt=text[:1500]), ref
 
     _ABOUT_PATHS = ("about", "about-us")
+    _CONTACT_PATHS = ("contact", "contact-us")
+
+    @staticmethod
+    def _absorb(dst: "WebsiteFacts", src: "WebsiteFacts") -> bool:
+        """Copy contact data from src into dst if dst lacks it. True if dst changed."""
+        changed = False
+        if not dst.emails and src.emails:
+            dst.emails = list(src.emails)
+            changed = True
+        if not dst.linkedin and src.linkedin:
+            dst.linkedin = src.linkedin
+            changed = True
+        return changed
 
     def resolve_domain(self, firm_name: str) -> Optional[str]:
         """Best-effort official site via constructed domains, each VERIFIED by fetching
@@ -185,14 +263,32 @@ class WebsiteEnricher:
 
     def fetch_site_deep(self, url: str) -> tuple[WebsiteFacts, list[EvidenceRef]]:
         """Homepage first; if it does not confirm family-office status, try common
-        /about pages (the phrase often lives there, not on the homepage)."""
+        /about pages (the phrase often lives there, not on the homepage). Contact
+        pages are fetched when the pages seen so far published no email/LinkedIn
+        (the firm's contact channel usually lives there, not on the homepage)."""
         refs: list[EvidenceRef] = []
         facts, ref = self.fetch_site(url)
         if ref:
             refs.append(ref)
-        if facts.resolved and facts.fo_language:
-            return facts, refs
         base = url.rstrip("/")
+
+        def try_contact(dst: WebsiteFacts) -> bool:
+            if dst.emails or dst.linkedin:
+                return True
+            for path in self._CONTACT_PATHS:
+                more, ref2 = self.fetch_site(f"{base}/{path}")
+                if not more.resolved:
+                    continue
+                if ref2:
+                    refs.append(ref2)
+                self._absorb(dst, more)
+                if dst.emails or dst.linkedin:
+                    return True
+            return bool(dst.emails or dst.linkedin)
+
+        if facts.resolved and facts.fo_language:
+            try_contact(facts)
+            return facts, refs
         for path in self._ABOUT_PATHS:
             more, ref2 = self.fetch_site(f"{base}/{path}")
             if not more.resolved:
@@ -202,6 +298,8 @@ class WebsiteEnricher:
             if more.fo_language:                     # /about confirms FO -> merge and stop
                 more.url = facts.url or url
                 more.description = facts.description or more.description
+                self._absorb(more, facts)            # keep homepage contacts as well
                 return more, refs
+        try_contact(facts)
         return facts, refs
 

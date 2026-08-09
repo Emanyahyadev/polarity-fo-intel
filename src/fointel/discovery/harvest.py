@@ -41,8 +41,14 @@ def default_sources() -> list[DiscoverySource]:
 
 def harvest(repo: Repository, per_source_limit: int,
             sources: Optional[list[DiscoverySource]] = None,
-            limits: Optional[dict[str, int]] = None) -> dict:
-    """`limits` maps a source_class value -> its own cap, overriding per_source_limit."""
+            limits: Optional[dict[str, int]] = None,
+            return_candidates: bool = False) -> dict:
+    """`limits` maps a source_class value -> its own cap, overriding per_source_limit.
+
+    When `return_candidates` is True the report additionally carries
+    `candidates`: the resolved candidate records (JSON dicts) harvested this run,
+    so callers like the operating cycle can thread them into cycle state instead
+    of only persisting them to the pool."""
     sources = None if sources is None else list(sources)
     if sources is None:
         sources = default_sources()
@@ -86,6 +92,8 @@ def harvest(repo: Repository, per_source_limit: int,
             "decisions": [d.model_dump() for d in decisions],
         },
     }
+    if return_candidates:
+        report["candidates"] = [c.model_dump(mode="json") for c in resolved]
     log.info("harvest complete", extra={"event": "harvest_done",
              "total_yielded": len(collected), "resolved_firms": len(resolved),
              "unique_added": unique_added, "pool_size": report["pool_size"],

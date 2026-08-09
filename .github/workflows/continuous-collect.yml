@@ -1,30 +1,35 @@
-name: operating-cycle
+name: continuous-collect
 
-# The autonomous operating window (Eman Phase 1 Steps 4-7, LangGraph migration
-# Phase 8): on a schedule, the scheduler agent wakes and runs the AI Employee
-# operating cycle. Execution engine = LangGraph StateGraph by default
-# (FOINTEL_ENGINE=langgraph); set FOINTEL_ENGINE=orchestrator in the repo vars to
-# run the legacy deterministic loop (the rollback path). Both engines run the same
-# employees, respect the same Policy Engine, and audit to logs/operating/*.jsonl.
-# Any decision the Policy Engine marks Tier 2/3 is NOT run — it is queued for
-# review instead (never guessed, never silently published).
+# The 48-hour data-filling marathon: wakes the operating cycle every 60 minutes
+# until 700 verified contacts are released into data/final/ (or 48h elapse).
+# Each cycle is idempotent (release MERGES into the canonical store by fo_id;
+# existing rows win), so re-running never duplicates. Verified contact = a released
+# record with an independent verification source AND at least one reachable
+# channel (published email / phone / LinkedIn / website).
+#
+# A concurrency group guards the shared data/final workspace against the
+# twice-daily operating-cycle job.
 
 on:
-  schedule:
-    - cron: "30 8,16 * * *"   # twice daily (08:30 / 16:30 UTC)
-    - cron: "31 10 * * *"     # 3:31 PM PKT (10:31 UTC)
-  workflow_dispatch: {}        # allow a manual operating-cycle run
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Verified contacts to collect"
+        required: false
+        default: "700"
+      hours:
+        description: "Run-time budget (hours)"
+        required: false
+        default: "48"
 
-# One runner at a time on the shared data/final workspace (the 48h
-# continuous-collect marathon and the twice-daily cycle must never write
-# the dataset concurrently).
 concurrency:
   group: polarity-fointel-operate
   cancel-in-progress: false
 
 jobs:
-  operate:
+  collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 2880            # 48h
     permissions:
       contents: write
     steps:
@@ -47,11 +52,13 @@ jobs:
       - name: Set execution engine (LangGraph by default; orchestrator = rollback)
         run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
 
-      - name: Wake the operating cycle (all 14 AI employees, real discovery)
+      - name: Continuous collect (48h, 700 verified contacts)
         run: |
-          python operations/operate.py --per-source 100 --max-build 50
+          python operations/operate.py --continuous \
+            --per-source 200 --max-build 150 \
+            --interval 60 --target ${{ inputs.target }} --hours ${{ inputs.hours }}
         env:
-          TARGET_RECORDS: 500
+          TARGET_RECORDS: 700
           FOINTEL_ENGINE: langgraph
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
@@ -61,7 +68,7 @@ jobs:
         run: |
           python scripts/reexport_from_store.py
         env:
-          TARGET_RECORDS: 500
+          TARGET_RECORDS: 700
           FOINTEL_ENGINE: langgraph
 
       - name: Regenerate observability history (run/build/session)
@@ -72,15 +79,15 @@ jobs:
           git config --global user.name "Family Office AI Agents"
           git config --global user.email "ai@polarityiq.com"
           git add -f data/final/* || true
-          git commit -m "chore(data): autonomous data update via operating cycle" || echo "No changes to commit"
+          git commit -m "chore(data): continuous collect — 48h verified-contact dataset update" || echo "No changes to commit"
           git push
 
       - name: Upload operating trace + history artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: operating-logs
+          name: continuous-logs
           path: |
             logs/operating/
             notes/
-          retention-days: 7
+          retention-days: 14

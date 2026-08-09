@@ -116,10 +116,14 @@ class DiscoveryAgent(AgentBase):
             repo = get_repository()
             sources = task.payload.get("sources")
             limit = int(task.payload.get("per_source_limit", 5))
-            report = harvest(repo, per_source_limit=limit, sources=sources)
+            report = harvest(repo, per_source_limit=limit, sources=sources,
+                             return_candidates=True)
             state = task.payload.get("state")
             if state is not None:
-                state.setdefault("candidates", [])
+                # The cycle runs real downstream stages on THIS run's harvest, not
+                # on an empty window: thread the resolved candidates into state so
+                # entity/classification/governance/release see actual data.
+                state["candidates"] = list(report.get("candidates", []))
             return {"query": task.payload.get("query"),
                     "source": task.payload.get("source"),
                     "yielded": report.get("total_yielded", 0),
@@ -203,7 +207,7 @@ class Orchestrator:
             task.status = "escalated"
             self.policies.queue.add(
                 item_id=task.task_id, reason=decision.reason,
-                suggested_action=f"human review of {task.action}",
+                suggested_action=f"resolve {task.action}",
                 context={"action": task.action, "payload": task.payload})
             self.trace.emit({"event": "escalated", "task_id": task.task_id,
                              "action": task.action, "reason": decision.reason,
@@ -293,7 +297,8 @@ class Orchestrator:
             {"agent": "duplicate", "action": "duplicate.detect",
              "payload": {"state": state, "records": state.get("resolved", [])}},
             {"agent": "enrichment", "action": "enrichment.fetch",
-             "payload": {"state": state, "candidates": state.get("candidates", [])}},
+             "payload": {"state": state, "candidates": state.get("candidates", []),
+                         "max_build": inputs.get("max_build")}},
             {"agent": "validation", "action": "validation.review",
              "payload": {"state": state, "candidates": state.get("resolved", [])}},
             {"agent": "classification", "action": "classification.classify",
@@ -307,7 +312,7 @@ class Orchestrator:
              "payload": {"state": state,
                          "out_dir": inputs.get("out_dir", "data/final")}},
             {"agent": "freshness", "action": "freshness.detect_stale",
-             "payload": {"state": state, "records": state.get("approved", [])}},
+             "payload": {"state": state, "records": state.get("records", [])}},
             {"agent": "monitoring", "action": "monitoring.check_health",
              "payload": {"state": state, "emit": True}},
             {"agent": "logging", "action": "logging.write",

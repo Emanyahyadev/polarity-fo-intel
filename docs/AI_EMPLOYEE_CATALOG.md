@@ -88,7 +88,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Metrics produced.** _(none)_
 
-**Checkpoint support.** False  ·  **Human approval.** n/a — scheduler is time-gating only
+**Checkpoint support.** False  ·  **Review gate.** n/a — scheduler is time-gating only
 
 **Framework independence.** Yes — SchedulerEmployee (adapters.py) wraps schedulerAgent (orchestrator.py); no langgraph import.
 
@@ -142,7 +142,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Metrics produced.** - paused_stage count
 
-**Checkpoint support.** stateless per cycle  ·  **Human approval.** n/a
+**Checkpoint support.** stateless per cycle  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — EngineeringEmployee wraps cycle.EngineeringAgent; no langgraph import.
 
@@ -208,7 +208,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - resolved_firms
 - pool_size
 
-**Checkpoint support.** false  ·  **Human approval.** n/a
+**Checkpoint support.** false  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — DiscoveryEmployee re-injects sources/limit into the agent; no langgraph import.
 
@@ -264,7 +264,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - merges
 - possible_duplicates
 
-**Checkpoint support.** False  ·  **Human approval.** ambiguous duplicates flag for human review
+**Checkpoint support.** False  ·  **Review gate.** ambiguous duplicates flag for review
 
 **Framework independence.** Yes — EntityResolutionEmployee wraps cycle.EntityResolutionAgent.
 
@@ -319,7 +319,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - merges
 - possible_duplicates
 
-**Checkpoint support.** False  ·  **Human approval.** ambiguous duplicates flagged to governance for human review
+**Checkpoint support.** False  ·  **Review gate.** ambiguous duplicates flagged to governance for review
 
 **Framework independence.** Yes — DuplicateDetectionEmployee wraps cycle.DuplicateDetectionAgent.
 
@@ -334,50 +334,53 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 ---
 ### enrichment
 
-**Business objective.** Fetch authoritative facts (SEC, IAPD/ADV, 13F, firm website) and fill candidate fields WITH provenance; an unconfirmable blank stays honestly blank (could_not_verify).
+**Business objective.** Fetch authoritative facts (SEC, IAPD/ADV, 13F, firm website) and BUILD evidence-backed classified FamilyOfficeRecords via assemble.enrich_and_build; an unconfirmable blank stays honestly blank (could_not_verify). Contact intelligence is extracted only from the firm's own published pages: a mailto/contact email (status=risky — the firm's outreach inbox, not the principal's personal address) and the LinkedIn company page the site links, both with provenance; anything else stays an honest blank.
 
 **Why it exists.** Mission: enrichment — see the in-code EmployeeContract in `src/fointel/operate/adapters.py`.
 
 **Trigger.** Position 5 of 14 in the cycle (`ROLE_ORDER`); the cycle runs on schedule via `.github/workflows/operating-cycle.yml`.
 
 **Inputs.** - candidates
+- max_build (optional per-run build cap; bounds the first live runs)
 
-**Outputs.** - enriched (count)
-- filled (count)
-- report (per-candidate enrichable fields)
+**Outputs.** - enriched (count of qualifying records)
+- filled (count with verification)
+- cap_applied (build-cap value, when set)
+- report (discovery/qualification report)
 
 **Responsibilities.** - Fetch authoritative facts
-- Fill fields with provenance
+- Build records with provenance
 - Collect evidence
 - Keep unconfirmable fields honestly blank
+- Thread built records into cycle state
 
 **Tools.** - SEC EDGAR parser
 - IAPD/ADV enricher
 - 13F enricher
 - website enricher
-- assemble.enrich_and_build / _FILLABLE
+- assemble.enrich_and_build
 
 **Knowledge sources.** - SEC EDGAR
 - IAPD/ADV
 - SEC 13F
 - firm website
 
-**Authority boundary.** May enrich and fill only with sourced values carrying provenance. Never guesses a blank.
+**Authority boundary.** May enrich and fill only with sourced values carrying provenance. Never guesses a blank — an email/LinkedIn only enters the record when the firm's official site publishes it.
 
 **Autonomous actions.** fetch, fill_field, collect_evidence
 
 **Escalation conditions.** - an unconfirmable field stays honestly blank (could_not_verify)
 
-**Upstream dependencies.** duplicate  ·  **Downstream dependencies.** validation
+**Upstream dependencies.** entity  ·  **Downstream dependencies.** validation, classification, governance, release
 
-**Consumes / Produces.** consumes: candidate raw evidence · produces: enriched record fields with provenance, enrichment report
+**Consumes / Produces.** consumes: resolved candidates · produces: evidence-backed FamilyOfficeRecord list (state.records) + enrichment report
 
-**Logs produced.** - enrichment.fetch with enrichable-field report
+**Logs produced.** - enrichment.fetch (enriched, filled, report)
 
 **Metrics produced.** - enriched
 - filled
 
-**Checkpoint support.** False  ·  **Human approval.** n/a
+**Checkpoint support.** False  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — EnrichmentAgent reuses existing enrichers after duplicate.
 
@@ -388,6 +391,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Integration tests.** - test_fourteen_employees.py
 - test_langgraph_cycle.py
+- test_cycle_releases_data.py
 
 ---
 ### validation
@@ -431,7 +435,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 **Metrics produced.** - passed
 - failures
 
-**Checkpoint support.** False  ·  **Human approval.** gate failures escalate to governance/human
+**Checkpoint support.** False  ·  **Review gate.** gate failures escalate to governance for review
 
 **Framework independence.** Yes — ValidationEmployee/ValidationAgent reuse ReleaseGate; no langgraph.
 
@@ -446,7 +450,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 ---
 ### classification
 
-**Business objective.** Classify each entity as SFO / MFO / Undetermined using affirmative evidence only — never guess; anything uncertain escalates for human review.
+**Business objective.** Classify each entity as SFO / MFO / Undetermined using affirmative evidence only — never guess; anything uncertain escalates for review.
 
 **Why it exists.** Mission: classification — see the in-code EmployeeContract in `src/fointel/operate/adapters.py`.
 
@@ -484,7 +488,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 **Metrics produced.** - assigned
 - escalated_uncertain count
 
-**Checkpoint support.** False  ·  **Human approval.** undetermined / gray-zone confidence -> escalate to governance, then human
+**Checkpoint support.** False  ·  **Review gate.** undetermined / gray-zone confidence -> escalate to governance, then review
 
 **Framework independence.** Yes — ClassificationAgent reuses firm_type.classify.
 
@@ -515,7 +519,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - Approve records above threshold
 - Quarantine below-threshold
 - Escalate gray-zone / conflicts
-- Populate the human review queue
+- Populate the review queue
 
 **Tools.** - PolicyEngine.decide
 - PolicyEngine.may_publish
@@ -532,7 +536,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Upstream dependencies.** classification, freshness flags  ·  **Downstream dependencies.** release, human_approval
 
-**Consumes / Produces.** consumes: classified records, policy authority matrix · produces: governance decisions, approve/quarantine/escalate routing, human-review queue items
+**Consumes / Produces.** consumes: classified records, policy authority matrix · produces: governance decisions, approve/quarantine/escalate routing, review queue items
 
 **Logs produced.** - governance.release_decision decisions
 
@@ -540,7 +544,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - approved
 - to_release
 
-**Checkpoint support.** False  ·  **Human approval.** require_human_review => the graph parks at the human_approval node between governance and release
+**Checkpoint support.** False  ·  **Review gate.** require_human_review => the graph parks at a review-gate node between governance and release
 
 **Framework independence.** Yes — GovernanceAgent reuses PolicyEngine; the interrupt node is in checkpoint.py (graph concern).
 
@@ -556,30 +560,34 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 ---
 ### release
 
-**Business objective.** Public ONLY governance-approved records into the production dataset (data/final) and version the release. A record that governance did not approve never ships.
+**Business objective.** Public ONLY governance-approved records into the production dataset (data/final): merge them into the lossless canonical store (records.json), re-export CSV/XLSX, and version the release. Existing curated records are NEVER dropped (merge by fo_id, existing wins); a record that governance did not approve never ships.
 
 **Why it exists.** Mission: release — see the in-code EmployeeContract in `src/fointel/operate/adapters.py`.
 
 **Trigger.** Position 9 of 14 in the cycle (`ROLE_ORDER`); the cycle runs on schedule via `.github/workflows/operating-cycle.yml`.
 
 **Inputs.** - decisions (approved)
+- records (built pool)
 - out_dir (default data/final)
 
 **Outputs.** - published (names)
 - count
+- store_file
+- store_total
 - note
 
 **Responsibilities.** - Publish approved records
-- Version the release
-- Refresh the indexed document
+- Merge into the canonical store
+- Re-export CSV/XLSX
 - Refuse unauthorized publishes
+- Never drop existing curated records
 
 **Tools.** - export_dataset
-- get_repository (store)
+- rag.load.load_records_from_store
 
 **Knowledge sources.** - governance-approved decisions
 
-**Authority boundary.** May publish ONLY approved records and version the release. Never. publishes unapproved / overwrites human-verified / deletes production records.
+**Authority boundary.** May publish ONLY approved records and version the release. Never publishes unapproved / overwrites human-verified / deletes production records.
 
 **Autonomous actions.** publish, version_release, refresh_index_doc
 
@@ -587,22 +595,23 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Upstream dependencies.** governance, human_approval  ·  **Downstream dependencies.** embedding
 
-**Consumes / Produces.** consumes: approved list from governance · produces: production family-office dataset / versioned release
+**Consumes / Produces.** consumes: approved decisions + built records · produces: updated store records.json, family_offices.csv/.xlsx, versioned release
 
-**Logs produced.** - release.publish (published, count, note)
+**Logs produced.** - release.publish (published, count, store_file, store_total, note)
 
 **Metrics produced.** - published count
 
-**Checkpoint support.** False  ·  **Human approval.** release.publish is gated: only what governance + (opt-in) human approval says may ship
+**Checkpoint support.** False  ·  **Review gate.** release.publish is gated: only what governance + an optional review gate confirm may ship
 
 **Framework independence.** Yes — ReleaseAgent wraps export_dataset.
 
-**Repository location.** src/fointel/export.py, src/fointel/operate/cycle.py, data/final
+**Repository location.** src/fointel/export.py, src/fointel/rag/load.py, src/fointel/operate/cycle.py, data/final
 
 **Unit tests.** - test_export.py
 
 **Integration tests.** - test_langgraph_cycle.py
 - test_engine_switch.py
+- test_cycle_releases_data.py
 
 ---
 ### embedding
@@ -645,7 +654,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Metrics produced.** - metrics.embedding (updated, records, docs, focus)
 
-**Checkpoint support.** False  ·  **Human approval.** n/a
+**Checkpoint support.** False  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — EmbeddingUpdateAgent reuses rag.index directly; no langgraph in adapters.
 
@@ -695,7 +704,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 **Metrics produced.** - snapshot (metrics.freshness)
 - stale count
 
-**Checkpoint support.** False  ·  **Human approval.** stale/inactive flags go to governance
+**Checkpoint support.** False  ·  **Review gate.** stale/inactive flags go to governance
 
 **Framework independence.** Yes — FreshnessAgent reuses ComputeEngine.freshness_snapshot.
 
@@ -742,7 +751,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Metrics produced.** - snapshot counts (candidates, resolved, records, approved, quarantined, escalated, errors)
 
-**Checkpoint support.** False  ·  **Human approval.** n/a
+**Checkpoint support.** False  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — MonitoringAgent is self-contained and also feeds the snapshot under the LangGraph adapter.
 
@@ -795,7 +804,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Metrics produced.** - run report metrics
 
-**Checkpoint support.** False  ·  **Human approval.** n/a
+**Checkpoint support.** False  ·  **Review gate.** n/a
 
 **Framework independence.** Yes — LoggingEmployee wraps LoggingAgent; emits through the trace.
 
