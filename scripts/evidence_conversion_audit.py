@@ -66,13 +66,31 @@ def audit(n: int = 30) -> dict:
     sec, web, iapd = SecEnricher(), WebsiteEnricher(), IapdEnricher()
     f13, adv, person = ThirteenFEnricher(), AdvEnricher(), PersonContactEnricher()
 
+    import fointel.enrichment.website as website_mod
+
     cands = load_unreleased(n)
     cats: Counter = Counter()
     rows = []
     for cand in cands:
         name = cand.name
         name_has_fo = "family office" in name.lower()
-        e = enrich_candidate(cand, sec, web, iapd, f13, adv, person)
+
+        # Instrument resolve_domain directly so "attempted" is OBSERVED, not
+        # inferred from the outcome (the earlier script's C/B split guessed at
+        # this from `not website`, which cannot distinguish "never tried" from
+        # "tried and failed" — exactly the ambiguity that produced an
+        # apparently-unmoved BEFORE/AFTER on the first rerun).
+        attempted = {"called": False}
+        orig = website_mod.WebsiteEnricher.resolve_domain
+        def _wrapped(self, firm_name, source_url=None, _orig=orig, _a=attempted):
+            _a["called"] = True
+            return _orig(self, firm_name, source_url=source_url)
+        website_mod.WebsiteEnricher.resolve_domain = _wrapped
+        try:
+            e = enrich_candidate(cand, sec, web, iapd, f13, adv, person)
+        finally:
+            website_mod.WebsiteEnricher.resolve_domain = orig
+
         cls = e.classification
         reason = (cls.reject_reason or "").lower()
         wf = e.website_facts
@@ -84,21 +102,19 @@ def audit(n: int = 30) -> dict:
             cat = "A genuinely not a family office"
         elif wf is not None and wf.resolved and not wf.fo_language:
             cat = "E website fetched, parser found no FO language"
-        elif wf is not None and not wf.resolved:
-            cat = "D website fetch failed"
+        elif attempted["called"] and not website:
+            cat = "C domain resolution ATTEMPTED, no domain found/verified"
         elif website and wf is None:
             cat = "D website fetch failed"
-        elif not website and not name_has_fo:
-            # domain resolution is gated behind a name/IAPD heuristic — never tried
-            cat = "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
-        elif not website and name_has_fo:
-            cat = "B likely FO but domain resolution attempted and failed"
+        elif not attempted["called"] and not website:
+            cat = "C-legacy domain resolution never reached (already had a site or CIK path)"
         else:
             cat = "H other"
 
         cats[cat] += 1
         rows.append({"name": name, "source": cand.source_class.value,
-                     "name_has_fo": name_has_fo, "website": website,
+                     "name_has_fo": name_has_fo, "domain_resolution_attempted": attempted["called"],
+                     "website": website,
                      "site_resolved": bool(wf and wf.resolved),
                      "fo_language": bool(wf and wf.fo_language),
                      "qualifies": cls.qualifies,

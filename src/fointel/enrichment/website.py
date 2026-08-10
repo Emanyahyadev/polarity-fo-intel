@@ -324,18 +324,28 @@ class WebsiteEnricher:
             if got:
                 return got
 
-        # 3. web-search official-site discovery (the strategy that reaches firms whose
-        #    domain is not derivable from their name)
+        # 3. keyed-provider official-site discovery (Tavily -> Exa -> Serper) — the
+        #    strategy that reaches firms whose domain is not derivable from their
+        #    name. Previously used enrichment.search.WebSearch, which scrapes the
+        #    unkeyed DuckDuckGo HTML endpoint and was measured returning 0 hits for
+        #    every query in this session's provider audit (a 30-candidate before/
+        #    after test showed literally zero change from removing the name gate,
+        #    because this fallback was dead). domain_search.find_official_domain
+        #    additionally requires the returned domain itself (not just the page
+        #    text) to contain a distinctive token of the firm's name, so a media
+        #    profile of the firm (e.g. forbes.com/companies/pathstone) cannot be
+        #    mistaken for the firm's own site.
         try:
-            from .search import WebSearch
-            searcher = WebSearch()
-            hits = searcher.search(f'"{firm_name}" family office official website', limit=8)
-            cand_url = WebSearch.official_website(firm_name, hits)
-            if cand_url and cand_url not in tried:
-                got = self._accept(cand_url, firm_name)
+            from .domain_search import find_official_domain
+            hit = find_official_domain(firm_name)
+            if hit and hit.url not in tried:
+                got = self._accept(hit.url, firm_name)
                 if got:
+                    log.info("domain resolved via keyed provider", extra={
+                        "event": "enrich_info", "source": "website",
+                        "firm": firm_name, "provider": hit.provider, "url": got})
                     return got
-        except Exception as exc:  # search is best-effort; never sink enrichment
+        except Exception as exc:  # provider search is best-effort; never sink enrichment
             log.warning("domain search failed", extra={
                 "event": "enrich_warn", "source": "website",
                 "firm": firm_name, "error": str(exc)[:160]})
