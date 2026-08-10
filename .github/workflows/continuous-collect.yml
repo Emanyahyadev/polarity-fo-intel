@@ -80,6 +80,7 @@ jobs:
           git config --global user.email "ai@polarityiq.com"
           git add -f data/final/* || true
           git commit -m "chore(data): continuous collect — 48h verified-contact dataset update" || echo "No changes to commit"
+          git pull --rebase origin main || true
           git push
 
       - name: Upload operating trace + history artifacts
