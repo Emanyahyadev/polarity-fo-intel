@@ -53,9 +53,11 @@ class ExaSearchSource(DiscoverySource):
         self.api_key = api_key
         self.http = HttpClient(accept="application/json", timeout=30, max_attempts=2)
         self.queries = queries or [
-            '"family office"',                      # broad realtime web
-            '"{Name} Family Office" investor',
-            "single family office investment firm",
+            '"family office" investment firm',
+            '"single family office" investor',
+            '"multi family office" advisor',
+            '"family office" SEC 13F filings',
+            '"family office" established new firm',
         ]
 
     def _search(self, query: str, limit: int = 8) -> list[dict]:
@@ -79,7 +81,7 @@ class ExaSearchSource(DiscoverySource):
             if yielded >= limit:
                 break
             try:
-                results = self._search(query)
+                results = self._search(query, limit=16)
             except Exception as exc:
                 log.warning("exa query failed", extra={"event": "search_error",
                                                        "query": query, "error": str(exc)})

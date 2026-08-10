@@ -55,9 +55,11 @@ class TavilySearchSource(DiscoverySource):
         self.api_key = api_key
         self.http = HttpClient(accept="application/json", timeout=30, max_attempts=2)
         self.queries = queries or [
-            '"family office" site:linkedin.com/company',
-            '"{Name} Family Office" investment',
-            "family office investments firm wealth",
+            '"family office" investment firm',
+            '"single family office"',
+            '"multi family office" advisor',
+            '"family office" 13F filer',
+            '"family office" founded new',
         ]
 
     # -- Tavily endpoint ------------------------------------------------ #
@@ -82,7 +84,7 @@ class TavilySearchSource(DiscoverySource):
             if yielded >= limit:
                 break
             try:
-                results = self._search(query)
+                results = self._search(query, limit=16)
             except Exception as exc:  # one query failing must not abort the source
                 log.warning("tavily query failed", extra={"event": "search_error",
                                                           "query": query, "error": str(exc)})

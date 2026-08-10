@@ -28,11 +28,11 @@ on:
       per_source:
         description: "Discovery candidates per source per operating cycle"
         required: false
-        default: "100"
+        default: "250"
       max_build:
         description: "Enrichment build cap per operating cycle"
         required: false
-        default: "50"
+        default: "200"
 
 # Same shared store floor as the scheduled cycle: one operating run at a time.
 concurrency:
@@ -63,12 +63,15 @@ jobs:
 
       - name: Run backfill acquisition (checkpointed, resumable)
         run: |
+          git config --global user.name "Family Office AI Agents"
+          git config --global user.email "ai@polarityiq.com"
           python operations/operate.py \
             --backfill \
             --backfill-target "${{ github.event.inputs.target }}" \
             --deadline "${{ github.event.inputs.deadline }}" \
             --per-source "${{ github.event.inputs.per_source }}" \
-            --max-build "${{ github.event.inputs.max_build }}"
+            --max-build "${{ github.event.inputs.max_build }}" \
+            --git-sync-every 4
         env:
           TARGET_RECORDS: 500
           FOINTEL_ENGINE: langgraph

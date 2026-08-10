@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 import threading
 import time
@@ -141,9 +142,16 @@ def run_backfill(args, inputs: dict):
     floor (mode="backfill") so scheduled windows skip for the whole run."""
     from fointel.operate.backfill import BackfillRunner
 
+    sync_ran = 0
+    cycles_done = 0
+
     def each_cycle() -> dict:
+        nonlocal cycles_done
         cycle = run_operating_cycle(simulate=False, inputs=inputs, engine=args.engine)
+        cycles_done += 1
         print(f"  backfill: cycle store rows = {cycle['summary'].get('stored_records', 'n/a')}")
+        if getattr(args, "git_sync_every", 0) and cycles_done % args.git_sync_every == 0:
+            _live_sync()
         return cycle
 
     runner = BackfillRunner(
@@ -160,6 +168,33 @@ def run_backfill(args, inputs: dict):
         print(f"BACKFILL_STOPPED: status={cp.status} gate_passing={cp.gate_passing} "
               f"target={cp.target} detail={cp.detail}")
     return cp
+
+
+def _live_sync() -> None:
+    """Live data sync: re-export CSV/XLSX + refresh the retrieval index, commit
+    data/final + backfill state, and push. A failure here never aborts the
+    acquisition run - it is logged so the end-of-run push is the safety net."""
+    try:
+        print("  live sync: re-exporting dataset + retrieval index ...")
+        subprocess.run([sys.executable, "scripts/reexport_from_store.py"],
+                       cwd=ROOT, check=True, capture_output=True, text=True)
+        print("  live sync: committing + pushing data ...")
+        subprocess.run(["git", "add", "-A", "data/final", "data/backfill",
+                        "data/retrieval", "logs"], cwd=ROOT, check=True,
+                       capture_output=True, text=True)
+        result = subprocess.run(["git", "commit", "-m",
+                                 "live sync: data/final + backfill state (mid-run)"],
+                                cwd=ROOT, capture_output=True, text=True)
+        if result.returncode != 0 and "nothing to commit" not in result.stdout:
+            print(f"  live sync: commit failed: {result.stdout.strip()} "
+                  f"{result.stderr.strip()}")
+            return
+        subprocess.run(["git", "push"], cwd=ROOT, check=True,
+                       capture_output=True, text=True)
+        print("  live sync: pushed to origin")
+    except Exception as exc:  # noqa: BLE001 - never abort acquisition on sync issues
+        print(f"  live sync: failed ({type(exc).__name__}: {exc}) - "
+              "end-of-run push remains the safety net")
 
 
 def run_continuous(inputs: dict, interval_min: float, budget_hours: float,
@@ -255,6 +290,9 @@ def main() -> None:
                     help="ISO-8601 wall-clock (UTC) ending the backfill run")
     ap.add_argument("--safety-limit", type=int, default=3,
                     help="consecutive fatal cycle failures that end the run (default 3)")
+    ap.add_argument("--git-sync-every", type=int, default=0,
+                    help="backfill: commit+push data/final + backfill state every N cycles "
+                         "(0 = disabled; end-of-run push is the safety net)")
     args = ap.parse_args()
 
     if args.continuous and args.simulate:

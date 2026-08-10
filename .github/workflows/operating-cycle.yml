@@ -49,7 +49,7 @@ jobs:
 
       - name: Wake the operating cycle (all 14 AI employees, real discovery)
         run: |
-          python operations/operate.py --per-source 100 --max-build 50
+          python operations/operate.py --per-source 250 --max-build 200
         env:
           TARGET_RECORDS: 500
           FOINTEL_ENGINE: langgraph
