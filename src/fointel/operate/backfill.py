@@ -92,8 +92,11 @@ class BackfillRunner:
         if self.checkpoint_path.is_file():
             cp = BackfillCheckpoint.from_dict(
                 json.loads(self.checkpoint_path.read_text("utf-8")))
-            self._checkpoint = cp
-            return cp
+            if cp.run_id == self.run_id:
+                self._checkpoint = cp
+                return cp
+            print(f"stale checkpoint from a different run ({cp.run_id}) ignored; "
+                  "starting a fresh run")
         started = self.now_fn().isoformat()
         cp = BackfillCheckpoint(
             run_id=self.run_id, started_at=started,

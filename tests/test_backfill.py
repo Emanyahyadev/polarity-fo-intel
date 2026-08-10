@@ -101,11 +101,20 @@ def test_checkpoint_resumes_killed_run(tmp_path: Path):
 
     run2 = BackfillRunner(target=5, deadline=(NOW + timedelta(hours=2)).isoformat(),
                           state_dir=tmp_path, store_records_fn=store.load,
-                          cycle_fn=grow_full, now_fn=lambda: NOW)
+                          cycle_fn=grow_full, now_fn=lambda: NOW, run_id=first_id)
     cp2 = run2.run()
-    assert cp2.run_id == first_id                            # same run, not a new one
+    assert cp2.run_id == first_id                            # same run resumes, not a new one
     assert cp2.status == "target"
     assert cp2.total_cycles == 5
+
+    # a fresh invocation (new run_id) must NEVER inherit a previous run's
+    # checkpoint - stale safety/failure state must not poison a new run.
+    run3 = BackfillRunner(target=5, deadline=(NOW + timedelta(hours=2)).isoformat(),
+                          state_dir=tmp_path, store_records_fn=store.load,
+                          cycle_fn=grow_full, now_fn=lambda: NOW)
+    cp3 = run3.run()
+    assert cp3.run_id != first_id                            # fresh run, fresh state
+    assert cp3.total_cycles == 1
 
 
 def test_deadline_stops_short_but_honest(tmp_path: Path):
