@@ -44,6 +44,13 @@ jobs:
           pip install "langgraph>=0.3,<0.4"
           pip list
 
+      - name: Seed the candidate pool from the committed snapshot
+        # data/fointel.db is gitignored, so a hosted runner starts with an EMPTY
+        # pool and would re-discover the same firms every run, discarding the work
+        # at job end. Seeding from the committed JSON snapshot makes discovery
+        # cumulative across runs instead of amnesiac.
+        run: python scripts/pool_snapshot.py import
+
       - name: Set execution engine (LangGraph by default; orchestrator = rollback)
         run: echo "FOINTEL_ENGINE=${FOINTEL_ENGINE:-langgraph}" >> "$GITHUB_ENV"
 
@@ -69,10 +76,12 @@ jobs:
 
       - name: Commit data back to repository
         run: |
+          python scripts/pool_snapshot.py export
           git config --global user.name "Family Office AI Agents"
           git config --global user.email "ai@polarityiq.com"
           git add -f data/final/* || true
           [ -d data/freshness ] && git add -f data/freshness/* || true
+          [ -d data/pool ] && git add -f data/pool/* || true
           [ -d notes ] && git add -f notes/* || true
           git commit -m "chore(data): autonomous data update via operating cycle" || echo "No changes to commit"
           git pull --rebase origin main || true
