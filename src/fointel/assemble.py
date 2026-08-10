@@ -246,13 +246,19 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
                         "source": "directory", "firm": cand.name, "error": str(exc)})
     if facts and facts.website and not website:
         website = facts.website
-    # constructed-domain resolution for likely family offices that still lack a site
-    # (e.g. IAPD-registry-discovered firms) — each candidate domain is fetched and
-    # confirmed to contain family-office language before use.
-    likely_fo = ("family office" in cand.name.lower()) or bool(iapd and iapd.fo_language)
-    if not website and likely_fo:
+    # Domain resolution for every candidate that still lacks a site. This used to be
+    # gated behind `likely_fo` — a name heuristic requiring the literal string
+    # "family office" in the candidate's name (or IAPD fo_language). A 30-candidate
+    # audit (docs/evidence/evidence-conversion-audit.json) measured that gate
+    # blocking 18/30 (60%) of rejected candidates from ANY evidence acquisition:
+    # a genuine family office not NAMED "...Family Office" was refused because the
+    # system never looked, not because the evidence failed. The qualification policy
+    # (Rule 2) is unchanged and still strict — resolve_domain itself verifies that a
+    # page names the firm AND self-describes as a family office before returning it,
+    # so nothing unverified reaches classification.
+    if not website:
         try:
-            website = web_enr.resolve_domain(cand.name)
+            website = web_enr.resolve_domain(cand.name, source_url=cand.source_url)
         except Exception as exc:
             log.warning("domain resolve failed", extra={"event": "enrich_warn",
                         "source": "website", "firm": cand.name, "error": str(exc)})

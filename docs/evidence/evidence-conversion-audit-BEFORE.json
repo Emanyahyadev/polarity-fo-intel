@@ -1,0 +1,340 @@
+{
+  "n": 30,
+  "categories": {
+    "C domain resolution NEVER ATTEMPTED (name heuristic gate)": 18,
+    "A genuinely not a family office": 11,
+    "QUALIFIED": 1
+  },
+  "rows": [
+    {
+      "name": "HALL LAURIE J TRUSTEE",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "individual trustee, not a family-office firm",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Crestone Asset Management LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Veritable, L.P.",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Dorsey & Whitney Trust CO LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Arrowroot Family Office, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": true,
+      "website": "https://arrowrootfamilyoffice.com",
+      "site_resolved": true,
+      "fo_language": true,
+      "qualifies": false,
+      "reject_reason": "employee benefit / pension plan",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Stokes Family Office, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": true,
+      "website": "https://stokesfamilyoffice.com",
+      "site_resolved": true,
+      "fo_language": true,
+      "qualifies": false,
+      "reject_reason": "employee benefit / pension plan",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Stenger Family Office, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": true,
+      "website": "https://stengerfamilyoffice.com",
+      "site_resolved": true,
+      "fo_language": true,
+      "qualifies": false,
+      "reject_reason": "employee benefit / pension plan",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Geller Family Office Services, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": true,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": true,
+      "reject_reason": null,
+      "category": "QUALIFIED"
+    },
+    {
+      "name": "VPR Management LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Family Office Research LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": true,
+      "website": "https://familyoffice.com",
+      "site_resolved": true,
+      "fo_language": true,
+      "qualifies": false,
+      "reject_reason": "membership / association / network, not a family office",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Pathstone Holdings, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "ADVISOR PARTNERS II, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Lido Advisors, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "INTREPID CAPITAL MANAGEMENT INC /DE/",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Sageworth Trust Co",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "AQR CAPITAL MANAGEMENT LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "BANK OF MONTREAL /CAN/  (BMO, BERZ, BULZ, CARD, CARU, DULL, FLYD, FLYU, FNGD, FNGO, FNGS, FNGU, GDXD, GDXU, JETD, JETU, OILD)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "DEUTSCHE BANK AG\\",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "TrustBank",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Orion Portfolio Solutions, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Orion Porfolio Solutions, LLC",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "BRYN MAWR TRUST CO/PA",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "BRYN MAWR BANK CORP",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "MOBIX LABS, INC  (MOBX, MOBXW)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "DOLAN CHARLES F",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "cbdMD, Inc.  (YCBD, YCBD-PA)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "Royalty Pharma plc  (RPRX)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "EVOLVING SYSTEMS INC  (EVOL)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "no affirmative family-office evidence from an authoritative source (name / discovery-only references are insufficient)",
+      "category": "C domain resolution NEVER ATTEMPTED (name heuristic gate)"
+    },
+    {
+      "name": "Townsquare Media, Inc.  (TSQ)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    },
+    {
+      "name": "MP Materials Corp. / DE  (MP)",
+      "source": "SEC EDGAR (13F / SC / Form D filings)",
+      "name_has_fo": false,
+      "website": null,
+      "site_resolved": false,
+      "fo_language": false,
+      "qualifies": false,
+      "reject_reason": "public company (SEC tickers/exchanges present)",
+      "category": "A genuinely not a family office"
+    }
+  ]
+}

@@ -243,22 +243,102 @@ class WebsiteEnricher:
             changed = True
         return changed
 
-    def resolve_domain(self, firm_name: str) -> Optional[str]:
-        """Best-effort official site via constructed domains, each VERIFIED by fetching
-        and confirming family-office language (never a guess — we confirm before using)."""
-        lower = re.sub(r"[^a-z0-9 ]", "", firm_name.lower())
+    # Words that carry no identity on their own — a page matching only these has
+    # not been shown to belong to the candidate.
+    _STOPWORDS = {"the", "and", "llc", "lp", "llp", "inc", "incorporated", "ltd",
+                  "limited", "company", "co", "group", "capital", "partners",
+                  "management", "advisors", "advisers", "family", "office",
+                  "offices", "trust", "holdings", "investment", "investments"}
+
+    @classmethod
+    def _identity_tokens(cls, firm_name: str) -> list[str]:
+        """Distinctive tokens of a firm name — what must appear on a page before we
+        accept that page as belonging to THIS firm."""
+        words = re.findall(r"[a-z0-9]+", (firm_name or "").lower())
+        return [w for w in words if w not in cls._STOPWORDS and len(w) > 2]
+
+    @classmethod
+    def _page_belongs_to(cls, html: str, firm_name: str) -> bool:
+        """Identity guard: a resolved domain is only usable as evidence if the page
+        actually names the candidate. Prevents attaching 'smithfamilyoffice.com' to a
+        different Smith family office (a constructed domain is a guess until proven)."""
+        toks = cls._identity_tokens(firm_name)
+        if not toks:
+            return False
+        text = (html or "").lower()
+        return sum(1 for t in toks if t in text) >= max(1, min(2, len(toks)))
+
+    def _accept(self, url: str, firm_name: str) -> Optional[str]:
+        """Fetch `url` and accept it only if the page BOTH names the firm and carries
+        family-office language. Returns the confirmed URL or None."""
+        try:
+            resp = self.web.get(url)
+        except Exception:
+            return None
+        if not self._page_belongs_to(resp.text, firm_name):
+            return None
+        if not _FO.search(resp.text):
+            return None
+        return str(resp.url).rstrip("/") or url.rstrip("/")
+
+    def resolve_domain(self, firm_name: str,
+                       source_url: Optional[str] = None) -> Optional[str]:
+        """Bounded multi-strategy official-site resolution.
+
+        Order: (1) the domain the discovery source already gave us, (2) constructed
+        domains, (3) web-search official-site discovery. Every strategy ends at the
+        same verification — the page must name the firm AND self-describe as a family
+        office — so a domain is never trusted merely because it resolved. Returns None
+        rather than a guess.
+
+        Previously this was only ever CALLED for candidates whose name literally
+        contained "family office" (assemble.py's `likely_fo` gate). A 30-candidate
+        audit showed that gate blocked 18/30 (60%) from any evidence acquisition at
+        all, so a genuine family office not named "...Family Office" could never
+        qualify. The gate is gone; this resolver is the bounded replacement.
+        """
+        tried: list[str] = []
+
+        # 1. the discovery source's own URL, when it points at the firm's own site
+        if source_url:
+            m = re.search(r"https?://[^/?#]+", source_url)
+            host = m.group(0) if m else ""
+            if host and not re.search(
+                    r"(sec\.gov|wikipedia\.org|wikidata\.org|propublica\.org|"
+                    r"linkedin\.com|bloomberg\.com|crunchbase\.com)", host, re.I):
+                tried.append(host)
+                got = self._accept(host, firm_name)
+                if got:
+                    return got
+
+        # 2. constructed domains (cheap, no API budget)
+        lower = re.sub(r"[^a-z0-9 ]", "", (firm_name or "").lower())
         head = re.sub(r"\bfamily office.*", "", lower).strip().replace(" ", "")
         nospace = lower.replace(" ", "")
-        candidates = [c for c in dict.fromkeys([
-            nospace + ".com", head + "familyoffice.com", head + "fo.com",
-            lower.replace(" ", "-") + ".com"]) if len(c) >= 9]
-        for domain in candidates:
-            try:
-                resp = self.web.get("https://" + domain)
-                if _FO.search(resp.text):
-                    return "https://" + domain.rstrip("/")
-            except Exception:
+        for domain in dict.fromkeys([nospace + ".com", head + "familyoffice.com",
+                                     head + "fo.com", lower.replace(" ", "-") + ".com"]):
+            if len(domain) < 9 or domain in tried:
                 continue
+            tried.append(domain)
+            got = self._accept("https://" + domain, firm_name)
+            if got:
+                return got
+
+        # 3. web-search official-site discovery (the strategy that reaches firms whose
+        #    domain is not derivable from their name)
+        try:
+            from .search import WebSearch
+            searcher = WebSearch()
+            hits = searcher.search(f'"{firm_name}" family office official website', limit=8)
+            cand_url = WebSearch.official_website(firm_name, hits)
+            if cand_url and cand_url not in tried:
+                got = self._accept(cand_url, firm_name)
+                if got:
+                    return got
+        except Exception as exc:  # search is best-effort; never sink enrichment
+            log.warning("domain search failed", extra={
+                "event": "enrich_warn", "source": "website",
+                "firm": firm_name, "error": str(exc)[:160]})
         return None
 
     def fetch_site_deep(self, url: str) -> tuple[WebsiteFacts, list[EvidenceRef]]:
