@@ -44,6 +44,45 @@ window.
 | At least one real dependency failure | **Satisfied, multiple ways.** Two schedule-triggered runs failed for real before this session: 2026-08-10T09:09:24Z and 2026-08-10T07:14:43Z (`gh run list --workflow=operating-cycle.yml`). During this session, manually triggered run `31395597811` (2026-08-10T13:57:54Z) genuinely failed end-to-end from a real bug this work introduced (a `git add` pathspec glob failure cascading into a rejected push) — not staged, not induced, found by watching the actual run fail and read in `gh run view --log-failed`; fixed in `c9b42db`. Separately, the local Goal 3 agent run hit a real LLM provider failure ("mandate LLM call failed", `logs/agent.log` 2026-08-10T14:04:24Z) and correctly degraded to the deterministic keyword fallback rather than crashing — see `agent/mandate.py`'s fallback path. |
 | Cross-run, evidence-based staleness/trust event | **Mechanism built and proven to run correctly across two genuinely separate cycles; no real diff has fired yet, stated honestly.** Was completely unimplemented before this session (`FreshnessAgent` hardcoded `stale: []`). Fixed (`freshness_trust.py`, `2bfdc0a`), found and fixed two more real bugs that were silently breaking the commit step on every run (`c9b42db`, `8e5c5a1`) by watching actual runs fail. Two real, separate GitHub Actions runs then executed successfully: baseline `31397630141` (commit `87eda9a`, established `data/freshness/prior_snapshot.json`) and comparison `31398554032` (commit `b0b8768`, ~10 minutes later). The comparison found **zero trust-bearing field changes** — correct and expected, since nothing in the 80-record store actually changed in that ~10-minute window; an honest null result, not a failed check. **This table row cannot honestly be marked "satisfied" without a run that actually found a real diff.** A longer-running backfill cycle was triggered afterward specifically to increase the chance of a genuine field-level change (re-verification touching an existing record) surfacing before submission — check `gh run list --workflow=operating-cycle.yml` for any run after `31398554032` whose `cross_run_trust.stale` is non-empty before claiming this gate met. |
 
+## Why the record count did not move: measured, not guessed
+
+Final backfill run `31407858041` (2026-08-10 16:12→16:36 UTC, pool seeded, counting fixed):
+
+```
+BACKFILL_STOPPED: status=deadline gate_passing=77 target=500
+                  (80 rows storewide)
+re-exported 80 records | provenance rows 444 | audit rows 6
+exported 691 candidates -> data/pool/candidates.json
+```
+
+Read those three lines together and the bottleneck is unambiguous:
+
+* **Discovery works.** The pool grew **612 → 691** in this run alone: 79 genuinely new
+  candidate firms found from live sources.
+* **Conversion does not.** Released records stayed at **80 rows / 77 gate-passing**. Not one
+  of those 79 new candidates became a releasable record.
+* **The failing step is SEC 13F document fetch.** In this run: **102 × `13f primary_doc failed`**
+  and **91 × `site fetch failed`**. The 13F primary document is what supplies principal name,
+  title, AUM and holdings. Without it a candidate carries a name and an address and nothing
+  else, so it fails the release gate's evidence requirements and correctly does not ship.
+
+So the honest answer to "why not 500" is **not** "we ran out of time" and **not** "discovery is
+weak". It is: the enrichment layer's authoritative-source fetch is failing at scale from the
+hosted runner, and the release gate is — correctly — refusing to publish the thin records that
+result. The gate is doing its job; the enrichment feeding it is not. A pipeline that discovered
+79 firms and shipped 0 is a pipeline with a broken middle, and no amount of running it longer
+fixes that.
+
+**What I did not do:** diagnose *why* the SEC fetch fails from the runner (candidate causes:
+SEC rate-limiting the shared GitHub Actions IP range, a User-Agent the endpoint now rejects, or
+a changed document path). That is the next thing to fix and it is not fixed. I am not going to
+claim a cause I have not verified.
+
+**Also unresolved:** run `31407858041` ended in `failure` — but on infrastructure, not logic:
+`fatal: unable to access ... server certificate verification failed` on the final `git push`.
+The commit was created on the runner and lost when the push failed, which is why the pool
+snapshot in the repo still reads 612 rather than 691.
+
 ## Bugs found in this session that a passing build was hiding
 
 Listed because each one was reported as healthy by something — a green workflow, a green
