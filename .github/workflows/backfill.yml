@@ -98,6 +98,7 @@ jobs:
           git config --global user.email "ai@polarityiq.com"
           git add -f data/final/* data/backfill/* || true
           [ -d data/freshness ] && git add -f data/freshness/* || true
+          [ -d notes ] && git add -f notes/* || true
           git commit -m "chore(data): backfill acquisition update to release target" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push

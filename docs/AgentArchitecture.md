@@ -73,18 +73,32 @@ support in `operations/operate.py` / `data/backfill/checkpoint.json` — see the
 
 ## 5 · Cost and latency
 
-Measured, not estimated: on the NVIDIA free-tier `deepseek-ai/deepseek-v4-flash-0731` endpoint, a
-single grounded LLM call over the dataset took **377 seconds** in a direct measurement
-(`answer_query` against "What family offices are headquartered in Texas?"). Each goal run makes exactly
-two LLM calls (mandate understanding + synthesis) plus retrieval/compute calls that are local and
-effectively free (no per-call API cost — the corpus is embedded once at startup). See `reports/goals/`
-for the actual measured `elapsed_seconds` per goal once run. [Fill in exact numbers for Goals 1-3 below
-once all three have completed.]
+Measured, not estimated, on two providers:
 
-Refresh cost per record: dominated by web-search API calls (Tavily/Exa/Serper) and website fetches
-during enrichment, not by the LLM (the operating cycle itself makes zero LLM calls — see
-`agents/contract.json`, no employee's `tools_used` includes an LLM). [Fill in measured $/record once a
-real batch enrichment cycle is timed and logged in this window.]
+- **NVIDIA free tier (`deepseek-ai/deepseek-v4-flash-0731`, used for local development runs)**: a
+  single grounded LLM call over the dataset took **377 seconds** in a direct measurement
+  (`answer_query` against "What family offices are headquartered in Texas?"). A full goal run (2 LLM
+  calls + local retrieval/scoring) took **573s (Goal 2), 270s (Goal 1, pre-fix)** end to end — see
+  `logs/agent/goal-5017dab551.jsonl`, `logs/agent/goal-923b73bc7c.jsonl`.
+- **Groq (`llama-3.3-70b-versatile`, the live Render deployment's actual configured provider)**: the
+  SAME three goals, re-run against the live deployed service, completed in **5.0-7.2 seconds each**
+  end to end (`reports/goals/goal-a20ad286ea-GOAL1-LIVE.json` 7.2s, `goal-93f269059a-GOAL2-LIVE.json`
+  5.0s, `goal-99f7644650-GOAL3-LIVE.json` 6.4s) — roughly **50-100x faster** than the NVIDIA free tier
+  for the identical code path. The manual single-call `/query` baseline is faster still (0.8-1.6s),
+  which is the expected 2-LLM-call vs 0-or-1-LLM-call cost of genuine multi-step decomposition. All
+  API cost is $0 on both providers' free tiers at this volume; the real constraint is the **shared
+  Groq daily token quota** (100,000 tokens/day, already documented in `KnownLimitations.md` as shared
+  with `/query`), not per-call price.
+
+Retrieval/compute calls inside a goal run (multi-pass semantic retrieval, deterministic scoring over
+all 80 records) are local and effectively free — no per-call API cost, since the corpus is embedded
+once at startup and `ComputeEngine` runs in-process.
+
+Refresh cost per record: dominated by web-search API calls (Tavily/Exa/Serper, all free-tier in this
+build) and website fetches during enrichment, not by the LLM — the operating cycle itself makes zero
+LLM calls (see `agents/contract.json`; no employee's `tools_used` includes an LLM). A precise $/record
+figure requires a timed real batch cycle with paid-tier API pricing, which this session's free-tier
+keys do not produce — stated as a gap rather than invented.
 
 At 5,000 records, the first bottleneck is the free-tier LLM call latency and quota, not the dataset or
 the deterministic pipeline: at ~130-380s per call, a customer-facing agent workflow that made even one
