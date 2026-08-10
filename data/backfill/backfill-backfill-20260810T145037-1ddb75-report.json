@@ -1,15 +1,16 @@
 {
   "run_id": "backfill-20260810T145037-1ddb75",
-  "started_at": "2026-08-10T14:50:37.130495+00:00",
+  "status": "deadline",
+  "detail": "deadline 2026-08-10T15:35:00+00:00 reached with 0 < 500 gate-passing records (0 rows storewide)",
   "target": 500,
   "deadline": "2026-08-10T15:35:00+00:00",
-  "safety_limit": 3,
-  "rows": 0,
+  "started_at": "2026-08-10T14:50:37.130495+00:00",
+  "finished_at": "2026-08-10T15:41:12.355418+00:00",
+  "rows_storewide": 0,
   "gate_passing": 0,
+  "delta_gate_passing": 0,
   "total_cycles": 7,
   "consecutive_failures": 0,
-  "status": "running",
-  "detail": "",
   "cycles": [
     {
       "at": "2026-08-10T14:58:08.290346+00:00",
@@ -67,5 +68,10 @@
       "fatal": false,
       "detail": ""
     }
-  ]
+  ],
+  "no_fabrication": {
+    "rows": 0,
+    "gate_passing": 0,
+    "gate_passing_le_rows": true
+  }
 }
