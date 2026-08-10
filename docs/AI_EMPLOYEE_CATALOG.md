@@ -334,25 +334,25 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 ---
 ### enrichment
 
-**Business objective.** Fetch authoritative facts (SEC, IAPD/ADV, 13F, firm website) and BUILD evidence-backed classified FamilyOfficeRecords via assemble.enrich_and_build; an unconfirmable blank stays honestly blank (could_not_verify). Contact intelligence is extracted only from the firm's own published pages: a mailto/contact email (status=risky — the firm's outreach inbox, not the principal's personal address) and the LinkedIn company page the site links, both with provenance; anything else stays an honest blank.
+**Business objective.** Fetch authoritative facts (SEC, IAPD/ADV, 13F, firm website) and BUILD a FamilyOfficeRecord for EVERY candidate via assemble.enrich_and_build; collection is never gated on qualification — an unconfirmable blank stays honestly blank (could_not_verify), and a candidate lacking affirmative FO evidence still becomes a record (fo_type=Undetermined) rather than being dropped. Contact intelligence (email/linkedin) is extracted only from the firm's own published pages with provenance (email = the firm's outreach inbox, status risky), never guessed. Qualification is decided downstream at governance/release, never here.
 
 **Why it exists.** Mission: enrichment — see the in-code EmployeeContract in `src/fointel/operate/adapters.py`.
 
 **Trigger.** Position 5 of 14 in the cycle (`ROLE_ORDER`); the cycle runs on schedule via `.github/workflows/operating-cycle.yml`.
 
 **Inputs.** - candidates
-- max_build (optional per-run build cap; bounds the first live runs)
+- max_build (optional per-run build cap)
 
-**Outputs.** - enriched (count of qualifying records)
+**Outputs.** - enriched (count of built records, qualified or not)
 - filled (count with verification)
-- cap_applied (build-cap value, when set)
-- report (discovery/qualification report)
+- cap_applied
+- report (discovery/collection report: total_collected, total_qualified)
 
 **Responsibilities.** - Fetch authoritative facts
-- Build records with provenance
+- Build a record for every candidate, qualified or not
 - Collect evidence
 - Keep unconfirmable fields honestly blank
-- Thread built records into cycle state
+- Thread ALL built records into cycle state
 
 **Tools.** - SEC EDGAR parser
 - IAPD/ADV enricher
@@ -365,15 +365,15 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - SEC 13F
 - firm website
 
-**Authority boundary.** May enrich and fill only with sourced values carrying provenance. Never guesses a blank — an email/LinkedIn only enters the record when the firm's official site publishes it.
+**Authority boundary.** May enrich and fill only with sourced values carrying provenance (site-published email/linkedin only; the email is the firm's outreach inbox, status risky). Never guesses a blank.
 
 **Autonomous actions.** fetch, fill_field, collect_evidence
 
 **Escalation conditions.** - an unconfirmable field stays honestly blank (could_not_verify)
 
-**Upstream dependencies.** entity  ·  **Downstream dependencies.** validation, classification, governance, release
+**Upstream dependencies.** duplicate, entity  ·  **Downstream dependencies.** validation, classification, governance, release
 
-**Consumes / Produces.** consumes: resolved candidates · produces: evidence-backed FamilyOfficeRecord list (state.records) + enrichment report
+**Consumes / Produces.** consumes: resolved candidates · produces: FamilyOfficeRecord list for every candidate, qualified or not (state.records), enrichment report
 
 **Logs produced.** - enrichment.fetch (enriched, filled, report)
 
@@ -384,10 +384,11 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Framework independence.** Yes — EnrichmentAgent reuses existing enrichers after duplicate.
 
-**Repository location.** src/fointel/assemble.py, src/fointel/enrichment/, src/fointel/operate/cycle.py, src/fointel/operate/adapters.py
+**Repository location.** src/fointel/assemble.py, src/fointel/enrichment/, src/fointel/operate/cycle.py, src/fointel/operate/adapters.py, src/fointel/operate/continuous.py, operations/operate.py, .github/workflows/continuous-collect.yml
 
 **Unit tests.** - test_enrichment_sec.py
 - test_enrichment_website.py
+- test_contact_enrichment.py
 
 **Integration tests.** - test_fourteen_employees.py
 - test_langgraph_cycle.py
@@ -403,6 +404,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 **Trigger.** Position 6 of 14 in the cycle (`ROLE_ORDER`); the cycle runs on schedule via `.github/workflows/operating-cycle.yml`.
 
 **Inputs.** - candidates
+- records (built)
 - cycle_state
 
 **Outputs.** - validated (per-gate result list)
@@ -583,7 +585,8 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 - Never drop existing curated records
 
 **Tools.** - export_dataset
-- rag.load.load_records_from_store
+- load_records_from_store
+- FamilyOfficeRecord round-trip
 
 **Knowledge sources.** - governance-approved decisions
 
@@ -595,7 +598,7 @@ scheduler -> engineering -> discovery -> entity -> duplicate -> enrichment
 
 **Upstream dependencies.** governance, human_approval  ·  **Downstream dependencies.** embedding
 
-**Consumes / Produces.** consumes: approved decisions + built records · produces: updated store records.json, family_offices.csv/.xlsx, versioned release
+**Consumes / Produces.** consumes: approved decisions from governance, built records · produces: updated store records.json, family_offices.csv/.xlsx, versioned release
 
 **Logs produced.** - release.publish (published, count, store_file, store_total, note)
 

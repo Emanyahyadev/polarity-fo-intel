@@ -327,10 +327,17 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
                         wikipedia_bg=wiki_bg, classification=cls)
 
 
-def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
-    """Build a qualifying record (or None). Every populated high-value cell gets provenance."""
-    if not e.classification.qualifies:
-        return None
+def build_record(e: EnrichedFirm, as_of: date) -> FamilyOfficeRecord:
+    """Build a record from whatever evidence was collected — qualifying or not.
+
+    Collection is never gated on qualification: a candidate that classify()
+    could not yet affirm as a family office still becomes a record (fo_type=
+    Undetermined, fo_type_evidence=None, record.qualifies() -> False) so it
+    stays visible in the pool for further enrichment instead of being silently
+    discarded. The ONLY gate that withholds a record from release is
+    ReleaseGate (validation/gates.py G1, driven by qualifies()), invoked at
+    governance/release — never here. Every populated high-value cell still
+    gets provenance regardless of qualification status."""
     c = e.candidate
     prov: dict[str, Provenance] = {}
     vsources: list[SourceRef] = []
@@ -622,6 +629,12 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
             cnv.append(f)
 
     cls = e.classification
+    # Collected-but-not-yet-qualified: the reject reason travels WITH the record
+    # (not only in the enrich_and_build aggregate counter) so a reviewer/later
+    # enrichment pass can see why, without the record having been discarded.
+    if not cls.qualifies:
+        note = f"not yet qualified: {cls.reject_reason or 'no affirmative FO evidence yet'}"
+        reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
     rec = FamilyOfficeRecord(
         fo_id=_fo_id(c), name=name,
         fo_type=cls.fo_type, fo_type_evidence=cls.evidence, fo_type_confidence=cls.confidence,
@@ -634,7 +647,15 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 
 
 def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, dict]:
-    """Enrich + build all candidates. Returns (records, discovery_report)."""
+    """Enrich + build EVERY candidate — collection is never gated on qualification.
+
+    Every candidate becomes a record (see build_record); classify()'s verdict
+    only decides whether it counts toward `qualified_by_source`, never whether
+    it is built. Downstream (validation/classification/governance/release)
+    already treats an unqualified record correctly (escalate, never auto-ship);
+    ReleaseGate is the only place a record is actually withheld.
+
+    Returns (records, discovery_report)."""
     sec_enr, web_enr, iapd_enr = SecEnricher(), WebsiteEnricher(), IapdEnricher()
     f13_enr, adv_enr, person_enr = ThirteenFEnricher(), AdvEnricher(), PersonContactEnricher()
     records: list[FamilyOfficeRecord] = []
@@ -650,13 +671,12 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
         if e.person_contact and e.person_contact.found:
             named_person_email_found += 1 if e.person_contact.email else 0
             named_person_linkedin_found += 1 if e.person_contact.linkedin else 0
-        if not e.classification.qualifies:
-            rejected_by_reason[e.classification.reject_reason or "unknown"] += 1
-            continue
         rec = build_record(e, as_of)
-        if rec is not None:
-            records.append(rec)
+        records.append(rec)
+        if e.classification.qualifies:
             qualified_by_source[cand.source_class.value] += 1
+        else:
+            rejected_by_reason[e.classification.reject_reason or "no affirmative FO evidence yet"] += 1
 
     n_before = len(records)
     records, merges = dedupe_records(records)
@@ -665,14 +685,18 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
             "event": "dedup_summary", "before": n_before, "after": len(records),
             "merged": len(merges)})
 
+    total_qualified = sum(qualified_by_source.values())
     report = {
         "discovered_by_source": dict(discovered_by_source),
         "qualified_by_source": dict(qualified_by_source),
         "rejected_by_reason": dict(rejected_by_reason.most_common()),
         "total_discovered": sum(discovered_by_source.values()),
-        "qualified_before_dedup": n_before,
+        # collected = every candidate that was built into a record, qualified or
+        # not (collection is never gated on qualification — see build_record).
+        "collected_before_dedup": n_before,
         "post_enrichment_merges": merges,
-        "total_qualified_pre_gate": len(records),
+        "total_collected": len(records),
+        "total_qualified": total_qualified,
         "named_person_email_found": named_person_email_found,
         "named_person_linkedin_found": named_person_linkedin_found,
     }

@@ -571,8 +571,10 @@ class EnrichmentAgent(AgentBase):
     """Fetch authoritative facts for each candidate (SEC EDGAR, IAPD/ADV, 13F,
     firm website) and fill record fields WITH provenance. Then reports the
     enrichable surface honestly. Reuses the Stage 1 enrichers + `enrich_and_build`,
-    so every populated cell carries provenance and only qualifying, classified
-    records enter the cycle's `records` channel for validation/gate/release."""
+    so every populated cell carries provenance. EVERY candidate is built into a
+    record and enters the cycle's `records` channel — collection is never gated
+    on qualification; classification/governance/release decide qualification
+    downstream, and only ReleaseGate ever withholds a record from shipping."""
 
     name = "enrichment"
 

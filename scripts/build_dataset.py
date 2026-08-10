@@ -57,7 +57,9 @@ def main() -> None:
     print("\n===== DISCOVERY REPORT =====")
     print(json.dumps(discovery, indent=2, ensure_ascii=False))
     print("\n===== GATE =====")
-    print(f"built (qualified pre-gate): {len(records)}")
+    print(f"discovered:                 {discovery.get('total_discovered', len(candidates))}")
+    print(f"collected (built, pre-gate): {len(records)}")
+    print(f"  of which qualified:       {discovery.get('total_qualified', 'n/a')}")
     print(f"released by gate:           {len(released)}")
     print(f"withheld gate reasons:      {dict(withheld)}")
     print("\n===== SELECTION =====")
@@ -108,7 +110,9 @@ def main() -> None:
                        indent=2, ensure_ascii=False), encoding="utf-8")
         manifest = new_manifest(stage="dataset", started_at=started_at, counts={
             "discovered": discovery["total_discovered"],
-            "qualified_pre_gate": len(records), "released": len(released),
+            "collected_pre_gate": len(records),
+            "qualified_pre_gate": discovery.get("total_qualified", 0),
+            "released": len(released),
             "delivered": len(selected)}, notes={"export": result})
         write_manifest(manifest)
         print(f"\n===== EXPORT =====\n{json.dumps(result, indent=2)}")
