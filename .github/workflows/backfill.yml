@@ -96,7 +96,7 @@ jobs:
         run: |
           git config --global user.name "Family Office AI Agents"
           git config --global user.email "ai@polarityiq.com"
-          git add -f data/final/* data/backfill/* || true
+          git add -f data/final/* data/backfill/* data/freshness/* || true
           git commit -m "chore(data): backfill acquisition update to release target" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push
