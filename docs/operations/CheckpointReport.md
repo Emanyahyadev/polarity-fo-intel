@@ -73,6 +73,43 @@ that was not. ADRs: **ADR-001…006**.
 
 ---
 
+## Addendum — 2026-08-10 (Stage 2 session)
+
+Appended, not rewritten: the report above stands as the record of what was true when it
+was written. Two of its open questions in section 7 now have answers, and section 5's
+"accepted without independent verification" list grew.
+
+**Section 7 question 1 — "Whether the scheduled cycle runs end-to-end in CI on the hosted
+runner": answered, and the answer was partly NO.** Scheduled runs did execute unattended
+across >48h (2026-08-08T09:09:33Z → 2026-08-10T11:00:05Z), but the commit step was
+silently broken on every run by two bugs found this session: an unmatched
+`data/freshness/*` glob aborting `git add` atomically, and `notes/*.md` (regenerated each
+cycle by `generate_history.py`) never being staged, leaving the tree dirty so
+`git pull --rebase` failed and the push was rejected. Fixed in `c9b42db` and `8e5c5a1`.
+A green "Wake the operating cycle" step had been masking a red commit step.
+
+**A stated capability turned out not to exist.** `FreshnessAgent.execute()` returned
+`stale: []` hardcoded — the cross-run staleness/trust capability the contract described
+had no implementation behind it, while reporting success. Implemented this session
+(`src/fointel/operate/freshness_trust.py`, `2bfdc0a`) and exercised across two genuinely
+separate runs (`31397630141` baseline → `31398554032` comparison). Those two runs found
+no real diff, which is the honest result for a ~10-minute window in which nothing changed —
+not evidence that the check works on real decay. See `docs/Stage2Status.md`.
+
+**Two UI panels were fabricated.** "AI Employee Status" rendered hardcoded agent states
+(`{name: "Discovery Pipeline", state: "active"}`) and "AI Operating Cycle" was a
+decorative animation on a timer — neither read any system state, and both would have
+shown "active" on a dead system. Deleted in `07cd91c` and replaced with panels counted
+live from the served records.
+
+**Section 8 (time and attention) still applies unchanged, and matters more now.** This
+session's work was again AI-executed. The human seat supplied the LLM API key, the real
+deadline, and the instruction to proceed; the seat has **not** performed a line-by-line
+review of the files changed this session. The certification below therefore still holds
+and has not been re-signed.
+
+---
+
 ### Certification
 > Every first-person statement in this report describes something the person
 > signing it did or inspected. In this build the execution was performed by the
