@@ -18,6 +18,10 @@ data/*.db-shm
 
 # runtime run-traces / operating-cycle artifacts (regenerated every run)
 logs/
+# ...except the customer-facing agent's goal-run traces — these ARE a deliverable
+# (raw, unedited run log per goal) and must stay in git, not be silently excluded.
+!logs/agent/
+!logs/agent/*.jsonl
 
 # Model / embedding caches
 .cache/

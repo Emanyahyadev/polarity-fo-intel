@@ -15,6 +15,9 @@ from the committed deliverable CSV. Endpoints:
 
 from __future__ import annotations
 
+import threading
+import time
+import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -32,6 +35,7 @@ from ..rag.roles import principal_role
 log = get_logger("api")
 WEB = Path(__file__).parent / "web"
 _STATE: dict = {}
+_GOALS: dict[str, dict] = {}   # in-memory goal-run registry: run_id -> {status, result, error}
 
 
 @asynccontextmanager
@@ -141,3 +145,45 @@ def query(payload: Query) -> dict:
                 "reason": "empty query", "cards": [], "citations": []}
     log.info("query", extra={"event": "query", "query": text})
     return answer_query(_STATE["index"], text).model_dump()
+
+
+# --------------------------------------------------------------------------- #
+# Agent — multi-step goal execution. A goal run does real LLM + retrieval work
+# (minutes, not milliseconds), so it runs on a background thread; the client
+# polls GET /goal/{run_id} for status/result. This is the customer-facing
+# agent surface: distinct from /query's single-call RAG (see src/fointel/agent).
+# --------------------------------------------------------------------------- #
+
+class Goal(BaseModel):
+    goal: str
+
+
+def _execute_goal(run_id: str, goal_text: str) -> None:
+    from ..agent.run import run_goal, save_result
+    try:
+        result = run_goal(goal_text)
+        save_result(result)
+        _GOALS[run_id] = {"status": "done", "result": result, "error": None}
+    except Exception as exc:  # noqa: BLE001 — surface to the client, never crash the server
+        log.warning("goal run failed", extra={"event": "goal_error", "run_id": run_id, "error": str(exc)})
+        _GOALS[run_id] = {"status": "failed", "result": None, "error": str(exc)}
+
+
+@app.post("/goal")
+def start_goal(payload: Goal) -> dict:
+    text = (payload.goal or "").strip()
+    if not text:
+        return {"error": "Please enter a goal."}
+    run_id = f"goal-{uuid.uuid4().hex[:10]}"
+    _GOALS[run_id] = {"status": "running", "result": None, "error": None, "started_at": time.time()}
+    log.info("goal started", extra={"event": "goal_start", "run_id": run_id, "goal": text})
+    threading.Thread(target=_execute_goal, args=(run_id, text), daemon=True).start()
+    return {"run_id": run_id, "status": "running"}
+
+
+@app.get("/goal/{run_id}")
+def goal_status(run_id: str) -> dict:
+    entry = _GOALS.get(run_id)
+    if not entry:
+        return {"status": "not_found"}
+    return entry

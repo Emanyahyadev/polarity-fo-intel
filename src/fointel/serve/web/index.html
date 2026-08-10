@@ -25,6 +25,7 @@
     </span>
     <nav class="tabs" role="tablist" aria-label="Views">
       <button class="tab" role="tab" id="tab-research" aria-selected="true" aria-controls="view-research">Research</button>
+      <button class="tab" role="tab" id="tab-agent" aria-selected="false" aria-controls="view-agent">Agent</button>
       <button class="tab" role="tab" id="tab-directory" aria-selected="false" aria-controls="view-directory">Directory</button>
     </nav>
     <div class="top-right">
@@ -53,6 +54,27 @@
       <div class="chips" id="chips" aria-label="Example queries"></div>
 
       <div id="results" aria-live="polite"></div>
+    </section>
+
+    <!-- ============ AGENT VIEW ============ -->
+    <section id="view-agent" role="tabpanel" aria-labelledby="tab-agent" class="hide">
+      <h1 class="lede">Give the agent a goal, not a search.</h1>
+      <p class="lede-sub">Tell it what you're trying to accomplish in plain English — for example, finding
+        and prioritizing prospects for a fund mandate. The agent reads your goal, decides what to look up,
+        checks the evidence behind every candidate, and tells you plainly where it is confident and where
+        it isn't. This takes a few minutes to run — it is doing real multi-step research, not a single
+        lookup.</p>
+
+      <div class="cmd">
+        <input id="goal-input" type="text"
+               placeholder="e.g. Identify the 10 family offices best positioned as new limited partners for a private-markets fund…"
+               autocomplete="off" aria-label="Agent goal">
+        <button class="go" id="goal-run">Run agent</button>
+      </div>
+      <div class="chips" id="goal-chips" aria-label="Example goals"></div>
+
+      <div id="goal-status" aria-live="polite"></div>
+      <div id="goal-results" aria-live="polite"></div>
     </section>
 
     <!-- ============ DIRECTORY VIEW ============ -->

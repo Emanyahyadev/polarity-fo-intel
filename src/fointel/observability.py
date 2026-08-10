@@ -33,6 +33,7 @@ CHANNELS = {
     "retrieval": "retrieval.log",     # RAG retrieval + grounding/abstention
     "api": "api.log",                 # serving layer
     "deployment": "deployment.log",   # deploy + health
+    "agent": "agent.log",             # mandate agent: LLM calls, rejections, fallbacks
 }
 
 # LogRecord attributes we do NOT copy into the JSON payload as "extra" fields.

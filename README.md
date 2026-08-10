@@ -1,8 +1,15 @@
 # Polarity FO Intel
 
-A production-shaped pipeline that discovers, enriches, and **validates** a decision-grade dataset of 61 family offices, then serves it through a grounded Micro-RAG with a non-technical, customer-facing UI.
+A production-shaped pipeline that discovers, enriches, and **validates** a decision-grade dataset of family
+offices, served through a grounded Micro-RAG (`/query`) plus a multi-step, agentic mandate research tool
+(`/goal`) with a non-technical, customer-facing UI.
 
-Built for the PolarityIQ Differentiator, Stage 1, Task 1.
+Built for the PolarityIQ Differentiator — Stage 1 (Task 1) and Stage 2 (the Micro-Agentic Build).
+
+**Stage 2 status, stated plainly:** the dataset currently holds **80 qualifying records**, not the 500-record
+bar Stage 2 sets as a hard minimum. This submission is honestly incomplete on record count — see
+[docs/Stage2Status.md](docs/Stage2Status.md) for the exact gap, why, and what's real vs not: the agent, the
+governance fixes, and the operating-window evidence are real and live; the 500-record scale-up is not done.
 
 **▶ Live demo:** **https://family-office-intelligence.onrender.com** — try *"multi-family offices in Texas"*, *"single-family offices in Belgium"*, or *"Tell me about Pathstone"*. Ask something off-topic (*"best pizza in Chicago"*) and it declines instead of guessing. *(Hosted on a free tier and kept warm; a rare first request after idle may take a few seconds.)*
 

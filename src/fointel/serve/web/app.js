@@ -23,6 +23,7 @@ themeBtn.onclick = () => {
 
 /* ================= tabs ================= */
 const views = { research: [$("#tab-research"), $("#view-research")],
+                agent: [$("#tab-agent"), $("#view-agent")],
                 directory: [$("#tab-directory"), $("#view-directory")] };
 function showView(name){
   for(const [k,[tab,view]] of Object.entries(views)){
@@ -33,6 +34,7 @@ function showView(name){
   if(name==="directory") loadDirectory();
 }
 views.research[0].onclick = () => showView("research");
+views.agent[0].onclick = () => showView("agent");
 views.directory[0].onclick = () => showView("directory");
 
 import * as vis from "./visualizations.js";
@@ -404,3 +406,89 @@ function exportCSV(rows, filename){
   a.download = filename; a.click(); URL.revokeObjectURL(a.href);
   toast("Exported " + rows.length + " rows");
 }
+/* ================= AGENT — multi-step goal execution ================= */
+const GOAL_EXAMPLES = [
+  "Identify the 10 family offices in the dataset that are the strongest prospects for a private-markets fund seeking new limited partners, rank them by overall fit, and identify the relevant named decision-maker and contact route for each.",
+  "Identify the family offices in the dataset that are the best fit for a lower-middle-market healthcare services fund seeking limited partners, and tell me how confident you are in each.",
+];
+$("#goal-chips").innerHTML = GOAL_EXAMPLES.map(e=>`<button class="chip">${esc(e.slice(0,70))}…</button>`).join("");
+$("#goal-chips").addEventListener("click", e=>{
+  const b = e.target.closest("button.chip"); if(!b) return;
+  const idx = [...e.currentTarget.children].indexOf(b);
+  $("#goal-input").value = GOAL_EXAMPLES[idx]; runGoal();
+});
+
+const UNCERTAINTY_LABEL = {
+  sufficient: {label: "Strong evidence", cls: "hi"},
+  thin: {label: "Thin evidence — treat as a lead, not a conclusion", cls: "lo"},
+  stale: {label: "Evidence is out of date", cls: "lo"},
+  insufficient: {label: "Not enough evidence to assess", cls: "lo"},
+};
+
+function goalCard(item){
+  const u = UNCERTAINTY_LABEL[item.uncertainty] || {label: item.uncertainty, cls: "lo"};
+  const contact = item.contact_route
+    ? `<div class="g-contact">Contact: <b>${esc(item.contact_route.kind.replace(/_/g," "))}</b> — ${esc(item.contact_route.value)}
+        <span class="g-ev">(${esc(item.contact_route.evidence)})</span></div>`
+    : `<div class="g-contact g-nocontact">No verified route to a named decision-maker on file.</div>`;
+  const dm = item.decision_maker ? `<div class="g-dm">Decision-maker: ${esc(item.decision_maker)}</div>` : "";
+  return `<div class="panel g-card">
+    <div class="g-head"><span class="g-rank">#${item.rank}</span>
+      <span class="g-name">${esc(item.family_office_name)}</span>
+      <span class="g-badge ${u.cls}">${esc(u.label)}</span></div>
+    <div class="g-why">${esc(item.fit_reasoning)}</div>
+    ${dm}${contact}
+    <div class="g-evidence">Evidence on file: ${item.evidence.n_verification_sources} independent source(s),
+      record confidence ${esc(item.evidence.record_confidence)}.
+      ${item.uncertainty_reason ? esc(item.uncertainty_reason) + "." : ""}</div>
+    <div class="g-action">Next step: ${esc(item.recommended_action)}</div>
+  </div>`;
+}
+
+function renderGoalResult(result){
+  const c = result.counts;
+  const summary = `<div class="panel" style="margin-bottom:16px;">
+    <p style="margin:0 0 8px;"><b>What the agent did:</b> read your goal, checked it against
+    ${c.considered} candidate records, and found ${c.sufficient_evidence} with strong supporting evidence,
+    ${c.thin_or_stale_evidence} with thin or dated evidence, and ${c.insufficient_evidence} without enough
+    evidence to assess. It ran in ${result.elapsed_seconds}s.</p>
+    <details><summary style="cursor:pointer;">What a single search would have returned instead</summary>
+      <p style="white-space:pre-wrap;margin-top:8px;">${esc(result.manual_retrieval_baseline.answer)}</p>
+    </details>
+  </div>`;
+  const cards = result.structured_output.map(goalCard).join("");
+  $("#goal-results").innerHTML = summary + cards;
+}
+
+let GOAL_POLL = null;
+function pollGoal(runId){
+  clearInterval(GOAL_POLL);
+  GOAL_POLL = setInterval(async () => {
+    const r = await fetch(`/goal/${runId}`); const d = await r.json();
+    if(d.status === "running"){
+      $("#goal-status").innerHTML = `<div class="panel">Working — decomposing the goal, retrieving and
+        comparing candidates, checking evidence… this can take several minutes.</div>`;
+    } else if(d.status === "done"){
+      clearInterval(GOAL_POLL);
+      $("#goal-status").innerHTML = "";
+      renderGoalResult(d.result);
+    } else if(d.status === "failed"){
+      clearInterval(GOAL_POLL);
+      $("#goal-status").innerHTML = `<div class="panel">The agent could not complete this run: ${esc(d.error||"unknown error")}</div>`;
+    }
+  }, 4000);
+}
+
+async function runGoal(){
+  const text = $("#goal-input").value.trim();
+  if(!text) return;
+  $("#goal-results").innerHTML = "";
+  $("#goal-status").innerHTML = `<div class="panel">Starting — the agent is reading your goal…</div>`;
+  const r = await fetch("/goal", {method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({goal: text})});
+  const d = await r.json();
+  if(d.run_id) pollGoal(d.run_id);
+  else $("#goal-status").innerHTML = `<div class="panel">${esc(d.error||"Could not start the agent.")}</div>`;
+}
+$("#goal-run").onclick = runGoal;
+$("#goal-input").addEventListener("keydown", e=>{ if(e.key==="Enter") runGoal(); });
