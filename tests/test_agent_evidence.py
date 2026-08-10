@@ -9,7 +9,7 @@ auditable scoring formula.
 
 from __future__ import annotations
 
-from src.fointel.agent.evidence import build_evidence, score_and_classify
+from fointel.agent.evidence import build_evidence, score_and_classify
 
 
 def _rec(**overrides):
