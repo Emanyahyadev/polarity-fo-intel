@@ -174,6 +174,7 @@ class EnrichedFirm(BaseModel):
     website: Optional[str] = None
     website_facts: Optional[WebsiteFacts] = None
     person_contact: Optional[PersonContactFacts] = None
+    page_person: Optional[dict] = None  # page-driven fallback result (no SEC seed)
     wikipedia_bg: Optional[str] = None
     classification: Classification
 
@@ -286,12 +287,43 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
                 "event": "enrich_warn", "source": "person_contact",
                 "firm": cand.name, "url": website, "error": str(exc)})
 
+    # Page-driven fallback (Target 3, non-SEC firms): the seed-name path above
+    # only ever runs for SEC 13F/ADV filers, so a non-SEC family office with a
+    # real, public team page never entered person discovery at all — not
+    # because the evidence was missing, but because nothing looked. Measured
+    # on a 12-firm sample of non-SEC gold-set firms (docs/evidence/
+    # person-page-discovery-experiment.json): 5/12 had a reachable team page,
+    # producing real named+titled decision-makers card-anchored to their own
+    # contact info. Only attempted when the seed-name path above found
+    # nothing, and only accepted when BOTH a decision-maker-relevant title AND
+    # a card-local contact signal are present in the SAME bounded card as the
+    # name — see person_page_discovery.py's docstring for the two
+    # misattribution bugs this guards against.
+    page_person = None
+    if website and not (person_contact and person_contact.found):
+        try:
+            from .enrichment.person_page_discovery import discover_people
+            candidates, pages = discover_people(web_enr, website)
+            verified = [p for p in candidates if p.verdict == "verified_decision_maker"]
+            if verified:
+                page_person = verified[0]
+        except Exception as exc:
+            log.warning("person-page discovery failed", extra={
+                "event": "enrich_warn", "source": "person_page_discovery",
+                "firm": cand.name, "url": website, "error": str(exc)})
+
+    page_person_dict = None
+    if page_person is not None:
+        page_person_dict = {"name": page_person.name, "title": page_person.title,
+                            "email": page_person.email, "linkedin": page_person.linkedin,
+                            "source_url": page_person.source_url}
+
     website_text = wfacts.text_excerpt if wfacts else ""
     cls = classify(cand.name, sec_facts=facts, website_text=website_text, iapd=iapd)
     return EnrichedFirm(candidate=cand, sec_facts=facts, sec_url=sec_url, sec_hash=sec_hash,
                         iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash, adv=adv,
                         thirteenf=thirteenf, website=website, website_facts=wfacts,
-                        person_contact=person_contact,
+                        person_contact=person_contact, page_person=page_person_dict,
                         wikipedia_bg=wiki_bg, classification=cls)
 
 
@@ -494,6 +526,39 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
             source_class=SourceClass.FIRM_SITE,
             verifies="named-person contact route (email/LinkedIn) for the principal",
             accessed_at=as_of, url=pc.source_url))
+
+    # Page-driven named-person contact (Target 3, non-SEC firms): only reached when
+    # NO SEC-seeded principal_name exists yet (see enrich_candidate — the page-driven
+    # fallback only runs when the seed-name path found nothing), so there is no prior
+    # principal_name to cross-check with same_person(). The name/title/contact all came
+    # from ONE bounded card on the firm's own site (person_page_discovery.py's card-
+    # boundary + generic-inbox guards), which is the evidence basis instead. Never
+    # overwrites an SEC-sourced principal_name — the `if` above already ensures one
+    # doesn't exist when this branch runs.
+    pp = e.page_person
+    if pp and not fields.get("principal_name"):
+        pp_prov = Provenance(
+            source_class=SourceClass.FIRM_SITE,
+            method="firm team/about page — name, title, and contact co-located on one "
+                   "bounded card (no SEC/ADV seed name; page-driven discovery)",
+            checked_at=as_of, source_url=pp["source_url"], confidence=Confidence.MEDIUM,
+            note=f"title on page: {pp['title']!r}")
+        fields["principal_name"] = pp["name"]
+        fields["principal_title"] = pp["title"]
+        prov["principal_name"] = pp_prov
+        prov["principal_title"] = pp_prov
+        if pp["email"]:
+            fields["principal_email"] = pp["email"]
+            fields["principal_email_status"] = EmailStatus.RISKY
+            prov["principal_email"] = pp_prov
+        if pp["linkedin"]:
+            fields["principal_linkedin"] = pp["linkedin"]
+            prov["principal_linkedin"] = pp_prov
+        vsources.append(SourceRef(
+            source_class=SourceClass.FIRM_SITE,
+            verifies="named decision-maker + contact route, found directly on the firm's "
+                     "own team/about page (no prior SEC/ADV name to seed the search)",
+            accessed_at=as_of, url=pp["source_url"]))
 
     # Wikipedia background -> description only if we have nothing better (cited as background)
     if "description" not in fields and e.wikipedia_bg:

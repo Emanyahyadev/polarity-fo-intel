@@ -1,0 +1,475 @@
+{
+  "sample_size": 12,
+  "team_pages_found": 5,
+  "people_extracted": 42,
+  "verified_decision_makers": 11,
+  "possible_decision_makers": 31,
+  "named_person_emails": 9,
+  "named_person_linkedin": 2,
+  "rows": [
+    {
+      "firm": "HVC Management",
+      "domain": "https://www.hvc.gmbh",
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no team page reachable"
+    },
+    {
+      "firm": "Berkocorp",
+      "domain": "https://www.berkocorp.ca",
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no team page reachable"
+    },
+    {
+      "firm": "Tacita Capital",
+      "domain": "https://tacitacapital.com",
+      "pages_checked": [
+        "https://tacitacapital.com/team",
+        "https://tacitacapital.com/our-team",
+        "https://tacitacapital.com/about",
+        "https://tacitacapital.com/about-us"
+      ],
+      "people": [
+        {
+          "name": "Michael Nairne",
+          "title": "Chief Executive",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Chief Operating Officer",
+          "title": "co-founder",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Garnet Anderson",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Joanne Swystun",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Tax Section",
+          "title": "partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Valuation Product",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Michael Nairne",
+          "title": "Chief Executive",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Chief Operating Officer",
+          "title": "co-founder",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Garnet Anderson",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Joanne Swystun",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Tax Section",
+          "title": "partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        },
+        {
+          "name": "Valuation Product",
+          "title": "President",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://tacitacapital.com/team/"
+        }
+      ],
+      "verified": 0,
+      "possible": 12,
+      "failure": null
+    },
+    {
+      "firm": "Buzbuzian Capital",
+      "domain": "https://www.buzbuzian.com",
+      "pages_checked": [
+        "https://www.buzbuzian.com/about"
+      ],
+      "people": [
+        {
+          "name": "Richard Buzbuzian Richard",
+          "title": "founder",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.buzbuzian.com/about"
+        },
+        {
+          "name": "Richard Buzbuzian",
+          "title": "founder",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.buzbuzian.com/about"
+        },
+        {
+          "name": "Drone Delivery Canada",
+          "title": "cofounder",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.buzbuzian.com/about"
+        }
+      ],
+      "verified": 0,
+      "possible": 3,
+      "failure": null
+    },
+    {
+      "firm": "Genico Family Office",
+      "domain": "https://www.genicofamilyoffice.ch/en",
+      "pages_checked": [
+        "https://www.genicofamilyoffice.ch/en/team",
+        "https://www.genicofamilyoffice.ch/en/about"
+      ],
+      "people": [
+        {
+          "name": "Werte Vertrauen Vertrauen",
+          "title": "Partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt#team"
+        },
+        {
+          "name": "Vertrauen Vertrauen",
+          "title": "Partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt#team"
+        },
+        {
+          "name": "Team Genico",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt#team"
+        },
+        {
+          "name": "Andreas Georgiadis Inhaber",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt#team"
+        },
+        {
+          "name": "Chiara Georgiadis",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt#team"
+        },
+        {
+          "name": "Werte Vertrauen Vertrauen",
+          "title": "Partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt"
+        },
+        {
+          "name": "Vertrauen Vertrauen",
+          "title": "Partner",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt"
+        },
+        {
+          "name": "Team Genico",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt"
+        },
+        {
+          "name": "Andreas Georgiadis Inhaber",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt"
+        },
+        {
+          "name": "Chiara Georgiadis",
+          "title": "Head of Investments",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.genicofamilyoffice.ch/kontakt"
+        }
+      ],
+      "verified": 0,
+      "possible": 10,
+      "failure": null
+    },
+    {
+      "firm": "Cervin Family Office and Advisors",
+      "domain": "https://www.cervinfamilyoffice.com",
+      "pages_checked": [
+        "https://www.cervinfamilyoffice.com/team",
+        "https://www.cervinfamilyoffice.com/about",
+        "https://www.cervinfamilyoffice.com/about-us"
+      ],
+      "people": [
+        {
+          "name": "Performance Assessment",
+          "title": "Founder",
+          "email": null,
+          "linkedin": "https://www.linkedin.com/in/munishrandev",
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Prasad Kumar",
+          "title": "Partner",
+          "email": null,
+          "linkedin": "https://www.linkedin.com/in/prasad-kumar-71042159",
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Compliance Officer Mr",
+          "title": "Principal",
+          "email": "manish.kalra@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Officer Rohit",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Advisors Pvt",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Advisor Registration",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Mr Rohit Karkera",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/team/"
+        },
+        {
+          "name": "Compliance Officer Mr",
+          "title": "Principal",
+          "email": "manish.kalra@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Officer Rohit",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Advisors Pvt",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Advisor Registration",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Mr Rohit Karkera",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Compliance Officer Mr",
+          "title": "Principal",
+          "email": "manish.kalra@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Officer Rohit",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Advisors Pvt",
+          "title": "Principal",
+          "email": "rohit.karkera@cervinfamilyoffice.com",
+          "linkedin": null,
+          "verdict": "verified_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Advisor Registration",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        },
+        {
+          "name": "Mr Rohit Karkera",
+          "title": "Principal",
+          "email": null,
+          "linkedin": null,
+          "verdict": "possible_decision_maker",
+          "source_url": "https://www.cervinfamilyoffice.com/about-us/"
+        }
+      ],
+      "verified": 11,
+      "possible": 6,
+      "failure": null
+    },
+    {
+      "firm": "One Family Office",
+      "domain": "https://onefamilyoffice.eu",
+      "pages_checked": [
+        "https://onefamilyoffice.eu/team"
+      ],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "person extraction failure (page fetched, no candidate found)"
+    },
+    {
+      "firm": "Intevo Family Office",
+      "domain": "https://www.int-evo.com",
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no team page reachable"
+    },
+    {
+      "firm": "C13 Investimentos",
+      "domain": null,
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no domain resolved/verified"
+    },
+    {
+      "firm": "Faerie Management",
+      "domain": "https://faerie.com.sg",
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no team page reachable"
+    },
+    {
+      "firm": "Islandbridge",
+      "domain": null,
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no domain resolved/verified"
+    },
+    {
+      "firm": "Chi Fan Group",
+      "domain": "https://www.chifangroup.com",
+      "pages_checked": [],
+      "people": [],
+      "verified": 0,
+      "possible": 0,
+      "failure": "no team page reachable"
+    }
+  ]
+}
