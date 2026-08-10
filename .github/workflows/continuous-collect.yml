@@ -78,7 +78,8 @@ jobs:
         run: |
           git config --global user.name "Family Office AI Agents"
           git config --global user.email "ai@polarityiq.com"
-          git add -f data/final/* data/freshness/* || true
+          git add -f data/final/* || true
+          [ -d data/freshness ] && git add -f data/freshness/* || true
           git commit -m "chore(data): continuous collect — 48h verified-contact dataset update" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push
