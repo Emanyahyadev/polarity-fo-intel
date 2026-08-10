@@ -643,7 +643,14 @@ class FreshnessAgent(AgentBase):
             return {"status": "skip", "reason": "no records to scan this cycle", "snapshot": {},
                     "stale": cross["stale"], "cross_run_trust": cross, "cross_run_note": cross_status}
 
-        engine = ComputeEngine(typed)
+        # ComputeEngine reads plain dicts (r.get(...)); `typed` holds
+        # FamilyOfficeRecord models. Passing the models straight in raised
+        # AttributeError: 'FamilyOfficeRecord' object has no attribute 'get'
+        # on EVERY cycle since this employee was written — which is why every
+        # run trace shows freshness.detect_stale -> "failed" while the rest of
+        # the cycle reported ok. Dump to dicts first.
+        engine = ComputeEngine([r.model_dump(mode="json") if hasattr(r, "model_dump") else r
+                                for r in typed])
         snap = engine.freshness_snapshot()
         state.setdefault("metrics", {})["freshness"] = snap.to_dict()
         return {"status": "ok", "snapshot": snap.to_dict(), "stale": cross["stale"],
