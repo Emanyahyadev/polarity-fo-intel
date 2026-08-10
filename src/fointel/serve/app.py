@@ -93,10 +93,38 @@ def _stats(records) -> dict:
     def cov(pred):
         return sum(1 for r in records if pred(r))
 
+    # How many independent sources actually corroborate each record. This is the
+    # honest basis for any "how much can I trust this" claim the UI makes — it is
+    # counted from the records being served, never asserted.
+    src_counts = Counter(len(r.verification_sources) for r in records)
+    evidence_strength = {
+        "two_or_more_sources": sum(v for k, v in src_counts.items() if k >= 2),
+        "one_source": src_counts.get(1, 0),
+        "no_sources": src_counts.get(0, 0),
+    }
+
+    # Reachability, by the ONLY definition that counts for a buyer: a route to the
+    # named individual. A firm's generic inbox is reported separately and is
+    # explicitly NOT counted as a named-person route (see schema.py).
+    def _named_route(r):
+        return bool(r.principal_email or r.principal_linkedin or r.principal_phone)
+
+    reachability = {
+        "named_person_route": cov(_named_route),
+        "named_person_identified_no_route": cov(
+            lambda r: bool(r.principal_name) and not _named_route(r)),
+        "firm_inbox_only": cov(
+            lambda r: bool(r.firm_contact_email) and not _named_route(r) and not r.principal_name),
+        "no_contact_information": cov(
+            lambda r: not _named_route(r) and not r.principal_name and not r.firm_contact_email),
+    }
+
     return {
         "records": n,
         "type": dict(Counter(r.fo_type.value for r in records)),
         "confidence": dict(Counter(r.record_confidence.value for r in records)),
+        "evidence_strength": evidence_strength,
+        "reachability": reachability,
         "coverage": {"aum": cov(lambda r: r.estimated_aum),
                      "principal": cov(lambda r: r.principal_name),
                      "principal_email": cov(lambda r: r.principal_email),

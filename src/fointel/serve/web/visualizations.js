@@ -132,86 +132,43 @@ export function renderConfidenceChart(stats) {
         .text(total);
 }
 
-// 3. AI Operating Cycle (Animated Pipeline)
-export function renderOperatingCycle() {
-    const res = responsiveSvg("vis-operating-cycle", 160);
-    if (!res) return;
-    const { svg, width, height } = res;
-    
-    const steps = [
-        "Plan", "Discover", "Resolve", "Validate", "Classify", "Govern", "Release"
+// 3. Reachability — the buyer's real question: "how many of these can I actually contact?"
+// Every number here is counted from the served records (GET /stats -> reachability);
+// nothing is asserted. A firm's generic inbox is deliberately NOT counted as a route
+// to a person, because it is not one.
+export function renderReachability(stats) {
+    const el = document.getElementById("vis-reachability");
+    if (!el || !stats || !stats.reachability) return;
+    const r = stats.reachability, n = stats.records || 1;
+    const rows = [
+        ["Reachable at a named decision-maker", r.named_person_route, "hi"],
+        ["Decision-maker known, no contact route yet", r.named_person_identified_no_route, "mid"],
+        ["Firm switchboard/inbox only — not a person", r.firm_inbox_only, "lo"],
+        ["No contact information found", r.no_contact_information, "lo"],
     ];
-    const margin = {left: 40, right: 40};
-    const innerW = width - margin.left - margin.right;
-    const stepW = innerW / (steps.length - 1);
-    
-    const g = svg.append("g").attr("transform", `translate(${margin.left},${height/2})`);
-    
-    // Background line
-    g.append("line")
-        .attr("x1", 0).attr("y1", 0)
-        .attr("x2", innerW).attr("y2", 0)
-        .attr("stroke", "var(--line2)")
-        .attr("stroke-width", 2);
-        
-    // Nodes
-    const nodes = g.selectAll("g.node")
-        .data(steps)
-        .join("g")
-        .attr("class", "node")
-        .attr("transform", (d, i) => `translate(${i * stepW}, 0)`);
-        
-    nodes.append("circle")
-        .attr("r", 8)
-        .attr("fill", "var(--surface)")
-        .attr("stroke", "var(--line2)")
-        .attr("stroke-width", 2);
-        
-    nodes.append("text")
-        .text(d => d)
-        .attr("y", 25)
-        .attr("text-anchor", "middle")
-        .style("font-family", "var(--font)")
-        .style("font-size", "11px")
-        .style("fill", "var(--ink2)");
-        
-    // Animated pulse that travels along the pipeline
-    const pulse = g.append("circle")
-        .attr("r", 5)
-        .attr("fill", "var(--accent)")
-        .attr("cy", 0)
-        .attr("cx", 0);
-        
-    function runPulse() {
-        pulse.attr("cx", 0).attr("opacity", 1)
-            .transition().duration(4000).ease(d3.easeLinear)
-            .attr("cx", innerW)
-            .transition().duration(500)
-            .attr("opacity", 0)
-            .on("end", runPulse);
-    }
-    runPulse();
+    el.innerHTML = rows.map(([label, val, cls]) => `
+        <div class="reach-row">
+          <div class="reach-top"><span>${label}</span><b>${val} of ${n}</b></div>
+          <div class="reach-bar"><i class="${cls}" style="width:${Math.round(100*val/n)}%"></i></div>
+        </div>`).join("");
 }
 
-// 4. Employee Status
-export function renderEmployeeStatus() {
-    const el = document.getElementById("vis-employee-status");
-    if (!el) return;
-    const agents = [
-        {name: "Engineering Judgment", state: "idle"},
-        {name: "Discovery Pipeline", state: "active"},
-        {name: "Entity Resolution", state: "idle"},
-        {name: "Governance Guard", state: "idle"}
+// 4. Evidence strength — how many independent sources stand behind each record.
+// Counted from the served records, not claimed.
+export function renderEvidenceStrength(stats) {
+    const el = document.getElementById("vis-evidence-strength");
+    if (!el || !stats || !stats.evidence_strength) return;
+    const e = stats.evidence_strength, n = stats.records || 1;
+    const rows = [
+        ["Corroborated by 2+ independent sources", e.two_or_more_sources, "hi"],
+        ["Single source only", e.one_source, "mid"],
+        ["No verification source on file", e.no_sources, "lo"],
     ];
-    
-    el.innerHTML = agents.map(a => `
-        <div style="display:flex; align-items:center; gap:10px; font-size:12px; color:var(--ink2);">
-            <div style="width:8px; height:8px; border-radius:50%; background:${a.state==='active'?'var(--accent)':'var(--line2)'};
-                 box-shadow:${a.state==='active'?'0 0 6px var(--accent)':'none'};"></div>
-            <div style="flex:1;">${a.name}</div>
-            <div style="font-family:var(--mono); font-size:10px; color:var(--ink3); text-transform:uppercase;">${a.state}</div>
-        </div>
-    `).join("");
+    el.innerHTML = rows.map(([label, val, cls]) => `
+        <div class="reach-row">
+          <div class="reach-top"><span>${label}</span><b>${val} of ${n}</b></div>
+          <div class="reach-bar"><i class="${cls}" style="width:${Math.round(100*val/n)}%"></i></div>
+        </div>`).join("");
 }
 
 // 5. Interactive World Map

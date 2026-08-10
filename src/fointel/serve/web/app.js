@@ -330,8 +330,13 @@ async function loadDirectory(){
   }catch{ $("#dir-body").innerHTML = `<tr><td colspan="5">Could not load records.</td></tr>`; return; }
   renderDirectory();
   vis.renderWorldMap(DIR);
-  vis.renderOperatingCycle();
-  vis.renderEmployeeStatus();
+  // Reachability + evidence-strength panels are driven by the live /stats payload
+  // (counted from the served records), so they are fetched rather than assumed.
+  try{
+    const s = await (await fetch("/stats")).json();
+    vis.renderReachability(s);
+    vis.renderEvidenceStrength(s);
+  }catch{ /* panels stay empty rather than showing invented numbers */ }
 }
 function renderDirectory(){
   const f = ($("#dir-filter").value||"").toLowerCase();
