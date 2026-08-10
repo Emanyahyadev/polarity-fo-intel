@@ -67,6 +67,7 @@ jobs:
         env:
           TARGET_RECORDS: 700
           FOINTEL_ENGINE: langgraph
+          USER_AGENT: ${{ secrets.USER_AGENT }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
