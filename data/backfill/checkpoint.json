@@ -1,0 +1,39 @@
+{
+  "run_id": "backfill-20260810T070608-c092b9",
+  "started_at": "2026-08-10T07:06:08.994743+00:00",
+  "target": 500,
+  "deadline": "2026-08-10T17:00:00+00:00",
+  "safety_limit": 3,
+  "rows": 0,
+  "gate_passing": 0,
+  "total_cycles": 3,
+  "consecutive_failures": 3,
+  "status": "running",
+  "detail": "",
+  "cycles": [
+    {
+      "at": "2026-08-10T07:13:27.333062+00:00",
+      "rows": 0,
+      "gate_passing": 0,
+      "new_gate_passing": 0,
+      "fatal": true,
+      "detail": "ResourceLimitError: cycle state is 1382917 bytes (budget 1000000)"
+    },
+    {
+      "at": "2026-08-10T07:20:26.057753+00:00",
+      "rows": 0,
+      "gate_passing": 0,
+      "new_gate_passing": 0,
+      "fatal": true,
+      "detail": "ResourceLimitError: cycle state is 1388187 bytes (budget 1000000)"
+    },
+    {
+      "at": "2026-08-10T07:27:37.708677+00:00",
+      "rows": 0,
+      "gate_passing": 0,
+      "new_gate_passing": 0,
+      "fatal": true,
+      "detail": "ResourceLimitError: cycle state is 1383919 bytes (budget 1000000)"
+    }
+  ]
+}
