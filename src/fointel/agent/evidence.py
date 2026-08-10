@@ -139,10 +139,15 @@ def score_and_classify(ev: CandidateEvidence, criteria: dict) -> None:
     specific evidence fact so the score is independently recomputable."""
     score = 0.0
     reasons = []
+    sector_specified = bool(criteria.get("sectors"))
+    # A mandate that names no sector has nothing for a record to fail to match —
+    # treat that as not-applicable, never as a strike against the record. Only a
+    # STATED sector the record fails to match should ever lower confidence.
+    sector_ok = ev.sector_match or not sector_specified
 
     if ev.sector_match:
         score += 0.35
-    elif criteria.get("sectors"):
+    elif sector_specified:
         reasons.append("no stated sector/thesis match for the requested sector(s)")
 
     if ev.geography_match:
@@ -187,12 +192,14 @@ def score_and_classify(ev: CandidateEvidence, criteria: dict) -> None:
         ev.uncertainty, ev.uncertainty_reason = "insufficient", "no affirmative FO evidence at all"
     elif stale:
         ev.uncertainty, ev.uncertainty_reason = "stale", "; ".join(reasons) or "data past staleness bar"
-    elif ev.n_verification_sources == 0 and not ev.sector_match:
+    elif ev.n_verification_sources == 0 and not sector_ok:
         ev.uncertainty, ev.uncertainty_reason = "insufficient", "; ".join(reasons)
-    elif ev.n_verification_sources <= 1 or not ev.sector_match or not ev.investment_thesis:
-        ev.uncertainty, ev.uncertainty_reason = "thin", "; ".join(reasons) or "single-source or unstated mandate fit"
+    elif ev.n_verification_sources <= 1 or not sector_ok or not ev.investment_thesis:
+        ev.uncertainty, ev.uncertainty_reason = "thin", "; ".join(reasons) or "single-source, or the mandate stated no sector to confirm fit against"
     else:
-        ev.uncertainty, ev.uncertainty_reason = "sufficient", "sector-matched with >=2 independent sources"
+        ev.uncertainty, ev.uncertainty_reason = ("sufficient",
+            "sector-matched with >=2 independent sources" if sector_specified
+            else "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file")
 
 
 def plan_and_retrieve(criteria: dict, index: RetrievalIndex, engine: ComputeEngine,
@@ -201,10 +208,19 @@ def plan_and_retrieve(criteria: dict, index: RetrievalIndex, engine: ComputeEngi
     deterministic geography filter pass, and always a whole-dataset scan so a
     thin mandate is never silently narrowed away (Goal 2's requirement)."""
     steps = ["understand_mandate (LLM)", "plan_research (deterministic)"]
-    sectors = criteria.get("sectors") or []
+    sectors = list(criteria.get("sectors") or [])
     geos = criteria.get("geography") or []
+    # A mandate with no stated sector still needs more than one retrieval pass
+    # (Goal 1's "single retrieval call cannot answer" bar) — fall back to the
+    # other structured criteria plus a fixed "recent activity" pass so the plan
+    # never collapses to a single deterministic scan for a general mandate.
+    if not sectors:
+        for extra in (criteria.get("fund_stage_or_type"), criteria.get("role_sought"),
+                     "recent investment activity"):
+            if extra:
+                sectors.append(extra)
     for s in sectors:
-        steps.append(f"semantic retrieval: sector={s!r}")
+        steps.append(f"semantic retrieval: {s!r}")
     if geos:
         steps.append(f"deterministic filter: geography in {geos}")
     steps += ["evidence gathering per candidate", "deterministic fit scoring + uncertainty classification",

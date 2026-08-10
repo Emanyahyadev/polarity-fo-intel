@@ -615,6 +615,7 @@ class FreshnessAgent(AgentBase):
 
     def execute(self, task):
         from ..compute import ComputeEngine
+        from .freshness_trust import run_cross_cycle_check
         state = task.payload.get("state", {})
         records = task.payload.get("records") or state.get("records") or []
         typed = _as_typed_records(records)
@@ -623,7 +624,22 @@ class FreshnessAgent(AgentBase):
         engine = ComputeEngine(typed)
         snap = engine.freshness_snapshot()
         state.setdefault("metrics", {})["freshness"] = snap.to_dict()
-        return {"status": "ok", "snapshot": snap.to_dict(), "stale": []}
+        # Cross-run trust check: compares the FULL current production store
+        # against the snapshot the PREVIOUS cycle persisted, on trust-bearing
+        # fields only, so a cycle that only touches a handful of records still
+        # has power to catch a real diff anywhere in the released set. A real
+        # diff (classification flip, confidence drop, contact field
+        # change/disappearance) is evidence-based staleness, not a day-count.
+        try:
+            from ..rag.load import load_records_from_store
+            full_store = load_records_from_store()
+            cross_input = [r.model_dump(mode="json") for r in full_store]
+        except Exception:
+            cross_input = [r.model_dump(mode="json") for r in typed]
+        cross = run_cross_cycle_check(cross_input)
+        state.setdefault("metrics", {})["cross_run_trust"] = cross
+        return {"status": "ok", "snapshot": snap.to_dict(), "stale": cross["stale"],
+                "cross_run_trust": cross}
 
 
 # --------------------------------------------------------------------------- #
