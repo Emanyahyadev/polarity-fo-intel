@@ -81,11 +81,18 @@ Eman
 
 ## [INTERNAL — remove before sending] Pre-send checklist
 
-- [ ] Confirm live deploy is on the new commit and `/goal` returns 200 (not 404)
-- [ ] Confirm Goal 3 run completed; fill in its report path above
-- [ ] Re-run Goal 1 with the post-fix scoring code; replace the pre-fix artifact reference
-- [ ] Confirm the second (comparison) operating-cycle run produced a non-empty `cross_run_trust.stale`
-      or, if it's still empty, say so honestly in Stage2Status.md rather than claiming the gate is met
+- [x] Live deploy confirmed on the new commit; `/goal` returns 200 and completes in 5-7s (Groq)
+- [x] Goal 1, 2, 3 all executed live against the deployed service, post scoring-fix — see
+      `reports/goals/goal-a20ad286ea-GOAL1-LIVE.json`, `goal-93f269059a-GOAL2-LIVE.json`,
+      `goal-99f7644650-GOAL3-LIVE.json`
+- [x] Two genuinely separate operating-cycle runs completed (baseline `31397630141`, comparison
+      `31398554032`, ~10 min apart) — the mechanism works, but found zero real diff in that short
+      window (correct/honest, not a failure). A longer backfill run was triggered afterward
+      specifically to increase the odds of a real diff firing before submission — check
+      `gh run list --workflow=operating-cycle.yml` for anything after `31398554032` with a non-empty
+      `cross_run_trust.stale` before claiming this specific sub-gate met; if none exists by send time,
+      say so plainly rather than claiming it.
 - [ ] Take the two required screenshots of GitHub Actions run history (full list + one run's detail page)
+      — I cannot do this myself, this needs you
 - [ ] Attach/link the AI working-session record (item 9) — do not send without it
 - [ ] Personally review every file this session touched before claiming any review happened
