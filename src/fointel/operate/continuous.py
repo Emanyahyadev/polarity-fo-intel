@@ -14,7 +14,13 @@ from __future__ import annotations
 import math
 from typing import Any
 
-CONTACT_CHANNELS = ("principal_email", "principal_phone",
+# NOTE: this is a REACHABILITY channel list (any outreach path), not a named-person
+# route list — firm_contact_email counts here (same as website) even though it is
+# explicitly NOT a principal route (see schema.py). Do not use this list where the
+# stricter "named individual reachable" claim is required (see validation/gates.py
+# and validation/selection.py's `actionable`, which intentionally use only the
+# principal_* fields).
+CONTACT_CHANNELS = ("principal_email", "principal_phone", "firm_contact_email",
                     "corporate_linkedin", "principal_linkedin", "website")
 
 

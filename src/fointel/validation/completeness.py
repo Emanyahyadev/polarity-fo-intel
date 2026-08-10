@@ -39,6 +39,7 @@ INTELLIGENCE_FIELDS = [
     "description", "investment_thesis", "estimated_aum", "website",
     "principal_name", "principal_title", "hq_phone", "principal_phone",
     "principal_email", "principal_linkedin", "corporate_linkedin", "signals",
+    "firm_contact_email",
 ]
 
 _STAT_FIELDS = INTELLIGENCE_FIELDS + ["website_owned_source", "principal_status"]

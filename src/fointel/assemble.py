@@ -22,6 +22,7 @@ from pydantic import BaseModel
 from .discovery.base import Candidate
 from .enrichment.adv import AdvEnricher, AdvFacts
 from .enrichment.iapd import IapdEnricher, IapdFacts, facts_from_registry
+from .enrichment.person_contact import PersonContactEnricher, PersonContactFacts, same_person
 from .enrichment.sec import SecEnricher, SecFacts, sec_provenance
 from .enrichment.thirteenf import ThirteenFEnricher, ThirteenFFacts
 from .enrichment.website import WebsiteEnricher, WebsiteFacts
@@ -43,7 +44,8 @@ log = get_logger("enrichment")
 
 _CONF_RANK = {Confidence.HIGH: 3, Confidence.MEDIUM: 2, Confidence.LOW: 1}
 _FILLABLE = ("hq_phone", "website", "corporate_linkedin", "hq_city", "hq_state",
-             "hq_country", "description", "investment_thesis", "estimated_aum")
+             "hq_country", "description", "investment_thesis", "estimated_aum",
+             "firm_contact_email")
 
 
 def _domain(url: Optional[str]) -> str:
@@ -70,7 +72,11 @@ def _parse_period(period: Optional[str]) -> Optional[date]:
 # blank (never guessed). An email/LinkedIn that the firm's OFFICIAL site publishes is
 # extracted by website enrichment and populated WITH provenance, so it never appears
 # in this list (the schema rejects a populated field flagged could_not_verify).
-_UNVERIFIABLE_CONTACT = ("corporate_linkedin", "principal_linkedin", "principal_email")
+# NOTE: principal_email/principal_linkedin require NAME-MATCHED evidence (see
+# enrichment.person_contact) — a firm's generic inbox/company page is NOT sufficient
+# and goes to firm_contact_email/corporate_linkedin instead.
+_UNVERIFIABLE_CONTACT = ("corporate_linkedin", "principal_linkedin", "principal_email",
+                        "firm_contact_email")
 
 
 def _completeness(r: FamilyOfficeRecord) -> tuple:
@@ -167,13 +173,15 @@ class EnrichedFirm(BaseModel):
     thirteenf: Optional[ThirteenFFacts] = None
     website: Optional[str] = None
     website_facts: Optional[WebsiteFacts] = None
+    person_contact: Optional[PersonContactFacts] = None
     wikipedia_bg: Optional[str] = None
     classification: Classification
 
 
 def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnricher,
                      iapd_enr: IapdEnricher, f13_enr: ThirteenFEnricher,
-                     adv_enr: AdvEnricher) -> EnrichedFirm:
+                     adv_enr: AdvEnricher,
+                     person_enr: Optional[PersonContactEnricher] = None) -> EnrichedFirm:
     facts = sec_url = sec_hash = None
     cik = cand.identifiers.get("cik") or cand.raw.get("cik")
     if cik:
@@ -255,11 +263,29 @@ def enrich_candidate(cand: Candidate, sec_enr: SecEnricher, web_enr: WebsiteEnri
             log.warning("site fetch failed", extra={"event": "enrich_warn", "source": "website",
                         "firm": cand.name, "url": website, "error": str(exc)})
 
+    # Genuine named-person contact (Target 3): only attempted when a principal name is
+    # already known from an authoritative source (13F signature block or ADV Schedule
+    # A), and only accepted if the firm's own team/about page name-matches it — never
+    # a pattern guess. thirteenf/adv are fetched above, so the name (if any) is already
+    # in hand before this bounded extra fetch.
+    person_contact = None
+    principal_name_hint = (
+        (thirteenf.principal_name if thirteenf else None)
+        or (adv.principal_name if adv else None))
+    if website and principal_name_hint and person_enr is not None:
+        try:
+            person_contact, _ = person_enr.find(website, principal_name_hint)
+        except Exception as exc:
+            log.warning("person-contact enrich failed", extra={
+                "event": "enrich_warn", "source": "person_contact",
+                "firm": cand.name, "url": website, "error": str(exc)})
+
     website_text = wfacts.text_excerpt if wfacts else ""
     cls = classify(cand.name, sec_facts=facts, website_text=website_text, iapd=iapd)
     return EnrichedFirm(candidate=cand, sec_facts=facts, sec_url=sec_url, sec_hash=sec_hash,
                         iapd=iapd, iapd_url=iapd_url, iapd_hash=iapd_hash, adv=adv,
                         thirteenf=thirteenf, website=website, website_facts=wfacts,
+                        person_contact=person_contact,
                         wikipedia_bg=wiki_bg, classification=cls)
 
 
@@ -351,18 +377,21 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 
     # Contact intelligence the firm's OWN site publishes: its contact mailbox(es)
     # and the LinkedIn company page it links. The email is the firm's published
-    # outreach inbox (status=RISKY — a firm mailbox, not the principal's
-    # personally-verified address); the LinkedIn page is the firm's own page, so
-    # the site vouches for both. Nothing is guessed or scraped off-page.
+    # outreach inbox (status=RISKY — a firm mailbox, NOT a named individual's
+    # address, so it is stored in firm_contact_email, never principal_email);
+    # the LinkedIn page is the firm's own company page, so the site vouches for
+    # both. Nothing is guessed or scraped off-page. A genuine named-person route
+    # (principal_email / principal_linkedin) requires name-matched evidence from
+    # enrichment.person_contact, applied separately below.
     if e.website_facts and e.website_facts.resolved:
         wf = e.website_facts
         if wf.emails:
-            fields["principal_email"] = wf.emails[0]
-            prov["principal_email"] = Provenance(
+            fields["firm_contact_email"] = wf.emails[0]
+            prov["firm_contact_email"] = Provenance(
                 source_class=SourceClass.FIRM_SITE,
                 method="firm website (published contact / mailto link)", checked_at=as_of,
                 source_url=wf.url, confidence=Confidence.MEDIUM)
-            fields["principal_email_status"] = EmailStatus.RISKY
+            fields["firm_contact_email_status"] = EmailStatus.RISKY
         if wf.linkedin:
             fields["corporate_linkedin"] = wf.linkedin
             prov["corporate_linkedin"] = Provenance(
@@ -435,6 +464,31 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
             verifies="total regulatory AUM (ADV Item 5.F), owner/control person (ADV Schedule A)",
             accessed_at=as_of, url=av.report_url))
 
+    # Genuine named-person contact (Target 3): only trusted if it name-matches the
+    # SAME principal already established above from an authoritative source (13F
+    # signature / ADV Schedule A) — never populated from a name search alone. The
+    # page search may have been seeded from the 13F name while ADV (checked after
+    # 13F, above) supplies a DIFFERENT final principal_name; same_person() guards
+    # against silently attaching one person's contact to another person's record.
+    pc = e.person_contact
+    if pc and pc.found and fields.get("principal_name") and same_person(
+            fields.get("principal_name"), pc.matched_name):
+        pc_prov = Provenance(
+            source_class=SourceClass.FIRM_SITE, method=pc.method or "firm team/about page",
+            checked_at=as_of, source_url=pc.source_url, confidence=Confidence.MEDIUM,
+            note=f"name-matched to {pc.matched_name!r}")
+        if pc.email:
+            fields["principal_email"] = pc.email
+            fields["principal_email_status"] = EmailStatus.RISKY
+            prov["principal_email"] = pc_prov
+        if pc.linkedin:
+            fields["principal_linkedin"] = pc.linkedin
+            prov["principal_linkedin"] = pc_prov
+        vsources.append(SourceRef(
+            source_class=SourceClass.FIRM_SITE,
+            verifies="named-person contact route (email/LinkedIn) for the principal",
+            accessed_at=as_of, url=pc.source_url))
+
     # Wikipedia background -> description only if we have nothing better (cited as background)
     if "description" not in fields and e.wikipedia_bg:
         fields["description"] = e.wikipedia_bg[:400]
@@ -478,9 +532,13 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
                 "necessarily the lead investor); estimated_aum is the aggregate 13(f) "
                 "securities value, not total assets under management")
         reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
-    if fields.get("principal_email") and fields.get("principal_email_status") == EmailStatus.RISKY:
-        note = ("principal_email is the firm's published contact inbox (official site) — "
-                "not the principal's personally-verified address")
+    if fields.get("firm_contact_email"):
+        note = ("firm_contact_email is the firm's published contact inbox (official site) — "
+                "a real, sourced channel but not a route to any named individual")
+        reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
+    if fields.get("principal_email"):
+        note = ("principal_email is name-matched to the named principal (see provenance) — "
+                "not a blind-verified deliverability guarantee")
         reviewer_notes = f"{reviewer_notes} | {note}" if reviewer_notes else note
 
     # Honest could_not_verify: contact intelligence that free authoritative sources do not
@@ -507,15 +565,20 @@ def build_record(e: EnrichedFirm, as_of: date) -> Optional[FamilyOfficeRecord]:
 def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, dict]:
     """Enrich + build all candidates. Returns (records, discovery_report)."""
     sec_enr, web_enr, iapd_enr = SecEnricher(), WebsiteEnricher(), IapdEnricher()
-    f13_enr, adv_enr = ThirteenFEnricher(), AdvEnricher()
+    f13_enr, adv_enr, person_enr = ThirteenFEnricher(), AdvEnricher(), PersonContactEnricher()
     records: list[FamilyOfficeRecord] = []
     discovered_by_source: Counter = Counter()
     rejected_by_reason: Counter = Counter()
     qualified_by_source: Counter = Counter()
+    named_person_email_found = 0
+    named_person_linkedin_found = 0
 
     for cand in candidates:
         discovered_by_source[cand.source_class.value] += 1
-        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr, f13_enr, adv_enr)
+        e = enrich_candidate(cand, sec_enr, web_enr, iapd_enr, f13_enr, adv_enr, person_enr)
+        if e.person_contact and e.person_contact.found:
+            named_person_email_found += 1 if e.person_contact.email else 0
+            named_person_linkedin_found += 1 if e.person_contact.linkedin else 0
         if not e.classification.qualifies:
             rejected_by_reason[e.classification.reject_reason or "unknown"] += 1
             continue
@@ -539,5 +602,7 @@ def enrich_and_build(candidates: list[Candidate], as_of: date) -> tuple[list, di
         "qualified_before_dedup": n_before,
         "post_enrichment_merges": merges,
         "total_qualified_pre_gate": len(records),
+        "named_person_email_found": named_person_email_found,
+        "named_person_linkedin_found": named_person_linkedin_found,
     }
     return records, report

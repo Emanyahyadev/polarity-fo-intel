@@ -83,6 +83,11 @@ def _card(r: Retrieved) -> dict:
         "phone": rec.hq_phone, "website": rec.website, "linkedin": rec.corporate_linkedin,
         "description": rec.description, "aum": rec.estimated_aum,
         "principal": _principal(rec), "principal_phone": rec.principal_phone,
+        "principal_email": rec.principal_email,
+        "principal_email_status": (rec.principal_email_status.value
+                                   if rec.principal_email_status else None),
+        "principal_linkedin": rec.principal_linkedin,
+        "firm_contact_email": rec.firm_contact_email,  # firm inbox, NOT a principal route
         "principal_role": principal_role(rec.verification_sources),
         "signals": [s.text for s in rec.signals],
         "confidence": rec.record_confidence.value, "classification_evidence": rec.fo_type_evidence,
@@ -234,6 +239,10 @@ _COVERAGE = [
     ("principal_phone", re.compile(r"principal\s*phone", re.IGNORECASE),
      lambda r: bool((r.get("principal_phone") or "").strip()),
      "a principal phone number"),
+    ("firm_contact_email", re.compile(r"(?:firm|company|contact|general)\s*(?:e-?mail|email)",
+                                      re.IGNORECASE),
+     lambda r: bool((r.get("firm_contact_email") or "").strip()),
+     "a firm contact email (not a named-person route)"),
     ("website", re.compile(r"website|web\s*site", re.IGNORECASE),
      lambda r: bool((r.get("website") or "").strip()),
      "a website"),

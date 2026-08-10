@@ -1,8 +1,10 @@
 """Contact intelligence: website extraction + build_record wiring.
 
-Guarantees the Stage-2 promise: emails and LinkedIn URLs are filled WHERE the
-firm's official site actually publishes them (with provenance, status=risky for
-a firm mailbox) and honestly blank + could_not_verify otherwise. Never guessed.
+Guarantees the Stage-2 promise: a firm's generic published inbox goes to
+firm_contact_email (status=risky, NOT a named-person route); emails/LinkedIn
+that name-match a specific principal go to principal_email/principal_linkedin
+(see test_person_contact.py). Everything else is honestly blank +
+could_not_verify. Never guessed.
 """
 
 from datetime import date
@@ -76,15 +78,18 @@ def test_build_record_wires_site_contacts_with_provenance():
                       linkedin="https://www.linkedin.com/company/smith-family-office")
     rec = build_record(_enriched(wf), AS_OF)
     assert rec is not None
-    assert rec.principal_email == "info@smithfamilyoffice.com"
-    assert rec.principal_email_status == EmailStatus.RISKY
-    assert "contact" in rec.provenance["principal_email"].method
+    # a generic site inbox is a firm-level contact, NEVER a principal route
+    assert rec.firm_contact_email == "info@smithfamilyoffice.com"
+    assert rec.firm_contact_email_status == EmailStatus.RISKY
+    assert "contact" in rec.provenance["firm_contact_email"].method
+    assert rec.principal_email is None       # no name-matched evidence in this fixture
     assert rec.corporate_linkedin == "https://www.linkedin.com/company/smith-family-office"
     assert "LinkedIn" in rec.provenance["corporate_linkedin"].method
-    assert "principal_email" not in rec.could_not_verify
+    assert "firm_contact_email" not in rec.could_not_verify
     assert "corporate_linkedin" not in rec.could_not_verify
+    assert "principal_email" in rec.could_not_verify  # honestly blank, not backfilled
     assert rec.provenance_violations() == []
-    assert "principal's personally-verified" in rec.reviewer_notes
+    assert "not a route to any named individual" in rec.reviewer_notes
 
 
 def test_build_record_keeps_stage1_honesty_when_site_publishes_nothing():
@@ -92,8 +97,10 @@ def test_build_record_keeps_stage1_honesty_when_site_publishes_nothing():
     rec = build_record(_enriched(wf), AS_OF)
     assert rec is not None
     assert rec.principal_email is None
+    assert rec.firm_contact_email is None
     assert rec.corporate_linkedin is None
     assert "principal_email" in rec.could_not_verify
+    assert "firm_contact_email" in rec.could_not_verify
     assert "corporate_linkedin" in rec.could_not_verify
     assert rec.provenance_violations() == []
 
@@ -103,8 +110,9 @@ def test_delivery_row_carries_contact_columns():
                       emails=["info@smithfamilyoffice.com"])
     rec = build_record(_enriched(wf), AS_OF)
     row = rec.to_delivery_row()
-    assert row["principal_email"] == "info@smithfamilyoffice.com"
-    assert row["principal_email_status"] == "risky"
+    assert row["firm_contact_email"] == "info@smithfamilyoffice.com"
+    assert row["firm_contact_email_status"] == "risky"
+    assert row["principal_email"] == ""
 
 
 # -------------------------------------------------------------- deep fetch - #

@@ -64,6 +64,14 @@ def _row(r) -> dict:
         "principal": (f"{r.principal_name} — {r.principal_title}"
                       if r.principal_name and r.principal_title else r.principal_name),
         "principal_role": principal_role(r.verification_sources),
+        # named-person routes (only when name-matched evidence exists — see schema.py)
+        "principal_email": r.principal_email,
+        "principal_email_status": (r.principal_email_status.value
+                                   if r.principal_email_status else None),
+        "principal_linkedin": r.principal_linkedin,
+        "principal_phone": r.principal_phone,
+        # firm-level (not a named-person route) fallback channel
+        "firm_contact_email": r.firm_contact_email,
         "confidence": r.record_confidence.value,
         "evidence": r.fo_type_evidence,
         "signals": [s.text for s in r.signals],
@@ -87,6 +95,9 @@ def _stats(records) -> dict:
         "confidence": dict(Counter(r.record_confidence.value for r in records)),
         "coverage": {"aum": cov(lambda r: r.estimated_aum),
                      "principal": cov(lambda r: r.principal_name),
+                     "principal_email": cov(lambda r: r.principal_email),
+                     "principal_linkedin": cov(lambda r: r.principal_linkedin),
+                     "firm_contact_email": cov(lambda r: r.firm_contact_email),
                      "website": cov(lambda r: r.website),
                      "signals": cov(lambda r: r.signals)},
         "countries": len({r.hq_country for r in records if r.hq_country}),

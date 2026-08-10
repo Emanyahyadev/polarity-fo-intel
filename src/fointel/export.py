@@ -36,8 +36,13 @@ DATA_DICTIONARY = [
      "SEC Form 13F signatory (frequently a compliance/operations/legal officer, e.g. CCO/COO/GC), "
      "the SEC Form ADV Schedule A control person, or a website-named principal. This is the "
      "filing signatory, NOT necessarily the lead investment decision-maker (see KnownLimitations)."),
-    ("principal_linkedin / principal_email / principal_phone", "Decision-maker contact; blank + could_not_verify when not verifiable."),
+    ("principal_linkedin / principal_email / principal_phone", "A route to the NAMED principal "
+     "specifically — 13F/ADV signatory phone, or a firm team/about page that name-matches an "
+     "email/LinkedIn to that person. Blank + could_not_verify when no such evidence exists."),
     ("principal_email_status", "deliverable / risky / could_not_verify (never a guessed 'verified')."),
+    ("firm_contact_email", "The firm's own published outreach inbox (e.g. info@) — a real, sourced "
+     "channel, but explicitly NOT a route to any named individual. Distinct from principal_email."),
+    ("firm_contact_email_status", "deliverable / risky / could_not_verify for firm_contact_email."),
     ("recent_signal_1..3 (+ _date, _source)", "Recent, dated activity. This build: SEC Form 13F "
      "portfolio changes (new positions vs the prior quarter), sourced to EDGAR; news/hire signals "
      "were not available on free tiers (GDELT rate-limited to zero)."),

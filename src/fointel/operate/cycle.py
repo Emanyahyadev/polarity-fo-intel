@@ -28,7 +28,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from .orchestrator import Orchestrator, AgentBase, Task, RunTrace
-from .policy_engine import ActionStatus
+from .policy_engine import ActionStatus, PolicyEngineFactory
 from ..schema import SourceClass
 
 # --------------------------------------------------------------------------- #
@@ -355,10 +355,41 @@ class GovernanceAgent(AgentBase):
                                   "reason": "approved by policy",
                                   "confidence": confidence,
                                   "n_sources": sources})
+        # Contact governance (Correction 7 / Stage 2 Target 3): a named-person contact
+        # is a SEPARATE authority decision from the firm-level publish decision — a
+        # firm record can be approved while its contact route is still escalated or
+        # refused. This is the first real wiring of PolicyEngine.contact_review into
+        # control flow (previously defined but never invoked). Release enforces the
+        # result by stripping any contact not explicitly authorized here.
+        contact_decisions = []
+        try:
+            policy = PolicyEngineFactory.load()
+        except Exception:
+            policy = None
+        if policy is not None:
+            for rec in classified:
+                fo_id = rec.get("fo_id")
+                name = rec.get("name")
+                built = by_id.get(fo_id) or by_name.get(name) or {}
+                email = built.get("principal_email")
+                person = built.get("principal_name")
+                if not email:
+                    continue
+                status = built.get("principal_email_status") or "risky"
+                # a name-matched firm-site email starts at MEDIUM confidence — real
+                # but not SMTP-deliverability-verified (no verifier is wired yet).
+                conf = 0.75 if status == "risky" else 0.95
+                decision = policy.contact_review(
+                    person=person or "", email=email, email_type="corporate",
+                    source_type="firm_site", confidence=conf)
+                contact_decisions.append({"fo_id": fo_id, "name": name,
+                                          "contact_action": decision.status,
+                                          "reason": decision.reason})
         state["decisions"] = decisions
+        state["contact_decisions"] = contact_decisions
         approved = [d["name"] for d in decisions if d["action"] == "approve"]
         return {"decisions": decisions, "approved": approved,
-                "to_release": len(approved)}
+                "to_release": len(approved), "contact_decisions": contact_decisions}
 
 
 # ---------------------------------------------------------------------------
@@ -389,6 +420,13 @@ class ReleaseAgent(AgentBase):
         approved_ids = {d.get("fo_id") for d in decisions
                         if d.get("action") == "approve" and d.get("fo_id")}
         approved_names = {d.get("name") for d in decisions if d.get("action") == "approve"}
+        # a firm record may ship while its named-person contact stays gated: only a
+        # Tier-1 "autonomous" contact_review decision authorizes principal_email/
+        # principal_email_status/principal_linkedin to leave with the record.
+        contact_decisions = task.payload.get("contact_decisions") or state.get(
+            "contact_decisions", [])
+        not_authorized_ids = {d.get("fo_id") for d in contact_decisions
+                              if d.get("contact_action") != "autonomous" and d.get("fo_id")}
         out_dir = task.payload.get("out_dir") or state.get("out_dir") or "data/final"
         out = Path(out_dir)
         store_path = out / "records.json"
@@ -415,6 +453,19 @@ class ReleaseAgent(AgentBase):
             rid = rec.get("fo_id") if isinstance(rec, dict) else getattr(rec, "fo_id", None)
             rname = rec.get("name") if isinstance(rec, dict) else getattr(rec, "name", "")
             if (rid and rid in approved_ids) or (rid is None and rname in approved_names):
+                if rid in not_authorized_ids:
+                    # governance did not clear this contact for release (escalate/refuse):
+                    # ship the firm record, withhold the un-cleared named-person route.
+                    if isinstance(rec, dict):
+                        rec = dict(rec)
+                        rec["principal_email"] = None
+                        rec["principal_email_status"] = None
+                        rec["principal_linkedin"] = None
+                        cnv = list(rec.get("could_not_verify") or [])
+                        for f in ("principal_email", "principal_linkedin"):
+                            if f not in cnv:
+                                cnv.append(f)
+                        rec["could_not_verify"] = cnv
                 approved_records.append(rec)
 
         if not approved_records:

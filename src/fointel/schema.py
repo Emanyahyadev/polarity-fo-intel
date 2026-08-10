@@ -138,6 +138,7 @@ CONFIDENCE_FIELDS = [
     "principal_name",
     "principal_email",
     "principal_phone",
+    "firm_contact_email",
     "website",
     "corporate_linkedin",
     "principal_linkedin",
@@ -164,6 +165,7 @@ HIGH_VALUE_FIELDS = [
     "principal_linkedin",
     "principal_email",
     "principal_phone",
+    "firm_contact_email",
 ]
 
 
@@ -191,12 +193,23 @@ class FamilyOfficeRecord(BaseModel):
     hq_phone: Optional[str] = None                    # authoritative firm main line (e.g. SEC filing)
 
     # --- principal / decision-maker intelligence ---
+    # principal_* fields are a route to the NAMED individual specifically (13F
+    # signature block; or a team/about page that name-matches the person to the
+    # contact). A firm's generic outreach inbox (info@/contact@) is NOT a
+    # principal route — it goes in firm_contact_email instead. Never backfill
+    # principal_email/principal_linkedin from a generic, unmatched source.
     principal_name: Optional[str] = None
     principal_title: Optional[str] = None
     principal_linkedin: Optional[str] = None
     principal_email: Optional[str] = None
     principal_email_status: Optional[EmailStatus] = None
     principal_phone: Optional[str] = None             # from authoritative source, never guessed
+
+    # --- firm-level (not named-person) contact route ---
+    # The firm's own published outreach mailbox (e.g. info@/contact@) — a real,
+    # sourced channel, but explicitly NOT a route to any specific individual.
+    firm_contact_email: Optional[str] = None
+    firm_contact_email_status: Optional[EmailStatus] = None
 
     # --- recent dated signals (drive commercial value) ---
     signals: list[Signal] = Field(default_factory=list)
@@ -325,6 +338,9 @@ class FamilyOfficeRecord(BaseModel):
             "principal_email_status": (self.principal_email_status.value
                                        if self.principal_email_status else ""),
             "principal_phone": self.principal_phone or "",
+            "firm_contact_email": self.firm_contact_email or "",
+            "firm_contact_email_status": (self.firm_contact_email_status.value
+                                          if self.firm_contact_email_status else ""),
         }
         # recent signals (padded to a stable column set)
         for i in range(max_signals):
