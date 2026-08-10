@@ -17839,6 +17839,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:annual fees for stenger family office|geo:?",
+  "name": "Annual fees for Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:annual fees for stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Annual fees for Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:another area where a family office|geo:?",
   "name": "Another area where a Family Office",
   "payload": {
@@ -17861,6 +17885,29 @@
    "source_url": "https://cressetcapital.com/family-office/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:apex family office|geo:?",
+  "name": "Apex Family Office",
+  "payload": {
+   "dedup_key": "name:apex family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Key Considerations for Working With a Family Office"
+   },
+   "identifiers": {},
+   "name": "Apex Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Key Considerations for Working With a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.gs.com/nam/en-us/insights/wealth-planning/family-governance/key-considerations-for-working-with-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:archegos capital management was a family office|geo:?",
@@ -18003,6 +18050,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:at matter family office|geo:?",
+  "name": "At Matter Family Office",
+  "payload": {
+   "dedup_key": "name:at matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "At Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:at raffles family office|geo:?",
   "name": "At Raffles Family Office",
   "payload": {
@@ -18024,6 +18095,30 @@
    "source_url": "https://hk.linkedin.com/company/raffles-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:at stenger family office|geo:?",
+  "name": "At Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:at stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "At Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:ayer family office|geo:?",
@@ -18141,6 +18236,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.bbh.com/us/en/insights/capital-partners-insights/seven-considerations-before-creating-a-family-office.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:benefits of a multi family office family office|geo:?",
+  "name": "Benefits of a multi-family office Family Office",
+  "payload": {
+   "dedup_key": "name:benefits of a multi family office family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "identifiers": {},
+   "name": "Benefits of a multi-family office Family Office",
+   "raw": {
+    "published": "2026-03-04T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://creativeplanning.com/insights/family-office/multi-family-office/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -18568,6 +18687,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:charlie founded iwp family office|geo:?",
+  "name": "Charlie founded IWP Family Office",
+  "payload": {
+   "dedup_key": "name:charlie founded iwp family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Charlie founded IWP Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:chart of family office|geo:?",
   "name": "Chart of Family Office",
   "payload": {
@@ -18663,6 +18806,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:chris leads stenger tax team and assists family office|geo:?",
+  "name": "Chris leads the Stenger tax team and assists Family Office",
+  "payload": {
+   "dedup_key": "name:chris leads stenger tax team and assists family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Chris leads the Stenger tax team and assists Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:cio to manage family office|geo:?",
   "name": "CIO to manage Family Office",
   "payload": {
@@ -18730,6 +18897,54 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://alejandrorhernandez.com/family-office-advisor/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:combine and family office|geo:?",
+  "name": "Combine and Family Office",
+  "payload": {
+   "dedup_key": "name:combine and family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Combine and Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:combine to offer one of most comprehensive family office|geo:?",
+  "name": "Combine to Offer One of the Most Comprehensive Family Office",
+  "payload": {
+   "dedup_key": "name:combine to offer one of most comprehensive family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Combine to Offer One of the Most Comprehensive Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -18973,6 +19188,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:contact nick stenger and stenger family office|geo:?",
+  "name": "Contact Nick Stenger and the Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:contact nick stenger and stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Contact Nick Stenger and the Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:contact us to learn how you can join upcoming family office|geo:?",
   "name": "Contact us to learn how you can join upcoming Family Office",
   "payload": {
@@ -19207,6 +19446,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:dedicated single family office|geo:?",
+  "name": "dedicated single Family Office",
+  "payload": {
+   "dedup_key": "name:dedicated single family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "identifiers": {},
+   "name": "dedicated single Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.dentoniapark.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:dedicated team of seasoned family office|geo:?",
   "name": "dedicated team of seasoned Family Office",
   "payload": {
@@ -19301,6 +19564,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:dentonia park family office|geo:?",
+  "name": "Dentonia Park Family Office",
+  "payload": {
+   "dedup_key": "name:dentonia park family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "identifiers": {},
+   "name": "Dentonia Park Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.dentoniapark.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:denver and dallas based matter family office|geo:?",
   "name": "Denver and Dallas-based Matter Family Office",
   "payload": {
@@ -19321,6 +19608,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.familywealthreport.com/article.php/EXCLUSIVE%3A-US-Family-Offices-Merge%2C-Form-%2410-Billion-Firm-"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:denver and dallas contact matter family office|geo:?",
+  "name": "Denver and Dallas. Contact Matter Family Office",
+  "payload": {
+   "dedup_key": "name:denver and dallas contact matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Denver and Dallas. Contact Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -19394,6 +19705,78 @@
    "source_url": "https://en.wikipedia.org/wiki/DFO_Management"
   },
   "source_class": "Curated directory / reference (Wikipedia, associations)"
+ },
+ {
+  "dedup_key": "name:difference between a family office|geo:?",
+  "name": "difference between a Family Office",
+  "payload": {
+   "dedup_key": "name:difference between a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "difference between a Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:difference between a single family office|geo:?",
+  "name": "difference between a single Family Office",
+  "payload": {
+   "dedup_key": "name:difference between a single family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "difference between a single Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:do ultra high net worth families choose matter family office|geo:?",
+  "name": "Do Ultra-High-Net-Worth Families Choose Matter Family Office",
+  "payload": {
+   "dedup_key": "name:do ultra high net worth families choose matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Do Ultra-High-Net-Worth Families Choose Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:do we need our own family office|geo:?",
@@ -19800,6 +20183,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:evolution of family office|geo:?",
+  "name": "evolution of the Family Office",
+  "payload": {
+   "dedup_key": "name:evolution of family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single-Family-Office-The-Art-of-effective-Wealth-Management ..."
+   },
+   "identifiers": {},
+   "name": "evolution of the Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single-Family-Office-The-Art-of-effective-Wealth-Management ..."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://wgfa.wharton.upenn.edu/wp-content/uploads/2020/04/Single-Family-Office-The-Art-of-effective-Wealth-Management.pdf"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:evolving family office|geo:?",
   "name": "evolving Family Office",
   "payload": {
@@ -19961,6 +20367,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://en.wikipedia.org/wiki/Family_office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:families often consider a family office|geo:?",
+  "name": "Families often consider a Family Office",
+  "payload": {
+   "dedup_key": "name:families often consider a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Families often consider a Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -20556,6 +20986,54 @@
   "source_class": "Curated directory / reference (Wikipedia, associations)"
  },
  {
+  "dedup_key": "name:financial advisors at stenger family office|geo:?",
+  "name": "Financial advisors at Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:financial advisors at stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Financial advisors at Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:financial officer and head of tax at stenger family office|geo:?",
+  "name": "Financial Officer and Head of Tax at Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:financial officer and head of tax at stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Financial Officer and Head of Tax at Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:find it with family office|geo:?",
   "name": "Find it With Family Office",
   "payload": {
@@ -20818,6 +21296,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:founder moves to split family office|geo:?",
+  "name": "Founder Moves to Split Family Office",
+  "payload": {
+   "dedup_key": "name:founder moves to split family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Billionaire Partners Group (PGHN SW) Founder Moves to Split Family Office - Bloomberg"
+   },
+   "identifiers": {},
+   "name": "Founder Moves to Split Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" established new firm",
+    "title": "Billionaire Partners Group (PGHN SW) Founder Moves to Split Family Office - Bloomberg"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.bloomberg.com/news/articles/2026-06-14/billionaire-partners-group-founder-moves-to-split-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:fractional family office|geo:?",
   "name": "Fractional Family Office",
   "payload": {
@@ -20980,6 +21482,99 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.beamonte.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:goldman sachs family office|geo:?",
+  "name": "Goldman Sachs Family Office",
+  "payload": {
+   "dedup_key": "name:goldman sachs family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Key Considerations for Working With a Family Office"
+   },
+   "identifiers": {},
+   "name": "Goldman Sachs Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Key Considerations for Working With a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.gs.com/nam/en-us/insights/wealth-planning/family-governance/key-considerations-for-working-with-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:goldman sachs offers a full range of family office|geo:?",
+  "name": "Goldman Sachs offers a full range of Family Office",
+  "payload": {
+   "dedup_key": "name:goldman sachs offers a full range of family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Key Considerations for Working With a Family Office"
+   },
+   "identifiers": {},
+   "name": "Goldman Sachs offers a full range of Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Key Considerations for Working With a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.gs.com/nam/en-us/insights/wealth-planning/family-governance/key-considerations-for-working-with-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:goldman sachs private family office|geo:?",
+  "name": "Goldman Sachs Private Family Office",
+  "payload": {
+   "dedup_key": "name:goldman sachs private family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Key Considerations for Working With a Family Office"
+   },
+   "identifiers": {},
+   "name": "Goldman Sachs Private Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Key Considerations for Working With a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.gs.com/nam/en-us/insights/wealth-planning/family-governance/key-considerations-for-working-with-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:google reviews to learn why stenger family office|geo:?",
+  "name": "Google Reviews to learn why Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:google reviews to learn why stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Google Reviews to learn why Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -21461,6 +22056,78 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:il prior to stenger family office|geo:?",
+  "name": "IL. Prior to Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:il prior to stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "IL. Prior to Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:il stenger family office|geo:?",
+  "name": "IL Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:il stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "IL Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:il we offer investors a family office|geo:?",
+  "name": "IL. We offer investors a Family Office",
+  "payload": {
+   "dedup_key": "name:il we offer investors a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "IL. We offer investors a Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:illustrative family office|geo:?",
   "name": "Illustrative Family Office",
   "payload": {
@@ -21653,6 +22320,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:invest like a family office|geo:?",
+  "name": "Invest Like A Family Office",
+  "payload": {
+   "dedup_key": "name:invest like a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Invest Like A Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:investment team a team of family office|geo:?",
   "name": "Investment team. A team of Family Office",
   "payload": {
@@ -21720,6 +22411,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.familywealthreport.com/article.php/EXCLUSIVE%3A-US-Family-Offices-Merge%2C-Form-%2410-Billion-Firm-"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:jamie and son jack prior to launching stenger family office|geo:?",
+  "name": "Jamie and son Jack. Prior to launching Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:jamie and son jack prior to launching stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Jamie and son Jack. Prior to launching Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -21796,6 +22511,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:karim mawji participates in select family office|geo:?",
+  "name": "Karim Mawji participates in select Family Office",
+  "payload": {
+   "dedup_key": "name:karim mawji participates in select family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "identifiers": {},
+   "name": "Karim Mawji participates in select Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.dentoniapark.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:kensington stern is a utah based single family office|geo:?",
   "name": "Kensington Stern is a Utah based Single Family Office",
   "payload": {
@@ -21818,6 +22557,29 @@
    "source_url": "https://kensingtonstern.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:key considerations for working with a family office|geo:?",
+  "name": "Key Considerations for Working With a Family Office",
+  "payload": {
+   "dedup_key": "name:key considerations for working with a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Key Considerations for Working With a Family Office"
+   },
+   "identifiers": {},
+   "name": "Key Considerations for Working With a Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Key Considerations for Working With a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.gs.com/nam/en-us/insights/wealth-planning/family-governance/key-considerations-for-working-with-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:kingswood capital to form emerson family office|geo:?",
@@ -21985,6 +22747,54 @@
    "source_url": "https://cressetcapital.com/family-office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:learn more about family office|geo:?",
+  "name": "Learn more about Family Office",
+  "payload": {
+   "dedup_key": "name:learn more about family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Learn more about Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:learn more about stenger family office|geo:?",
+  "name": "Learn more about Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:learn more about stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Learn more about Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:led by family office|geo:?",
@@ -22272,6 +23082,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:long term capital stewardship dentonia park family office|geo:?",
+  "name": "Long-Term Capital Stewardship Dentonia Park Family Office",
+  "payload": {
+   "dedup_key": "name:long term capital stewardship dentonia park family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "identifiers": {},
+   "name": "Long-Term Capital Stewardship Dentonia Park Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Dentonia Park Family Office | Long-Term Capital Stewardship"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.dentoniapark.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:lots of families start with a family office|geo:?",
   "name": "Lots of families start with a Family Office",
   "payload": {
@@ -22292,6 +23126,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://actecfoundation.org/podcasts/family-office-landscape-models-services-options/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:makes matter family office|geo:?",
+  "name": "Makes Matter Family Office",
+  "payload": {
+   "dedup_key": "name:makes matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Makes Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -22485,6 +23343,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:meeting with ac family office|geo:?",
+  "name": "Meeting with AC Family Office",
+  "payload": {
+   "dedup_key": "name:meeting with ac family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Alpha Capital Family Office - Succeed With Purpose"
+   },
+   "identifiers": {},
+   "name": "Meeting with AC Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Alpha Capital Family Office - Succeed With Purpose"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://acfamilyoffice.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:melbourne family office|geo:?",
   "name": "Melbourne Family Office",
   "payload": {
@@ -22652,6 +23533,54 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:multi family office is a private family office|geo:?",
+  "name": "multi-family office is a private Family Office",
+  "payload": {
+   "dedup_key": "name:multi family office is a private family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "identifiers": {},
+   "name": "multi-family office is a private Family Office",
+   "raw": {
+    "published": "2026-03-04T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://creativeplanning.com/insights/family-office/multi-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:multi family offices offer a wide range of family office|geo:?",
+  "name": "Multi-family offices offer a wide range of Family Office",
+  "payload": {
+   "dedup_key": "name:multi family offices offer a wide range of family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "identifiers": {},
+   "name": "Multi-family offices offer a wide range of Family Office",
+   "raw": {
+    "published": "2026-03-04T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "The Multi-Family Office: Structure, Services and Fees Explained"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://creativeplanning.com/insights/family-office/multi-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:multi family vs single family office|geo:?",
   "name": "Multi-family vs. single Family Office",
   "payload": {
@@ -22795,6 +23724,54 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:neither stenger family office|geo:?",
+  "name": "Neither Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:neither stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Neither Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:nick stenger is ceo and founder of stenger family office|geo:?",
+  "name": "Nick Stenger is CEO and Founder of Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:nick stenger is ceo and founder of stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Nick Stenger is CEO and Founder of Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:nielsen was also a founder of kingswood family office|geo:?",
   "name": "Nielsen was also a co-founder of the Kingswood Family Office",
   "payload": {
@@ -22865,6 +23842,53 @@
    "source_url": "https://alejandrorhernandez.com/family-office-advisor/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:officer and financial advisor at stenger family office|geo:?",
+  "name": "Officer and financial advisor at Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:officer and financial advisor at stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Officer and financial advisor at Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:offices may need to report short sale family office|geo:?",
+  "name": "Offices May Need to Report Short-sale Family Office",
+  "payload": {
+   "dedup_key": "name:offices may need to report short sale family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Certain Family Offices May Need to Report Short-sale ..."
+   },
+   "identifiers": {},
+   "name": "Offices May Need to Report Short-sale Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Certain Family Offices May Need to Report Short-sale ..."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.lexology.com/library/detail.aspx?g=8b3f7b26-eea4-4fa7-b0ae-435528a3be18"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:operating as a multigenerational family office|geo:?",
@@ -23319,6 +24343,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:president and financial advisor with stenger family office|geo:?",
+  "name": "President and Financial Advisor with Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:president and financial advisor with stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "President and Financial Advisor with Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:primary purpose of a family office|geo:?",
   "name": "primary purpose of a Family Office",
   "payload": {
@@ -23339,6 +24387,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://carta.com/learn/private-funds/structures/family-offices/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:prior to stenger family office|geo:?",
+  "name": "Prior to Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:prior to stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Prior to Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -23599,6 +24671,30 @@
    "source_url": "https://www.reddit.com/r/explainlikeimfive/comments/1uxu7im/eli5_what_is_a_family_office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:redefined family office|geo:?",
+  "name": "Redefined Family Office",
+  "payload": {
+   "dedup_key": "name:redefined family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Redefined Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:requirements family office|geo:?",
@@ -24099,6 +25195,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:services does matter family office|geo:?",
+  "name": "Services Does Matter Family Office",
+  "payload": {
+   "dedup_key": "name:services does matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Services Does Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:services for wealth management investments family office|geo:?",
   "name": "Services for Wealth Management & Investments Family Office",
   "payload": {
@@ -24214,6 +25334,30 @@
    "source_url": "https://hk.linkedin.com/company/raffles-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:should a family consider hiring a family office|geo:?",
+  "name": "should a family consider hiring a Family Office",
+  "payload": {
+   "dedup_key": "name:should a family consider hiring a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "should a family consider hiring a Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:should i create a family office|geo:?",
@@ -24712,6 +25856,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:thierry brings deep investment research and family office|geo:?",
+  "name": "Thierry brings deep investment research and Family Office",
+  "payload": {
+   "dedup_key": "name:thierry brings deep investment research and family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Thierry brings deep investment research and Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:those considering a family office|geo:?",
   "name": "Those considering a Family Office",
   "payload": {
@@ -25064,6 +26232,30 @@
    "source_url": "https://certuity.com/family-office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:ultra high net worth family office|geo:?",
+  "name": "Ultra High Net Worth Family Office",
+  "payload": {
+   "dedup_key": "name:ultra high net worth family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Ultra High Net Worth Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:understand family and family office|geo:?",
@@ -25447,6 +26639,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:we designed stenger family office|geo:?",
+  "name": "We designed Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:we designed stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "We designed Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:we have always planned to have a family office|geo:?",
   "name": "We have always planned to have a Family Office",
   "payload": {
@@ -25655,6 +26871,53 @@
    "source_url": "https://www.familyofficeassociation.us/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:wealth management building an effective family office|geo:?",
+  "name": "Wealth Management Building an effective Family Office",
+  "payload": {
+   "dedup_key": "name:wealth management building an effective family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office: Private Wealth Management"
+   },
+   "identifiers": {},
+   "name": "Wealth Management Building an effective Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office: Private Wealth Management"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.morganstanley.com/what-we-do/wealth-management/private-wealth-management/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:wealth management family office|geo:?",
+  "name": "Wealth Management & Family Office",
+  "payload": {
+   "dedup_key": "name:wealth management family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "Wealth Management & Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:wealth planning solutions a family office|geo:?",
@@ -25987,6 +27250,78 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:who does matter family office|geo:?",
+  "name": "Who Does Matter Family Office",
+  "payload": {
+   "dedup_key": "name:who does matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Who Does Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:who is matter family office|geo:?",
+  "name": "Who is Matter Family Office",
+  "payload": {
+   "dedup_key": "name:who is matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Who is Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:who leads matter family office|geo:?",
+  "name": "Who Leads Matter Family Office",
+  "payload": {
+   "dedup_key": "name:who leads matter family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "identifiers": {},
+   "name": "Who Leads Matter Family Office",
+   "raw": {
+    "published": "2026-04-09T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Matter Family Office | Ultra High Net Worth Family Office - Matter Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:who needs a family office|geo:?",
   "name": "Who Needs a Family Office",
   "payload": {
@@ -26055,6 +27390,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://rscapital.com/2025/02/24/robertson-stephens-launches-family-office-for-select-clients/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:you can start a relationship with stenger family office|geo:?",
+  "name": "You can start a relationship with Stenger Family Office",
+  "payload": {
+   "dedup_key": "name:you can start a relationship with stenger family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "identifiers": {},
+   "name": "You can start a relationship with Stenger Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"multi family office\" advisor",
+    "title": "Stenger Family Office | Financial Advisor in Naperville, IL"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
  },
