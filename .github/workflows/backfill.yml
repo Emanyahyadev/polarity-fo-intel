@@ -24,7 +24,7 @@ on:
       deadline:
         description: "ISO-8601 deadline (UTC) ending the run"
         required: false
-        default: "2026-08-11T17:00:00+00:00"
+        default: "2026-08-10T17:00:00+00:00"
       per_source:
         description: "Discovery candidates per source per operating cycle"
         required: false

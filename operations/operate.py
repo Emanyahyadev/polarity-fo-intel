@@ -251,7 +251,7 @@ def main() -> None:
                          "--backfill-target gate-passing records release or --deadline")
     ap.add_argument("--backfill-target", type=int, default=500,
                     help="gate-passing records to reach in backfill mode (default 500)")
-    ap.add_argument("--deadline", type=str, default="2026-08-11T17:00:00+00:00",
+    ap.add_argument("--deadline", type=str, default="2026-08-10T17:00:00+00:00",
                     help="ISO-8601 wall-clock (UTC) ending the backfill run")
     ap.add_argument("--safety-limit", type=int, default=3,
                     help="consecutive fatal cycle failures that end the run (default 3)")
