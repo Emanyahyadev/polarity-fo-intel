@@ -4,8 +4,9 @@ This document exists because the Differentiator brief's own "Final Check Before 
 honesty questions directly. Answered here, truthfully, as of submission:
 
 **1. Are most of the 500 records thin, generic, or blank?** N/A in the literal sense — there are not 500
-records. The dataset holds **80 qualifying records** (unchanged from before this session's `firm_contact_email`/
-`principal_email` field-split fix — see below), each of which passed the pre-existing inclusion standard
+records. The delivered file holds **80 rows, of which 77 actually pass this project's own release gate**; the
+other three fail on a missing geography field and should not have shipped (found this session, see the table
+below). Each of the 77 satisfies the pre-existing inclusion standard
 (`config/inclusion_standard.md`, Rule 1 + Rule 2, enforced in code, not by hand). Of those 80: 10 Single-Family
 Office, 15 Multi-Family Office, 55 honestly labeled Undetermined (proven family offices whose SFO/MFO split
 could not be established — a candor label, not padding). **The 500-record bar is not met. This alone fails the
@@ -32,7 +33,7 @@ window.
 
 | Requirement | Status |
 |---|---|
-| 500 qualifying records | **Not met.** 80 on file. Real (not fabricated) scale-up was triggered via the existing `backfill-acquisition` GitHub Actions workflow but was time-boxed and does not reach 500 before submission. |
+| 500 qualifying records | **Not met — and the honest number is 77, not 80.** The delivered file has 80 rows, but three of them (Cherng Family Trust, Blue Haven Initiative, MacAndrews & Forbes) **fail this project's own release gate** on `mandatory_fields_complete -> missing geography` and are shipping anyway. By the standard the system itself enforces, the qualifying count is **77**. Two real scale-up attempts ran via the existing `backfill-acquisition` workflow (runs `31391941399`, cancelled; `31400295026`, ran 50 min to its deadline). The second added **zero** new records. Two distinct causes, both found by reading the run rather than assuming: (a) the runner was blind to its own store — `store_records_fn` was never wired, so `_current_counts()` returned `(0, 0)` every cycle and the run could never see progress or stop on target (fixed, `875a974`); and (b) separately and still **unfixed**, discovery completes each source but yields no new gate-passing records — the free-tier sources appear to be re-surfacing firms already in the store or candidates that fail Rule 2. Fixing (a) does not fix (b). |
 | ≥200 qualifying named-person emails | **Not met.** 0 on file. The generic-inbox mislabeling that would have made this number look better than it is has been fixed, not hidden. |
 | Every record: ≥1 real route to the named individual | **Not met** for the great majority of records — most family offices in this dataset are privately held with no public staff directory (a structural source limitation, documented in `docs/AgentArchitecture.md` §1), not a pipeline defect. |
 | Customer-facing agent, natural-language goals | **Real and live.** `POST /goal`, `src/fointel/agent/`. Two genuinely model-driven decision points (mandate understanding, grounded synthesis), deterministic evidence/scoring in between. See the three goal runs in `reports/goals/` and `logs/agent/`. |
