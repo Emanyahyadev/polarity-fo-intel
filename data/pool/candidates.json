@@ -18004,6 +18004,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:association rockefellers founded their own family office|geo:?",
+  "name": "Association the Rockefellers founded their own Family Office",
+  "payload": {
+   "dedup_key": "name:association rockefellers founded their own family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The History of Family Offices: Tracing the roots - Wigmore Association"
+   },
+   "identifiers": {},
+   "name": "Association the Rockefellers founded their own Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The History of Family Offices: Tracing the roots - Wigmore Association"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://wigmoreassociation.com/the-history-of-family-offices-tracing-the-roots"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:at callan family office|geo:?",
   "name": "At Callan Family Office",
   "payload": {
@@ -20082,6 +20105,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:efficient approach to family office|geo:?",
+  "name": "Efficient Approach to Family Office",
+  "payload": {
+   "dedup_key": "name:efficient approach to family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Efficient Approach to Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:el multiple family office|geo:?",
   "name": "El multiple Family Office",
   "payload": {
@@ -20414,6 +20460,29 @@
    "source_url": "https://www.globenewswire.com/news-release/2026/07/13/3326294/0/en/Family-Office-Partners-Expands-into-Houston-with-Addition-of-Patrick-Keller-and-Andrew-C-Keller.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:expertise in multi family office|geo:?",
+  "name": "expertise in multi Family Office",
+  "payload": {
+   "dedup_key": "name:expertise in multi family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "identifiers": {},
+   "name": "expertise in multi Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.selectadvisorsinstitute.com/our-perspective/how-to-build-a-multi-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:explained a multi family office is a private family office|geo:?",
@@ -21599,6 +21668,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:gfc and then five years at crow family office|geo:?",
+  "name": "GFC and then five years at the Crow Family Office",
+  "payload": {
+   "dedup_key": "name:gfc and then five years at crow family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Building a $3B Family Office From Scratch"
+   },
+   "identifiers": {},
+   "name": "GFC and then five years at the Crow Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Building a $3B Family Office From Scratch"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.youtube.com/watch?v=Szk5EF3CEcA"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:global family office|geo:?",
   "name": "Global Family Office",
   "payload": {
@@ -21884,6 +21976,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:history and future of family office|geo:?",
+  "name": "History and Future of the Family Office",
+  "payload": {
+   "dedup_key": "name:history and future of family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The History and Future of the Family Office – No longer just For Billionaires - Robertson Stephens"
+   },
+   "identifiers": {},
+   "name": "History and Future of the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The History and Future of the Family Office – No longer just For Billionaires - Robertson Stephens"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://rscapital.com/2023/04/12/the-history-and-future-of-the-family-office-no-longer-just-for-billionaires"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:history as a single family office|geo:?",
   "name": "history as a single Family Office",
   "payload": {
@@ -22167,6 +22282,29 @@
    "source_url": "https://www.bbh.com/us/en/insights/capital-partners-insights/seven-considerations-before-creating-a-family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:if you are searching for a multi family office|geo:?",
+  "name": "If you are searching for a multi Family Office",
+  "payload": {
+   "dedup_key": "name:if you are searching for a multi family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "identifiers": {},
+   "name": "If you are searching for a multi Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.selectadvisorsinstitute.com/our-perspective/how-to-build-a-multi-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:if you believe a family office|geo:?",
@@ -23808,6 +23946,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:most common legal entities used for family office|geo:?",
+  "name": "most common legal entities used for Family Office",
+  "payload": {
+   "dedup_key": "name:most common legal entities used for family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What is a Single-Family Office? Structure, Setup, & Operations"
+   },
+   "identifiers": {},
+   "name": "most common legal entities used for Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "What is a Single-Family Office? Structure, Setup, & Operations"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://carta.com/learn/private-funds/structures/family-offices/sfo"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:most effective way to approach a family office|geo:?",
   "name": "most effective way to approach a Family Office",
   "payload": {
@@ -24261,6 +24422,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:operating family office|geo:?",
+  "name": "Operating Family Office",
+  "payload": {
+   "dedup_key": "name:operating family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Club | 30 events a year, 50 AI tools, 16 million registered members. Proximity. SuperIntelligence. Scale."
+   },
+   "identifiers": {},
+   "name": "Operating Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Club | 30 events a year, 50 AI tools, 16 million registered members. Proximity. SuperIntelligence. Scale."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://familyoffices.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:operational playbook for engaging family office|geo:?",
   "name": "operational playbook for engaging Family Office",
   "payload": {
@@ -24638,6 +24822,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://13f.info/13f/000139834426006785-cambient-family-office-llc-q1-2026"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:portfolio holdings intrepid family office|geo:?",
+  "name": "Portfolio Holdings Intrepid Family Office",
+  "payload": {
+   "dedup_key": "name:portfolio holdings intrepid family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Intrepid Family Office LLC Q1 2026 13F Top Portfolio Holdings"
+   },
+   "identifiers": {},
+   "name": "Portfolio Holdings Intrepid Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" SEC 13F filings",
+    "title": "Intrepid Family Office LLC Q1 2026 13F Top Portfolio Holdings"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://13f.info/13f/000101359426000589-intrepid-family-office-llc-q1-2026"
   },
   "source_class": "Web search (EXA)"
  },
@@ -25280,6 +25488,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:robertson stephens first true family office|geo:?",
+  "name": "Robertson Stephens The first true Family Office",
+  "payload": {
+   "dedup_key": "name:robertson stephens first true family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The History and Future of the Family Office – No longer just For Billionaires - Robertson Stephens"
+   },
+   "identifiers": {},
+   "name": "Robertson Stephens The first true Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The History and Future of the Family Office – No longer just For Billionaires - Robertson Stephens"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://rscapital.com/2023/04/12/the-history-and-future-of-the-family-office-no-longer-just-for-billionaires"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:robertson stephens launches family office|geo:?",
   "name": "Robertson Stephens Launches Family Office",
   "payload": {
@@ -25919,6 +26150,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:squire patton boggs in an earlier family office|geo:?",
+  "name": "Squire Patton Boggs In an earlier Family Office",
+  "payload": {
+   "dedup_key": "name:squire patton boggs in an earlier family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Insights: Exchange Act Form 13F – New Requirements Effective July 1, 2024 | Insights | Squire Patton Boggs"
+   },
+   "identifiers": {},
+   "name": "Squire Patton Boggs In an earlier Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Family Office Insights: Exchange Act Form 13F – New Requirements Effective July 1, 2024 | Insights | Squire Patton Boggs"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.squirepattonboggs.com/insights/publications/family-office-insights-exchange-act-form-13f-new-requirements-effective-july-1-2024"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:stewart will build out offering as head of family office|geo:?",
   "name": "Stewart will build out offering as Head of Family Office",
   "payload": {
@@ -25988,6 +26242,29 @@
    "source_url": "https://www.privatebank.bankofamerica.com/articles/managing-your-family-legacy-through-a-family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:structure rarely fits everyone family office|geo:?",
+  "name": "structure rarely fits everyone Family Office",
+  "payload": {
+   "dedup_key": "name:structure rarely fits everyone family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "structure rarely fits everyone Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:structure willowdale equity a single family office|geo:?",
@@ -26361,6 +26638,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.youtube.com/watch?v=MKbpoCl8m0k"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:to build a multi family office|geo:?",
+  "name": "to Build a Multi Family Office",
+  "payload": {
+   "dedup_key": "name:to build a multi family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "identifiers": {},
+   "name": "to Build a Multi Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "How to Build a Multi Family Office — Investor Educator, Advisor Consultant, Consulting RIAs and Financial Industry"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.selectadvisorsinstitute.com/our-perspective/how-to-build-a-multi-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -27381,6 +27681,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:wealthspire launches an enhanced family office|geo:?",
+  "name": "Wealthspire Launches an Enhanced Family Office",
+  "payload": {
+   "dedup_key": "name:wealthspire launches an enhanced family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Wealthspire Launches an Enhanced Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:weiner is a well respected and long tenured family office|geo:?",
   "name": "Weiner is a well-respected and long-tenured Family Office",
   "payload": {
@@ -27427,6 +27750,29 @@
    "source_url": "https://www.bettonfamily.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:where family office|geo:?",
+  "name": "where the Family Office",
+  "payload": {
+   "dedup_key": "name:where family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Wealth Management Services - Cerity Partners"
+   },
+   "identifiers": {},
+   "name": "where the Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Wealth Management Services - Cerity Partners"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://ceritypartners.com/individuals-and-families/family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:whether a family office|geo:?",
