@@ -44,6 +44,24 @@ window.
 | At least one real dependency failure | **Satisfied, multiple ways.** Two schedule-triggered runs failed for real before this session: 2026-08-10T09:09:24Z and 2026-08-10T07:14:43Z (`gh run list --workflow=operating-cycle.yml`). During this session, manually triggered run `31395597811` (2026-08-10T13:57:54Z) genuinely failed end-to-end from a real bug this work introduced (a `git add` pathspec glob failure cascading into a rejected push) — not staged, not induced, found by watching the actual run fail and read in `gh run view --log-failed`; fixed in `c9b42db`. Separately, the local Goal 3 agent run hit a real LLM provider failure ("mandate LLM call failed", `logs/agent.log` 2026-08-10T14:04:24Z) and correctly degraded to the deterministic keyword fallback rather than crashing — see `agent/mandate.py`'s fallback path. |
 | Cross-run, evidence-based staleness/trust event | **Mechanism built and proven to run correctly across two genuinely separate cycles; no real diff has fired yet, stated honestly.** Was completely unimplemented before this session (`FreshnessAgent` hardcoded `stale: []`). Fixed (`freshness_trust.py`, `2bfdc0a`), found and fixed two more real bugs that were silently breaking the commit step on every run (`c9b42db`, `8e5c5a1`) by watching actual runs fail. Two real, separate GitHub Actions runs then executed successfully: baseline `31397630141` (commit `87eda9a`, established `data/freshness/prior_snapshot.json`) and comparison `31398554032` (commit `b0b8768`, ~10 minutes later). The comparison found **zero trust-bearing field changes** — correct and expected, since nothing in the 80-record store actually changed in that ~10-minute window; an honest null result, not a failed check. **This table row cannot honestly be marked "satisfied" without a run that actually found a real diff.** A longer-running backfill cycle was triggered afterward specifically to increase the chance of a genuine field-level change (re-verification touching an existing record) surfacing before submission — check `gh run list --workflow=operating-cycle.yml` for any run after `31398554032` whose `cross_run_trust.stale` is non-empty before claiming this gate met. |
 
+## Bugs found in this session that a passing build was hiding
+
+Listed because each one was reported as healthy by something — a green workflow, a green
+local test run, or a UI panel — while being broken underneath.
+
+| Bug | How it presented | How it was found | Fix |
+|---|---|---|---|
+| `FreshnessAgent` crashed on **every single run** since it was written — it passed pydantic models into a `ComputeEngine` that reads dicts (`AttributeError: 'FamilyOfficeRecord' object has no attribute 'get'`) | Workflow **green**; the failure was a `"status": "failed"` string inside a JSON blob in the step log. One of the 14 employees had never once completed. | Reproduced the employee locally against the real store after asking why the cycle produces no data | `25cf752` |
+| `BackfillRunner` never received `store_records_fn`, so `_current_counts()` returned `(0, 0)` unconditionally | Run reported "0 rows storewide" while 80 records sat in the store; could never detect its own target | Read the run report instead of the run status | `875a974` |
+| The candidate pool (`data/fointel.db`) is gitignored, so every CI run started with an **empty pool**, re-discovered the same firms, and discarded the work | Discovery logged "done" for every source each run and the record count never moved | Compared a local harvest (pool = 612 candidates) against CI behaviour | `a30e2eb` |
+| `git add data/freshness/*` aborted the whole staging step when the directory did not exist, taking `data/final/*` with it; `notes/*.md` was never staged, leaving the tree dirty so the rebase failed and the push was rejected | Cycle step green, commit step red | Watched runs `31395597811` / `31396664044` fail | `c9b42db`, `8e5c5a1` |
+| Test file imported `src.fointel` instead of the installed `fointel`, killing CI collection (exit 2, **0 tests run**) across six commits | Local `pytest` **233 passed**; CI red the whole time | The candidate spotted the red X's in the Actions list and asked | `ef87ee4` |
+| Two UI panels showed hardcoded fake state ("AI Employee Status" = literal `{state: "active"}`) | Looked like live telemetry | Read the visualization source | `07cd91c` |
+
+The pattern is the point: in five of the six, **something green was covering something broken**. The
+freshness employee is the clearest case — a fourteen-agent cycle reporting success with one agent dead
+in every run for three days.
+
 ## Bottom line
 
 The infrastructure fixes, the agent, and the three goal executions are real, live, and evidenced by
