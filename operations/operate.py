@@ -154,11 +154,25 @@ def run_backfill(args, inputs: dict):
             _live_sync()
         return cycle
 
+    def _store_records() -> list:
+        """The canonical released store, re-read each cycle so the runner sees
+        what the cycle actually published. Without this the runner is BLIND:
+        BackfillRunner defaults store_records_fn to None, _current_counts()
+        returns (0, 0) unconditionally, and every run reports '0 rows storewide'
+        and can never detect that the target was reached."""
+        try:
+            from fointel.rag.load import load_records_from_store
+            return load_records_from_store()
+        except Exception as exc:  # never abort acquisition over a counting read
+            print(f"  backfill: store read failed ({exc}); counts unavailable this cycle")
+            return []
+
     runner = BackfillRunner(
         target=args.backfill_target, deadline=args.deadline,
         safety_limit=args.safety_limit,
         state_dir=ROOT / "data" / "backfill",
-        cycle_fn=each_cycle)
+        cycle_fn=each_cycle,
+        store_records_fn=_store_records)
     cp = runner.run()
     print(json.dumps({"backfill": cp.to_dict()}, indent=2, default=str))
     if cp.status == "target":
