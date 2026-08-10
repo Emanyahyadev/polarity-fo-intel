@@ -1,0 +1,279 @@
+{
+  "goal": "Identify the 10 family offices in the dataset that are the strongest prospects for a private-markets fund seeking new limited partners, rank them by overall fit, compare their investment focus and recent activity, identify the relevant named decision-maker and available contact route for each, and explain the evidence supporting the ranking.",
+  "run_id": "goal-62a767e0f1",
+  "elapsed_seconds": 7.2,
+  "mandate_criteria": {
+    "sectors": [],
+    "geography": [],
+    "fund_stage_or_type": "private-markets",
+    "role_sought": "limited partner",
+    "fo_type_preference": null,
+    "ambiguities": [
+      "what constitutes 'strongest prospects'",
+      "criteria for 'overall fit'"
+    ],
+    "unanswerable_from_dataset": [
+      "available contact route",
+      "current decision-maker status"
+    ],
+    "_fallback": false
+  },
+  "manual_retrieval_baseline": {
+    "answered": false,
+    "mode": "abstain",
+    "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+    "n_cards": 0,
+    "elapsed_seconds": 1.3
+  },
+  "structured_output": [
+    {
+      "rank": 1,
+      "fo_id": "fo_33d228f849",
+      "family_office_name": "NOBLEHOUSE FAMILY OFFICE, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "NOBLEHOUSE FAMILY OFFICE, LLC has a fit score of 0.35 and sufficient uncertainty, with 2 independent verification sources, but no named-person contact route was found. The record confidence is medium, but the lack of sector and geography match limits the confidence in this prospect.",
+      "investment_focus": "Request a Private Briefing Take the Leakage Assessment The hidden cost of uncoordinated wealth Building and Protecting Noble Legacies Famili",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Further research is needed to determine the best approach to contact this family office, as no direct contact route is available."
+    },
+    {
+      "rank": 2,
+      "fo_id": "fo_cfa2d51623",
+      "family_office_name": "WE FAMILY OFFICES",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "WE FAMILY OFFICES has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, with a stated investment thesis on file. Santiago Ulloa is listed as the Manager, but no direct contact route is available.",
+      "investment_focus": "What We Do What We Do Family Wealth Advisory We know families face myriad complex choices when it comes to organizing, structuring, managing",
+      "recent_activity": [],
+      "decision_maker": "Santiago Ulloa (Manager)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV Item 5.F reports $10.20B regulatory (client) AUM and the firm states it \"partners with families\" (plural) \u00e2\u20ac\u201d a multi-family office / registered adviser."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Attempt to contact Santiago Ulloa, Manager of WE FAMILY OFFICES, through indirect means, as no direct contact route is available."
+    },
+    {
+      "rank": 3,
+      "fo_id": "fo_55e904bc2b",
+      "family_office_name": "SESTANTE FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "SESTANTE FAMILY OFFICE has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, but no named-person contact route was found. The record confidence is medium, but the lack of sector and geography match limits the confidence in this prospect.",
+      "investment_focus": "Stewards of Your Wealth and Lifestyle The Evolution of Our Family Office Sestante Family Office is dedicated to delivering highly personaliz",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Further research is needed to determine the best approach to contact this family office, as no direct contact route is available."
+    },
+    {
+      "rank": 4,
+      "fo_id": "fo_a4cb68cd35",
+      "family_office_name": "MATTER FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "MATTER FAMILY OFFICE has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, but no named-person contact route was found. The record confidence is medium, but the lack of sector and geography match limits the confidence in this prospect.",
+      "investment_focus": "We believe wealth should enhance your life and support your purpose.",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Further research is needed to determine the best approach to contact this family office, as no direct contact route is available."
+    },
+    {
+      "rank": 5,
+      "fo_id": "fo_f638fbd06f",
+      "family_office_name": "STORYONE FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "STORYONE FAMILY OFFICE has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, with John Aaron Christensen listed as the Owner/Cco. However, no direct contact route is available.",
+      "investment_focus": "We take this 360 degree approach to deliver comprehensive solutions to help you steward your wealth\u00e2\u20ac\u201cand enhance the specific mission, vision",
+      "recent_activity": [],
+      "decision_maker": "John Aaron Christensen (Owner/Cco)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Attempt to contact John Aaron Christensen, Owner/Cco of STORYONE FAMILY OFFICE, through indirect means, as no direct contact route is available."
+    },
+    {
+      "rank": 6,
+      "fo_id": "fo_831b1d28ba",
+      "family_office_name": "818 FAMILY OFFICE, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "818 FAMILY OFFICE, LLC has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, but no named-person contact route was found. The record confidence is medium, but the lack of sector and geography match limits the confidence in this prospect.",
+      "investment_focus": "We seek to serve a limited number of families who want disciplined coordination, proactive tax strategy, and long-term alignment within a st",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"We seek to serve a limited number of families ... client relationships as long-term partnerships\" (plural families/clients) \u00e2\u20ac\u201d a multi-family office."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Further research is needed to determine the best approach to contact this family office, as no direct contact route is available."
+    },
+    {
+      "rank": 7,
+      "fo_id": "fo_4dcf965b7e",
+      "family_office_name": "Biltmore Family Office, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Biltmore Family Office, LLC has a fit score of 0.35, sufficient uncertainty, and 3 independent verification sources, but no named-person contact route was found. The record confidence is medium, but the lack of sector and geography match limits the confidence in this prospect.",
+      "investment_focus": "We call it a Collaborative Family Office Governance & Education Investment Services Customized Planning Reporting & Technology Biltmore Fami",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 3,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "SEC EDGAR (13F / SC / Form D filings) (13F holdings, aggregate 13(f) value, signatory)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Further research is needed to determine the best approach to contact this family office, as no direct contact route is available."
+    },
+    {
+      "rank": 8,
+      "fo_id": "fo_eca2b3bb02",
+      "family_office_name": "JFG FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "JFG FAMILY OFFICE has a fit score of 0.35, sufficient uncertainty, and 2 independent verification sources, with Brandon Carroll Johnson listed as a Member. However, no direct contact route is available.",
+      "investment_focus": "Our human capital, philanthropic advising, financial planning, and investment management services are carefully tailored to meet the complex",
+      "recent_activity": [],
+      "decision_maker": "Brandon Carroll Johnson (Member)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"We serve an exclusive clientele with fully integrated family office services\"; SEC Form ADV Item 5.F reports $2.48B regulatory (client) AUM \u00e2\u20ac\u201d a registered adviser serving multiple clients, i.e. a multi-family office."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Attempt to contact Brandon Carroll Johnson, Member of JFG FAMILY OFFICE, through indirect means, as no direct contact route is available."
+    },
+    {
+      "rank": 9,
+      "fo_id": "fo_1e72fff8ee",
+      "family_office_name": "MARCUARD FAMILY OFFICE LTD",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "MARCUARD FAMILY OFFICE LTD has a fit score of 0.35, but the uncertainty is thin due to the lack of a named-person contact route. The record confidence is medium, but the lack of sector and geography match, combined with thin uncertainty, limits the confidence in this prospect.",
+      "investment_focus": null,
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 3,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "SEC EDGAR (13F / SC / Form D filings) (13F holdings, aggregate 13(f) value, signatory)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Exercise caution when approaching MARCUARD FAMILY OFFICE LTD, as the thin uncertainty and lack of direct contact route may make it difficult to establish a connection."
+    },
+    {
+      "rank": 10,
+      "fo_id": "fo_77b15abad5",
+      "family_office_name": "FIVE ELEVEN PARTNERS",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "FIVE ELEVEN PARTNERS has a fit score of 0.35, but the uncertainty is thin due to the lack of a named-person contact route. Andrew Taylor Crofton is listed as the Managing Member and CEO, but the thin uncertainty limits the confidence in this prospect.",
+      "investment_focus": null,
+      "recent_activity": [],
+      "decision_maker": "Andrew Taylor Crofton (Managing Member And Ceo)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"For a limited number of families ... created to meet the financial needs of ultra-high-net-worth families\" (plural) \u00e2\u20ac\u201d a multi-family office."
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Exercise caution when approaching FIVE ELEVEN PARTNERS, as the thin uncertainty and lack of direct contact route may make it difficult to establish a connection with Andrew Taylor Crofton, Managing Member and CEO."
+    }
+  ],
+  "counts": {
+    "considered": 80,
+    "sufficient_evidence": 32,
+    "thin_or_stale_evidence": 48,
+    "insufficient_evidence": 0
+  },
+  "trace_path": "logs/agent/goal-62a767e0f1.jsonl"
+}
