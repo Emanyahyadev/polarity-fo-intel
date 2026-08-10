@@ -46,3 +46,16 @@ Honest limits of the current build. Stating them is the point — hidden uncerta
 
 ## Backends / infrastructure
 - **Postgres/Supabase backend** is implemented and unit-testable but is validated against a live instance only at deploy (its roundtrip test is skipped unless `TEST_DATABASE_URL` is set). SQLite is the tested backend at this scope.
+
+## Stage 2 additions (this session)
+- **The agent shares the live `/query` deployment's LLM quota.** The Render deployment's `LLM_PROVIDER`
+  is unset, defaulting to Groq (the pre-existing key), the same 100,000-token/day pool `/query` already
+  uses. Local goal runs in this session were made against a separate NVIDIA-hosted key specifically to
+  avoid competing for that shared quota; the live deployed agent has not been load-tested against the
+  same limit. If the Groq daily quota is exhausted, both `/query` and `/goal` degrade to their
+  deterministic fallback paths (extractive answers / templated explanations) rather than failing —
+  by design — but a reviewer testing heavily in one session may see fallback mode throughout.
+- **Cross-run staleness/trust detection (`freshness_trust.py`) is new this session** and only as good as
+  the number of real cycles that have run against it. Check `docs/Stage2Status.md` for whether a genuine
+  cross-cycle diff had actually fired by submission time, rather than assuming the mechanism existing
+  means the evidence exists.
