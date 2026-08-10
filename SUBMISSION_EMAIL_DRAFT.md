@@ -17,8 +17,8 @@ mid-session.
 unchanged Micro-RAG from Stage 1, now serving 80 records)
 
 **2. Running agentic system:** https://family-office-intelligence.onrender.com — "Agent" tab in the UI,
-or `POST /goal` directly. [CONFIRM: live deploy dep-d9stj61t0dsc73c9gqc0 finished and /goal returns 200
-before sending]
+or `POST /goal` directly. Confirmed live and working (deploy `dep-d9stle49v7es73foprc0`): all three goals
+were re-run directly against this URL and completed in 5-7 seconds each.
 
 **3. Repository (full commit history):** https://github.com/Emanyahyadev/polarity-fo-intel
 
@@ -30,10 +30,18 @@ https://github.com/Emanyahyadev/polarity-fo-intel/actions/workflows/operating-cy
 not 500. `data/freshness/prior_snapshot.json` tracks cross-cycle trust state (new this session).
 
 **6. Structured outputs from the three goals + tool schemas:**
-- Goal 1: `reports/goals/goal-923b73bc7c.json` (pre-scoring-fix artifact — see note in
-  `docs/Stage2Status.md`) [RE-RUN AND REPLACE IF TIME PERMITS]
-- Goal 2 (verbatim): `reports/goals/goal-5017dab551.json`
-- Goal 3: `reports/goals/[FILL IN ONCE COMPLETE].json`
+- Goal 1: `reports/goals/goal-a20ad286ea-GOAL1-LIVE.json` (live deployment, post-fix, 7.2s); earlier
+  local pre-fix run kept as-is at `reports/goals/goal-923b73bc7c.json` — it's what surfaced the scoring
+  bug, documented rather than deleted.
+- Goal 2 (verbatim): `reports/goals/goal-93f269059a-GOAL2-LIVE.json` (live, 5.0s) and
+  `reports/goals/goal-5017dab551.json` (local NVIDIA run, 573s) — both agree: 0/80 records reach
+  "sufficient" evidence for the healthcare-services mandate.
+- Goal 3: `reports/goals/goal-99f7644650-GOAL3-LIVE.json` (live, 6.4s) and
+  `reports/goals/goal-e34e50fff8.json` (local run where BOTH LLM calls genuinely failed and the
+  deterministic fallback still produced correct, matching results — real resilience evidence).
+- Raw traces: `logs/agent/*.jsonl` (one per local run; live-deployment traces live only on Render's
+  ephemeral filesystem and were not retrievable after the fact — the local traces are the raw-log
+  deliverable of record).
 - Tool interfaces: `src/fointel/agent/evidence.py` (`plan_and_retrieve`, `score_and_classify`),
   `src/fointel/agent/mandate.py` (`understand_mandate`), `src/fointel/agent/synth.py`
   (`explain_and_recommend`)
