@@ -13,6 +13,9 @@ WORKDIR /app
 COPY requirements-serve.txt pyproject.toml ./
 COPY src ./src
 COPY data/final/family_offices.csv ./data/final/family_offices.csv
+# The customer-facing agent (POST /goal) reads the full-fidelity canonical store
+# (provenance, verification sources) that the CSV alone does not carry.
+COPY data/final/records.json ./data/final/records.json
 
 RUN pip install --no-cache-dir -r requirements-serve.txt \
     && pip install --no-cache-dir --no-deps -e .

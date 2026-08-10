@@ -11,6 +11,7 @@ python-dotenv==1.2.2
 fastapi==0.140.1
 uvicorn[standard]==0.51.0
 groq==1.6.0
+openai==2.53.0
 # heavy transitive deps of fastembed, pinned so the ONNX embedding stack is deterministic
 onnxruntime==1.28.0
 tokenizers==0.23.1
