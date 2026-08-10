@@ -85,7 +85,7 @@ class Settings:
     # misbehaving employee can never exhaust the process. Applied by
     # operate.guard.ResourceGuard before and after every graph node.
     max_cycle_items: int = _int("MAX_CYCLE_ITEMS", 2000)
-    max_cycle_state_bytes: int = _int("MAX_CYCLE_STATE_BYTES", 1_000_000)
+    max_cycle_state_bytes: int = _int("MAX_CYCLE_STATE_BYTES", 8_000_000)
     # How long an operating cycle waits for the process-wide cycle lock before
     # refusing to start (thread-safety: no two cycles write one trace/repo).
     cycle_lock_timeout_seconds: float = _float("CYCLE_LOCK_TIMEOUT", 60.0)
