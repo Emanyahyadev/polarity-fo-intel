@@ -18640,6 +18640,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:cerity partners family office|geo:?",
+  "name": "Cerity Partners Family Office",
+  "payload": {
+   "dedup_key": "name:cerity partners family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Wealth Management Services | Cerity Partners"
+   },
+   "identifiers": {},
+   "name": "Cerity Partners Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Wealth Management Services | Cerity Partners"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://ceritypartners.com/individuals-and-families/family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:cerity partners through highly personalized family office|geo:?",
   "name": "Cerity Partners through highly personalized Family Office",
   "payload": {
@@ -18901,6 +18924,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:clients of callan family office|geo:?",
+  "name": "Clients of Callan Family Office",
+  "payload": {
+   "dedup_key": "name:clients of callan family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Callan Family Office"
+   },
+   "identifiers": {},
+   "name": "Clients of Callan Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Callan Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://callanfamilyoffice.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:combine and family office|geo:?",
   "name": "Combine and Family Office",
   "payload": {
@@ -19042,6 +19088,29 @@
    "source_url": "https://eyraadvisors.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:concept of family office|geo:?",
+  "name": "concept of the Family Office",
+  "payload": {
+   "dedup_key": "name:concept of family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "identifiers": {},
+   "name": "concept of the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/ronalddiamond_so-many-people-ask-me-what-a-family-office-activity-7427686671665799168-4nkC"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:concerns of setting up a family office|geo:?",
@@ -19353,6 +19422,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:dakota family office|geo:?",
+  "name": "Dakota Family Office",
+  "payload": {
+   "dedup_key": "name:dakota family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "identifiers": {},
+   "name": "Dakota Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/ronalddiamond_so-many-people-ask-me-what-a-family-office-activity-7427686671665799168-4nkC"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:daniel ek created his family office|geo:?",
   "name": "Daniel Ek created his Family Office",
   "payload": {
@@ -19444,6 +19536,29 @@
    "source_url": "https://carta.com/learn/private-funds/structures/family-offices/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:decision to form a family office|geo:?",
+  "name": "decision to form a Family Office",
+  "payload": {
+   "dedup_key": "name:decision to form a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "identifiers": {},
+   "name": "decision to form a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jdsupra.com/legalnews/modernizing-the-family-office-knowing-1578491"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:dedicated single family office|geo:?",
@@ -19893,6 +20008,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.axial.net/forum/companies/financial-services-family-offices/3"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:duquesne capital into duquesne family office|geo:?",
+  "name": "Duquesne Capital into Duquesne Family Office",
+  "payload": {
+   "dedup_key": "name:duquesne capital into duquesne family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Form 13F Filings | MacroMicro"
+   },
+   "identifiers": {},
+   "name": "Duquesne Capital into Duquesne Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Form 13F Filings | MacroMicro"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://en.macromicro.me/13f"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -20816,6 +20954,29 @@
    "source_url": "https://en.wikipedia.org/wiki/Family_office"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:fees a multi family office is a private family office|geo:?",
+  "name": "Fees ... A multi-family office is a private Family Office",
+  "payload": {
+   "dedup_key": "name:fees a multi family office is a private family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Multi-Family Office: Structure, Services and Fees ..."
+   },
+   "identifiers": {},
+   "name": "Fees ... A multi-family office is a private Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "The Multi-Family Office: Structure, Services and Fees ..."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://creativeplanning.com/insights/family-office/multi-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:fidelity began offering family office|geo:?",
@@ -21840,6 +22001,30 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:houston business journal family office|geo:?",
+  "name": "Houston Business Journal Family Office",
+  "payload": {
+   "dedup_key": "name:houston business journal family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Partners expands to Houston with local hires - Houston Business Journal"
+   },
+   "identifiers": {},
+   "name": "Houston Business Journal Family Office",
+   "raw": {
+    "published": "2026-07-21T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Family Office Partners expands to Houston with local hires - Houston Business Journal"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.bizjournals.com/houston/news/2026/07/21/wealth-firm-family-office-partners-expands-houston.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:houston expansion reflects family office|geo:?",
   "name": "Houston expansion reflects Family Office",
   "payload": {
@@ -22174,6 +22359,29 @@
    "source_url": "https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/ideas-and-insights/the-why-who-what-and-how-of-starting-a-family-office"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:improved liquidity is driving new family office|geo:?",
+  "name": "improved liquidity is driving new Family Office",
+  "payload": {
+   "dedup_key": "name:improved liquidity is driving new family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "identifiers": {},
+   "name": "improved liquidity is driving new Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/ronalddiamond_so-many-people-ask-me-what-a-family-office-activity-7427686671665799168-4nkC"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:in an earlier family office|geo:?",
@@ -22511,6 +22719,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:jp morgan private bank us traditional family office|geo:?",
+  "name": "J.P. Morgan Private Bank U.S. Traditional Family Office",
+  "payload": {
+   "dedup_key": "name:jp morgan private bank us traditional family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The why, who, what and how of starting a family office | J.P. Morgan Private Bank U.S."
+   },
+   "identifiers": {},
+   "name": "J.P. Morgan Private Bank U.S. Traditional Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The why, who, what and how of starting a family office | J.P. Morgan Private Bank U.S."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/ideas-and-insights/the-why-who-what-and-how-of-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:karim mawji participates in select family office|geo:?",
   "name": "Karim Mawji participates in select Family Office",
   "payload": {
@@ -22630,6 +22861,29 @@
   "source_class": "Curated directory / reference (Wikipedia, associations)"
  },
  {
+  "dedup_key": "name:knowing when your family needs its own family office|geo:?",
+  "name": "Knowing When Your Family Needs Its Own Family Office",
+  "payload": {
+   "dedup_key": "name:knowing when your family needs its own family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "identifiers": {},
+   "name": "Knowing When Your Family Needs Its Own Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jdsupra.com/legalnews/modernizing-the-family-office-knowing-1578491"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:lack of bench strength most family office|geo:?",
   "name": "Lack of bench strength. Most Family Office",
   "payload": {
@@ -22747,6 +23001,29 @@
    "source_url": "https://cressetcapital.com/family-office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:learn how to set up your own micro family office|geo:?",
+  "name": "Learn how to set up your own Micro Family Office",
+  "payload": {
+   "dedup_key": "name:learn how to set up your own micro family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to ACTUALLY Start a Micro Family Office in 2026"
+   },
+   "identifiers": {},
+   "name": "Learn how to set up your own Micro Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "How to ACTUALLY Start a Micro Family Office in 2026"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.youtube.com/watch?v=MKbpoCl8m0k"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:learn more about family office|geo:?",
@@ -23414,6 +23691,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:modernizing family office|geo:?",
+  "name": "Modernizing the Family Office",
+  "payload": {
+   "dedup_key": "name:modernizing family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "identifiers": {},
+   "name": "Modernizing the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jdsupra.com/legalnews/modernizing-the-family-office-knowing-1578491"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:monaco global services multi family office|geo:?",
   "name": "MONACO GLOBAL SERVICES Multi Family Office",
   "payload": {
@@ -23436,6 +23736,52 @@
    "source_url": "https://www.mgs.mc/en/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:morgan lewis jdsupra a family office|geo:?",
+  "name": "Morgan Lewis - JDSupra A Family Office",
+  "payload": {
+   "dedup_key": "name:morgan lewis jdsupra a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "identifiers": {},
+   "name": "Morgan Lewis - JDSupra A Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office | Morgan Lewis - JDSupra"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jdsupra.com/legalnews/modernizing-the-family-office-knowing-1578491"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:morgan stanley building an effective family office|geo:?",
+  "name": "Morgan Stanley Building an effective Family Office",
+  "payload": {
+   "dedup_key": "name:morgan stanley building an effective family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Private Wealth Management for Single Family Offices  | Morgan Stanley"
+   },
+   "identifiers": {},
+   "name": "Morgan Stanley Building an effective Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Private Wealth Management for Single Family Offices  | Morgan Stanley"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.morganstanley.com/what-we-do/wealth-management/private-wealth-management/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:morgan to manage family assets while each family office|geo:?",
@@ -24462,6 +24808,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:provides products and services to callan family office|geo:?",
+  "name": "LLC provides products and services to Callan Family Office",
+  "payload": {
+   "dedup_key": "name:provides products and services to callan family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Callan Family Office"
+   },
+   "identifiers": {},
+   "name": "LLC provides products and services to Callan Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Callan Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://callanfamilyoffice.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:purdue business larger and older family office|geo:?",
   "name": "Purdue Business The larger and older the Family Office",
   "payload": {
@@ -25432,6 +25801,52 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:small boutique firm in family office|geo:?",
+  "name": "small boutique firm in the Family Office",
+  "payload": {
+   "dedup_key": "name:small boutique firm in family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office Summit 2026 | The #1 Ultra Wealthy Investor Club | 7,500+ Investors"
+   },
+   "identifiers": {},
+   "name": "small boutique firm in the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Single Family Office Summit 2026 | The #1 Ultra Wealthy Investor Club | 7,500+ Investors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://familyoffices.com/sfo"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:so many people ask me what a family office|geo:?",
+  "name": "So many people ask me what a Family Office",
+  "payload": {
+   "dedup_key": "name:so many people ask me what a family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "identifiers": {},
+   "name": "So many people ask me what a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "So many people ask me what a Family Office is. At its core, a Family Office is created after a family sells a business or experiences a major liquidity event and decides to professionalize the… | Ronald Diamond | 53 comments"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/ronalddiamond_so-many-people-ask-me-what-a-family-office-activity-7427686671665799168-4nkC"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:solutions for wealth management firms family office|geo:?",
   "name": "Solutions for Wealth Management Firms Family Office",
   "payload": {
@@ -25925,6 +26340,29 @@
    "source_url": "https://www.reddit.com/r/RichPeoplePF/comments/1fnu7tv/thoughts_on_family_office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:to actually start a micro family office|geo:?",
+  "name": "to ACTUALLY Start a Micro Family Office",
+  "payload": {
+   "dedup_key": "name:to actually start a micro family office|geo:?",
+   "discovered_at": "2026-08-10",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to ACTUALLY Start a Micro Family Office in 2026"
+   },
+   "identifiers": {},
+   "name": "to ACTUALLY Start a Micro Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "How to ACTUALLY Start a Micro Family Office in 2026"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.youtube.com/watch?v=MKbpoCl8m0k"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:to establish a successful family office|geo:?",
