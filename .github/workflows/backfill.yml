@@ -33,6 +33,10 @@ on:
         description: "Enrichment build cap per operating cycle"
         required: false
         default: "200"
+      git_sync_every:
+        description: "Live commit+push (data/final + backfill state) every N cycles (0 = disabled)"
+        required: false
+        default: "4"
 
 # Same shared store floor as the scheduled cycle: one operating run at a time.
 concurrency:
@@ -71,7 +75,7 @@ jobs:
             --deadline "${{ github.event.inputs.deadline }}" \
             --per-source "${{ github.event.inputs.per_source }}" \
             --max-build "${{ github.event.inputs.max_build }}" \
-            --git-sync-every 4
+            --git-sync-every "${{ github.event.inputs.git_sync_every }}"
         env:
           TARGET_RECORDS: 500
           FOINTEL_ENGINE: langgraph
