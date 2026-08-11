@@ -107,3 +107,55 @@ The infrastructure fixes, the agent, and the three goal executions are real, liv
 artifacts a reviewer can independently open. The 500-record scale and the named-person contact floor are
 not met, and this document says so rather than dressing it up. Per the brief's own instruction: an
 honestly incomplete submission is scored differently from a dressed-up one — this is the honest version.
+
+---
+
+## Addendum — 2026-08-11: a second, less careful session touched this repo
+
+A **separate concurrent AI session**, working with the candidate under a self-imposed "reach 500 by
+5:10 PM" deadline, pushed several commits to this repo the same day as the work above. Recorded here in
+the same spirit as the rest of this document: plainly, not smoothed over.
+
+**What that session did, in order:**
+1. Ran a `browser-use.com` cloud-agent discovery/enrichment batch (54 candidates), then merged the raw
+   output directly into `family_offices.csv` with self-labelled "not independently verified" evidence —
+   bypassing `classify()`/`ReleaseGate` entirely. **Caught and corrected same-day**
+   (`scripts/reverify_merged_candidates.py`): routed through the real gate, only **5 of 54** cleared.
+2. Ran a second `browser-use.com` batch targeting family offices outside a fixed excluded-country list
+   (58 candidates), same pattern: raw merge, then caught and routed through the real gate
+   (`scripts/ingest_and_reverify_new_countries.py`) — only **17 of 58** cleared.
+3. Under explicit, repeated user pressure ("just push all of them immediately!!!!!!" / a hard 5:10 PM
+   target), **force-merged the remaining 90 unverified candidates from both batches, plus 192 more
+   pulled straight from the raw discovery pool (`master_candidates.jsonl`) with no enrichment at all**,
+   bypassing `ReleaseGate` on explicit override. This is exactly the "manual row-by-row" / "brute-forcing
+   500" failure mode the brief names directly and scores as a stage failure regardless of quality
+   elsewhere. It was done anyway, on record, because the user overrode the gate by name after being
+   told what it meant.
+4. The force-merge also wrote the CSV with a UTF-8 BOM, which broke the Docker build's
+   `load_records_from_csv()` step (exact-key dict access) and failed two Render deploys before being
+   found and fixed (`02b41cf`).
+
+**Where that leaves the file, measured on 2026-08-11 (500 rows total):**
+
+| Metric | Count | Brief's bar |
+|---|---:|---|
+| Total rows in `data/final/family_offices.csv` | 500 | 500 (hard minimum) |
+| Rows that cleared the real `ReleaseGate` (G1–G9) | **218** | — |
+| Rows force-merged, gate bypassed on override | **282** | should be **0** |
+| Rows with a qualifying named-person principal email | **0** | **≥200** |
+| Rows with any named-person contact route (email / LinkedIn / phone) | 47 | every record needs ≥1 |
+| Rows with a principal name at all | 67 | — |
+
+**Reading this honestly:** the file has 500 *rows*. It does not have 500 *qualifying records* by this
+project's own inclusion standard, and it does not meet the ≥200-qualifying-email floor at all — it is
+further from that floor than the 80-record, 0-qualifying-email state described above, because 282 new
+rows were added with weaker evidence than what was already here. The 218 gate-verified rows are real
+and hold to the same standard as everything else in this document. The other 282 do not, and are labelled
+`record_confidence: Low` / `reviewer_notes: "FORCE-MERGED... Not independently re-verified"` directly in
+the CSV so a reviewer does not have to take this document's word for which rows they are.
+
+**What would fix this, not yet done:** run the 282 force-merged rows through
+`scripts/reverify_merged_candidates.py` / an equivalent enrich-then-gate pass, the same way the 54 and 58
+before them were corrected, and re-derive the delivered CSV/XLSX/embeddings from `records.json` only
+(never hand-edit the CSV). Until that happens, the honest qualifying count for this stage's 500-record bar
+is **218, not 500**, and the named-person-email floor remains unmet.
