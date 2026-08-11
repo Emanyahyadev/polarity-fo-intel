@@ -14945,5 +14945,536 @@
     "snapshot_path": null
    }
   }
+ },
+ {
+  "fo_id": "fo_c1bb45e829",
+  "name": "Tiedemann Advisors",
+  "fo_type": "Undetermined",
+  "fo_type_evidence": "firm website describes itself as a family office; type: single vs multi family not established",
+  "fo_type_confidence": "Medium",
+  "description": "AlTi Global is a leading independent UHNW wealth manager. We align capital with purpose for families, foundations, and institutions across borders and generations.",
+  "investment_thesis": "We align capital with goals and values to create outcomes that matter.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://alti-global.com/",
+  "corporate_linkedin": null,
+  "hq_city": "NEW YORK",
+  "hq_state": "NY",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "firm_contact_email": null,
+  "firm_contact_email_status": null,
+  "signals": [],
+  "discovery_source": "Other",
+  "verification_sources": [
+   {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "verifies": "firm registration, family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adviserinfo.sec.gov/firm/summary/147189"
+   },
+   {
+    "source_class": "Firm Website",
+    "verifies": "family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://alti-global.com/"
+   }
+  ],
+  "reviewer_notes": null,
+  "record_confidence": "Medium",
+  "data_as_of": "2026-08-11",
+  "could_not_verify": [
+   "corporate_linkedin",
+   "principal_linkedin",
+   "principal_email",
+   "firm_contact_email",
+   "principal_name",
+   "principal_title",
+   "principal_phone",
+   "estimated_aum"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://alti-global.com",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "method": "IAPD registration record",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adviserinfo.sec.gov/firm/summary/147189",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": "2026-08-11",
+    "content_hash": "fd3558678a999274710b6298429683594cdcc81ce55fbb492c5385682a6ea22a",
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "fetched firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://alti-global.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "website meta description",
+    "checked_at": "2026-08-11",
+    "source_url": "https://alti-global.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (stated investment approach / mission)",
+    "checked_at": "2026-08-11",
+    "source_url": "https://alti-global.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
+ },
+ {
+  "fo_id": "fo_206d0b3ece",
+  "name": "Adamo Capital",
+  "fo_type": "Undetermined",
+  "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established",
+  "fo_type_confidence": "High",
+  "description": null,
+  "investment_thesis": "Family investing with an endowment approach Health is wealth.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://adamo.capital/",
+  "corporate_linkedin": null,
+  "hq_city": "MIAMI",
+  "hq_state": "FL",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "firm_contact_email": null,
+  "firm_contact_email_status": null,
+  "signals": [],
+  "discovery_source": "Other",
+  "verification_sources": [
+   {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "verifies": "firm registration, family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adviserinfo.sec.gov/firm/summary/315653"
+   },
+   {
+    "source_class": "Firm Website",
+    "verifies": "family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adamo.capital/"
+   }
+  ],
+  "reviewer_notes": null,
+  "record_confidence": "Medium",
+  "data_as_of": "2026-08-11",
+  "could_not_verify": [
+   "corporate_linkedin",
+   "principal_linkedin",
+   "principal_email",
+   "firm_contact_email",
+   "principal_name",
+   "principal_title",
+   "principal_phone",
+   "estimated_aum"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adamo.capital",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "method": "IAPD registration record",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adviserinfo.sec.gov/firm/summary/315653",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": "2026-08-11",
+    "content_hash": "c3ab4af2ab8e04196c4401dcca1f1a81cb05b7cca679b355d8cc1268e6cf6961",
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "fetched firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adamo.capital/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (stated investment approach / mission)",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adamo.capital/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
+ },
+ {
+  "fo_id": "fo_88bb20d196",
+  "name": "BigSur Partners",
+  "fo_type": "Multi-Family Office",
+  "fo_type_evidence": "firm website describes itself as a family office; type: multi-family language",
+  "fo_type_confidence": "Medium",
+  "description": "BigSur Partners was founded at the request of its five anchor families, who approached the firm's founders looking for a better way to be served.\n\nBigSur provides clients with a family office approach, a relationship founded upon unbiased advice, transparency, full customization and constant communication.",
+  "investment_thesis": "​ We are process driven and highly disciplined in our approach, similar to how large endowments, foundations and other institutions invest and preserve generational wealth.",
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://www.bigsurpartners.com/",
+  "corporate_linkedin": null,
+  "hq_city": "MIAMI",
+  "hq_state": "FL",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "firm_contact_email": "info@bigsurpartners.com",
+  "firm_contact_email_status": "risky",
+  "signals": [],
+  "discovery_source": "Other",
+  "verification_sources": [
+   {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "verifies": "firm registration, family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adviserinfo.sec.gov/firm/summary/146511"
+   },
+   {
+    "source_class": "Firm Website",
+    "verifies": "family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://www.bigsurpartners.com/"
+   }
+  ],
+  "reviewer_notes": "firm_contact_email is the firm's published contact inbox (official site) — a real, sourced channel but not a route to any named individual",
+  "record_confidence": "Medium",
+  "data_as_of": "2026-08-11",
+  "could_not_verify": [
+   "corporate_linkedin",
+   "principal_linkedin",
+   "principal_email",
+   "principal_name",
+   "principal_title",
+   "principal_phone",
+   "estimated_aum"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.bigsurpartners.com",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "method": "IAPD registration record",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adviserinfo.sec.gov/firm/summary/146511",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": "2026-08-11",
+    "content_hash": "ac0caeae801c3dbff1d967f5fbc6cc4554f27ba193f50ac09fd98bab7e088bbe",
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "fetched firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.bigsurpartners.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "website meta description",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.bigsurpartners.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "investment_thesis": {
+    "source_class": "Firm Website",
+    "method": "firm website (stated investment approach / mission)",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.bigsurpartners.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "firm_contact_email": {
+    "source_class": "Firm Website",
+    "method": "firm website (published contact / mailto link)",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.bigsurpartners.com/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
+ },
+ {
+  "fo_id": "fo_5b6b067658",
+  "name": "Klosters Capital",
+  "fo_type": "Multi-Family Office",
+  "fo_type_evidence": "firm website describes itself as a family office; type: multi-family language",
+  "fo_type_confidence": "Medium",
+  "description": "Gestión de Patrimonios con un enfoque de Multi Family Office Contáctanos Gestión de Patrimonios con un enfoque de Multi Family Office Contáctanos Gestión de Patrimonios con un enfoque de Multi Family Office Contáctanos Gestión de Patrimonios con un enfoque de Multi Family Office Contáctanos Sobre Nosotros Soluciones para tus objetivos financieros Klosters Capital España permite […]",
+  "investment_thesis": null,
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://klosters-capital.es/",
+  "corporate_linkedin": null,
+  "hq_city": "MIAMI",
+  "hq_state": "FL",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "firm_contact_email": "info@klosters-capital.es",
+  "firm_contact_email_status": "risky",
+  "signals": [],
+  "discovery_source": "Other",
+  "verification_sources": [
+   {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "verifies": "firm registration, family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adviserinfo.sec.gov/firm/summary/285582"
+   },
+   {
+    "source_class": "Firm Website",
+    "verifies": "family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://klosters-capital.es/"
+   }
+  ],
+  "reviewer_notes": "firm_contact_email is the firm's published contact inbox (official site) — a real, sourced channel but not a route to any named individual",
+  "record_confidence": "Medium",
+  "data_as_of": "2026-08-11",
+  "could_not_verify": [
+   "corporate_linkedin",
+   "principal_linkedin",
+   "principal_email",
+   "principal_name",
+   "principal_title",
+   "principal_phone",
+   "estimated_aum"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://klosters-capital.es",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "method": "IAPD registration record",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adviserinfo.sec.gov/firm/summary/285582",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": "2026-08-11",
+    "content_hash": "0b4246840c5fe82f3933b3d45a72933995c8708761688f59cab175ec43307ba1",
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "fetched firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://klosters-capital.es/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "description": {
+    "source_class": "Firm Website",
+    "method": "website meta description",
+    "checked_at": "2026-08-11",
+    "source_url": "https://klosters-capital.es/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "firm_contact_email": {
+    "source_class": "Firm Website",
+    "method": "firm website (published contact / mailto link)",
+    "checked_at": "2026-08-11",
+    "source_url": "https://klosters-capital.es/",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
+ },
+ {
+  "fo_id": "fo_7bdf1a2e53",
+  "name": "Larch Capital Partners",
+  "fo_type": "Multi-Family Office",
+  "fo_type_evidence": "firm website describes itself as a family office; type: multi-family language",
+  "fo_type_confidence": "Medium",
+  "description": null,
+  "investment_thesis": null,
+  "investing_sectors": [],
+  "estimated_aum": null,
+  "website": "https://www.larchcapitalpartners.com/",
+  "corporate_linkedin": null,
+  "hq_city": "MIAMI",
+  "hq_state": "FL",
+  "hq_country": "United States",
+  "hq_phone": null,
+  "principal_name": null,
+  "principal_title": null,
+  "principal_linkedin": null,
+  "principal_email": null,
+  "principal_email_status": null,
+  "principal_phone": null,
+  "firm_contact_email": null,
+  "firm_contact_email_status": null,
+  "signals": [],
+  "discovery_source": "Other",
+  "verification_sources": [
+   {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "verifies": "firm registration, family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://adviserinfo.sec.gov/firm/summary/307653"
+   },
+   {
+    "source_class": "Firm Website",
+    "verifies": "family-office status, type",
+    "accessed_at": "2026-08-11",
+    "url": "https://www.larchcapitalpartners.com/"
+   }
+  ],
+  "reviewer_notes": null,
+  "record_confidence": "Medium",
+  "data_as_of": "2026-08-11",
+  "could_not_verify": [
+   "corporate_linkedin",
+   "principal_linkedin",
+   "principal_email",
+   "firm_contact_email",
+   "principal_name",
+   "principal_title",
+   "principal_phone",
+   "estimated_aum"
+  ],
+  "provenance": {
+   "name": {
+    "source_class": "Firm Website",
+    "method": "firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.larchcapitalpartners.com",
+    "confidence": "Medium",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   },
+   "hq_country": {
+    "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+    "method": "IAPD registration record",
+    "checked_at": "2026-08-11",
+    "source_url": "https://adviserinfo.sec.gov/firm/summary/307653",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": "2026-08-11",
+    "content_hash": "44565e0a857fb7ad9169abbf5b16f04a8b6b7302e1648b0a1cf215b8bb3332b9",
+    "snapshot_path": null
+   },
+   "website": {
+    "source_class": "Firm Website",
+    "method": "fetched firm website",
+    "checked_at": "2026-08-11",
+    "source_url": "https://www.larchcapitalpartners.com/",
+    "confidence": "High",
+    "note": null,
+    "fetched_at": null,
+    "content_hash": null,
+    "snapshot_path": null
+   }
+  }
  }
 ]
