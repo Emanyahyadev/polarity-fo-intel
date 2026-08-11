@@ -13,14 +13,18 @@ offices, served through a grounded Micro-RAG (`/query`) plus a multi-step, agent
 
 *Originally built for the PolarityIQ Differentiator technical assessment — Stage 1 (discovery + Micro-RAG) and Stage 2 (the agentic build extending it).*
 
-**Stage 2 status, stated plainly:** `data/final/family_offices.csv` currently holds **215 records**, all of
-which have cleared this project's release gate (evidence, mandatory fields, provenance, documented
-verification). A larger candidate batch reached 500 rows earlier in the build and was re-derived from the
-canonical record store afterward, which returned the file to the gate-verified count — the full timeline is
-in [docs/Stage2Status.md](docs/Stage2Status.md). Of the 215 records: **18 carry a principal name, 4 carry a
-named-person contact route (email, LinkedIn, or phone), 0 carry a qualifying named-person email** — the
-brief's 500-record floor and its ≥200-qualifying-email floor are both open items, stated here directly. The
-agent, the governance fixes, and the three goal runs below are real and live.
+**Stage 2 status, stated plainly:** `data/final/family_offices.csv` currently holds **500 records**: **215
+have cleared this project's release gate** (evidence, mandatory fields, provenance, documented
+verification), and **285 were added directly, at the candidate's explicit direction, without passing
+through the gate** (they had been held separately in `family_offices_pending_review.csv` pending
+verification, then merged in on request). Both groups are distinguishable in the file via
+`record_confidence` / `reviewer_notes`. Because the 285 were added to the CSV only and not to the
+canonical `records.json` store, the next autonomous re-export cycle will return the file to the
+215 gate-verified count, the same way it did earlier today — full timeline in
+[docs/Stage2Status.md](docs/Stage2Status.md). Of the 215 gate-verified records: **18 carry a principal
+name, 4 carry a named-person contact route (email, LinkedIn, or phone), 0 carry a qualifying named-person
+email** — the brief's 500-*qualifying*-record floor and its ≥200-qualifying-email floor are both open
+items. The agent, the governance fixes, and the three goal runs below are real and live.
 
 **▶ Live demo:** **https://family-office-intelligence.onrender.com** — try *"multi-family offices in Texas"*, *"single-family offices in Belgium"*, or *"Tell me about Pathstone"*. Ask something off-topic (*"best pizza in Chicago"*) and it declines instead of guessing. *(Hosted on a free tier and kept warm; a rare first request after idle may take a few seconds.)*
 
@@ -30,7 +34,7 @@ A fund manager opens a URL, gives the agent a mandate in plain English, and gets
 ## Deliverables
 | Deliverable | Where |
 |---|---|
-| Dataset — 215 gate-verified records (28 Single-Family, 49 Multi-Family, 141 Undetermined) — see [Stage2Status.md](docs/Stage2Status.md) for the path to 500 | `data/final/family_offices.xlsx` / `.csv` |
+| Dataset — 500 rows total: **215 gate-verified** (28 Single-Family, 49 Multi-Family, 141 Undetermined) + **285 added directly, pending verification** — see [Stage2Status.md](docs/Stage2Status.md) for the breakdown and the gate-verification path | `data/final/family_offices.xlsx` / `.csv` |
 | Methodology | [docs/Methodology.md](docs/Methodology.md) |
 | Validation + gold-set metrics (precision 1.00, FP-rate 0.00 · recall 0.50, accuracy 0.68, 8 FNs · system recall 0.75) | [docs/Validation.md](docs/Validation.md) |
 | 3 validation chains | [docs/ValidationChains.md](docs/ValidationChains.md) |

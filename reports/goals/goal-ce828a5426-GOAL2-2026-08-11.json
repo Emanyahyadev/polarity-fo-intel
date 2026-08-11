@@ -1,0 +1,282 @@
+{
+  "goal": "Identify the family offices in the dataset that are the best fit for a lower-middle-market healthcare services fund seeking limited partners, and tell me how confident you are in each.",
+  "run_id": "goal-ce828a5426",
+  "elapsed_seconds": 232.3,
+  "mandate_criteria": {
+    "sectors": [
+      "healthcare services"
+    ],
+    "geography": [],
+    "fund_stage_or_type": "lower-middle-market",
+    "role_sought": "limited partner",
+    "fo_type_preference": null,
+    "ambiguities": [
+      "No specific geography is mentioned, so the search may need to consider all regions or infer from fund's focus.",
+      "The mandate does not specify whether the family office should have prior healthcare or lower-middle-market investment experience.",
+      "The confidence level requested is not a search criterion but an output requirement."
+    ],
+    "unanswerable_from_dataset": [
+      "Actual investment interest or willingness to commit capital to this specific fund",
+      "Current liquidity or dry powder available for new commitments",
+      "Existing portfolio overlap or conflicts of interest with the fund"
+    ],
+    "_fallback": false
+  },
+  "manual_retrieval_baseline": {
+    "answered": false,
+    "mode": "abstain",
+    "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+    "n_cards": 0,
+    "elapsed_seconds": 3.5
+  },
+  "structured_output": [
+    {
+      "rank": 1,
+      "fo_id": "fo_a4cb68cd35",
+      "family_office_name": "MATTER FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "MATTER FAMILY OFFICE is a Multi-Family Office with a fit score of 0.35, but there is no stated sector or thesis match for healthcare services, and no geography match. The evidence is thin: only 2 verification sources, medium record confidence, and no named-person contact route, so no direct outreach to a principal is possible.",
+      "investment_focus": "We believe wealth should enhance your life and support your purpose.",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Given the thin evidence and lack of any contact route, do not pursue this candidate; if pursued, use only the generic firm inbox with a clear explanation of the fund's thesis, but expect low responsiveness."
+    },
+    {
+      "rank": 2,
+      "fo_id": "fo_55e904bc2b",
+      "family_office_name": "SESTANTE FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "SESTANTE FAMILY OFFICE is a Multi-Family Office with a fit score of 0.35, but no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so there is no direct path to a decision-maker.",
+      "investment_focus": "Stewards of Your Wealth and Lifestyle The Evolution of Our Family Office Sestante Family Office is dedicated to delivering highly personaliz",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Do not prioritize this candidate; if contacted, use the generic firm inbox only, and clearly state the healthcare services thesis to see if there is any hidden interest."
+    },
+    {
+      "rank": 3,
+      "fo_id": "fo_eca2b3bb02",
+      "family_office_name": "JFG FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "JFG FAMILY OFFICE is a Multi-Family Office with a fit score of 0.35, and it is the only candidate with a named principal, Brandon Carroll Johnson (Member), which provides a potential direct contact. However, the evidence is thin: no sector/thesis match for healthcare services, no geography match, and only 2 verification sources with medium confidence.",
+      "investment_focus": "Our human capital, philanthropic advising, financial planning, and investment management services are carefully tailored to meet the complex",
+      "recent_activity": [],
+      "decision_maker": "Brandon Carroll Johnson (Member)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"We serve an exclusive clientele with fully integrated family office services\"; SEC Form ADV Item 5.F reports $2.48B regulatory (client) AUM — a registered adviser serving multiple clients, i.e. a multi-family office."
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Reach out directly to Brandon Carroll Johnson via the named-person route, but frame the pitch around the fund's healthcare services thesis and be prepared for a low fit given the lack of stated sector alignment."
+    },
+    {
+      "rank": 4,
+      "fo_id": "fo_57d3563f9e",
+      "family_office_name": "One Family Office",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "One Family Office has an undetermined type and a fit score of 0.35, with no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct outreach is possible.",
+      "investment_focus": "The activities of ONE FAMILY OFFICE are built on three fundamental pillars : (1) investment and management of family assets ; (2) advisory a",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Skip this candidate unless a generic firm inbox is acceptable; if contacted, use the generic route and clearly state the healthcare services thesis, but expect low engagement."
+    },
+    {
+      "rank": 5,
+      "fo_id": "fo_b684dff9fc",
+      "family_office_name": "FINANCIAL GRAVITY FAMILY OFFICE SERVICES, LLC",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "FINANCIAL GRAVITY FAMILY OFFICE SERVICES, LLC has an undetermined type and a fit score of 0.35, with no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct path to a principal exists.",
+      "investment_focus": "All these things can, and we believe, must be controlled Multi-Generational Focus Long-term planning is common among family offices, with a ",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Do not prioritize this candidate; if contacted, use the generic firm inbox only, and be transparent about the healthcare services focus to gauge any potential interest."
+    },
+    {
+      "rank": 6,
+      "fo_id": "fo_4d4cc820de",
+      "family_office_name": "LEGACY BRIDGE PRIVATE FAMILY OFFICES",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "LEGACY BRIDGE PRIVATE FAMILY OFFICES is a Multi-Family Office with a fit score of 0.35, but no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct outreach is possible.",
+      "investment_focus": "EXPLORE FAMILY OFFICE SERVICES Purposeful Wealth Management We help families preserve and grow their wealth with purposeful investment strat",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Avoid this candidate given the thin evidence and lack of contact route; if pursued, use the generic firm inbox with a clear healthcare services thesis, but expect low responsiveness."
+    },
+    {
+      "rank": 7,
+      "fo_id": "fo_fd13f7c408",
+      "family_office_name": "TAYLOR FRIGON FAMILY OFFICE, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "TAYLOR FRIGON FAMILY OFFICE, LLC is a Multi-Family Office with a fit score of 0.35, but no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct path to a decision-maker exists.",
+      "investment_focus": "The Solution An Integrated Wealth Hub Taylor Frigon serves as the central steward of your financial strategy, integrating investment managem",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Do not prioritize this candidate; if contacted, use the generic firm inbox only, and clearly state the healthcare services thesis to see if there is any interest."
+    },
+    {
+      "rank": 8,
+      "fo_id": "fo_4dcf965b7e",
+      "family_office_name": "Biltmore Family Office, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Biltmore Family Office, LLC is a Multi-Family Office with a fit score of 0.35, but no sector/thesis match for healthcare services and no geography match. The evidence is thin: 3 verification sources (slightly more than others) but still medium confidence, and no named-person contact route, so no direct outreach is possible.",
+      "investment_focus": "We call it a Collaborative Family Office Governance & Education Investment Services Customized Planning Reporting & Technology Biltmore Fami",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 3,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "SEC EDGAR (13F / SC / Form D filings) (13F holdings, aggregate 13(f) value, signatory)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Given the slightly higher verification count but still thin evidence and no contact route, use the generic firm inbox with a clear healthcare services thesis, but expect low engagement."
+    },
+    {
+      "rank": 9,
+      "fo_id": "fo_fac688487d",
+      "family_office_name": "SUPERIOR PLANNING WEALTH MANAGEMENT & FAMILY OFFICE",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "SUPERIOR PLANNING WEALTH MANAGEMENT & FAMILY OFFICE has an undetermined type and a fit score of 0.35, with no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct path to a principal exists.",
+      "investment_focus": "From sophisticated estate planning and tax optimization to philanthropy strategies and generational wealth transfer, our team takes a holist",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Skip this candidate unless a generic firm inbox is acceptable; if contacted, use the generic route and clearly state the healthcare services thesis, but expect low responsiveness."
+    },
+    {
+      "rank": 10,
+      "fo_id": "fo_ef3c1aeb59",
+      "family_office_name": "MACI FAMILY OFFICE ADVISORS",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "MACI FAMILY OFFICE ADVISORS has an undetermined type and a fit score of 0.35, with no sector/thesis match for healthcare services and no geography match. The evidence is thin: 2 verification sources, medium confidence, and no named-person contact route, so no direct outreach is possible.",
+      "investment_focus": "We provide comprehensive financial advice, planning, investment & wealth management services to several multi-generational families whose me",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no stated sector/thesis match for the requested sector(s); no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Do not prioritize this candidate; if contacted, use the generic firm inbox only, and clearly state the healthcare services thesis to see if there is any interest."
+    }
+  ],
+  "counts": {
+    "considered": 218,
+    "sufficient_evidence": 0,
+    "thin_or_stale_evidence": 218,
+    "insufficient_evidence": 0
+  },
+  "trace_path": "logs\\agent\\goal-ce828a5426.jsonl"
+}

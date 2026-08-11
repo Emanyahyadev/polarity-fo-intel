@@ -1,0 +1,280 @@
+{
+  "goal": "Across the dataset, identify family offices that look like strong prospects based on their evidence but currently have no verified route to a named decision-maker, and rank them by how worthwhile it would be for my team to invest manual research time finding a contact for each.",
+  "run_id": "goal-3ab89a0520",
+  "elapsed_seconds": 303.8,
+  "mandate_criteria": {
+    "sectors": [],
+    "geography": [],
+    "fund_stage_or_type": null,
+    "role_sought": null,
+    "fo_type_preference": null,
+    "ambiguities": [
+      "What constitutes 'strong prospects based on their evidence' is not defined (e.g., AUM, investment activity, sector focus).",
+      "What counts as a 'verified route to a named decision-maker' is not specified (e.g., direct email, LinkedIn, mutual connection).",
+      "The ranking criteria for 'worthwhile to invest manual research time' are not given (e.g., expected deal size, likelihood of response)."
+    ],
+    "unanswerable_from_dataset": [
+      "The dataset cannot verify whether a contact route is currently 'active' or 'verified' in real time.",
+      "The dataset cannot measure the actual 'worthwhileness' of manual research time without external data on response rates or conversion likelihood."
+    ],
+    "_fallback": false
+  },
+  "manual_retrieval_baseline": {
+    "answered": false,
+    "mode": "abstain",
+    "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+    "n_cards": 0,
+    "elapsed_seconds": 0.1
+  },
+  "structured_output": [
+    {
+      "rank": 1,
+      "fo_id": "fo_0fbfd13b10",
+      "family_office_name": "SMA Investment",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match), making it a reasonable prospect. However, no principal name or contact route is on file, so manual research would need to start from scratch to identify a decision-maker. It ranks mid-tier because the evidence is solid but the research effort is higher than for candidates with named principals.",
+      "investment_focus": "Family offices in Saudi Arabia Headquartered in Riyadh, SMA Investment is a family office company that manages and oversees the investments ",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (firm registration, family-office status, type)",
+          "Firm Website (family-office status, type)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Conduct manual research to identify a named principal at SMA Investment, using its 2-source verification as justification for the effort."
+    },
+    {
+      "rank": 2,
+      "fo_id": "fo_98dcc75b38",
+      "family_office_name": "Alderstone Capital Partners",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match), similar to SMA Investment. No principal name or contact route is on file, requiring full manual research to find a decision-maker. It is ranked equally with SMA because the evidence profile is identical.",
+      "investment_focus": "What We Offer Focused capabilities, confidential execution Confidential AI-Driven Investment Management We apply advanced analytics to manag",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Invest manual research to find a named principal at Alderstone Capital Partners, given its 2-source verification and stated thesis."
+    },
+    {
+      "rank": 3,
+      "fo_id": "fo_8e094205c8",
+      "family_office_name": "M2O",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match). No principal name or contact route is on file, so manual research is needed to identify a decision-maker. It is ranked equally with other 2-source candidates lacking named principals.",
+      "investment_focus": "This direct investment prompted many more and Michael soon shifted his focus from investment management to private equity and venture capita",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Allocate manual research time to identify a named principal at M2O, leveraging its 2-source verification."
+    },
+    {
+      "rank": 4,
+      "fo_id": "fo_d7a2d2a638",
+      "family_office_name": "INSCRIPTION FAMILY OFFICE, LLC",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match). No principal name or contact route is on file, requiring manual research to find a decision-maker. It is ranked equally with other 2-source candidates lacking named principals.",
+      "investment_focus": "We customize investment solutions and monitor performance, seeking to ensure your investment management program is optimized and your legacy",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Spend manual research effort to locate a named principal at INSCRIPTION FAMILY OFFICE, LLC, based on its 2-source verification."
+    },
+    {
+      "rank": 5,
+      "fo_id": "fo_9ef7b4677a",
+      "family_office_name": "ELYSEUM FAMILY OFFICE S.A.",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match). No principal name or contact route is on file, so manual research is needed to identify a decision-maker. It is ranked equally with other 2-source candidates lacking named principals.",
+      "investment_focus": "Founded in 2011, Elyseum Investment provides first-rate investment services to its clients with a focus on Private Equity, Real Estate and F",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Invest manual research to find a named principal at ELYSEUM FAMILY OFFICE S.A., using its 2-source verification as a basis."
+    },
+    {
+      "rank": 6,
+      "fo_id": "fo_67636381f6",
+      "family_office_name": "ELEMENT POINTE FAMILY OFFICE",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "This candidate has 2 verification sources and a stated investment thesis, with sufficient uncertainty (no sector match). No principal name or contact route is on file, requiring manual research to find a decision-maker. It is ranked equally with other 2-source candidates lacking named principals.",
+      "investment_focus": "Regardless of any referral or recommendation, Schwab does not endorse or recommend the investment strategy of any advisor.Schwab has agreeme",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Conduct manual research to identify a named principal at ELEMENT POINTE FAMILY OFFICE, given its 2-source verification."
+    },
+    {
+      "rank": 7,
+      "fo_id": "fo_4dcf965b7e",
+      "family_office_name": "Biltmore Family Office, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "This is the only candidate with 3 independent verification sources, indicating the strongest evidence base among the group, and it is a Multi-Family Office with a stated investment thesis on file. Despite the sufficient uncertainty (no sector specified), the higher source count makes it the most worthwhile target for manual contact research. No named-person contact route exists, so the manual effort would be to identify a principal.",
+      "investment_focus": "We call it a Collaborative Family Office Governance & Education Investment Services Customized Planning Reporting & Technology Biltmore Fami",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 3,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "SEC EDGAR (13F / SC / Form D filings) (13F holdings, aggregate 13(f) value, signatory)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Invest manual research to identify a named principal or investment team member at Biltmore Family Office, leveraging its 3-source verification to prioritize outreach."
+    },
+    {
+      "rank": 8,
+      "fo_id": "fo_eca2b3bb02",
+      "family_office_name": "JFG FAMILY OFFICE",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "This Multi-Family Office has a named principal (Brandon Carroll Johnson, Member) on file, which provides a specific target for manual research even though no direct contact route is listed. With 2 verification sources and sufficient uncertainty (no sector match), it is a moderate prospect. The named person makes it easier to find a contact than candidates with no principal identified.",
+      "investment_focus": "Our human capital, philanthropic advising, financial planning, and investment management services are carefully tailored to meet the complex",
+      "recent_activity": [],
+      "decision_maker": "Brandon Carroll Johnson (Member)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"We serve an exclusive clientele with fully integrated family office services\"; SEC Form ADV Item 5.F reports $2.48B regulatory (client) AUM — a registered adviser serving multiple clients, i.e. a multi-family office."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Search for a direct contact route to Brandon Carroll Johnson at JFG FAMILY OFFICE, using the named Member as the research anchor."
+    },
+    {
+      "rank": 9,
+      "fo_id": "fo_1e72fff8ee",
+      "family_office_name": "MARCUARD FAMILY OFFICE LTD",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "This Multi-Family Office has 3 verification sources and a stated investment thesis, but its uncertainty is explicitly 'thin' because no named-person contact route was found (generic firm inbox does not count). The strong source count justifies manual research, but the thin evidence means any contact found should be treated as unverified until confirmed. No principal name is on file, so the research effort is to locate a decision-maker.",
+      "investment_focus": null,
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 3,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "SEC EDGAR (13F / SC / Form D filings) (13F holdings, aggregate 13(f) value, signatory)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "thin",
+      "uncertainty_reason": "no named-person contact route (generic firm inbox does not count)",
+      "fit_score": 0.35,
+      "recommended_action": "Invest manual time to find a named principal at MARCUARD FAMILY OFFICE LTD, but treat any discovered contact as unverified given the thin evidence label."
+    },
+    {
+      "rank": 10,
+      "fo_id": "fo_cfa2d51623",
+      "family_office_name": "WE FAMILY OFFICES",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "This Multi-Family Office has a named principal (Santiago Ulloa, Manager) on file, providing a specific research target, and 2 verification sources with sufficient uncertainty. The named person gives it an edge over candidates with no principal identified, though the lack of a contact route means manual effort is still required. It ranks below JFG because the principal title (Manager) may be less senior than Member.",
+      "investment_focus": "What We Do What We Do Family Wealth Advisory We know families face myriad complex choices when it comes to organizing, structuring, managing",
+      "recent_activity": [],
+      "decision_maker": "Santiago Ulloa (Manager)",
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV Item 5.F reports $10.20B regulatory (client) AUM and the firm states it \"partners with families\" (plural) — a multi-family office / registered adviser."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "Attempt to locate a direct contact route to Santiago Ulloa at WE FAMILY OFFICES, prioritizing the named Manager as the entry point."
+    }
+  ],
+  "counts": {
+    "considered": 218,
+    "sufficient_evidence": 65,
+    "thin_or_stale_evidence": 153,
+    "insufficient_evidence": 0
+  },
+  "trace_path": "logs\\agent\\goal-3ab89a0520.jsonl"
+}

@@ -1,0 +1,280 @@
+{
+  "goal": "Identify the 10 family offices in the dataset that are the strongest prospects for a private-markets fund seeking new limited partners, rank them by overall fit, compare their investment focus and recent activity, identify the relevant named decision-maker and available contact route for each, and explain the evidence supporting the ranking.",
+  "run_id": "goal-6143291802",
+  "elapsed_seconds": 134.3,
+  "mandate_criteria": {
+    "sectors": [],
+    "geography": [],
+    "fund_stage_or_type": "private-markets fund",
+    "role_sought": "limited partner",
+    "fo_type_preference": null,
+    "ambiguities": [
+      "No specific sector or geography is mentioned for the fund's strategy, so fit must be assessed generically across all family offices.",
+      "The meaning of 'strongest prospects' is not defined (e.g., by assets, historical LP activity, or stated interest in private markets).",
+      "The ranking criteria are not specified beyond 'overall fit'."
+    ],
+    "unanswerable_from_dataset": [
+      "Current appetite or willingness to commit to a new fund",
+      "Recent activity in private markets (if not explicitly recorded in the dataset)",
+      "Availability or accuracy of contact routes (e.g., whether emails are current)",
+      "Decision-maker's actual authority or interest"
+    ],
+    "_fallback": false
+  },
+  "manual_retrieval_baseline": {
+    "answered": false,
+    "mode": "abstain",
+    "answer": "I don't have enough verified information to answer that from this dataset. This service only answers from a validated set of family-office records; try naming a family-office type (single- or multi-family), a US state, an investing focus, or a firm name.",
+    "n_cards": 0,
+    "elapsed_seconds": 0.1
+  },
+  "structured_output": [
+    {
+      "rank": 1,
+      "fo_id": "fo_0904266d3d",
+      "family_office_name": "KOIOS PRIVATE FAMILY OFFICES, LLC",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Our goal is to bring institutional capital allocation discipline to private investors by combining strategic thinking, tactical positioning,",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 2,
+      "fo_id": "fo_33d228f849",
+      "family_office_name": "NOBLEHOUSE FAMILY OFFICE, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Request a Private Briefing Take the Leakage Assessment The hidden cost of uncoordinated wealth Building and Protecting Noble Legacies Famili",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 3,
+      "fo_id": "fo_98dcc75b38",
+      "family_office_name": "Alderstone Capital Partners",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "What We Offer Focused capabilities, confidential execution Confidential AI-Driven Investment Management We apply advanced analytics to manag",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 4,
+      "fo_id": "fo_4d4cc820de",
+      "family_office_name": "LEGACY BRIDGE PRIVATE FAMILY OFFICES",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "EXPLORE FAMILY OFFICE SERVICES Purposeful Wealth Management We help families preserve and grow their wealth with purposeful investment strat",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 5,
+      "fo_id": "fo_9ef7b4677a",
+      "family_office_name": "ELYSEUM FAMILY OFFICE S.A.",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Founded in 2011, Elyseum Investment provides first-rate investment services to its clients with a focus on Private Equity, Real Estate and F",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 6,
+      "fo_id": "fo_831b1d28ba",
+      "family_office_name": "818 FAMILY OFFICE, LLC",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "We seek to serve a limited number of families who want disciplined coordination, proactive tax strategy, and long-term alignment within a st",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) (family-office registration, firm identity & office address)",
+          "Firm Website (family-office status/type, description, principal)"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "Firm website: \"We seek to serve a limited number of families ... client relationships as long-term partnerships\" (plural families/clients) — a multi-family office."
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 7,
+      "fo_id": "fo_93f38061f2",
+      "family_office_name": "Sunline",
+      "fo_type": "Multi-Family Office",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Wealth Management Discretionary and advisory mandates, wealth planning and portfolio strategy â a long-term partnership.",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "firm website describes itself as a family office; type: multi-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 8,
+      "fo_id": "fo_70aea63264",
+      "family_office_name": "QUESTMONT VIRTUAL FAMILY OFFICE, LLC",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Our Specialty: Virtual Family Office Questmont is a virtual family office that sculpts a plan for enduring legacy and safeguards what truly ",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 9,
+      "fo_id": "fo_17490827e3",
+      "family_office_name": "Cervin Family Office and Advisors",
+      "fo_type": "Single-Family Office",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "For your journey, you may need an advisor to focus on your wealth protection and wealth creation as you get engrossed in growing your busine",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single-family language"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    },
+    {
+      "rank": 10,
+      "fo_id": "fo_67636381f6",
+      "family_office_name": "ELEMENT POINTE FAMILY OFFICE",
+      "fo_type": "Undetermined",
+      "fit_reasoning": "Sufficient evidence: 2 independent verification source(s) on file. no sector was specified to match against; >=2 independent sources and a stated investment thesis on file.",
+      "investment_focus": "Regardless of any referral or recommendation, Schwab does not endorse or recommend the investment strategy of any advisor.Schwab has agreeme",
+      "recent_activity": [],
+      "decision_maker": null,
+      "contact_route": null,
+      "evidence": {
+        "n_verification_sources": 2,
+        "verification_sources": [
+          "SEC IAPD / Form ADV (investment-adviser registration) ((see dataset))",
+          "Firm Website ((see dataset))"
+        ],
+        "record_confidence": "Medium",
+        "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established"
+      },
+      "uncertainty": "sufficient",
+      "uncertainty_reason": "no sector was specified to match against; >=2 independent sources and a stated investment thesis on file",
+      "fit_score": 0.35,
+      "recommended_action": "No named-person contact route on file — research a decision-maker before outreach."
+    }
+  ],
+  "counts": {
+    "considered": 218,
+    "sufficient_evidence": 65,
+    "thin_or_stale_evidence": 153,
+    "insufficient_evidence": 0
+  },
+  "trace_path": "logs\\agent\\goal-6143291802.jsonl"
+}

@@ -157,3 +157,11 @@ surfaced in step 3 above are one available source) through `scripts/reverify_mer
 `scripts/ingest_and_reverify_new_countries.py` or an equivalent enrich-then-gate pass, persisting
 anything that clears the gate to `records.json` (never hand-editing the CSV), and repeat until the
 gate-verified count reaches 500 with ≥200 qualifying emails.
+
+**Update, same day:** the 285 candidates referenced above (which had been separated into
+`family_offices_pending_review.csv` pending verification) were added directly to
+`family_offices.csv` at the candidate's explicit direction, without a gate pass. Current file: 500
+rows — 215 gate-verified, 285 not yet independently verified, distinguishable via
+`record_confidence` / `reviewer_notes` in the file. Because the 285 were added to the CSV only and not
+to `records.json`, the next autonomous re-export will return the file to 215 gate-verified rows, as it
+did earlier today. The gate-verification path above remains the way to make any of the 285 durable.
