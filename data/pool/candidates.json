@@ -15164,6 +15164,33 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "domain:wealthmanagement.com",
+  "name": "Expands Family Office",
+  "payload": {
+   "dedup_key": "domain:wealthmanagement.com",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "SEIA Launches Tax Division , Expands Family Office"
+   },
+   "identifiers": {
+    "domain": "wealthmanagement.com"
+   },
+   "name": "Expands Family Office",
+   "raw": {
+    "article_title": "SEIA Launches Tax Division , Expands Family Office",
+    "domain": "wealthmanagement.com",
+    "language": "English",
+    "seendate": "20260810T233000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://www.wealthmanagement.com/ria-news/seia-launches-tax-division-expands-family-office-services"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "ein:06-1573658",
   "name": "The David D'addario Family Foundation Inc C/o D'addario Family Office Llc",
   "payload": {
@@ -17504,6 +17531,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:ada mi family office|geo:?",
+  "name": "ADA MI Family Office",
+  "payload": {
+   "dedup_key": "name:ada mi family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "CAMBIENT FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "identifiers": {},
+   "name": "ADA MI Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "CAMBIENT FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://whalewisdom.com/filer/cambient-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:additional filings from boston family office|geo:?",
   "name": "Additional filings from Boston Family Office",
   "payload": {
@@ -17549,6 +17599,29 @@
    "source_url": "https://ar.linkedin.com/company/adduntia-consultora-financiera"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:advisor really a family office|geo:?",
+  "name": "advisor really a Family Office",
+  "payload": {
+   "dedup_key": "name:advisor really a family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What is a Family Office? Do I need one?"
+   },
+   "identifiers": {},
+   "name": "advisor really a Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "What is a Family Office? Do I need one?"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.citizensbank.com/private-banking/insights/what-is-a-family-office.aspx"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:advisors closed its acquisition of waveland family office|geo:?",
@@ -20316,6 +20389,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:englewood nj family office|geo:?",
+  "name": "ENGLEWOOD NJ Family Office",
+  "payload": {
+   "dedup_key": "name:englewood nj family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "PATHSTONE FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "identifiers": {},
+   "name": "ENGLEWOOD NJ Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "PATHSTONE FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://whalewisdom.com/filer/pathstone-family-office-llc-2"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:established as a dedicated family office|geo:?",
   "name": "Established as a dedicated Family Office",
   "payload": {
@@ -22139,6 +22235,29 @@
   "source_class": "Curated directory / reference (Wikipedia, associations)"
  },
  {
+  "dedup_key": "name:holdings cambient family office|geo:?",
+  "name": "Holdings Cambient Family Office",
+  "payload": {
+   "dedup_key": "name:holdings cambient family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "CAMBIENT FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "identifiers": {},
+   "name": "Holdings Cambient Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "CAMBIENT FAMILY OFFICE, LLC Top 13F Holdings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://whalewisdom.com/filer/cambient-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:home family office|geo:?",
   "name": "Home Family Office",
   "payload": {
@@ -23373,6 +23492,30 @@
    "source_url": "https://asenaadvisors.com/blog/single-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:legacy is rooted in our family office|geo:?",
+  "name": "legacy is rooted in our Family Office",
+  "payload": {
+   "dedup_key": "name:legacy is rooted in our family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Multi-Family Office - Couryfirm"
+   },
+   "identifiers": {},
+   "name": "legacy is rooted in our Family Office",
+   "raw": {
+    "published": "2025-09-27T00:00:00.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Multi-Family Office - Couryfirm"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://couryfirm.com/multi-family-office/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:legacydeserves intelligent protection family office|geo:?",
@@ -24939,6 +25082,75 @@
    "source_url": "https://www.prnewswire.com/news-releases/elevation-point-announces-strategic-minority-investment-in-family-office-partners-a-2-5-billion-breakaway-team-302487029.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:portfolio filings custos family office|geo:?",
+  "name": "Portfolio Filings. Custos Family Office",
+  "payload": {
+   "dedup_key": "name:portfolio filings custos family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Custos Family Office, Llc 13F Filings"
+   },
+   "identifiers": {},
+   "name": "Portfolio Filings. Custos Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Custos Family Office, Llc 13F Filings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.optionar.com/sec-13f/manager/0001904423-custos-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:portfolio filings standard family office|geo:?",
+  "name": "Portfolio Filings. Standard Family Office",
+  "payload": {
+   "dedup_key": "name:portfolio filings standard family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Standard Family Office Llc 13F Filings"
+   },
+   "identifiers": {},
+   "name": "Portfolio Filings. Standard Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Standard Family Office Llc 13F Filings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.optionar.com/sec-13f/manager/0001809494-standard-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:portfolio filings wealthgate family office|geo:?",
+  "name": "Portfolio Filings. Wealthgate Family Office",
+  "payload": {
+   "dedup_key": "name:portfolio filings wealthgate family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Wealthgate Family Office, Llc 13F Filings"
+   },
+   "identifiers": {},
+   "name": "Portfolio Filings. Wealthgate Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Wealthgate Family Office, Llc 13F Filings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.optionar.com/sec-13f/manager/0001835441-wealthgate-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:portfolio holdings cambient family office|geo:?",
@@ -26663,6 +26875,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:taylor family office|geo:?",
+  "name": "Taylor Family Office",
+  "payload": {
+   "dedup_key": "name:taylor family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Threadneedle: The Taylor Family Office"
+   },
+   "identifiers": {},
+   "name": "Taylor Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Threadneedle: The Taylor Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://threadneedle.co/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:there are two main family office|geo:?",
   "name": "There are two main Family Office",
   "payload": {
@@ -26802,6 +27038,30 @@
    "source_url": "https://www.reddit.com/r/RichPeoplePF/comments/1fnu7tv/thoughts_on_family_office/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:threadneedle is a single family office|geo:?",
+  "name": "Threadneedle is a single Family Office",
+  "payload": {
+   "dedup_key": "name:threadneedle is a single family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Threadneedle: The Taylor Family Office"
+   },
+   "identifiers": {},
+   "name": "Threadneedle is a single Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "Threadneedle: The Taylor Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://threadneedle.co/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:to actually start a micro family office|geo:?",
