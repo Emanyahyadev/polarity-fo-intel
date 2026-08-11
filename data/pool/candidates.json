@@ -17981,6 +17981,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:art of forming your family office|geo:?",
+  "name": "Art of Forming Your Family Office",
+  "payload": {
+   "dedup_key": "name:art of forming your family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Art of Forming Your Family Office | Deloitte US"
+   },
+   "identifiers": {},
+   "name": "Art of Forming Your Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The Art of Forming Your Family Office | Deloitte US"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.deloitte.com/us/en/services/deloitte-private/articles/setting-up-family-office.html"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:asseta ai an single family office|geo:?",
   "name": "Asseta AI An Single Family Office",
   "payload": {
@@ -18142,6 +18165,29 @@
    "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:axial family office|geo:?",
+  "name": "Axial Family Office",
+  "payload": {
+   "dedup_key": "name:axial family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Top Family Offices with Recent Private M&A Activity | Axial"
+   },
+   "identifiers": {},
+   "name": "Axial Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Top Family Offices with Recent Private M&A Activity | Axial"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.axial.net/forum/companies/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:ayer family office|geo:?",
@@ -18332,6 +18378,29 @@
    "source_url": "https://familyofficepartners.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:bessemer trust family office|geo:?",
+  "name": "Bessemer Trust Family Office",
+  "payload": {
+   "dedup_key": "name:bessemer trust family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services in San Diego | Bessemer Trust"
+   },
+   "identifiers": {},
+   "name": "Bessemer Trust Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Services in San Diego | Bessemer Trust"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.bessemertrust.com/family-office-services/san-diego"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:betton family office|geo:?",
@@ -20602,6 +20671,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:family advisory family office|geo:?",
+  "name": "Family Company Advisory Family Office",
+  "payload": {
+   "dedup_key": "name:family advisory family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services in San Diego | Bessemer Trust"
+   },
+   "identifiers": {},
+   "name": "Family Company Advisory Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Services in San Diego | Bessemer Trust"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.bessemertrust.com/family-office-services/san-diego"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:family office a family office|geo:?",
   "name": "Family office A Family Office",
   "payload": {
@@ -22068,6 +22160,30 @@
    "source_url": "https://www.familyoffice.com/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:home home matter family office|geo:?",
+  "name": "Home Home - Matter Family Office",
+  "payload": {
+   "dedup_key": "name:home home matter family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Matter Family Office: Home"
+   },
+   "identifiers": {},
+   "name": "Home Home - Matter Family Office",
+   "raw": {
+    "published": "2021-03-30T10:19:52.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Matter Family Office: Home"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.matterfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:home matter family office|geo:?",
@@ -24351,6 +24467,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:not type of family office|geo:?",
+  "name": "not the type of Family Office",
+  "payload": {
+   "dedup_key": "name:not type of family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "identifiers": {},
+   "name": "not the type of Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://thefopro.com/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:officer and financial advisor at stenger family office|geo:?",
   "name": "Officer and financial advisor at Stenger Family Office",
   "payload": {
@@ -25274,6 +25413,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:redefining family office|geo:?",
+  "name": "Redefining the Family Office",
+  "payload": {
+   "dedup_key": "name:redefining family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Redefining the Family Office for a New Era of Wealth | Bespoke Group"
+   },
+   "identifiers": {},
+   "name": "Redefining the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Redefining the Family Office for a New Era of Wealth | Bespoke Group"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://bespokegroup.io/resource/redefining-the-family-office-for-a-new-era-of-wealth"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:requirements family office|geo:?",
   "name": "Requirements Family Office",
   "payload": {
@@ -25650,6 +25812,29 @@
    "source_url": "https://en.wikipedia.org/wiki/Royal_Group"
   },
   "source_class": "Curated directory / reference (Wikipedia, associations)"
+ },
+ {
+  "dedup_key": "name:running a family office|geo:?",
+  "name": "Running a Family Office",
+  "payload": {
+   "dedup_key": "name:running a family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Blog Seedblink | What Are Family Offices, And Why Are They Taking Over The Venture Capital world?"
+   },
+   "identifiers": {},
+   "name": "Running a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blog Seedblink | What Are Family Offices, And Why Are They Taking Over The Venture Capital world?"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://seedblink.com/blog/2022-05-22-what-are-family-offices-and-why-are-they-taking-over-the-venture-capital-world"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:sands point is a family office|geo:?",
@@ -26687,6 +26872,29 @@
    "source_url": "https://www.pwc.ch/en/services/private-wealth/family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:to start a family office|geo:?",
+  "name": "to Start a Family Office",
+  "payload": {
+   "dedup_key": "name:to start a family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Blog Seedblink | What Are Family Offices, And Why Are They Taking Over The Venture Capital world?"
+   },
+   "identifiers": {},
+   "name": "to Start a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blog Seedblink | What Are Family Offices, And Why Are They Taking Over The Venture Capital world?"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://seedblink.com/blog/2022-05-22-what-are-family-offices-and-why-are-they-taking-over-the-venture-capital-world"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:together family office|geo:?",
@@ -27964,6 +28172,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:while each family office|geo:?",
+  "name": "While each Family Office",
+  "payload": {
+   "dedup_key": "name:while each family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Art of Forming Your Family Office | Deloitte US"
+   },
+   "identifiers": {},
+   "name": "While each Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The Art of Forming Your Family Office | Deloitte US"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.deloitte.com/us/en/services/deloitte-private/articles/setting-up-family-office.html"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:while majority of family office|geo:?",
   "name": "While the majority of Family Office",
   "payload": {
@@ -28152,6 +28383,29 @@
    "source_url": "https://www.investopedia.com/terms/f/family-offices.asp"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:with a long standing commitment to family office|geo:?",
+  "name": "With a long-standing commitment to the Family Office",
+  "payload": {
+   "dedup_key": "name:with a long standing commitment to family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family office services"
+   },
+   "identifiers": {},
+   "name": "With a long-standing commitment to the Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family office services"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://clearingcustody.fidelity.com/who-we-serve/family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:with launch of our family office|geo:?",
