@@ -37,6 +37,7 @@
 /* ================= base ================= */
 *{box-sizing:border-box}
 html{scrollbar-gutter:stable}
+html,body{overflow-x:hidden;max-width:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
   font-size:14.5px;line-height:1.58;-webkit-font-smoothing:antialiased}
 a{color:var(--cite);text-decoration:none}
