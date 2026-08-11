@@ -11,7 +11,7 @@ A production-shaped pipeline that discovers, enriches, and **validates** a decis
 offices, served through a grounded Micro-RAG (`/query`) plus a multi-step, agentic mandate research tool
 (`/goal`) with a non-technical, customer-facing UI.
 
-Built for the PolarityIQ Differentiator — Stage 1 (Task 1) and Stage 2 (the Micro-Agentic Build).
+*Originally built for the PolarityIQ Differentiator technical assessment — Stage 1 (discovery + Micro-RAG) and Stage 2 (the agentic build extending it).*
 
 **Stage 2 status, stated plainly:** `data/final/family_offices.csv` holds **500 rows**, but only **218 have
 cleared this project's own release gate** (evidence, mandatory fields, provenance, documented verification).
@@ -28,7 +28,7 @@ fixes, the three goal runs, and the operating-window evidence below are real and
 ## The idea in one line
 A fund manager opens a URL, gives the agent a mandate in plain English, and gets back a ranked shortlist with the evidence behind each firm, where that evidence is thin, and what to do next — or an honest "not enough evidence," never a guess.
 
-## Deliverables (assessment map)
+## Deliverables
 | Deliverable | Where |
 |---|---|
 | Dataset — 500 rows (**218 gate-verified**, 282 force-merged/unverified — see [Stage2Status.md addendum](docs/Stage2Status.md)); 225 Single-Family, 103 Multi-Family, 172 Undetermined/other | `data/final/family_offices.xlsx` / `.csv` |
@@ -77,6 +77,38 @@ uvicorn fointel.serve.app:app --port 8000    # then open http://localhost:8000
 - **Rule 2 (firms):** a firm counts toward the delivered set only with affirmative evidence it *is* a family office; SFO/MFO/Undetermined is labelled honestly, never relabelled.
 - **Findings govern releases:** anything that fails validation is withheld from delivered fields and recorded in an audit trail.
 - **Multi-source & independent:** holds fully for the **218 gate-verified rows** — each cleared `ReleaseGate` (evidence, mandatory fields, provenance, documented verification) via SEC IAPD/Form ADV, SEC EDGAR 13F/SC/Form D, and curated directory/reference sources, with cross-class corroboration checked in code, not by hand. It does **not** hold for the other 282 rows in the file (see the addendum above) — those were force-merged without going through this gate, and are the reason the dataset-wide numbers above look weaker than the gate-verified subset alone.
+
+## The 14 AI Employees (the autonomous operating cycle)
+
+The system that keeps the dataset current runs as an unattended cycle of **14 role-scoped agents**,
+each a thin adapter over a real business function — not a chat persona. One scheduled run walks the
+cycle below in order; every employee's exact inputs, outputs, and authority boundary are specified in
+`agents/contract.json` (the single source of truth) and enforced in code, not just described in a
+prompt. Full detail per employee: [docs/AI_EMPLOYEE_CATALOG.md](docs/AI_EMPLOYEE_CATALOG.md).
+
+| # | Employee | Does | May never |
+|---|---|---|---|
+| 0 | **Scheduler** | Opens/closes the operating window, registers the next run, retries transient failures | Run outside its window, publish data |
+| 1 | **Engineering** | Chief-engineer role: inspects state, builds the run plan, pauses stages that are unsafe to run | Bypass policy, fabricate work on an empty pool |
+| 2 | **Discovery** | Harvests candidate family offices from external sources into the candidate pool | Publish straight to the production dataset, guess a classification |
+| 3 | **Entity** | Resolves aliases/identifiers, merges only high-confidence duplicates | Merge without identifier or name+geography evidence |
+| 4 | **Duplicate** | A second, pre-release dedup pass on the enriched pool | Merge an ambiguous duplicate |
+| 5 | **Enrichment** | Fetches authoritative facts (SEC/IAPD/13F, firm site) and builds a full record for every candidate | Guess a missing field, fill a field with no provenance |
+| 6 | **Validation** | Runs each candidate through the release gates, produces a structured pass/fail | Auto-pass missing evidence |
+| 7 | **Classification** | Labels SFO / MFO / Undetermined from affirmative evidence only | Guess a type, relabel Undetermined to pad the count |
+| 8 | **Governance** | The sole authority on what leaves the pool — approves, quarantines, or escalates against policy confidence/source-count bands | Approve below the minimum confidence or source count |
+| 9 | **Release** | Publishes governance-approved records into `data/final` (canonical store, then CSV/XLSX) | Publish anything not approved, overwrite verified data, delete production records |
+| 10 | **Embedding** | Refreshes the RAG vector index after a real release changes what's served | Serve an unapproved record, serve a stale index after a release |
+| 11 | **Freshness** | Compares every record's `data_as_of` against today, flags staleness | Report freshness it hasn't actually measured |
+| 12 | **Monitoring** | Emits a passive run-health/coverage snapshot | Invent numbers, decide an outcome |
+| 13 | **Logging** | Writes the structured cycle log, metrics, and audit trail for every step | Hide errors, delete logs |
+
+Runs identically under either engine (`FOINTEL_ENGINE=langgraph` default, or the legacy deterministic
+`orchestrator` — an operational rollback, no code change). See
+[docs/OPERATING_LAYER_VALIDATION.md](docs/OPERATING_LAYER_VALIDATION.md) for the 14/14 contract-verification
+audit, and the addendum in [Stage2Status.md](docs/Stage2Status.md) for where today's force-merged rows sit
+relative to this cycle (they were added by bypassing steps 6–9, which is exactly why they're flagged, not
+silently blended in).
 
 ## Repository layout
 ```
