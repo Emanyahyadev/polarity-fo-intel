@@ -73,6 +73,13 @@ def main() -> None:
         print(f"\n===== CSV APPEND =====\n{csv_path}: {before} -> {len(combined)} rows "
               f"({len(combined) - before} net new)")
 
+        if len(combined) != before:
+            from fointel.rag import load as rag_load
+            from fointel.rag.index import precompute_and_save
+            all_records = rag_load.load_records_from_csv(str(csv_path))
+            shapes = precompute_and_save(all_records)
+            print(f"\n===== EMBEDDINGS =====\nrefreshed: docs={shapes[0]}, focus={shapes[1]}")
+
 
 if __name__ == "__main__":
     main()
