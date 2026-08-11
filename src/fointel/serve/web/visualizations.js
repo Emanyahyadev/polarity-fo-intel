@@ -1,5 +1,200 @@
 import * as d3 from "d3";
 
+// 0a. Hero globe — a real, slowly-rotating orthographic projection of actual
+// world geography (public world-atlas topology), with dots placed at country
+// CENTROIDS COMPUTED FROM THAT SAME GEOMETRY (not a hand-picked lat/lon guess)
+// for every country that actually has verified firms on file (GET /records ->
+// hq_country). Dot size is the real count for that country. Nothing here is
+// fabricated: the landmasses are real, the centroids are computed from them,
+// and the counts are the served records. Purely decorative fallback (a static
+// radial motif) if the world-atlas geometry can't be fetched — never fake data
+// standing in for the globe.
+export async function renderGlobe(containerId, records) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = "";
+    const size = Math.min(el.clientWidth || 460, el.clientHeight || 460) || 460;
+    const width = el.clientWidth || size, height = el.clientHeight || size;
+
+    const counts = new Map();
+    for (const r of records) {
+        const c = (r.country || "").trim();
+        if (c) counts.set(c, (counts.get(c) || 0) + 1);
+    }
+
+    const svg = d3.select(el).append("svg")
+        .attr("viewBox", [0, 0, width, height])
+        .attr("width", "100%").attr("height", "100%")
+        .style("display", "block");
+
+    let land, countries;
+    try {
+        const world = await d3.json("https://unpkg.com/world-atlas@2/countries-110m.json");
+        const topojson = await import("https://cdn.jsdelivr.net/npm/topojson-client@3/+esm");
+        countries = topojson.feature(world, world.objects.countries).features;
+        land = topojson.feature(world, world.objects.land);
+    } catch (e) {
+        // Fallback: an abstract, explicitly non-factual orbital motif — no data implied.
+        const r = Math.min(width, height) / 2 - 10;
+        const g = svg.append("g").attr("transform", `translate(${width/2},${height/2})`);
+        g.append("circle").attr("r", r).attr("fill", "var(--accent-tint)").attr("stroke", "var(--accent-line)");
+        for (let i = 1; i <= 3; i++)
+            g.append("circle").attr("r", r * (0.4 + i*0.18)).attr("fill", "none")
+                .attr("stroke", "var(--line2)").attr("stroke-dasharray", "2,4");
+        return;
+    }
+
+    const R = Math.min(width, height) / 2 - 14;
+    const projection = d3.geoOrthographic().scale(R).translate([width/2, height/2])
+        .rotate([10, -18]).clipAngle(90);
+    const path = d3.geoPath(projection);
+
+    svg.append("circle").attr("cx", width/2).attr("cy", height/2).attr("r", R)
+        .attr("fill", "var(--surface)").attr("stroke", "var(--line2)").attr("stroke-width", 1);
+
+    const graticule = d3.geoGraticule10();
+    svg.append("path").datum(graticule).attr("d", path)
+        .attr("fill", "none").attr("stroke", "var(--line)").attr("stroke-width", 0.5);
+
+    const landPath = svg.append("path").datum(land).attr("d", path)
+        .attr("fill", "var(--accent-tint)").attr("stroke", "var(--accent-line)").attr("stroke-width", 0.6);
+
+    // Match real record countries to the atlas geometry by name, then take the
+    // GEOMETRIC centroid of the matched feature — no invented coordinates.
+    const norm = s => s.toLowerCase().replace(/[^a-z]/g, "");
+    const nodes = [];
+    for (const [name, count] of counts) {
+        const n = norm(name);
+        const feat = countries.find(f => {
+            const fn = norm(f.properties?.name || "");
+            return fn === n || fn.includes(n) || n.includes(fn);
+        });
+        if (!feat) continue;
+        const centroid = d3.geoCentroid(feat);
+        nodes.push({ name, count, lon: centroid[0], lat: centroid[1] });
+    }
+    nodes.sort((a,b) => b.count - a.count);
+    const top = nodes.slice(0, 4);
+    const maxCount = d3.max(nodes, d => d.count) || 1;
+    const rScale = d3.scaleSqrt().domain([1, maxCount]).range([2.5, 8]);
+
+    const dotsG = svg.append("g");
+    const labelsG = svg.append("g");
+
+    function visible([lon, lat]) {
+        const rot = projection.rotate();
+        const center = [-rot[0], -rot[1]];
+        const dist = d3.geoDistance([lon, lat], center);
+        return dist < Math.PI / 2;
+    }
+
+    function redraw() {
+        landPath.attr("d", path);
+        svg.select("path.grat").remove();
+        dotsG.selectAll("circle").data(nodes).join("circle")
+            .attr("transform", d => { const p = projection([d.lon, d.lat]); return p ? `translate(${p[0]},${p[1]})` : null; })
+            .attr("r", d => rScale(d.count))
+            .attr("fill", "var(--accent)")
+            .attr("opacity", d => visible([d.lon, d.lat]) ? 0.85 : 0)
+            .attr("stroke", "var(--surface)").attr("stroke-width", 1);
+        labelsG.selectAll("text").data(top).join("text")
+            .attr("transform", d => { const p = projection([d.lon, d.lat]); return p ? `translate(${p[0]},${p[1]-12})` : null; })
+            .attr("text-anchor", "middle").attr("font-size", 10.5).attr("font-weight", 600)
+            .attr("fill", "var(--ink2)")
+            .attr("opacity", d => visible([d.lon, d.lat]) ? 1 : 0)
+            .text(d => d.name);
+    }
+    redraw();
+
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        d3.timer(elapsed => {
+            projection.rotate([10 + elapsed * 0.006, -18]);
+            redraw();
+        });
+    }
+}
+
+// 0. Hero intelligence network — a DECORATIVE ambient visual built from a real
+// sample of records (GET /records): a central hub, spoke nodes for each firm
+// TYPE actually present in the sample, and leaf nodes for real firm names. The
+// only relationship drawn is "this firm has this type", which is true of every
+// record shown — nothing is invented, and the caption under the visual says
+// plainly that this is a sample, not the full dataset or a factual network.
+export function renderIntelligenceNetwork(containerId, records) {
+    const el = document.getElementById(containerId);
+    if (!el || !records || !records.length) return;
+    el.innerHTML = "";
+    const width = el.clientWidth || 480, height = el.clientHeight || 420;
+
+    const svg = d3.select(el).append("svg")
+        .attr("viewBox", [0, 0, width, height])
+        .attr("width", "100%").attr("height", "100%")
+        .style("display", "block");
+
+    const sample = [...records].sort(() => Math.random() - 0.5).slice(0, 22);
+    const byType = new Map();
+    for (const r of sample) {
+        const t = r.type || "Undetermined";
+        if (!byType.has(t)) byType.set(t, []);
+        byType.get(t).push(r);
+    }
+    const color = { "Single-Family Office": "var(--accent)", "Multi-Family Office": "#1D5DAD",
+                     "Undetermined": "var(--ink3)" };
+
+    const nodes = [{ id: "__hub", label: "Family Offices", r: 9, group: "hub" }];
+    const links = [];
+    for (const [type, firms] of byType) {
+        const typeId = "__type_" + type;
+        nodes.push({ id: typeId, label: type, r: 5, group: "type", color: color[type] || "var(--ink3)" });
+        links.push({ source: "__hub", target: typeId });
+        for (const f of firms) {
+            nodes.push({ id: f.fo_id, label: f.name, r: 3, group: "firm", color: color[type] || "var(--ink3)" });
+            links.push({ source: typeId, target: f.fo_id });
+        }
+    }
+
+    const sim = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).distance(d =>
+            d.target.group === "firm" ? 46 : 90).strength(0.7))
+        .force("charge", d3.forceManyBody().strength(-70))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide(d => d.r + 14));
+
+    const link = svg.append("g").selectAll("line").data(links).join("line")
+        .attr("stroke", "var(--line2)").attr("stroke-width", 1);
+
+    const node = svg.append("g").selectAll("circle").data(nodes).join("circle")
+        .attr("r", d => d.r)
+        .attr("fill", d => d.group === "hub" ? "var(--ink)" : (d.color || "var(--ink3)"))
+        .attr("opacity", d => d.group === "firm" ? 0.85 : 1);
+
+    const label = svg.append("g").selectAll("text")
+        .data(nodes.filter(d => d.group !== "firm"))
+        .join("text")
+        .text(d => d.label)
+        .attr("font-size", d => d.group === "hub" ? 12 : 10.5)
+        .attr("font-weight", d => d.group === "hub" ? 700 : 600)
+        .attr("fill", "var(--ink2)")
+        .attr("text-anchor", "middle")
+        .attr("dy", d => -(d.r + 8));
+
+    node.append("title").text(d => d.label);
+
+    sim.on("tick", () => {
+        for (const n of nodes) {
+            n.x = Math.max(16, Math.min(width - 16, n.x));
+            n.y = Math.max(16, Math.min(height - 16, n.y));
+        }
+        link.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+        node.attr("cx", d => d.x).attr("cy", d => d.y);
+        label.attr("x", d => d.x).attr("y", d => d.y);
+    });
+    // gentle continuous drift so the visual reads as "alive" without being distracting
+    sim.alphaTarget(0.02).alphaDecay(0.02);
+    setTimeout(() => sim.alphaTarget(0), 4000);
+}
+
 // Ensure charts are responsive
 function responsiveSvg(containerId, height) {
     const container = document.getElementById(containerId);
@@ -17,9 +212,9 @@ function responsiveSvg(containerId, height) {
 }
 
 // 1. Dataset Completeness (Bar Chart)
-export function renderCompletenessChart(stats) {
+export function renderCompletenessChart(stats, containerId = "vis-completeness-bar") {
     if (!stats || !stats.coverage) return;
-    const res = responsiveSvg("vis-completeness-bar", 120);
+    const res = responsiveSvg(containerId, 120);
     if (!res) return;
     const { svg, width, height } = res;
     
@@ -87,9 +282,9 @@ export function renderCompletenessChart(stats) {
 }
 
 // 2. Confidence Distribution (Donut Chart)
-export function renderConfidenceChart(stats) {
+export function renderConfidenceChart(stats, containerId = "vis-confidence-donut") {
     if (!stats || !stats.confidence) return;
-    const res = responsiveSvg("vis-confidence-donut", 120);
+    const res = responsiveSvg(containerId, 120);
     if (!res) return;
     const { svg, width, height } = res;
     
@@ -171,162 +366,35 @@ export function renderEvidenceStrength(stats) {
         </div>`).join("");
 }
 
-// 5. Interactive World Map
-export async function renderWorldMap(records) {
-    const res = responsiveSvg("vis-world-map", 280);
-    if (!res) return;
-    const { svg, width, height } = res;
-    
-    try {
-        const world = await d3.json("https://unpkg.com/world-atlas@2/countries-110m.json");
-        const topojson = await import("https://cdn.jsdelivr.net/npm/topojson-client@3/+esm");
-        
-        const countries = topojson.feature(world, world.objects.countries).features;
-        const projection = d3.geoNaturalEarth1().fitSize([width, height], {type: "Sphere"});
-        const path = d3.geoPath(projection);
-        
-        const g = svg.append("g");
-        
-        // Draw countries
-        g.selectAll("path")
-            .data(countries)
-            .join("path")
-            .attr("fill", "var(--surface2)")
-            .attr("stroke", "var(--line)")
-            .attr("stroke-width", 0.5)
-            .attr("d", path);
-            
-        // Geocode roughly for demo map 
-        const locations = {
-            "New York": [-74.006, 40.7128], "Texas": [-99.9018, 31.9686], "Florida": [-81.5158, 27.6648],
-            "Chicago": [-87.6298, 41.8781], "France": [2.2137, 46.2276], "United States": [-95.7129, 37.0902],
-            "WA": [-120.7401, 47.7511], "NC": [-79.8194, 35.7596], "CA": [-119.4179, 36.7783]
-        };
-        
-        const points = records.filter(r => r.location).map(r => {
-            for (let k in locations) {
-                if (r.location.includes(k)) return { ...r, coords: locations[k] };
-            }
-            return null;
-        }).filter(Boolean);
-        
-        // Draw dots
-        g.selectAll("circle.loc")
-            .data(points)
-            .join("circle")
-            .attr("class", "loc")
-            .attr("cx", d => projection(d.coords)[0])
-            .attr("cy", d => projection(d.coords)[1])
-            .attr("r", 0)
-            .attr("fill", "var(--accent)")
-            .attr("opacity", 0.6)
-            .transition().delay((d,i) => i * 10).duration(500)
-            .attr("r", 4);
-            
-    } catch(e) {
-        console.error("Map failed to load", e);
-        svg.append("text").attr("x", width/2).attr("y", height/2).attr("text-anchor", "middle")
-            .style("fill", "var(--ink3)").text("Map visualization unavailable");
+// 5. Geographic distribution — counted directly from the served records' hq_country
+// field (GET /records). No geocoding, no invented coordinates: a country either has
+// N verified firms on file or it doesn't.
+export function renderGeoDistribution(records) {
+    const el = document.getElementById("vis-geo-distribution");
+    if (!el) return;
+    const counts = new Map();
+    for (const r of records) {
+        const c = (r.country || "").trim();
+        if (!c) continue;
+        counts.set(c, (counts.get(c) || 0) + 1);
     }
+    const rows = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+    const withLoc = records.filter(r => r.country).length;
+    if (!rows.length) {
+        el.innerHTML = `<div class="empty">No headquarters country on file.</div>`;
+        return;
+    }
+    const max = rows[0][1];
+    el.innerHTML = rows.map(([name, val]) => `
+        <div class="reach-row">
+          <div class="reach-top"><span>${name}</span><b>${val}</b></div>
+          <div class="reach-bar"><i class="hi" style="width:${Math.round(100 * val / max)}%"></i></div>
+        </div>`).join("") +
+        `<div class="panel-note" style="margin-top:10px;margin-bottom:0;">Headquarters country on file for
+          ${withLoc} of ${records.length} firms.</div>`;
 }
 
-// 6. AI Investigation Timeline (For Research Results)
-export function generateTimelineHtml(d) {
-    const now = new Date();
-    const ts = (secOffset) => {
-        const t = new Date(now.getTime() - (15 - secOffset) * 1000);
-        return t.toTimeString().split(' ')[0];
-    };
-    
-    const records = d.cards ? d.cards.length : 0;
-    
-    return `
-    <div class="panel" style="margin: 20px 0; padding: 16px;">
-        <details class="exp" open>
-            <summary style="font-weight: 650; font-size: 14px;">AI Investigation Timeline</summary>
-            <div class="body" style="font-family: var(--mono); font-size: 12px; line-height: 1.8; margin-top: 12px;">
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(1)}</span> <span style="color:var(--ink2)">Scheduler triggered (Agentic Cycle start)</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(2)}</span> <span style="color:var(--ink2)">Engineering Judgment created search plan</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(3)}</span> <span style="color:var(--ink2)">Discovery found initial candidate records</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(5)}</span> <span style="color:var(--ink2)">Entity Resolution merged duplicates</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(7)}</span> <span style="color:var(--ink2)">Validation accepted authoritative evidence</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(8)}</span> <span style="color:var(--ink2)">Classification labeled family office structures</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(9)}</span> <span style="color:var(--ok)">Governance approved release to production index</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(12)}</span> <span style="color:var(--accent); font-weight:600;">Live RAG query executed against verified index</span></div>
-                <div style="display:flex; gap:12px;"><span style="color:var(--ink3)">${ts(15)}</span> <span style="color:var(--ink)">Answer synthesized from ${records} verified record(s)</span></div>
-            </div>
-        </details>
-    </div>
-    `;
-}
-
-// 7. Verification Funnel
-export function renderVerificationFunnel(containerId, total, retrieved) {
-    const res = responsiveSvg(containerId, 120);
-    if (!res) return;
-    const { svg, width, height } = res;
-    
-    // Funnel stages
-    const data = [
-        {stage: "Web Discovery", val: (total || 100) * 5},
-        {stage: "Entity Res", val: (total || 100) * 2},
-        {stage: "Validated", val: total || 100},
-        {stage: "Matched", val: retrieved || 0}
-    ];
-    
-    const maxVal = d3.max(data, d => d.val);
-    const x = d3.scaleLinear().domain([0, data.length - 1]).range([40, width - 40]);
-    const y = d3.scaleLinear().domain([0, maxVal]).range([height - 20, 20]);
-    
-    const area = d3.area()
-        .x((d, i) => x(i))
-        .y0(d => height/2 + (height - y(d.val))/2)
-        .y1(d => height/2 - (height - y(d.val))/2)
-        .curve(d3.curveMonotoneX);
-        
-    svg.append("path")
-        .datum(data)
-        .attr("fill", "var(--accent-tint)")
-        .attr("stroke", "var(--accent-line)")
-        .attr("stroke-width", 1.5)
-        .attr("d", area)
-        .style("opacity", 0)
-        .transition().duration(1000)
-        .style("opacity", 1);
-        
-    svg.selectAll("circle")
-        .data(data)
-        .join("circle")
-        .attr("cx", (d,i) => x(i))
-        .attr("cy", height/2)
-        .attr("r", 4)
-        .attr("fill", "var(--accent)");
-        
-    svg.selectAll("text.lbl")
-        .data(data)
-        .join("text")
-        .attr("class", "lbl")
-        .attr("x", (d,i) => x(i))
-        .attr("y", height - 5)
-        .attr("text-anchor", "middle")
-        .style("font-size", "10px")
-        .style("fill", "var(--ink3)")
-        .text(d => d.stage);
-        
-    svg.selectAll("text.val")
-        .data(data)
-        .join("text")
-        .attr("class", "val")
-        .attr("x", (d,i) => x(i))
-        .attr("y", 15)
-        .attr("text-anchor", "middle")
-        .style("font-family", "var(--mono)")
-        .style("font-size", "10px")
-        .style("fill", "var(--ink2)")
-        .text(d => d.val);
-}
-
-// 8. Network Graph (Entities & Evidence)
+// 6. Network Graph (Entities & Evidence)
 export function renderNetworkGraph(containerId, records) {
     const res = responsiveSvg(containerId, 220);
     if (!res) return;

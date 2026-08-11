@@ -89,7 +89,13 @@ def _card(r: Retrieved) -> dict:
         "principal_linkedin": rec.principal_linkedin,
         "firm_contact_email": rec.firm_contact_email,  # firm inbox, NOT a principal route
         "principal_role": principal_role(rec.verification_sources),
-        "signals": [s.text for s in rec.signals],
+        "investment_thesis": rec.investment_thesis,
+        "investing_sectors": rec.investing_sectors,
+        "signals": [{"text": s.text,
+                     "date": s.event_date.isoformat() if s.event_date else None,
+                     "source_url": s.source_url}
+                    for s in rec.signals],
+        "could_not_verify": rec.could_not_verify,
         "confidence": rec.record_confidence.value, "classification_evidence": rec.fo_type_evidence,
         "verification": sorted({_VERIFY_LABEL.get(s.source_class.value, s.source_class.value)
                                 for s in rec.verification_sources}),

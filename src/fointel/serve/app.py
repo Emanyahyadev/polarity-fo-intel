@@ -59,14 +59,20 @@ _VERIFY_SHORT = {  # compact labels for verification chips (full names are long)
 
 
 def _row(r) -> dict:
-    """One Directory row — the same verified fields a query card carries, no more."""
+    """One Directory row — every field the delivered record actually carries, so the
+    profile page never needs to invent something the API doesn't provide."""
     return {
         "fo_id": r.fo_id, "name": r.name, "type": r.fo_type.value,
         "location": ", ".join(x for x in [r.hq_city, r.hq_state, r.hq_country] if x),
-        "country": r.hq_country, "state": r.hq_state,
+        "country": r.hq_country, "state": r.hq_state, "city": r.hq_city,
         "aum": r.estimated_aum, "website": r.website, "phone": r.hq_phone,
+        "corporate_linkedin": r.corporate_linkedin,
+        "description": r.description,
+        "investment_thesis": r.investment_thesis,
+        "investing_sectors": r.investing_sectors,
         "principal": (f"{r.principal_name} — {r.principal_title}"
                       if r.principal_name and r.principal_title else r.principal_name),
+        "principal_name": r.principal_name, "principal_title": r.principal_title,
         "principal_role": principal_role(r.verification_sources),
         # named-person routes (only when name-matched evidence exists — see schema.py)
         "principal_email": r.principal_email,
@@ -76,11 +82,24 @@ def _row(r) -> dict:
         "principal_phone": r.principal_phone,
         # firm-level (not a named-person route) fallback channel
         "firm_contact_email": r.firm_contact_email,
+        "firm_contact_email_status": (r.firm_contact_email_status.value
+                                      if r.firm_contact_email_status else None),
         "confidence": r.record_confidence.value,
+        "fo_type_confidence": r.fo_type_confidence.value,
         "evidence": r.fo_type_evidence,
-        "signals": [s.text for s in r.signals],
+        "signals": [{"text": s.text,
+                     "date": s.event_date.isoformat() if s.event_date else None,
+                     "source": _VERIFY_SHORT.get(s.source_class.value, s.source_class.value),
+                     "source_url": s.source_url}
+                    for s in r.signals],
         "verification": sorted({_VERIFY_SHORT.get(v.source_class.value, v.source_class.value)
                                 for v in r.verification_sources}),
+        "verification_detail": [{"source": _VERIFY_SHORT.get(v.source_class.value, v.source_class.value),
+                                  "verifies": v.verifies, "accessed_at": v.accessed_at.isoformat(),
+                                  "url": v.url}
+                                 for v in r.verification_sources],
+        "discovery_source": _VERIFY_SHORT.get(r.discovery_source.value, r.discovery_source.value),
+        "could_not_verify": r.could_not_verify,
         "data_as_of": r.data_as_of.isoformat(),
     }
 
