@@ -100,7 +100,7 @@ def main():
             new_rows.append(row)
             added += 1
 
-    with open(FINAL_CSV, "w", encoding="utf-8-sig", newline="") as f:
+    with open(FINAL_CSV, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(existing_rows)
