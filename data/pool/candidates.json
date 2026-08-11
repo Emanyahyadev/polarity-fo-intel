@@ -17648,6 +17648,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:ai family office|geo:?",
+  "name": "AI & Family Office",
+  "payload": {
+   "dedup_key": "name:ai family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "identifiers": {},
+   "name": "AI & Family Office",
+   "raw": {
+    "published": "2026-06-01T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.spm.family/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:ai powered family office|geo:?",
   "name": "AI-powered Family Office",
   "payload": {
@@ -20291,6 +20315,30 @@
    "source_url": "https://www.iae.edu.ar/2024/06/familyoffice/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:elena gin family office|geo:?",
+  "name": "Elena Gin Family Office",
+  "payload": {
+   "dedup_key": "name:elena gin family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "identifiers": {},
+   "name": "Elena Gin Family Office",
+   "raw": {
+    "published": "2026-06-01T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.spm.family/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:elisa shevlin rizzo head of family and family office|geo:?",
@@ -26192,6 +26240,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:serge founded spm family office|geo:?",
+  "name": "Serge founded SPM Family Office",
+  "payload": {
+   "dedup_key": "name:serge founded spm family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "identifiers": {},
+   "name": "Serge founded SPM Family Office",
+   "raw": {
+    "published": "2026-06-01T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.spm.family/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:services does matter family office|geo:?",
   "name": "Services Does Matter Family Office",
   "payload": {
@@ -26547,6 +26619,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:spm family office|geo:?",
+  "name": "SPM Family Office",
+  "payload": {
+   "dedup_key": "name:spm family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "identifiers": {},
+   "name": "SPM Family Office",
+   "raw": {
+    "published": "2026-06-01T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.spm.family/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:squire patton boggs in an earlier family office|geo:?",
   "name": "Squire Patton Boggs In an earlier Family Office",
   "payload": {
@@ -26754,6 +26850,30 @@
    "source_url": "https://carta.com/learn/private-funds/structures/family-offices"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:structuring for international clients spm family office|geo:?",
+  "name": "Structuring for International Clients SPM Family Office",
+  "payload": {
+   "dedup_key": "name:structuring for international clients spm family office|geo:?",
+   "discovered_at": "2026-08-11",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "identifiers": {},
+   "name": "Structuring for International Clients SPM Family Office",
+   "raw": {
+    "published": "2026-06-01T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "SPM Family Office — Cross-Border Structuring for International Clients"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.spm.family/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:study sheds light on modern family office|geo:?",
