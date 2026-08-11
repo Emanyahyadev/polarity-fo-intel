@@ -7,30 +7,30 @@
 {"incoming": "Pathstone Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Biltmore Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "INTREPID FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Custos Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Tarbox Family Office, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Duquesne Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "CVA Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Custos Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "COLLECTIVE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Arrowroot Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Independent Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Kopp Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BOSTON FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Fortitude Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Kopp Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Stokes Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Stenger Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Callan Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Pioneer Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Stokes Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Capitol Family Office, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Geller Family Office Services, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "VPR Management LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office Research LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Pioneer Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "OneAscent Family Office, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Standard Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Louis-Dreyfus Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "FIDUCIARY FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Aurelius Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Timonier Family Office, LTD.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Aurelius Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "FIDUCIARY FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Louis-Dreyfus Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MARCUARD FAMILY OFFICE LTD", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Virtus Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "PMG Family Office LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -42,8 +42,8 @@
 {"incoming": "CAMBIENT FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "INTREPID CAPITAL MANAGEMENT INC /DE/", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Sageworth Trust Co", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "AQR CAPITAL MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BANK OF MONTREAL /CAN/  (BMO, BERZ, BULZ, CARD, CARU, DULL, FLYD, FLYU, FNGD, FNGO, FNGS, FNGU, GDXD, GDXU, JETD, JETU, OILD)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "AQR CAPITAL MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "DEUTSCHE BANK AG\\", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "TrustBank", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Orion Portfolio Solutions, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -90,13 +90,13 @@
 {"incoming": "MVC CAPITAL, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MSG NETWORKS INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "THISTLE GROUP HOLDINGS CO", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Velodyne Lidar, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Zoom Telephonics, Inc.  (MINM)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Velodyne Lidar, Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "IntelGenx Technologies Corp.  (IGXT)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MESA AIR GROUP INC  (MESA)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Peak Resorts Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "Advanced Emissions Solutions, Inc.  (ARQ)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Akari Therapeutics Plc  (AKTX)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Advanced Emissions Solutions, Inc.  (ARQ)", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "TRANSATLANTIC PETROLEUM LTD.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "FaZe Holdings Inc.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "UNITED ONLINE INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -171,15 +171,14 @@
 {"incoming": "STORYONE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "XCEPTION FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "LONGWALL FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "ATLAS FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HONOR FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ALLIE FAMILY OFFICE LLC", "matched": "Allie Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "EAGLE BAY FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "GRAND FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HAMPSHIRE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "SENESCHAL FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HAMPSHIRE FAMILY OFFICE", "matched": "HAMPSHIRE FAMILY OFFICE", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "FORTITUDE FAMILY OFFICE", "matched": "Fortitude Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "SENESCHAL FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HOLDUN FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "SOCIUS FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HOLDUN FAMILY OFFICE LLC", "matched": "HOLDUN FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
@@ -187,7 +186,6 @@
 {"incoming": "BOSTON FAMILY OFFICE LLC", "matched": "BOSTON FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "FRENCH FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "LEGACY FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "ARAGON FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "TARBOX FAMILY OFFICE, INC.", "matched": "Tarbox Family Office, Inc.", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "CALLAN FAMILY OFFICE, LLC", "matched": "Callan Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "CUSTOS FAMILY OFFICE LLC", "matched": "Custos Family Office, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=100", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
@@ -213,7 +211,6 @@
 {"incoming": "WAVELAND FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ALCALA MULTI FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "NAJARIAN FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "STANDARD FAMILY OFFICE, LLC", "matched": "Standard Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "FAMILY OFFICE RESEARCH, LLC", "matched": "Family Office Research LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "FAMILY OFFICE ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "WEALTHY & WISE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -225,9 +222,10 @@
 {"incoming": "MARCUARD FAMILY OFFICE LTD", "matched": "MARCUARD FAMILY OFFICE LTD", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=100", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
 {"incoming": "CAMBIENT FAMILY OFFICE, LLC", "matched": "CAMBIENT FAMILY OFFICE, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "AURELIUS FAMILY OFFICE, LLC", "matched": "Aurelius Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "STANDARD FAMILY OFFICE, LLC", "matched": "Standard Family Office LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "LAULIMA FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "LIVE OAK FAMILY OFFICES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "LEGACY ROAD FAMILY OFFICES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "LIVE OAK FAMILY OFFICES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "COMMONWEALTH FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "PENINSULA FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HIGHPOINT FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -246,10 +244,10 @@
 {"incoming": "MERIWETHER FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "AXIOM FOUNDERS FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "INNOVATIVE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "ELEMENT POINTE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "GENERATIVE FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "COLLECTIVE FAMILY OFFICE, LLC", "matched": "COLLECTIVE FAMILY OFFICE LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
 {"incoming": "NOBLEHOUSE FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ELEMENT POINTE FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ADI DASSLER FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "WHITE SANDS FAMILY OFFICE LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BARCLAY BRELAND FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -272,8 +270,8 @@
 {"incoming": "SUMMIT FAMILY OFFICE SERVICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "MAYBRY MCSHANE FAMILY OFFICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "LAKESIDE VIRTUAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "WEALTH DIMENSIONS FAMILY OFFICE, INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "QUESTMONT VIRTUAL FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "WEALTH DIMENSIONS FAMILY OFFICE, INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "FOUNTAINHEAD MULTI-FAMILY OFFICE, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "EUROPEAN FAMILY OFFICE INSTITUTE LLC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "VESTED PARTNERS: A MULTI-FAMILY OFFICE", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -299,6 +297,7 @@
 {"incoming": "ELYXIUM WEALTH LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "M3 ADVISORY GROUP, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "JFG WEALTH MANAGEMENT, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "ARAGON CAPITAL, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HFO SERVICES CORPORATION", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "FI3 FINANCIAL ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ASCEND INTERPLAY, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -310,16 +309,16 @@
 {"incoming": "SABBIA FARO WEALTH MANAGEMENT LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BREAKTHRU ADVISORY SERVICES, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "HILLTOP INVESTMENT ADVISORS, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "BONSAI ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "CANOPY PARTNERS", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "UNIQUE WEALTH STRATEGIES", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "BONSAI ADVISORS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "WHITE OAK FINANCIAL MANAGEMENT, INC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "B1 FINANCIAL", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "FO INVESTMENTS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ARCHVEST WEALTH ADVISORS, INC.", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
-{"incoming": "PELICAN ADVISORY LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ALIYA CAPITAL PARTNERS LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "BRIGHTON JONES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PELICAN ADVISORY LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ROCKEFELLER CAPITAL MANAGEMENT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "THE MATHER GROUP, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "FLYING CLOUD SECURITIES LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -338,6 +337,7 @@
 {"incoming": "TURTLE CREEK WEALTH ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "J.M. ARBOUR, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "ONEASCENT WEALTH MANAGEMENT", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "IDEOLOGY WEALTH ADVISORS, LLC", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Vincentian Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office Principles Inc", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Family Office University Network", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
@@ -420,3 +420,62 @@
 {"incoming": "Builders Vision", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Blanck Capital", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
 {"incoming": "Fundus Heritage", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Bespoke Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "We have been an independent Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Welcome to Betton Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Alignment of Transatlantic Wealth Betton Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "independent Family Office", "matched": "Independent Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "Betton Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "vision set by Betton Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "multigenerational Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Levine Leichtman Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Operating as a multigenerational Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Geffen Ventures is a multigenerational Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Generation Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Global Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Callan Family Office", "matched": "Callan Family Office, LLC", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "At Callan Family Office", "matched": "Callan Family Office, LLC", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=93", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "Sign up for news and updates from Callan Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Contact Callan Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "JDY Capital is a multi-strategy Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Multi-Strategy Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Sands Point is a Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Purpose-Governed Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "result is a highly personalized Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Matter Family Office", "matched": "MATTER FAMILY OFFICE", "action": "merge", "basis": "name+geo", "reason": "same firm (identifier or name+geography agreement)"}
+{"incoming": "We provide an extensive suite of integrated Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "IWP Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Home Home - Matter Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Global Single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Taylor Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Threadneedle is a single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "firm was founded as a single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Five Trees Capital is a single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Established as a dedicated Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "dedicated single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Long-Term Capital Stewardship Dentonia Park Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Dentonia Park Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Karim Mawji participates in select Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Cherry Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Schneider Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "formal formation of our Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Kensington Stern is a Utah based Single Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "JAW Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "PE is the private equity arm of the Lida Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Lida Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Pecan Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "We advise across the full gamut of Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "We can help you map out and establish a Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Rise of the Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "I have watched him create and manage Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "John is an exceptional figure in the UHNW and Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Those considering a Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Comprehensive Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MSM Multi Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "MGS Multi Family Office", "matched": "MSM Multi Family Office", "action": "possible_duplicate_kept_distinct", "basis": "fuzzy=95", "reason": "similar name but no shared identifier/geo; kept distinct for review"}
+{"incoming": "LegacyDeserves Intelligent Protection Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "We are a Multi Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "AKCJ Ventures is an integrated Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "Mark brings a unique approach to Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "For confidential discussions regarding your Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}
+{"incoming": "multi-family office is a private Family Office", "matched": null, "action": "new", "basis": "", "reason": "distinct firm"}

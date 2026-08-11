@@ -3,4 +3,7 @@ SEC EDGAR (13F / SC / Form D filings),140,
 SEC IAPD / Form ADV (investment-adviser registration),200,
 IRS 990-PF (ProPublica Nonprofit Explorer),60,
 "Curated directory / reference (Wikipedia, associations)",22,
-News / Press (GDELT),0,429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=%22family+office%22+sourcelang%3Aenglish&mode=artlist&format=json&maxrecords=100&sort=datedesc&timespan=6months
+News / Press (GDELT),0,
+Web search (Tavily),0,
+Web search (EXA),59,
+Web search (Serper),0,
