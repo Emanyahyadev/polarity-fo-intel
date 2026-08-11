@@ -1,72 +1,105 @@
 {
-  "n": 80,
+  "n": 215,
   "type": {
-    "Multi-Family Office": 15,
-    "Undetermined": 55,
-    "Single-Family Office": 10
+    "Multi-Family Office": 48,
+    "Undetermined": 139,
+    "Single-Family Office": 28
   },
   "confidence": {
-    "Medium": 25,
-    "Low": 55
+    "Medium": 162,
+    "Low": 53
   },
   "discovery_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 30,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 37,
-    "Curated directory / reference (Wikipedia, associations)": 13
+    "SEC EDGAR (13F / SC / Form D filings)": 29,
+    "SEC IAPD / Form ADV (investment-adviser registration)": 54,
+    "Curated directory / reference (Wikipedia, associations)": 13,
+    "Other": 116,
+    "IRS 990-PF (ProPublica Nonprofit Explorer)": 1,
+    "Web search (EXA)": 1,
+    "Web search (Tavily)": 1
   },
   "verification_source": {
-    "SEC EDGAR (13F / SC / Form D filings)": 30,
-    "SEC IAPD / Form ADV (investment-adviser registration)": 58,
-    "Firm Website": 58
+    "SEC IAPD / Form ADV (investment-adviser registration)": 100,
+    "SEC EDGAR (13F / SC / Form D filings)": 29,
+    "Firm Website": 192
   },
-  "independence_verified": 70,
+  "independence_verified": 204,
   "geography": {
     "countries": {
-      "United States": 69,
-      "Germany": 1,
-      "Switzerland": 1,
+      "United States": 115,
+      "Germany": 4,
+      "Switzerland": 6,
       "Monaco": 1,
-      "Brazil": 1,
-      "France": 2,
-      "Denmark": 1,
+      "Brazil": 3,
+      "France": 3,
+      "Denmark": 2,
       "Belgium": 1,
-      "unknown": 3
+      "unknown": 3,
+      "United Kingdom": 4,
+      "United Arab Emirates": 2,
+      "Singapore": 4,
+      "Hong Kong": 2,
+      "Canada": 7,
+      "Australia": 5,
+      "Spain": 2,
+      "Italy": 1,
+      "Netherlands": 5,
+      "Sweden": 3,
+      "Norway": 3,
+      "Austria": 4,
+      "India": 4,
+      "Luxembourg": 2,
+      "Qatar": 1,
+      "Kuwait": 1,
+      "Israel": 2,
+      "Turkey": 1,
+      "Hungary": 1,
+      "Kenya": 1,
+      "Malaysia": 2,
+      "Thailand": 3,
+      "Chile": 2,
+      "Argentina": 1,
+      "Colombia": 1,
+      "South Africa": 4,
+      "Sri Lanka": 1,
+      "Saudi Arabia": 7,
+      "Oman": 1
     },
     "top_us_states": {
-      "FL": 11,
-      "NY": 9,
-      "CA": 6,
+      "FL": 22,
+      "NY": 16,
+      "?": 15,
+      "CA": 10,
+      "TX": 8,
+      "CO": 6,
       "NC": 5,
-      "CO": 5,
-      "TX": 5,
-      "PA": 3,
-      "AL": 3,
-      "WA": 2,
-      "AZ": 2,
-      "CT": 2,
-      "OH": 2
+      "PA": 4,
+      "AZ": 4,
+      "AL": 4,
+      "WA": 3,
+      "IA": 3
     }
   },
   "coverage": {
     "website": {
-      "count": 59,
-      "pct": 74
+      "count": 194,
+      "pct": 90
     },
     "estimated_aum": {
-      "count": 8,
-      "pct": 10
+      "count": 9,
+      "pct": 4
     },
     "principal_name": {
-      "count": 12,
-      "pct": 15
+      "count": 17,
+      "pct": 8
     },
     "hq_phone": {
-      "count": 30,
-      "pct": 38
+      "count": 29,
+      "pct": 13
     },
     "investment_thesis": {
-      "count": 40,
-      "pct": 50
+      "count": 138,
+      "pct": 64
     },
     "investing_sectors": {
       "count": 0,
@@ -82,22 +115,23 @@
     }
   },
   "aum_source": {
-    "total": 8,
+    "total": 9,
     "13f": 0,
-    "adv": 8
+    "adv": 9
   },
   "could_not_verify": {
-    "corporate_linkedin": 80,
-    "principal_linkedin": 80,
-    "principal_email": 80,
-    "principal_name": 68,
-    "principal_title": 68,
-    "principal_phone": 80,
-    "estimated_aum": 72,
-    "hq_phone": 11
+    "corporate_linkedin": 215,
+    "principal_linkedin": 211,
+    "principal_email": 213,
+    "principal_name": 198,
+    "principal_title": 198,
+    "principal_phone": 215,
+    "estimated_aum": 206,
+    "hq_phone": 11,
+    "firm_contact_email": 40
   },
   "all_qualify": true,
-  "provenance_violations": 0,
+  "provenance_violations": 514,
   "inactive_registration": {
     "Allie Family Office LLC": {
       "crd": "307144",

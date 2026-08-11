@@ -10,7 +10,7 @@ Locks in the two real bugs found and fixed during development:
 
 from __future__ import annotations
 
-from src.fointel.enrichment.person_page_discovery import extract_candidates
+from fointel.enrichment.person_page_discovery import extract_candidates
 
 
 MULTI_CARD_HTML = """

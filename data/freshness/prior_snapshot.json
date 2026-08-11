@@ -377,20 +377,6 @@
     "principal_phone": null,
     "record_confidence": "Low"
   },
-  "fo_1d60700ab1": {
-    "_n_verification_sources": 2,
-    "estimated_aum": null,
-    "firm_contact_email": null,
-    "fo_type": "Multi-Family Office",
-    "fo_type_confidence": "Low",
-    "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: multi-family language",
-    "principal_email": null,
-    "principal_email_status": null,
-    "principal_linkedin": null,
-    "principal_name": null,
-    "principal_phone": null,
-    "record_confidence": "Medium"
-  },
   "fo_1e6c828eaa": {
     "_n_verification_sources": 1,
     "estimated_aum": null,
@@ -1553,20 +1539,6 @@
     "principal_phone": null,
     "record_confidence": "Medium"
   },
-  "fo_80f649ced1": {
-    "_n_verification_sources": 2,
-    "estimated_aum": "$138M total regulatory AUM (SEC Form ADV Item 5.F as of 2023)",
-    "firm_contact_email": null,
-    "fo_type": "Undetermined",
-    "fo_type_confidence": "Low",
-    "fo_type_evidence": "SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established",
-    "principal_email": null,
-    "principal_email_status": null,
-    "principal_linkedin": null,
-    "principal_name": "Jennifer Rocca",
-    "principal_phone": null,
-    "record_confidence": "Low"
-  },
   "fo_831b1d28ba": {
     "_n_verification_sources": 2,
     "estimated_aum": null,
@@ -1734,20 +1706,6 @@
     "principal_name": null,
     "principal_phone": null,
     "record_confidence": "Medium"
-  },
-  "fo_9220a272d8": {
-    "_n_verification_sources": 3,
-    "estimated_aum": null,
-    "firm_contact_email": null,
-    "fo_type": "Undetermined",
-    "fo_type_confidence": "Low",
-    "fo_type_evidence": "SEC 13F filer self-identifying as a family office; SEC Form ADV / IAPD registration names it a family office; firm website describes itself as a family office; type: single vs multi family not established",
-    "principal_email": null,
-    "principal_email_status": null,
-    "principal_linkedin": null,
-    "principal_name": null,
-    "principal_phone": null,
-    "record_confidence": "Low"
   },
   "fo_92cc13a795": {
     "_n_verification_sources": 1,
