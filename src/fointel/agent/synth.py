@@ -47,9 +47,10 @@ _SYSTEM = (
 def _client():
     if settings.llm_provider == "nvidia":
         from openai import OpenAI
-        return OpenAI(base_url="https://integrate.api.nvidia.com/v1", api_key=settings.llm_api_key)
+        return OpenAI(base_url="https://integrate.api.nvidia.com/v1", api_key=settings.llm_api_key,
+                      max_retries=0)
     from groq import Groq
-    return Groq(api_key=settings.llm_api_key)
+    return Groq(api_key=settings.llm_api_key, max_retries=0)
 
 
 def _template_explain(ev: CandidateEvidence) -> dict:
@@ -93,7 +94,7 @@ def explain_and_recommend(goal: str, ranked: list[CandidateEvidence], trace=None
     try:
         client = _client()
         resp = client.chat.completions.create(
-            model=settings.llm_model, temperature=0.1, max_tokens=1800,
+            model=settings.llm_model, temperature=0.1, max_tokens=1800, timeout=4.0,
             messages=[{"role": "system", "content": _SYSTEM},
                       {"role": "user", "content": f"GOAL: {goal}\n\nCANDIDATES:\n{json.dumps(bundle)}"}])
         raw = (resp.choices[0].message.content or "").strip()

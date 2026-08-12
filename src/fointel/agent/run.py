@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
@@ -42,12 +43,13 @@ def run_goal(goal: str, store_path: str = DEFAULT_STORE,
     trace = TraceRecorder(goal=goal)
 
     # -- deliverable #2: the manual single-call retrieval baseline, for comparison --
+    # Independent of the mandate/ranking pipeline below (same LLM provider, but a
+    # separate call), so it runs concurrently on its own thread for the entire
+    # pipeline's duration instead of serially blocking the run — joined only at
+    # the end, right before it's needed for the result — pure latency win.
     manual_t0 = time.time()
-    manual = answer_query(index, goal)
-    manual_elapsed = round(time.time() - manual_t0, 1)
-    trace.tool_call("manual_baseline.answer_query", {"goal": goal},
-                    {"answered": manual.answered, "mode": manual.mode,
-                     "n_cards": len(manual.cards), "elapsed_s": manual_elapsed})
+    baseline_pool = ThreadPoolExecutor(max_workers=1)
+    manual_future = baseline_pool.submit(answer_query, index, goal)
 
     # -- step 1: agentic mandate understanding --
     criteria = understand_mandate(goal, trace=trace)
@@ -65,6 +67,13 @@ def run_goal(goal: str, store_path: str = DEFAULT_STORE,
 
     # -- step 3: agentic, grounded synthesis over the top N --
     explanations = explain_and_recommend(goal, ranked, trace=trace, top_n=top_n)
+
+    manual = manual_future.result()
+    baseline_pool.shutdown(wait=False)
+    manual_elapsed = round(time.time() - manual_t0, 1)
+    trace.tool_call("manual_baseline.answer_query", {"goal": goal},
+                    {"answered": manual.answered, "mode": manual.mode,
+                     "n_cards": len(manual.cards), "elapsed_s": manual_elapsed})
     by_id = {e.fo_id: e for e in ranked}
     structured = []
     for rank, exp in enumerate(explanations, start=1):

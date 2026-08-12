@@ -82,13 +82,14 @@ def understand_mandate(goal: str, trace=None) -> dict:
     try:
         if settings.llm_provider == "nvidia":
             from openai import OpenAI
-            client = OpenAI(base_url="https://integrate.api.nvidia.com/v1", api_key=settings.llm_api_key)
+            client = OpenAI(base_url="https://integrate.api.nvidia.com/v1", api_key=settings.llm_api_key,
+                            max_retries=0)
         else:
             from groq import Groq
-            client = Groq(api_key=settings.llm_api_key)
+            client = Groq(api_key=settings.llm_api_key, max_retries=0)
 
         resp = client.chat.completions.create(
-            model=settings.llm_model, temperature=0.0, max_tokens=500,
+            model=settings.llm_model, temperature=0.0, max_tokens=500, timeout=3.0,
             messages=[{"role": "system", "content": _SYSTEM},
                       {"role": "user", "content": f"GOAL: {goal}"}])
         raw = (resp.choices[0].message.content or "").strip()

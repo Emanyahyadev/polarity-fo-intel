@@ -18,6 +18,7 @@ from __future__ import annotations
 import threading
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -205,10 +206,29 @@ class Goal(BaseModel):
     goal: str
 
 
+# Backstop only — the per-call LLM timeouts (3-4s, retries disabled) should
+# always resolve well under this. This bounds worst-case wall time (e.g. a
+# provider that hangs past its stated timeout) so a run can never poll forever.
+# The manual baseline now runs concurrently with mandate+retrieve+synthesis, so
+# worst case is roughly max(baseline: <=3 models x one 3s attempt, mandate 3s +
+# synthesis 4s) plus overhead — comfortably under 30s even if every call stalls.
+GOAL_DEADLINE_SECONDS = 30
+
+
 def _execute_goal(run_id: str, goal_text: str) -> None:
     from ..agent.run import run_goal, save_result
+    pool = ThreadPoolExecutor(max_workers=1)
     try:
-        result = run_goal(goal_text)
+        future = pool.submit(run_goal, goal_text)
+        try:
+            result = future.result(timeout=GOAL_DEADLINE_SECONDS)
+        except FutureTimeoutError:
+            # Don't block on shutdown(wait=True) here — that would wait for the
+            # still-running (stuck) call and defeat the whole point of the deadline.
+            # The orphaned worker thread finishes or dies on its own; its result is discarded.
+            pool.shutdown(wait=False)
+            raise TimeoutError(f"goal run exceeded {GOAL_DEADLINE_SECONDS}s deadline") from None
+        pool.shutdown(wait=False)
         save_result(result)
         _GOALS[run_id] = {"status": "done", "result": result, "error": None}
     except Exception as exc:  # noqa: BLE001 — surface to the client, never crash the server

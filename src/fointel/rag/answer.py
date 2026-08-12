@@ -176,11 +176,12 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
         from openai import OpenAI
         client = OpenAI(
             base_url="https://integrate.api.nvidia.com/v1",
-            api_key=settings.llm_api_key
+            api_key=settings.llm_api_key,
+            max_retries=0,
         )
     else:
         from groq import Groq
-        client = Groq(api_key=settings.llm_api_key)
+        client = Groq(api_key=settings.llm_api_key, max_retries=0)
 
     # Model-fallback chain: Groq free-tier limits (daily tokens AND per-minute burst)
     # are PER MODEL, so on any model error the next model — with its own quota pool —
@@ -195,7 +196,7 @@ def _llm_answer(query: str, retrieved: list[Retrieved]) -> str:
 
     def _call(model: str) -> str:
         resp = client.chat.completions.create(
-            model=model, temperature=0.2, max_tokens=600,
+            model=model, temperature=0.2, max_tokens=600, timeout=3.0,
             messages=[{"role": "system", "content": system},
                       {"role": "user", "content": user}])
         text = (resp.choices[0].message.content or "").strip()
