@@ -1,5 +1,35 @@
 [
  {
+  "dedup_key": "cik:1000275",
+  "name": "ROYAL BANK OF CANADA  (RY, RBCPF, RBMCF, RYLBF)",
+  "payload": {
+   "dedup_key": "cik:1000275",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1000275",
+    "city_state": "Toronto, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "1000275"
+   },
+   "name": "ROYAL BANK OF CANADA  (RY, RBCPF, RBMCF, RYLBF)",
+   "raw": {
+    "accession": "0001085146-23-000668",
+    "cik": "1000275",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1000275&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1001258",
   "name": "ASTA FUNDING INC",
   "payload": {
@@ -270,6 +300,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1023364",
+  "name": "AutoWeb, Inc.",
+  "payload": {
+   "dedup_key": "cik:1023364",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1023364",
+    "city_state": "Tampa, FL",
+    "state": "FL"
+   },
+   "identifiers": {
+    "cik": "1023364"
+   },
+   "name": "AutoWeb, Inc.",
+   "raw": {
+    "accession": "0001104659-20-016295",
+    "cik": "1023364",
+    "file_date": "2020-02-11",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1023364&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1031623",
   "name": "GULF ISLAND FABRICATION INC  (GIFI)",
   "payload": {
@@ -296,6 +356,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1031623&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1036141",
+  "name": "Correvio Pharma Corp.",
+  "payload": {
+   "dedup_key": "cik:1036141",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1036141",
+    "city_state": "Vancouver, A1",
+    "state": "A1"
+   },
+   "identifiers": {
+    "cik": "1036141"
+   },
+   "name": "Correvio Pharma Corp.",
+   "raw": {
+    "accession": "0000893838-19-000005",
+    "cik": "1036141",
+    "file_date": "2019-01-25",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1036141&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -364,6 +454,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1045520",
+  "name": "CANADIAN IMPERIAL BANK OF COMMERCE /CAN/  (CM)",
+  "payload": {
+   "dedup_key": "cik:1045520",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1045520",
+    "city_state": "Toronto, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "1045520"
+   },
+   "name": "CANADIAN IMPERIAL BANK OF COMMERCE /CAN/  (CM)",
+   "raw": {
+    "accession": "0001085146-23-000648",
+    "cik": "1045520",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045520&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:104897",
   "name": "WSI INDUSTRIES, INC.",
   "payload": {
@@ -390,6 +510,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=104897&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1050140",
+  "name": "DESCARTES SYSTEMS GROUP INC  (DSGX)",
+  "payload": {
+   "dedup_key": "cik:1050140",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1050140",
+    "city_state": "Waterloo, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "1050140"
+   },
+   "name": "DESCARTES SYSTEMS GROUP INC  (DSGX)",
+   "raw": {
+    "accession": "0001193125-21-041358",
+    "cik": "1050140",
+    "file_date": "2021-02-12",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1050140&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -664,6 +814,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1093207",
+  "name": "CROSSROADS SYSTEMS INC",
+  "payload": {
+   "dedup_key": "cik:1093207",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1093207",
+    "city_state": "Austin, TX",
+    "state": "TX"
+   },
+   "identifiers": {
+    "cik": "1093207"
+   },
+   "name": "CROSSROADS SYSTEMS INC",
+   "raw": {
+    "accession": "0000893838-17-000067",
+    "cik": "1093207",
+    "file_date": "2017-09-22",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1093207&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1096147",
   "name": "STEANS HARRISON I",
   "payload": {
@@ -780,6 +960,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1099941&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1106838",
+  "name": "Sonnet BioTherapeutics Holdings, Inc.  (SONN)",
+  "payload": {
+   "dedup_key": "cik:1106838",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1106838",
+    "city_state": "Princeton, NJ",
+    "state": "NJ"
+   },
+   "identifiers": {
+    "cik": "1106838"
+   },
+   "name": "Sonnet BioTherapeutics Holdings, Inc.  (SONN)",
+   "raw": {
+    "accession": "0000905718-21-000400",
+    "cik": "1106838",
+    "file_date": "2021-03-10",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1106838&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -1204,6 +1414,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1174169",
+  "name": "ALGONQUIN POWER & UTILITIES CORP.  (AQN, AQNB, AGQPF)",
+  "payload": {
+   "dedup_key": "cik:1174169",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1174169",
+    "city_state": "Oakville, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "1174169"
+   },
+   "name": "ALGONQUIN POWER & UTILITIES CORP.  (AQN, AQNB, AGQPF)",
+   "raw": {
+    "accession": "0001085146-24-000945",
+    "cik": "1174169",
+    "file_date": "2024-02-09",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1174169&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1190713",
   "name": "COCA-COLA HELLENIC BOTTLING CO SA",
   "payload": {
@@ -1320,6 +1560,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1227858&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1232384",
+  "name": "TC ENERGY CORP  (TRP, TCANF, TCENF, TCEYF, TCNCF, TNCAF, TRPEF, TRPPF, TRPRF)",
+  "payload": {
+   "dedup_key": "cik:1232384",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1232384",
+    "city_state": "Calgary Alberta, A0",
+    "state": "A0"
+   },
+   "identifiers": {
+    "cik": "1232384"
+   },
+   "name": "TC ENERGY CORP  (TRP, TCANF, TCENF, TCEYF, TCNCF, TNCAF, TRPEF, TRPPF, TRPRF)",
+   "raw": {
+    "accession": "0001085146-23-000674",
+    "cik": "1232384",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1232384&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -1500,6 +1770,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1305591&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1309082",
+  "name": "CAMBER ENERGY, INC.  (CEIN)",
+  "payload": {
+   "dedup_key": "cik:1309082",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1309082",
+    "city_state": "Houston, TX",
+    "state": "TX"
+   },
+   "identifiers": {
+    "cik": "1309082"
+   },
+   "name": "CAMBER ENERGY, INC.  (CEIN)",
+   "raw": {
+    "accession": "0001213900-22-028555",
+    "cik": "1309082",
+    "file_date": "2022-05-20",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1309082&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -2340,6 +2640,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1447028&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1455365",
+  "name": "COGNITION THERAPEUTICS INC  (CGTX)",
+  "payload": {
+   "dedup_key": "cik:1455365",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1455365",
+    "city_state": "Pittsburgh, PA",
+    "state": "PA"
+   },
+   "identifiers": {
+    "cik": "1455365"
+   },
+   "name": "COGNITION THERAPEUTICS INC  (CGTX)",
+   "raw": {
+    "accession": "0001085146-24-000333",
+    "cik": "1455365",
+    "file_date": "2024-01-19",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1455365&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -3364,6 +3694,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1577368",
+  "name": "QTS Realty Trust, Inc.",
+  "payload": {
+   "dedup_key": "cik:1577368",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1577368",
+    "city_state": "Overland Park, KS",
+    "state": "KS"
+   },
+   "identifiers": {
+    "cik": "1577368"
+   },
+   "name": "QTS Realty Trust, Inc.",
+   "raw": {
+    "accession": "0001085146-22-001167",
+    "cik": "1577368",
+    "file_date": "2022-02-15",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1577368&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1590584",
   "name": "Civeo Corp  (CVEO)",
   "payload": {
@@ -3998,6 +4358,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1666175",
+  "name": "Fortis Inc.  (FTS, FORFF, FRTSF, FTPSF, FTRSF)",
+  "payload": {
+   "dedup_key": "cik:1666175",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1666175",
+    "city_state": "St. John's, A4",
+    "state": "A4"
+   },
+   "identifiers": {
+    "cik": "1666175"
+   },
+   "name": "Fortis Inc.  (FTS, FORFF, FRTSF, FTPSF, FTRSF)",
+   "raw": {
+    "accession": "0001085146-24-000949",
+    "cik": "1666175",
+    "file_date": "2024-02-09",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1666175&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1667489",
   "name": "Liberated Syndication Inc.",
   "payload": {
@@ -4024,6 +4414,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1667489&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1679082",
+  "name": "Myovant Sciences Ltd.",
+  "payload": {
+   "dedup_key": "cik:1679082",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1679082",
+    "city_state": "London, X0",
+    "state": "X0"
+   },
+   "identifiers": {
+    "cik": "1679082"
+   },
+   "name": "Myovant Sciences Ltd.",
+   "raw": {
+    "accession": "0001193125-19-040158",
+    "cik": "1679082",
+    "file_date": "2019-02-14",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1679082&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -4144,6 +4564,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1719893&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1725293",
+  "name": "Grindrod Shipping Holdings Ltd.",
+  "payload": {
+   "dedup_key": "cik:1725293",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1725293",
+    "city_state": "Singapore, U0",
+    "state": "U0"
+   },
+   "identifiers": {
+    "cik": "1725293"
+   },
+   "name": "Grindrod Shipping Holdings Ltd.",
+   "raw": {
+    "accession": "0001193125-18-318429",
+    "cik": "1725293",
+    "file_date": "2018-11-05",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1725293&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -4764,6 +5214,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1818212",
+  "name": "Cohn Robbins Holdings Corp.",
+  "payload": {
+   "dedup_key": "cik:1818212",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1818212",
+    "city_state": "Wilmington, DE",
+    "state": "DE"
+   },
+   "identifiers": {
+    "cik": "1818212"
+   },
+   "name": "Cohn Robbins Holdings Corp.",
+   "raw": {
+    "accession": "0001085146-23-000652",
+    "cik": "1818212",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1818212&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1818331",
   "name": "Sema4 Holdings Corp.  (WGS, WGSWW)",
   "payload": {
@@ -4854,6 +5334,96 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1820872",
+  "name": "Global Business Travel Group, Inc.  (GBTG)",
+  "payload": {
+   "dedup_key": "cik:1820872",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1820872",
+    "city_state": "New York, NY",
+    "state": "NY"
+   },
+   "identifiers": {
+    "cik": "1820872"
+   },
+   "name": "Global Business Travel Group, Inc.  (GBTG)",
+   "raw": {
+    "accession": "0001085146-23-000643",
+    "cik": "1820872",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1820872&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1821318",
+  "name": "OTR Acquisition Corp.",
+  "payload": {
+   "dedup_key": "cik:1821318",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1821318",
+    "city_state": "Miami, FL",
+    "state": "FL"
+   },
+   "identifiers": {
+    "cik": "1821318"
+   },
+   "name": "OTR Acquisition Corp.",
+   "raw": {
+    "accession": "0001085146-23-000667",
+    "cik": "1821318",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1821318&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1822966",
+  "name": "SPRING VALLEY ACQUISITION CORP.  (SMR, SMR-WT)",
+  "payload": {
+   "dedup_key": "cik:1822966",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1822966",
+    "city_state": "Dallas, TX",
+    "state": "TX"
+   },
+   "identifiers": {
+    "cik": "1822966"
+   },
+   "name": "SPRING VALLEY ACQUISITION CORP.  (SMR, SMR-WT)",
+   "raw": {
+    "accession": "0001085146-22-001170",
+    "cik": "1822966",
+    "file_date": "2022-02-15",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1822966&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1828811",
   "name": "Li-Cycle Holdings Corp.  (LICY)",
   "payload": {
@@ -4884,6 +5454,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:1828985",
+  "name": "ScION Tech Growth I",
+  "payload": {
+   "dedup_key": "cik:1828985",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1828985",
+    "city_state": "New York, NY",
+    "state": "NY"
+   },
+   "identifiers": {
+    "cik": "1828985"
+   },
+   "name": "ScION Tech Growth I",
+   "raw": {
+    "accession": "0001085146-23-000669",
+    "cik": "1828985",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1828985&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:1829802",
   "name": "Sensei Biotherapeutics, Inc.  (SNSE)",
   "payload": {
@@ -4910,6 +5510,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1829802&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:1829953",
+  "name": "Corner Growth Acquisition Corp.",
+  "payload": {
+   "dedup_key": "cik:1829953",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "1829953",
+    "city_state": "Palo Alto, CA",
+    "state": "CA"
+   },
+   "identifiers": {
+    "cik": "1829953"
+   },
+   "name": "Corner Growth Acquisition Corp.",
+   "raw": {
+    "accession": "0001085146-23-000654",
+    "cik": "1829953",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1829953&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
@@ -6268,6 +6898,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:62234",
+  "name": "MARCUS CORP  (MCS)",
+  "payload": {
+   "dedup_key": "cik:62234",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "62234",
+    "city_state": "Milwaukee, WI",
+    "state": "WI"
+   },
+   "identifiers": {
+    "cik": "62234"
+   },
+   "name": "MARCUS CORP  (MCS)",
+   "raw": {
+    "accession": "0001085146-24-005574",
+    "cik": "62234",
+    "file_date": "2024-11-13",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=62234&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:700565",
   "name": "FIRST MID BANCSHARES, INC.  (FMBH)",
   "payload": {
@@ -6808,6 +7468,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:868675",
+  "name": "TELUS CORP  (TU)",
+  "payload": {
+   "dedup_key": "cik:868675",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "868675",
+    "city_state": "Vancouver, A1",
+    "state": "A1"
+   },
+   "identifiers": {
+    "cik": "868675"
+   },
+   "name": "TELUS CORP  (TU)",
+   "raw": {
+    "accession": "0001085146-24-005578",
+    "cik": "868675",
+    "file_date": "2024-11-13",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=868675&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:870753",
   "name": "NUMEREX CORP /PA/",
   "payload": {
@@ -7198,6 +7888,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:913353",
+  "name": "Colliers International Group Inc.  (CIGI)",
+  "payload": {
+   "dedup_key": "cik:913353",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "913353",
+    "city_state": "Toronto, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "913353"
+   },
+   "name": "Colliers International Group Inc.  (CIGI)",
+   "raw": {
+    "accession": "0001085146-23-000653",
+    "cik": "913353",
+    "file_date": "2023-02-06",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=913353&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:914208",
   "name": "Invesco Ltd.  (IVZ)",
   "payload": {
@@ -7528,6 +8248,36 @@
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
  {
+  "dedup_key": "cik:947263",
+  "name": "TORONTO DOMINION BANK  (TD, TDBCP, TDBKF, TDOMF, TDOPF)",
+  "payload": {
+   "dedup_key": "cik:947263",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "947263",
+    "city_state": "Toronto, Ontario, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "947263"
+   },
+   "name": "TORONTO DOMINION BANK  (TD, TDBCP, TDBKF, TDOMF, TDOPF)",
+   "raw": {
+    "accession": "0001085146-24-000953",
+    "cik": "947263",
+    "file_date": "2024-02-09",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=947263&type=SC 13G"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
   "dedup_key": "cik:948046",
   "name": "DEUTSCHE BANK AG\\",
   "payload": {
@@ -7584,6 +8334,36 @@
    },
    "source_class": "SEC EDGAR (13F / SC / Form D filings)",
    "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=948072&type=SC 13D"
+  },
+  "source_class": "SEC EDGAR (13F / SC / Form D filings)"
+ },
+ {
+  "dedup_key": "cik:9631",
+  "name": "BANK OF NOVA SCOTIA  (BNS)",
+  "payload": {
+   "dedup_key": "cik:9631",
+   "discovered_at": "2026-08-12",
+   "discovery_sources": [
+    "SEC EDGAR (13F / SC / Form D filings)"
+   ],
+   "hints": {
+    "cik": "9631",
+    "city_state": "Toronto, A6",
+    "state": "A6"
+   },
+   "identifiers": {
+    "cik": "9631"
+   },
+   "name": "BANK OF NOVA SCOTIA  (BNS)",
+   "raw": {
+    "accession": "0001085146-24-005573",
+    "cik": "9631",
+    "file_date": "2024-11-13",
+    "matched_form": "SC 13G",
+    "period_ending": null
+   },
+   "source_class": "SEC EDGAR (13F / SC / Form D filings)",
+   "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=9631&type=SC 13G"
   },
   "source_class": "SEC EDGAR (13F / SC / Form D filings)"
  },
