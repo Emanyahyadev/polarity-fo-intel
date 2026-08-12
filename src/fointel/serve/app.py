@@ -27,16 +27,20 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+from ..compute import ComputeEngine
 from ..observability import get_logger
 from ..rag.answer import answer_query
 from ..rag.index import RetrievalIndex
-from ..rag.load import load_records_from_csv
+from ..rag.load import load_records_from_csv, load_records_from_store, DEFAULT_STORE
 from ..rag.roles import principal_role
 
 log = get_logger("api")
 WEB = Path(__file__).parent / "web"
 _STATE: dict = {}
 _GOALS: dict[str, dict] = {}   # in-memory goal-run registry: run_id -> {status, result, error}
+
+
+GOAL_EMBEDDINGS_PATH = "data/final/doc_embeddings_gated.npz"
 
 
 @asynccontextmanager
@@ -47,6 +51,18 @@ async def lifespan(app: FastAPI):
     _STATE["rows"] = [_row(r) for r in records]
     _STATE["stats"] = _stats(records)
     log.info("index ready", extra={"event": "startup", "records": len(records)})
+
+    # The goal-agent pipeline (/goal) deliberately runs over a narrower, fully
+    # gate-verified pool (records.json) rather than the full CSV directory above,
+    # which also includes un-gated candidates. Built once here and reused by every
+    # /goal request — previously each request rebuilt this from scratch (reloading
+    # records, re-embedding), real waste that on a small memory budget can tip a
+    # concurrent request over the limit.
+    goal_records = load_records_from_store(DEFAULT_STORE)
+    _STATE["goal_records"] = goal_records
+    _STATE["goal_index"] = RetrievalIndex(goal_records, embeddings_path=GOAL_EMBEDDINGS_PATH)
+    _STATE["goal_engine"] = ComputeEngine([r.model_dump(mode="json") for r in goal_records])
+    log.info("goal index ready", extra={"event": "startup_goal", "records": len(goal_records)})
     yield
 
 
@@ -219,7 +235,8 @@ def _execute_goal(run_id: str, goal_text: str) -> None:
     from ..agent.run import run_goal, save_result
     pool = ThreadPoolExecutor(max_workers=1)
     try:
-        future = pool.submit(run_goal, goal_text)
+        future = pool.submit(run_goal, goal_text, index=_STATE["goal_index"],
+                             engine=_STATE["goal_engine"], records=_STATE["goal_records"])
         try:
             result = future.result(timeout=GOAL_DEADLINE_SECONDS)
         except FutureTimeoutError:

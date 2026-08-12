@@ -175,9 +175,11 @@ class RetrievalIndex:
     """
 
     def __init__(self, records: list[FamilyOfficeRecord],
-                 embeddings: Optional[np.ndarray] = None, model_name: str = EMBED_MODEL):
+                 embeddings: Optional[np.ndarray] = None, model_name: str = EMBED_MODEL,
+                 embeddings_path: str = DOC_EMBEDDINGS_PATH):
         self.records = records
         self.model_name = model_name
+        self.embeddings_path = embeddings_path
         self.docs = [record_text(r) for r in records]
         self.meta = [record_meta(r) for r in records]
         self.bm25 = BM25Okapi([tokenize(d) for d in self.docs]) if records else None
@@ -191,9 +193,9 @@ class RetrievalIndex:
     def _load_or_embed(self) -> tuple[np.ndarray, np.ndarray]:
         """Load precomputed doc+focus vectors if present and shaped to match; else embed
         now. Loading avoids importing/running the ONNX model at startup (memory)."""
-        if os.path.exists(DOC_EMBEDDINGS_PATH):
+        if os.path.exists(self.embeddings_path):
             try:
-                z = np.load(DOC_EMBEDDINGS_PATH)
+                z = np.load(self.embeddings_path)
                 docs, focus = z["docs"], z["focus"]
                 if docs.ndim == 2 and docs.shape[0] == len(self.docs) > 0 \
                         and focus.shape == docs.shape:

@@ -33,12 +33,20 @@ DEFAULT_OUTPUT_DIR = "reports/goals"
 
 
 def run_goal(goal: str, store_path: str = DEFAULT_STORE,
-            trace_dir: str = DEFAULT_TRACE_DIR, top_n: int = 10) -> dict[str, Any]:
+            trace_dir: str = DEFAULT_TRACE_DIR, top_n: int = 10,
+            index: RetrievalIndex | None = None, engine: ComputeEngine | None = None,
+            records: list | None = None) -> dict[str, Any]:
+    """`index`/`engine`/`records` let a caller (the API server) pass in objects built
+    once at startup and shared across requests, instead of every goal run reloading
+    records and re-embedding/rebuilding the index from scratch — the redundant
+    per-request rebuild is real memory/CPU waste, and on a small memory budget it can
+    tip a concurrent request over the edge. Falls back to building them here (CLI/tests)
+    when the caller doesn't provide them."""
     t0 = time.time()
-    records = load_records_from_store(store_path)
-    index = RetrievalIndex(records)
-    dict_records = [r.model_dump(mode="json") for r in records]
-    engine = ComputeEngine(dict_records)
+    if index is None or engine is None or records is None:
+        records = load_records_from_store(store_path)
+        index = RetrievalIndex(records)
+        engine = ComputeEngine([r.model_dump(mode="json") for r in records])
 
     trace = TraceRecorder(goal=goal)
 
