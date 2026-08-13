@@ -15944,6 +15944,33 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "domain:livenews.co.nz",
+  "name": "Border Family Office",
+  "payload": {
+   "dedup_key": "domain:livenews.co.nz",
+   "discovered_at": "2026-08-13",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Marvel Capital Holdings Ltd Opens New Regional Office in Kuala Lumpur to Expand Private Trust and Cross - Border Family Office Solutions Across Asia – LiveNews . co . nz"
+   },
+   "identifiers": {
+    "domain": "livenews.co.nz"
+   },
+   "name": "Border Family Office",
+   "raw": {
+    "article_title": "Marvel Capital Holdings Ltd Opens New Regional Office in Kuala Lumpur to Expand Private Trust and Cross - Border Family Office Solutions Across Asia – LiveNews . co . nz",
+    "domain": "livenews.co.nz",
+    "language": "English",
+    "seendate": "20260813T031500Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://livenews.co.nz/2026/08/13/marvel-capital-holdings-ltd-opens-new-regional-office-in-kuala-lumpur-to-expand-private-trust-and-cross-border-family-office-solutions-across-asia/"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:wealthmanagement.com",
   "name": "Expands Family Office",
   "payload": {
