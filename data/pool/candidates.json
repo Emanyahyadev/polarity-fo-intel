@@ -15971,6 +15971,33 @@
   "source_class": "News / Press (GDELT)"
  },
  {
+  "dedup_key": "domain:portal.sina.com.hk",
+  "name": "Prosper Family Office",
+  "payload": {
+   "dedup_key": "domain:portal.sina.com.hk",
+   "discovered_at": "2026-08-13",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {
+    "domain": "portal.sina.com.hk"
+   },
+   "name": "Prosper Family Office",
+   "raw": {
+    "article_title": "Prosper Family Office Opens New Office in Tsim Sha Tsui",
+    "domain": "portal.sina.com.hk",
+    "language": "English",
+    "seendate": "20260813T121500Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://portal.sina.com.hk/finance/finance-prnewswire/prnasia/2026/08/13/1885891/prosper-family-office-opens-new-office-in-tsim-sha-tsui/"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:wealthmanagement.com",
   "name": "Expands Family Office",
   "payload": {
