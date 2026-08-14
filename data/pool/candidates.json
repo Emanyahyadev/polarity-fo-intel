@@ -18600,6 +18600,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:advisor keiretsu family office|geo:?",
+  "name": "Advisor Keiretsu Family Office",
+  "payload": {
+   "dedup_key": "name:advisor keiretsu family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "identifiers": {},
+   "name": "Advisor Keiretsu Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/djvankeuren_what-does-a-family-office-actually-do-is-activity-7343276773310177282-vzEV"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:advisor really a family office|geo:?",
   "name": "advisor really a Family Office",
   "payload": {
@@ -19025,6 +19048,29 @@
    "source_url": "https://www.prnewswire.com/news-releases/elevation-point-announces-strategic-minority-investment-in-family-office-partners-a-2-5-billion-breakaway-team-302487029.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:annual family office|geo:?",
+  "name": "Annual Family Office",
+  "payload": {
+   "dedup_key": "name:annual family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Club | 30 events a year, 50 AI tools, 16 million registered members. Proximity. SuperIntelligence. Scale."
+   },
+   "identifiers": {},
+   "name": "Annual Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Club | 30 events a year, 50 AI tools, 16 million registered members. Proximity. SuperIntelligence. Scale."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://familyoffices.com"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:annual fees for stenger family office|geo:?",
@@ -21736,6 +21782,29 @@
   "source_class": "Curated directory / reference (Wikipedia, associations)"
  },
  {
+  "dedup_key": "name:difference and why it matters a single family office|geo:?",
+  "name": "Difference and Why It Matters A single Family Office",
+  "payload": {
+   "dedup_key": "name:difference and why it matters a single family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office vs. Multifamily Office vs. RIA: What's the Difference and Why It Matters"
+   },
+   "identifiers": {},
+   "name": "Difference and Why It Matters A single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office vs. Multifamily Office vs. RIA: What's the Difference and Why It Matters"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.dakota.com/resources/blog/single-family-office-vs.-multifamily-office-vs.-ria-whats-the-difference-and-why-it-matters"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:difference between a family office|geo:?",
   "name": "difference between a Family Office",
   "payload": {
@@ -21826,6 +21895,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.linkedin.com/jobs/investment-advisor-multi-family-office-jobs"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:dj van keuren family office|geo:?",
+  "name": "DJ Van Keuren Family Office",
+  "payload": {
+   "dedup_key": "name:dj van keuren family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "identifiers": {},
+   "name": "DJ Van Keuren Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/djvankeuren_what-does-a-family-office-actually-do-is-activity-7343276773310177282-vzEV"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -22301,6 +22393,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:equity family office|geo:?",
+  "name": "Equity & Family Office",
+  "payload": {
+   "dedup_key": "name:equity family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "identifiers": {},
+   "name": "Equity & Family Office",
+   "raw": {
+    "published": "2026-06-13T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://krainertgroup.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:established as a dedicated family office|geo:?",
   "name": "Established as a dedicated Family Office",
   "payload": {
@@ -22349,6 +22465,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:establishing strategic partnerships with family office|geo:?",
+  "name": "Establishing strategic partnerships with Family Office",
+  "payload": {
+   "dedup_key": "name:establishing strategic partnerships with family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "identifiers": {},
+   "name": "Establishing strategic partnerships with Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.forbes.com/sites/josipamajic/2024/01/11/the-rise-and-rise-of-the-family-office-an-analysis"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:estate plan coordination with family office|geo:?",
   "name": "Estate plan coordination with Family Office",
   "payload": {
@@ -22371,6 +22510,29 @@
    "source_url": "https://alejandrorhernandez.com/family-office-advisor/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:even rockefeller family office|geo:?",
+  "name": "Even the Rockefeller Family Office",
+  "payload": {
+   "dedup_key": "name:even rockefeller family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "A History of Family Offices - Compound Manual"
+   },
+   "identifiers": {},
+   "name": "Even the Rockefeller Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "A History of Family Offices - Compound Manual"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://manual.compoundplanning.com/chapters/history-of-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:every family is unique and so is every family office|geo:?",
@@ -22727,6 +22889,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:families typically move toward a dedicated family office|geo:?",
+  "name": "Families typically move toward a dedicated Family Office",
+  "payload": {
+   "dedup_key": "name:families typically move toward a dedicated family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office"
+   },
+   "identifiers": {},
+   "name": "Families typically move toward a dedicated Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Modernizing the Family Office: Knowing When Your Family Needs Its Own Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.morganlewis.com/pubs/2026/06/modernizing-the-family-office-knowing-when-your-family-needs-its-own-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:family advisory family office|geo:?",
   "name": "Family Company Advisory Family Office",
   "payload": {
@@ -22746,6 +22931,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.bessemertrust.com/family-office-services/san-diego"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:family decides to establish a family office|geo:?",
+  "name": "family decides to establish a Family Office",
+  "payload": {
+   "dedup_key": "name:family decides to establish a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Offices Explained: Structure and Strategies"
+   },
+   "identifiers": {},
+   "name": "family decides to establish a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Offices Explained: Structure and Strategies"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://dobetter.esade.edu/en/family-office-wealth"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -23957,6 +24165,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:founder family office|geo:?",
+  "name": "Founder Family Office",
+  "payload": {
+   "dedup_key": "name:founder family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "identifiers": {},
+   "name": "Founder Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/djvankeuren_what-does-a-family-office-actually-do-is-activity-7343276773310177282-vzEV"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:founder moves to split family office|geo:?",
   "name": "Founder Moves to Split Family Office",
   "payload": {
@@ -24423,6 +24654,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://rafflesgroup.co/about-rfo/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:group is an investment firm backed by family office|geo:?",
+  "name": "Group is an investment firm backed by the Family Office",
+  "payload": {
+   "dedup_key": "name:group is an investment firm backed by family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "identifiers": {},
+   "name": "Group is an investment firm backed by the Family Office",
+   "raw": {
+    "published": "2026-06-13T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://krainertgroup.com/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -26206,6 +26461,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:le multi family office|geo:?",
+  "name": "Le Multi Family Office",
+  "payload": {
+   "dedup_key": "name:le multi family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Multi Family Office - Transmission et gestion familiale durable"
+   },
+   "identifiers": {},
+   "name": "Le Multi Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Multi Family Office - Transmission et gestion familiale durable"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.nouvelledonne-patrimoine.fr/conseil-suivi-patrimonial/multi-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:leader family enterprise business services and family office|geo:?",
   "name": "Leader Family Enterprise Business Services and Family Office",
   "payload": {
@@ -27033,6 +27311,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:many assume so but real work of a family office|geo:?",
+  "name": "Many assume so. But the real work of a Family Office",
+  "payload": {
+   "dedup_key": "name:many assume so but real work of a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "identifiers": {},
+   "name": "Many assume so. But the real work of a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What does a Family Office do? | DJ Van Keuren posted on the topic"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/djvankeuren_what-does-a-family-office-actually-do-is-activity-7343276773310177282-vzEV"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:many professionals work at insight family office|geo:?",
   "name": "many professionals work at Insight Family Office",
   "payload": {
@@ -27737,6 +28038,29 @@
    "source_url": "https://natwill.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:navigating family office|geo:?",
+  "name": "Navigating the Family Office",
+  "payload": {
+   "dedup_key": "name:navigating family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "identifiers": {},
+   "name": "Navigating the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.forbes.com/sites/josipamajic/2024/01/11/the-rise-and-rise-of-the-family-office-an-analysis"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:need for a true family office|geo:?",
@@ -29414,6 +29738,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:reimann family office|geo:?",
+  "name": "Reimann Family Office",
+  "payload": {
+   "dedup_key": "name:reimann family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "29 Largest Family Offices (2026) | Praxis Rock"
+   },
+   "identifiers": {},
+   "name": "Reimann Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "29 Largest Family Offices (2026) | Praxis Rock"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://praxisrock.com/resources/investors/largest-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:requirements family office|geo:?",
   "name": "Requirements Family Office",
   "payload": {
@@ -29651,6 +29998,29 @@
    "source_url": "https://www.ffollc.com/team/rick-flynn/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:rise and rise of family office|geo:?",
+  "name": "Rise And Rise Of The Family Office",
+  "payload": {
+   "dedup_key": "name:rise and rise of family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "identifiers": {},
+   "name": "Rise And Rise Of The Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The Rise And Rise Of The Family Office: An Analysis"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.forbes.com/sites/josipamajic/2024/01/11/the-rise-and-rise-of-the-family-office-an-analysis"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:rise of entrepreneurial family office|geo:?",
@@ -33114,6 +33484,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:white family investments is a single family office|geo:?",
+  "name": "White Family Investments is a Single Family Office",
+  "payload": {
+   "dedup_key": "name:white family investments is a single family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "WHITE FAMILY INVESTMENTS"
+   },
+   "identifiers": {},
+   "name": "White Family Investments is a Single Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": "WHITE FAMILY INVESTMENTS"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.whitefamilyinvestments.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:who does matter family office|geo:?",
   "name": "Who Does Matter Family Office",
   "payload": {
@@ -33373,6 +33767,30 @@
    "source_url": "https://www.morganlewis.com/pubs/2026/06/modernizing-the-family-office-knowing-when-your-family-needs-its-own-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:york based family office|geo:?",
+  "name": "York-based Family Office",
+  "payload": {
+   "dedup_key": "name:york based family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "identifiers": {},
+   "name": "York-based Family Office",
+   "raw": {
+    "published": "2026-06-13T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Krainert Group | Private Equity & Family Office Investments | New York"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://krainertgroup.com/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:york family office|geo:?",
