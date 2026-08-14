@@ -18413,6 +18413,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:abts partners family office|geo:?",
+  "name": "Abts & Partners Family Office",
+  "payload": {
+   "dedup_key": "name:abts partners family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "Abts & Partners Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:ada mi family office|geo:?",
   "name": "ADA MI Family Office",
   "payload": {
@@ -18622,6 +18645,52 @@
    "source_url": "https://www.investmentnews.com/ria-news/linepoint-five-eleven-partners-launch-to-shake-up-family-office-space/259658"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:agami family office|geo:?",
+  "name": "Agami Family Office",
+  "payload": {
+   "dedup_key": "name:agami family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Gestion de patrimoine - Multi-family offices affiliés ou agréés - France"
+   },
+   "identifiers": {},
+   "name": "Agami Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Gestion de patrimoine - Multi-family offices affiliés ou agréés - France"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.leadersleague.com/fr/classements/gestion-de-patrimoine-multi-family-offices-affilies-ou-agrees-family-offices-france-2025"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:aglaia family office|geo:?",
+  "name": "Aglaia Family Office",
+  "payload": {
+   "dedup_key": "name:aglaia family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "Aglaia Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:ai family office|geo:?",
@@ -18838,6 +18907,52 @@
    "source_url": "https://www.pwc.ch/en/services/private-wealth/family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:altss as a multi family office|geo:?",
+  "name": "Altss as a Multi Family Office",
+  "payload": {
+   "dedup_key": "name:altss as a multi family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Altss as a Multi Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:altss new york family office|geo:?",
+  "name": "Altss The New York Family Office",
+  "payload": {
+   "dedup_key": "name:altss new york family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Altss The New York Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:altswire emerson family office|geo:?",
@@ -19101,6 +19216,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:are you starting or rethinking your family office|geo:?",
+  "name": "Are you starting or rethinking your Family Office",
+  "payload": {
+   "dedup_key": "name:are you starting or rethinking your family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services in New York | Bessemer Trust"
+   },
+   "identifiers": {},
+   "name": "Are you starting or rethinking your Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Services in New York | Bessemer Trust"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.bessemertrust.com/family-office-services/new-york"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:arh advisory to establish a first formal family office|geo:?",
   "name": "ARH advisory to establish a first formal Family Office",
   "payload": {
@@ -19358,6 +19496,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:auretas family office|geo:?",
+  "name": "AURETAS Family Office",
+  "payload": {
+   "dedup_key": "name:auretas family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "AURETAS Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:axial family office|geo:?",
   "name": "Axial Family Office",
   "payload": {
@@ -19403,6 +19564,29 @@
    "source_url": "https://en.wikipedia.org/wiki/Family_office"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:backed by a big european family office|geo:?",
+  "name": "Backed by a big European Family Office",
+  "payload": {
+   "dedup_key": "name:backed by a big european family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Backed by a big European Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2024/11/lego-dynasty-launch-new-impact-focused-family-office-and-restructure-group"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:ballmer group|geo:?",
@@ -19474,6 +19658,29 @@
    "source_url": "https://rscapital.com/2025/02/24/robertson-stephens-launches-family-office-for-select-clients/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:bank us we offer a comprehensive family office|geo:?",
+  "name": "Bank U.S. We offer a comprehensive Family Office",
+  "payload": {
+   "dedup_key": "name:bank us we offer a comprehensive family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Wealth Management | J.P. Morgan Private Bank U.S."
+   },
+   "identifiers": {},
+   "name": "Bank U.S. We offer a comprehensive Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Wealth Management | J.P. Morgan Private Bank U.S."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://privatebank.jpmorgan.com/nam/en/who-we-serve/family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:bbh serves as a family office|geo:?",
@@ -19690,6 +19897,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:beverly capital is a family office|geo:?",
+  "name": "Beverly Capital is a Family Office",
+  "payload": {
+   "dedup_key": "name:beverly capital is a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Home Page - Beverly Capital Family Office"
+   },
+   "identifiers": {},
+   "name": "Beverly Capital is a Family Office",
+   "raw": {
+    "published": "2019-12-12T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Home Page - Beverly Capital Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://beverly-capital.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:bezos expeditions|geo:?",
   "name": "Bezos Expeditions",
   "payload": {
@@ -19760,6 +19991,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:blackhawk family office|geo:?",
+  "name": "Blackhawk Family Office",
+  "payload": {
+   "dedup_key": "name:blackhawk family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Blackhawk Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/blackhawk-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:bloomberg family office|geo:?",
   "name": "Bloomberg Family Office",
   "payload": {
@@ -19828,6 +20082,29 @@
    "source_url": "https://www.bny.com/wealth/global/en/solutions/global-family-office.html"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:book a demo family office|geo:?",
+  "name": "Book a demo Family Office",
+  "payload": {
+   "dedup_key": "name:book a demo family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Book a demo Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:bruce stewart to launch a family office|geo:?",
@@ -19971,6 +20248,52 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:capital principal of a houston based family office|geo:?",
+  "name": "Capital The principal of a Houston-based Family Office",
+  "payload": {
+   "dedup_key": "name:capital principal of a houston based family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Top US family office appoints new CIO | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Capital The principal of a Houston-based Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Top US family office appoints new CIO | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2018/11/top-us-family-office-appoints-new-cio"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:capital trust family office|geo:?",
+  "name": "Capital Trust Family Office",
+  "payload": {
+   "dedup_key": "name:capital trust family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "Capital Trust Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:case highlights family office|geo:?",
   "name": "Case highlights Family Office",
   "payload": {
@@ -20087,6 +20410,29 @@
    "source_url": "https://www.moneymanagement.com.au/uhnw-advice-firm-rebrands-as-cetina/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:cftc family office|geo:?",
+  "name": "CFTC. The Family Office",
+  "payload": {
+   "dedup_key": "name:cftc family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "identifiers": {},
+   "name": "CFTC. The Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.sewkis.com/wp-content/uploads/How-to-Convert-a-Private-Fund-Manager-Into-a-Family-Office-v3.pdf"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:chairman of family office|geo:?",
@@ -20756,6 +21102,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:converting family business into a family office|geo:?",
+  "name": "Converting the family business into a Family Office",
+  "payload": {
+   "dedup_key": "name:converting family business into a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family office founded by ex-footballer backs social mobility initiatives | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Converting the family business into a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family office founded by ex-footballer backs social mobility initiatives | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2020/09/family-office-founded-by-ex-footballer-backs-social-mobility-initiatives"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:coordinated team of family office|geo:?",
   "name": "coordinated team of Family Office",
   "payload": {
@@ -20893,6 +21262,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://cressetcapital.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:cuando hablamos de family office|geo:?",
+  "name": "Cuando hablamos de Family Office",
+  "payload": {
+   "dedup_key": "name:cuando hablamos de family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office: Estructura, inversión mínima y ejemplos"
+   },
+   "identifiers": {},
+   "name": "Cuando hablamos de Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office: Estructura, inversión mínima y ejemplos"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://dobetter.esade.edu/es/family-office-patrimonio-familiar"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -21250,6 +21642,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:description du family office|geo:?",
+  "name": "Description du Family Office",
+  "payload": {
+   "dedup_key": "name:description du family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Description du Family Office Côme, le Family Office"
+   },
+   "identifiers": {},
+   "name": "Description du Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Description du Family Office Côme, le Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.familyoffice-france.fr/family-office/come-le-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:designed for your ambitions at my family office|geo:?",
   "name": "Designed For Your Ambitions At My Family Office",
   "payload": {
@@ -21508,6 +21923,52 @@
    "source_url": "https://www.privatebank.bankofamerica.com/articles/managing-your-family-legacy-through-a-family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:does altss source intelligence on insight family office|geo:?",
+  "name": "does Altss source intelligence on Insight Family Office",
+  "payload": {
+   "dedup_key": "name:does altss source intelligence on insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "does Altss source intelligence on Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:does altss track for insight family office|geo:?",
+  "name": "does Altss track for Insight Family Office",
+  "payload": {
+   "dedup_key": "name:does altss track for insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "does Altss track for Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:downsides to starting a family office|geo:?",
@@ -22219,6 +22680,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:extension of a family office|geo:?",
+  "name": "extension of a Family Office",
+  "payload": {
+   "dedup_key": "name:extension of a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Top United States Family Offices with Recent Private M&A Activity | Axial"
+   },
+   "identifiers": {},
+   "name": "extension of a Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Top United States Family Offices with Recent Private M&A Activity | Axial"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.axial.net/forum/companies/united-states-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:families often consider a family office|geo:?",
   "name": "Families often consider a Family Office",
   "payload": {
@@ -22926,6 +23410,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:finance family office|geo:?",
+  "name": "Finance Family Office",
+  "payload": {
+   "dedup_key": "name:finance family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "Finance Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:financi re agache|geo:?",
   "name": "Financière Agache",
   "payload": {
@@ -23210,6 +23717,29 @@
    "source_url": "https://www.fivetreescapital.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:flexible family office|geo:?",
+  "name": "Flexible Family Office",
+  "payload": {
+   "dedup_key": "name:flexible family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services in New York | Bessemer Trust"
+   },
+   "identifiers": {},
+   "name": "Flexible Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Services in New York | Bessemer Trust"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.bessemertrust.com/family-office-services/new-york"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:for a family office|geo:?",
@@ -23523,6 +24053,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:fresh is altss profile for insight family office|geo:?",
+  "name": "fresh is the Altss profile for Insight Family Office",
+  "payload": {
+   "dedup_key": "name:fresh is altss profile for insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "fresh is the Altss profile for Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:geffen ventures is a multigenerational family office|geo:?",
   "name": "Geffen Ventures is a multigenerational Family Office",
   "payload": {
@@ -23686,6 +24239,29 @@
    "source_url": "https://www.beamonte.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:goelet family office|geo:?",
+  "name": "Goelet Family Office",
+  "payload": {
+   "dedup_key": "name:goelet family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Goelet Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/goelet-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:goldman sachs family office|geo:?",
@@ -23897,6 +24473,29 @@
    "source_url": "https://cressetcapital.com/family-office/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:have many owners a family office|geo:?",
+  "name": "Have many owners. A Family Office",
+  "payload": {
+   "dedup_key": "name:have many owners a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "identifiers": {},
+   "name": "Have many owners. A Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://thefopro.com/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:having tax and estate experts on family office|geo:?",
@@ -24253,6 +24852,30 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:home page beverly capital family office|geo:?",
+  "name": "Home Page - Beverly Capital Family Office",
+  "payload": {
+   "dedup_key": "name:home page beverly capital family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Home Page - Beverly Capital Family Office"
+   },
+   "identifiers": {},
+   "name": "Home Page - Beverly Capital Family Office",
+   "raw": {
+    "published": "2019-12-12T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Home Page - Beverly Capital Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://beverly-capital.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:houston business journal family office|geo:?",
   "name": "Houston Business Journal Family Office",
   "payload": {
@@ -24395,6 +25018,29 @@
    "source_url": "https://actecfoundation.org/podcasts/family-office-landscape-models-services-options/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:i would say most managers that convert to a family office|geo:?",
+  "name": "I would say. Most managers that convert to a Family Office",
+  "payload": {
+   "dedup_key": "name:i would say most managers that convert to a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "identifiers": {},
+   "name": "I would say. Most managers that convert to a Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.sewkis.com/wp-content/uploads/How-to-Convert-a-Private-Fund-Manager-Into-a-Family-Office-v3.pdf"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:if you are considering an independent family office|geo:?",
@@ -24875,6 +25521,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:innovation commitment zibra family office|geo:?",
+  "name": "Innovation Commitment Zibra Family Office",
+  "payload": {
+   "dedup_key": "name:innovation commitment zibra family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "identifiers": {},
+   "name": "Innovation Commitment Zibra Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/company/zibra-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:insight family office|geo:?",
   "name": "Insight Family Office",
   "payload": {
@@ -24990,6 +25659,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-us/campaigns/tax/documents/ey-cs-fo-guide-interactive-jan2025-v3.pdf"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:istcapital is a family office|geo:?",
+  "name": "ISTcapital is a Family Office",
+  "payload": {
+   "dedup_key": "name:istcapital is a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": ""
+   },
+   "identifiers": {},
+   "name": "ISTcapital is a Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"single family office\" investor",
+    "title": ""
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://istcapital.com/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -25443,6 +26136,52 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:las family office|geo:?",
+  "name": "Las Family Office",
+  "payload": {
+   "dedup_key": "name:las family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office: Qué es y cómo funcionan en España | Aspain 11"
+   },
+   "identifiers": {},
+   "name": "Las Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office: Qué es y cómo funcionan en España | Aspain 11"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://aspain11.com/family-office-que-es"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:las propias firmas de family office|geo:?",
+  "name": "Las propias firmas de Family Office",
+  "payload": {
+   "dedup_key": "name:las propias firmas de family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office: Qué es y cómo funcionan en España | Aspain 11"
+   },
+   "identifiers": {},
+   "name": "Las propias firmas de Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office: Qué es y cómo funcionan en España | Aspain 11"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://aspain11.com/family-office-que-es"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:launches to redefine family office|geo:?",
   "name": "Launches to Redefine the Family Office",
   "payload": {
@@ -25752,6 +26491,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:lego dynasty launch new impact focused family office|geo:?",
+  "name": "Lego dynasty launch new impact-focused Family Office",
+  "payload": {
+   "dedup_key": "name:lego dynasty launch new impact focused family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Lego dynasty launch new impact-focused Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2024/11/lego-dynasty-launch-new-impact-focused-family-office-and-restructure-group"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:let us handle your family office|geo:?",
   "name": "Let Us Handle Your Family Office",
   "payload": {
@@ -25962,6 +26724,98 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.linkedin.com/company/familyoffic"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:linkedin members who ve listed zibra family office|geo:?",
+  "name": "LinkedIn members who've listed Zibra Family Office",
+  "payload": {
+   "dedup_key": "name:linkedin members who ve listed zibra family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "identifiers": {},
+   "name": "LinkedIn members who've listed Zibra Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/company/zibra-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:list of family office|geo:?",
+  "name": "List of Family Office",
+  "payload": {
+   "dedup_key": "name:list of family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "identifiers": {},
+   "name": "List of Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jerseyfinance.com/ifc/business-directory/categories/family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:logo du site wwwfamilyoffice francefr family office|geo:?",
+  "name": "Logo du site www.familyoffice-france.fr Family Office",
+  "payload": {
+   "dedup_key": "name:logo du site wwwfamilyoffice francefr family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Description du Family Office Côme, le Family Office"
+   },
+   "identifiers": {},
+   "name": "Logo du site www.familyoffice-france.fr Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Description du Family Office Côme, le Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.familyoffice-france.fr/family-office/come-le-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:logo for new york family office|geo:?",
+  "name": "Logo for The New York Family Office",
+  "payload": {
+   "dedup_key": "name:logo for new york family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office - 2026 Company Profile & Competitors - Tracxn"
+   },
+   "identifiers": {},
+   "name": "Logo for The New York Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office - 2026 Company Profile & Competitors - Tracxn"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://tracxn.com/d/companies/the-new-york-family-office/__4FOoPhFU3Spq6msjot-rNBlf-I4lL0CkDj0ZXy0T--U"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -26179,6 +27033,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:many professionals work at insight family office|geo:?",
+  "name": "many professionals work at Insight Family Office",
+  "payload": {
+   "dedup_key": "name:many professionals work at insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "many professionals work at Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:mark brings a unique approach to family office|geo:?",
   "name": "Mark brings a unique approach to Family Office",
   "payload": {
@@ -26318,6 +27195,52 @@
    "source_url": "https://www.moneymanagement.com.au/uhnw-advice-firm-rebrands-as-cetina/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:member firms in this sector offer family office|geo:?",
+  "name": "Member firms in this sector offer Family Office",
+  "payload": {
+   "dedup_key": "name:member firms in this sector offer family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "identifiers": {},
+   "name": "Member firms in this sector offer Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jerseyfinance.com/ifc/business-directory/categories/family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:member firms to find out more about their top family office|geo:?",
+  "name": "Member firms to find out more about their top Family Office",
+  "payload": {
+   "dedup_key": "name:member firms to find out more about their top family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "identifiers": {},
+   "name": "Member firms to find out more about their top Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "List of Family Office firms in Jersey | Jersey Finance"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.jerseyfinance.com/ifc/business-directory/categories/family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:merklepoint capital family office|geo:?",
@@ -26792,6 +27715,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:natwill is a multi generational family office|geo:?",
+  "name": "Natwill Ltd. is a multi-generational Family Office",
+  "payload": {
+   "dedup_key": "name:natwill is a multi generational family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Natwill Ltd."
+   },
+   "identifiers": {},
+   "name": "Natwill Ltd. is a multi-generational Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" investment firm",
+    "title": "Natwill Ltd."
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://natwill.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:need for a true family office|geo:?",
   "name": "need for a true Family Office",
   "payload": {
@@ -26862,6 +27809,29 @@
    "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:neuflize obc family office|geo:?",
+  "name": "Neuflize OBC Family Office",
+  "payload": {
+   "dedup_key": "name:neuflize obc family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Gestion de patrimoine - Multi-family offices affiliés ou agréés - France"
+   },
+   "identifiers": {},
+   "name": "Neuflize OBC Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Gestion de patrimoine - Multi-family offices affiliés ou agréés - France"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.leadersleague.com/fr/classements/gestion-de-patrimoine-multi-family-offices-affilies-ou-agrees-family-offices-france-2025"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:nick stenger is ceo and founder of stenger family office|geo:?",
@@ -26936,6 +27906,52 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:north advisors family office|geo:?",
+  "name": "North Advisors Family Office",
+  "payload": {
+   "dedup_key": "name:north advisors family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "North Advisors Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:nostrum simul or bernat family office|geo:?",
+  "name": "Nostrum Simul or Bernat Family Office",
+  "payload": {
+   "dedup_key": "name:nostrum simul or bernat family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Discover Top Venture Funds | Venture Capital Archive"
+   },
+   "identifiers": {},
+   "name": "Nostrum Simul or Bernat Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Discover Top Venture Funds | Venture Capital Archive"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://venturecapitalarchive.com/blogs/25-active-family-offices-in-spain"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:not quarters family office|geo:?",
   "name": "Not Quarters Family Office",
   "payload": {
@@ -26979,6 +27995,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://thefopro.com/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:nous concevons la prestation de family office|geo:?",
+  "name": "Nous concevons la prestation de Family Office",
+  "payload": {
+   "dedup_key": "name:nous concevons la prestation de family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Multi Family Office indépendant - ODDO BHF PWM France"
+   },
+   "identifiers": {},
+   "name": "Nous concevons la prestation de Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Multi Family Office indépendant - ODDO BHF PWM France"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://pwm.oddo-bhf.com/fr/expertises/multi-family-office-independant"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -27172,6 +28211,52 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:osint verified profile of insight family office|geo:?",
+  "name": "OSINT-verified profile of Insight Family Office",
+  "payload": {
+   "dedup_key": "name:osint verified profile of insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "OSINT-verified profile of Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:osint verified profile of new york family office|geo:?",
+  "name": "OSINT-verified profile of The New York Family Office",
+  "payload": {
+   "dedup_key": "name:osint verified profile of new york family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "OSINT-verified profile of The New York Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:other necessary family office|geo:?",
   "name": "Other necessary Family Office",
   "payload": {
@@ -27218,6 +28303,29 @@
    "source_url": "https://www.investopedia.com/terms/f/family-offices.asp"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:overview goelet family office|geo:?",
+  "name": "Overview. Goelet Family Office",
+  "payload": {
+   "dedup_key": "name:overview goelet family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Overview. Goelet Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/goelet-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:particularly through our family office|geo:?",
@@ -27530,6 +28638,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:pontegadea inversiones and ortega family office|geo:?",
+  "name": "Pontegadea Inversiones and the Ortega Family Office",
+  "payload": {
+   "dedup_key": "name:pontegadea inversiones and ortega family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Discover Top Venture Funds | Venture Capital Archive"
+   },
+   "identifiers": {},
+   "name": "Pontegadea Inversiones and the Ortega Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Discover Top Venture Funds | Venture Capital Archive"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://venturecapitalarchive.com/blogs/25-active-family-offices-in-spain"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:portfolio filings custos family office|geo:?",
   "name": "Portfolio Filings. Custos Family Office",
   "payload": {
@@ -27790,6 +28921,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:previous family officenext family office|geo:?",
+  "name": "Previous family officeNext Family Office",
+  "payload": {
+   "dedup_key": "name:previous family officenext family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Previous family officeNext Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:primary purpose of a family office|geo:?",
   "name": "primary purpose of a Family Office",
   "payload": {
@@ -27812,6 +28966,29 @@
    "source_url": "https://carta.com/learn/private-funds/structures/family-offices/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:principal of a houston based family office|geo:?",
+  "name": "principal of a Houston-based Family Office",
+  "payload": {
+   "dedup_key": "name:principal of a houston based family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "principal of a Houston-based Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2018/05/split-from-zuckerberg-linked-family-office-leads-to-new-investment-group"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:prior to joining raffles family office|geo:?",
@@ -27928,6 +29105,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://callanfamilyoffice.com"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:psalm capital says family office|geo:?",
+  "name": "PSALM Capital says the Family Office",
+  "payload": {
+   "dedup_key": "name:psalm capital says family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Founded For Pro Athletes | SWFI"
+   },
+   "identifiers": {},
+   "name": "PSALM Capital says the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Founded For Pro Athletes | SWFI"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.swfinstitute.org/news/101139/family-office-founded-for-pro-athletes"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -28830,6 +30030,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:sec that explicitly states that you are a family office|geo:?",
+  "name": "SEC that explicitly states that you are a Family Office",
+  "payload": {
+   "dedup_key": "name:sec that explicitly states that you are a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "identifiers": {},
+   "name": "SEC that explicitly states that you are a Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.sewkis.com/wp-content/uploads/How-to-Convert-a-Private-Fund-Manager-Into-a-Family-Office-v3.pdf"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:secure your legacy at dca family office|geo:?",
   "name": "Secure Your Legacy At DCA Family Office",
   "payload": {
@@ -28971,6 +30194,29 @@
    "source_url": "https://www.privatebank.bankofamerica.com/solutions/family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:services provided by a family office|geo:?",
+  "name": "services provided by a Family Office",
+  "payload": {
+   "dedup_key": "name:services provided by a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Wealth Management | J.P. Morgan Private Bank U.S."
+   },
+   "identifiers": {},
+   "name": "services provided by a Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Wealth Management | J.P. Morgan Private Bank U.S."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://privatebank.jpmorgan.com/nam/en/who-we-serve/family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:services services provided by alcala multi family office|geo:?",
@@ -29232,6 +30478,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:simple family office|geo:?",
+  "name": "Simple Family Office",
+  "payload": {
+   "dedup_key": "name:simple family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "identifiers": {},
+   "name": "Simple Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Directory — Browse & Explore | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:small boutique firm in family office|geo:?",
   "name": "small boutique firm in the Family Office",
   "payload": {
@@ -29348,6 +30617,29 @@
    "source_url": "https://somerspartnership.com/family-office-consultants/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:split from zuckerberg linked family office|geo:?",
+  "name": "Split from Zuckerberg linked Family Office",
+  "payload": {
+   "dedup_key": "name:split from zuckerberg linked family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Split from Zuckerberg linked Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2018/05/split-from-zuckerberg-linked-family-office-leads-to-new-investment-group"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:spm family office|geo:?",
@@ -29773,6 +31065,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:swfi family office|geo:?",
+  "name": "SWFI Family Office",
+  "payload": {
+   "dedup_key": "name:swfi family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Founded For Pro Athletes | SWFI"
+   },
+   "identifiers": {},
+   "name": "SWFI Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Founded For Pro Athletes | SWFI"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.swfinstitute.org/news/101139/family-office-founded-for-pro-athletes"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:switzerland as a family office|geo:?",
   "name": "Switzerland as a Family Office",
   "payload": {
@@ -30079,6 +31394,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:to convert a private fund manager into a family office|geo:?",
+  "name": "to Convert a Private Fund Manager Into a Family Office",
+  "payload": {
+   "dedup_key": "name:to convert a private fund manager into a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "identifiers": {},
+   "name": "to Convert a Private Fund Manager Into a Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.sewkis.com/wp-content/uploads/How-to-Convert-a-Private-Fund-Manager-Into-a-Family-Office-v3.pdf"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:to establish a successful family office|geo:?",
   "name": "To establish a successful Family Office",
   "payload": {
@@ -30243,6 +31581,29 @@
    "source_url": "https://www.investopedia.com/terms/f/family-offices.asp"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:type of firm is insight family office|geo:?",
+  "name": "type of firm is Insight Family Office",
+  "payload": {
+   "dedup_key": "name:type of firm is insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "type of firm is Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:types a family office|geo:?",
@@ -30645,6 +32006,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:was insight family office|geo:?",
+  "name": "was Insight Family Office",
+  "payload": {
+   "dedup_key": "name:was insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "was Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:way a family office|geo:?",
   "name": "way a Family Office",
   "payload": {
@@ -30691,6 +32075,29 @@
    "source_url": "https://primequadrant.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:we are a family office|geo:?",
+  "name": "We are a Family Office",
+  "payload": {
+   "dedup_key": "name:we are a family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "identifiers": {},
+   "name": "We are a Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "How to Convert a Private Fund Manager Into a Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.sewkis.com/wp-content/uploads/How-to-Convert-a-Private-Fund-Manager-Into-a-Family-Office-v3.pdf"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:we are a multi family office|geo:?",
@@ -31402,6 +32809,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:where is insight family office|geo:?",
+  "name": "Where is Insight Family Office",
+  "payload": {
+   "dedup_key": "name:where is insight family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Where is Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:whether a family office|geo:?",
   "name": "Whether a Family Office",
   "payload": {
@@ -31899,6 +33329,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:witter family office|geo:?",
+  "name": "Witter Family Office",
+  "payload": {
+   "dedup_key": "name:witter family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Witter Family Office Witter Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Witter Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Witter Family Office Witter Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/witter-family-office-witter-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:yet whether a given family needs a family office|geo:?",
   "name": "Yet whether a given family needs a Family Office",
   "payload": {
@@ -31918,6 +33371,75 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.morganlewis.com/pubs/2026/06/modernizing-the-family-office-knowing-when-your-family-needs-its-own-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:york family office|geo:?",
+  "name": "York Family Office",
+  "payload": {
+   "dedup_key": "name:york family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "York Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:york multi family office|geo:?",
+  "name": "York Multi Family Office",
+  "payload": {
+   "dedup_key": "name:york multi family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "York Multi Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:york single family office|geo:?",
+  "name": "York Single Family Office",
+  "payload": {
+   "dedup_key": "name:york single family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "York Single Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Goelet Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/goelet-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -31989,6 +33511,52 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.linkedin.com/company/zell-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:ziad abdelnour launched blackhawk family office|geo:?",
+  "name": "Ziad Abdelnour launched Blackhawk Family Office",
+  "payload": {
+   "dedup_key": "name:ziad abdelnour launched blackhawk family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Ziad Abdelnour launched Blackhawk Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/blackhawk-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:zibra family office|geo:?",
+  "name": "Zibra Family Office",
+  "payload": {
+   "dedup_key": "name:zibra family office|geo:?",
+   "discovered_at": "2026-08-14",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "identifiers": {},
+   "name": "Zibra Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Zibra Family Office - A Family Office founded by the Zibrandtsen Family"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/company/zibra-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
