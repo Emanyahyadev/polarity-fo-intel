@@ -95,5 +95,6 @@ jobs:
           name: operating-logs
           path: |
             logs/operating/
+            logs/*.log
             notes/
           retention-days: 7

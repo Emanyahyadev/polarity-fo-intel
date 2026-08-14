@@ -102,5 +102,6 @@ jobs:
           name: continuous-logs
           path: |
             logs/operating/
+            logs/*.log
             notes/
           retention-days: 14
