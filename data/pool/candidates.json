@@ -19848,6 +19848,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:benefits of a single family office|geo:?",
+  "name": "Benefits of a Single Family Office",
+  "payload": {
+   "dedup_key": "name:benefits of a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "identifiers": {},
+   "name": "Benefits of a Single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.asseta.ai/resources/understanding-single-family-offices-a-comprehensive-guide"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:benjamin robinson to family office|geo:?",
   "name": "Benjamin Robinson to Family Office",
   "payload": {
@@ -20268,6 +20291,29 @@
    "source_url": "https://cressetcapital.com/family-office/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:but what exactly is a single family office|geo:?",
+  "name": "But what exactly is a single Family Office",
+  "payload": {
+   "dedup_key": "name:but what exactly is a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "identifiers": {},
+   "name": "But what exactly is a single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.asseta.ai/resources/understanding-single-family-offices-a-comprehensive-guide"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:callan family office|geo:?",
@@ -21310,6 +21356,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:creation of a family office|geo:?",
+  "name": "creation of a Family Office",
+  "payload": {
+   "dedup_key": "name:creation of a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Expert advice for starting a family office"
+   },
+   "identifiers": {},
+   "name": "creation of a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Expert advice for starting a family office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://clearingcustody.fidelity.com/insights/topics/running-your-business/expert-advice-for-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:cresset as longtime family office|geo:?",
   "name": "Cresset. As longtime Family Office",
   "payload": {
@@ -21659,6 +21728,29 @@
    "source_url": "https://somerspartnership.com/family-office-consultants/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:defining single family office|geo:?",
+  "name": "Defining single Family Office",
+  "payload": {
+   "dedup_key": "name:defining single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Expert advice for starting a family office"
+   },
+   "identifiers": {},
+   "name": "Defining single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Expert advice for starting a family office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://clearingcustody.fidelity.com/insights/topics/running-your-business/expert-advice-for-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:deliberately number of family office|geo:?",
@@ -22839,6 +22931,29 @@
    "source_url": "https://cressetcapital.com/family-office-services/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:expert advice for starting a family office|geo:?",
+  "name": "Expert advice for starting a Family Office",
+  "payload": {
+   "dedup_key": "name:expert advice for starting a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Expert advice for starting a family office"
+   },
+   "identifiers": {},
+   "name": "Expert advice for starting a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Expert advice for starting a family office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://clearingcustody.fidelity.com/insights/topics/running-your-business/expert-advice-for-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:expertise in multi family office|geo:?",
@@ -24892,6 +25007,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:having better defined a family office|geo:?",
+  "name": "Having better defined a Family Office",
+  "payload": {
+   "dedup_key": "name:having better defined a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What Is A Single-Family Office Vs. A Multi-Family Office? - HB Wealth"
+   },
+   "identifiers": {},
+   "name": "Having better defined a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "What Is A Single-Family Office Vs. A Multi-Family Office? - HB Wealth"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://hbwealth.com/insights/what-is-a-single-family-office-vs-a-multi-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:having tax and estate experts on family office|geo:?",
   "name": "Having tax and estate experts on the Family Office",
   "payload": {
@@ -25268,6 +25406,29 @@
    "source_url": "https://beverly-capital.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:honest picture is that a family office|geo:?",
+  "name": "honest picture is that a Family Office",
+  "payload": {
+   "dedup_key": "name:honest picture is that a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "identifiers": {},
+   "name": "honest picture is that a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.longangle.com/blog/single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:houston business journal family office|geo:?",
@@ -26102,6 +26263,29 @@
    "source_url": "https://istcapital.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:it makes sense to build one a single family office|geo:?",
+  "name": "It Makes Sense to Build One A single Family Office",
+  "payload": {
+   "dedup_key": "name:it makes sense to build one a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "identifiers": {},
+   "name": "It Makes Sense to Build One A single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.longangle.com/blog/single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:it really is and i think as a family office|geo:?",
@@ -29217,6 +29401,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:portfolio filings boston family office|geo:?",
+  "name": "Portfolio Filings. Boston Family Office",
+  "payload": {
+   "dedup_key": "name:portfolio filings boston family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Boston Family Office Llc 13F Filings"
+   },
+   "identifiers": {},
+   "name": "Portfolio Filings. Boston Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Boston Family Office Llc 13F Filings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.optionar.com/sec-13f/manager/0001039807-boston-family-office-llc"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:portfolio filings custos family office|geo:?",
   "name": "Portfolio Filings. Custos Family Office",
   "payload": {
@@ -29496,6 +29703,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:primary advantages of a single family office|geo:?",
+  "name": "primary advantages of a single Family Office",
+  "payload": {
+   "dedup_key": "name:primary advantages of a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "identifiers": {},
+   "name": "primary advantages of a single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Understanding Single Family Offices: A Comprehensive Guide | Asseta"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.asseta.ai/resources/understanding-single-family-offices-a-comprehensive-guide"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -31080,6 +31310,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:simple a single family office|geo:?",
+  "name": "Simple A single Family Office",
+  "payload": {
+   "dedup_key": "name:simple a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "A Simple guide to single family office structure - Guides | Simple"
+   },
+   "identifiers": {},
+   "name": "Simple A single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "A Simple guide to single family office structure - Guides | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/guides/single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:simple family office|geo:?",
   "name": "Simple Family Office",
   "payload": {
@@ -31099,6 +31352,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://andsimple.co/family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:simple guide to single family office|geo:?",
+  "name": "Simple guide to single Family Office",
+  "payload": {
+   "dedup_key": "name:simple guide to single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "A Simple guide to single family office structure - Guides | Simple"
+   },
+   "identifiers": {},
+   "name": "Simple guide to single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "A Simple guide to single family office structure - Guides | Simple"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://andsimple.co/guides/single-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -32443,6 +32719,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:under sec family office|geo:?",
+  "name": "Under the SEC Family Office",
+  "payload": {
+   "dedup_key": "name:under sec family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "identifiers": {},
+   "name": "Under the SEC Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.longangle.com/blog/single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:understand family and family office|geo:?",
   "name": "Understand the family and Family Office",
   "payload": {
@@ -33458,6 +33757,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:what s minimum net worth for a single family office|geo:?",
+  "name": "What's the minimum net worth for a single Family Office",
+  "payload": {
+   "dedup_key": "name:what s minimum net worth for a single family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "identifiers": {},
+   "name": "What's the minimum net worth for a single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Office: When It Makes Sense to Build One"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.longangle.com/blog/single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:where family office|geo:?",
   "name": "where the Family Office",
   "payload": {
@@ -33712,6 +34034,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.deloitte.com/us/en/services/deloitte-private/articles/setting-up-family-office.html"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:while every family office|geo:?",
+  "name": "While every Family Office",
+  "payload": {
+   "dedup_key": "name:while every family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Expert advice for starting a family office"
+   },
+   "identifiers": {},
+   "name": "While every Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Expert advice for starting a family office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://clearingcustody.fidelity.com/insights/topics/running-your-business/expert-advice-for-starting-a-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
