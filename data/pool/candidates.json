@@ -18908,6 +18908,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:allvue systems average family office|geo:?",
+  "name": "Allvue Systems The average Family Office",
+  "payload": {
+   "dedup_key": "name:allvue systems average family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What Is a Family Office? - Allvue Systems"
+   },
+   "identifiers": {},
+   "name": "Allvue Systems The average Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What Is a Family Office? - Allvue Systems"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.allvuesystems.com/resources/what-is-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:although idea of starting a family office|geo:?",
   "name": "Although the idea of starting a Family Office",
   "payload": {
@@ -20200,6 +20223,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:but exactly what is a family office|geo:?",
+  "name": "But exactly what is a Family Office",
+  "payload": {
+   "dedup_key": "name:but exactly what is a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What Is a Family Office? - Allvue Systems"
+   },
+   "identifiers": {},
+   "name": "But exactly what is a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What Is a Family Office? - Allvue Systems"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.allvuesystems.com/resources/what-is-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:but what exactly is a family office|geo:?",
   "name": "But what exactly is a Family Office",
   "payload": {
@@ -21098,6 +21144,29 @@
    "source_url": "https://www.stengerfamilyoffice.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:contact us about family office|geo:?",
+  "name": "Contact us about Family Office",
+  "payload": {
+   "dedup_key": "name:contact us about family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Contact us about Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:contact us to learn how you can join upcoming family office|geo:?",
@@ -22512,6 +22581,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:estate planning family office|geo:?",
+  "name": "Estate Planning Family Office",
+  "payload": {
+   "dedup_key": "name:estate planning family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Estate Planning Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:even rockefeller family office|geo:?",
   "name": "Even the Rockefeller Family Office",
   "payload": {
@@ -22628,6 +22720,29 @@
    "source_url": "https://www.pwc.ch/en/services/private-wealth/family-office.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:exactly what family office|geo:?",
+  "name": "exactly what Family Office",
+  "payload": {
+   "dedup_key": "name:exactly what family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "identifiers": {},
+   "name": "exactly what Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://somerspartnership.com/single-family-offices-arent-for-everyonejust-ask-a-good-tailor"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:executive chair of emigrant family office|geo:?",
@@ -24161,6 +24276,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://emigrantfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:foundation and founder of private investment family office|geo:?",
+  "name": "Foundation and founder of private investment Family Office",
+  "payload": {
+   "dedup_key": "name:foundation and founder of private investment family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Philanthropist Christina Lewis Launches Beatrice Advisors, a Multifamily Office for the Next Generation | Beatrice Advisors"
+   },
+   "identifiers": {},
+   "name": "Foundation and founder of private investment Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" established new firm",
+    "title": "Philanthropist Christina Lewis Launches Beatrice Advisors, a Multifamily Office for the Next Generation | Beatrice Advisors"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.beatriceadvisors.com/news/beatrice-advisors-launch-announcement"
   },
   "source_class": "Web search (EXA)"
  },
@@ -25704,6 +25843,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:in news family office|geo:?",
+  "name": "In The News Family Office",
+  "payload": {
+   "dedup_key": "name:in news family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "In The News Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:in order for family office|geo:?",
   "name": "In order for the Family Office",
   "payload": {
@@ -26221,6 +26383,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://asora.com/blog/how-to-choose-a-family-office-advisor"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:key strategies for family office|geo:?",
+  "name": "Key strategies for Family Office",
+  "payload": {
+   "dedup_key": "name:key strategies for family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Key strategies for Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -27120,6 +27305,29 @@
    "source_url": "https://www.dentoniapark.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:looking ahead family office|geo:?",
+  "name": "Looking Ahead Family Office",
+  "payload": {
+   "dedup_key": "name:looking ahead family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The why, who, what and how of starting a family office"
+   },
+   "identifiers": {},
+   "name": "Looking Ahead Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The why, who, what and how of starting a family office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/ideas-and-insights/the-why-who-what-and-how-of-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:lots of families start with a family office|geo:?",
@@ -28251,6 +28459,30 @@
    "source_url": "https://andsimple.co/family-offices"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:north american family office|geo:?",
+  "name": "North American Family Office",
+  "payload": {
+   "dedup_key": "name:north american family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Philanthropist Christina Lewis Launches Beatrice Advisors, a Multifamily Office for the Next Generation | Beatrice Advisors"
+   },
+   "identifiers": {},
+   "name": "North American Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" established new firm",
+    "title": "Philanthropist Christina Lewis Launches Beatrice Advisors, a Multifamily Office for the Next Generation | Beatrice Advisors"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.beatriceadvisors.com/news/beatrice-advisors-launch-announcement"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:nostrum simul or bernat family office|geo:?",
@@ -31201,6 +31433,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:strategies klopp investment management family office|geo:?",
+  "name": "Strategies - Klopp Investment Management LLC Family Office",
+  "payload": {
+   "dedup_key": "name:strategies klopp investment management family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Investment Strategies - Klopp Investment Management LLC"
+   },
+   "identifiers": {},
+   "name": "Strategies - Klopp Investment Management LLC Family Office",
+   "raw": {
+    "published": "2025-02-16T00:00:00.000Z",
+    "query": "\"family office\" investment firm",
+    "title": "Investment Strategies - Klopp Investment Management LLC"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://kloppinvestment.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:structure rarely fits everyone family office|geo:?",
   "name": "structure rarely fits everyone Family Office",
   "payload": {
@@ -31693,6 +31949,29 @@
    "source_url": "https://landmarkfo.com/en/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:to achieve benefits of a family office|geo:?",
+  "name": "To achieve the benefits of a Family Office",
+  "payload": {
+   "dedup_key": "name:to achieve benefits of a family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "identifiers": {},
+   "name": "To achieve the benefits of a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://thefopro.com/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:to actually start a micro family office|geo:?",
@@ -33083,6 +33362,29 @@
    "source_url": "https://www.pbig.ml.com/solutions/family-office.html"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:wealthspire family office|geo:?",
+  "name": "Wealthspire Family Office",
+  "payload": {
+   "dedup_key": "name:wealthspire family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Services | Wealthspire"
+   },
+   "identifiers": {},
+   "name": "Wealthspire Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Family Office Services | Wealthspire"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.wealthspire.com/family-office-services"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:wealthspire launches an enhanced family office|geo:?",
