@@ -20386,6 +20386,30 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:capital financial is launching a dedicated family office|geo:?",
+  "name": "Capital Financial is launching a dedicated Family Office",
+  "payload": {
+   "dedup_key": "name:capital financial is launching a dedicated family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "identifiers": {},
+   "name": "Capital Financial is launching a dedicated Family Office",
+   "raw": {
+    "published": "2025-03-03T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://primefinancial.com/prime-capital-starts-family-office-via-acquisition-of-1-5b-firm/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:capital principal of a houston based family office|geo:?",
   "name": "Capital The principal of a Houston-based Family Office",
   "payload": {
@@ -24033,6 +24057,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.prnewswire.com/news-releases/linepoint-partners--co-launches-family-office-firm-with-a-pioneering-affiliation-model-for-ultra-high-net-worth-financial-advisors-and-single-family-office-executives-302397958.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:firm prime capital starts family office|geo:?",
+  "name": "Firm Prime Capital Starts Family Office",
+  "payload": {
+   "dedup_key": "name:firm prime capital starts family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "identifiers": {},
+   "name": "Firm Prime Capital Starts Family Office",
+   "raw": {
+    "published": "2025-03-03T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://primefinancial.com/prime-capital-starts-family-office-via-acquisition-of-1-5b-firm/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -29750,6 +29798,54 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://carta.com/learn/private-funds/structures/family-offices/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:prime capital family office|geo:?",
+  "name": "Prime Capital Family Office",
+  "payload": {
+   "dedup_key": "name:prime capital family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "identifiers": {},
+   "name": "Prime Capital Family Office",
+   "raw": {
+    "published": "2025-03-03T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://primefinancial.com/prime-capital-starts-family-office-via-acquisition-of-1-5b-firm/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:prime capital starts family office|geo:?",
+  "name": "Prime Capital Starts Family Office",
+  "payload": {
+   "dedup_key": "name:prime capital starts family office|geo:?",
+   "discovered_at": "2026-08-15",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "identifiers": {},
+   "name": "Prime Capital Starts Family Office",
+   "raw": {
+    "published": "2025-03-03T00:00:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prime Capital Starts Family Office Via Acquisition of $1.5B Firm"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://primefinancial.com/prime-capital-starts-family-office-via-acquisition-of-1-5b-firm/"
   },
   "source_class": "Web search (EXA)"
  },
