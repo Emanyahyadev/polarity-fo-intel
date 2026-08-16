@@ -33689,6 +33689,30 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:wealth management and family office|geo:?",
+  "name": "Wealth Management and Family Office",
+  "payload": {
+   "dedup_key": "name:wealth management and family office|geo:?",
+   "discovered_at": "2026-08-16",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Wren Investment Office | Wealth Management and Family Office"
+   },
+   "identifiers": {},
+   "name": "Wealth Management and Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" investment firm",
+    "title": "Wren Investment Office | Wealth Management and Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.wreninvestmentoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:wealth management building an effective family office|geo:?",
   "name": "Wealth Management Building an effective Family Office",
   "payload": {
