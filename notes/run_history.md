@@ -1,9 +1,9 @@
 # Run History
 
-Generated: 2026-08-17 18:42 UTC  ·  source: `logs/operating/*-summary.json` (never hand-edited).
+Generated: 2026-08-17 20:32 UTC  ·  source: `logs/operating/*-summary.json` (never hand-edited).
 
 **1 operating-cycle run(s)** indexed.
 
 | Run | Tasks | Statuses | Escalated | Trace |
 |---|---|---|---|---|
-| `run-20260817T182710-615e32` | 0 | - | 0 | /home/runner/work/polarity-fo-intel/polarity-fo-intel/logs/operating/run-20260817T182710-615e32.jsonl |
+| `run-20260817T201728-c701a4` | 0 | - | 0 | /home/runner/work/polarity-fo-intel/polarity-fo-intel/logs/operating/run-20260817T201728-c701a4.jsonl |
