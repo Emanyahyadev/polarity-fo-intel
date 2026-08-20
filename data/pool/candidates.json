@@ -15944,6 +15944,33 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "domain:economictimes.indiatimes.com",
+  "name": "India Family Office",
+  "payload": {
+   "dedup_key": "domain:economictimes.indiatimes.com",
+   "discovered_at": "2026-08-20",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "India family office wealth to grow 1 . 5x in three years as ultra - rich shift strategies : Report"
+   },
+   "identifiers": {
+    "domain": "economictimes.indiatimes.com"
+   },
+   "name": "India Family Office",
+   "raw": {
+    "article_title": "India family office wealth to grow 1 . 5x in three years as ultra - rich shift strategies : Report",
+    "domain": "economictimes.indiatimes.com",
+    "language": "English",
+    "seendate": "20260820T100000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://economictimes.indiatimes.com/markets/stocks/news/indias-family-office-wealth-to-grow-1-5x-in-three-years-as-ultra-rich-shift-strategies-report/articleshow/133371820.cms"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:livenews.co.nz",
   "name": "Border Family Office",
   "payload": {
@@ -15967,6 +15994,33 @@
    },
    "source_class": "News / Press (GDELT)",
    "source_url": "https://livenews.co.nz/2026/08/13/marvel-capital-holdings-ltd-opens-new-regional-office-in-kuala-lumpur-to-expand-private-trust-and-cross-border-family-office-solutions-across-asia/"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
+  "dedup_key": "domain:moneycontrol.com",
+  "name": "Indian Family Office",
+  "payload": {
+   "dedup_key": "domain:moneycontrol.com",
+   "discovered_at": "2026-08-20",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Indian family office assets set to grow 1 . 5x in three years as alternatives gain ground : Julius Baer - EY"
+   },
+   "identifiers": {
+    "domain": "moneycontrol.com"
+   },
+   "name": "Indian Family Office",
+   "raw": {
+    "article_title": "Indian family office assets set to grow 1 . 5x in three years as alternatives gain ground : Julius Baer - EY",
+    "domain": "moneycontrol.com",
+    "language": "English",
+    "seendate": "20260820T100000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://www.moneycontrol.com/news/business/indian-family-office-assets-set-to-grow-1-5x-in-three-years-as-alternatives-gain-ground-julius-baer-ey-14011476.html"
   },
   "source_class": "News / Press (GDELT)"
  },
