@@ -16777,6 +16777,34 @@
   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
  },
  {
+  "dedup_key": "ein:33-6507713",
+  "name": "Peters Family Endowment For Missions",
+  "payload": {
+   "dedup_key": "ein:33-6507713",
+   "discovered_at": "2026-08-20",
+   "discovery_sources": [
+    "IRS 990-PF (ProPublica Nonprofit Explorer)"
+   ],
+   "hints": {
+    "city": "Tallahassee",
+    "state": "FL"
+   },
+   "identifiers": {
+    "ein": "33-6507713"
+   },
+   "name": "Peters Family Endowment For Missions",
+   "raw": {
+    "ein": "33-6507713",
+    "matched_query": "family capital",
+    "ntee_code": "X20",
+    "subseccd": 3
+   },
+   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)",
+   "source_url": "https://projects.propublica.org/nonprofits/organizations/336507713"
+  },
+  "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
+ },
+ {
   "dedup_key": "ein:35-2340680",
   "name": "Family Promise Of Harrisburg Capital Region",
   "payload": {
@@ -17025,6 +17053,34 @@
    },
    "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)",
    "source_url": "https://projects.propublica.org/nonprofits/organizations/392247798"
+  },
+  "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
+ },
+ {
+  "dedup_key": "ein:41-2366797",
+  "name": "Vincentian Family Office Endowment Fund",
+  "payload": {
+   "dedup_key": "ein:41-2366797",
+   "discovered_at": "2026-08-20",
+   "discovery_sources": [
+    "IRS 990-PF (ProPublica Nonprofit Explorer)"
+   ],
+   "hints": {
+    "city": "Saint Louis",
+    "state": "MO"
+   },
+   "identifiers": {
+    "ein": "41-2366797"
+   },
+   "name": "Vincentian Family Office Endowment Fund",
+   "raw": {
+    "ein": "41-2366797",
+    "matched_query": "family office",
+    "ntee_code": "X12",
+    "subseccd": 3
+   },
+   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)",
+   "source_url": "https://projects.propublica.org/nonprofits/organizations/412366797"
   },
   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
  },
