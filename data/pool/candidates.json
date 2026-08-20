@@ -15944,6 +15944,33 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "domain:calcuttanews.net",
+  "name": "Indian Family Office",
+  "payload": {
+   "dedup_key": "domain:calcuttanews.net",
+   "discovered_at": "2026-08-20",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Indian family office assets projected to grow 1 . 5 times in three years : Julius Baer - EY report"
+   },
+   "identifiers": {
+    "domain": "calcuttanews.net"
+   },
+   "name": "Indian Family Office",
+   "raw": {
+    "article_title": "Indian family office assets projected to grow 1 . 5 times in three years : Julius Baer - EY report",
+    "domain": "calcuttanews.net",
+    "language": "English",
+    "seendate": "20260820T153000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "http://www.calcuttanews.net/news/279254057/indian-family-office-assets-projected-to-grow-15-times-in-three-years-julius-baer-ey-report"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:economictimes.indiatimes.com",
   "name": "India Family Office",
   "payload": {
