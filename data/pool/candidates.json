@@ -16025,6 +16025,33 @@
   "source_class": "News / Press (GDELT)"
  },
  {
+  "dedup_key": "domain:manilatimes.net",
+  "name": "EMEA Family Office",
+  "payload": {
+   "dedup_key": "domain:manilatimes.net",
+   "discovered_at": "2026-08-21",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Privea Partners Emerges as the Bridge Between Western Founders and EMEA Family Office Capital"
+   },
+   "identifiers": {
+    "domain": "manilatimes.net"
+   },
+   "name": "EMEA Family Office",
+   "raw": {
+    "article_title": "Privea Partners Emerges as the Bridge Between Western Founders and EMEA Family Office Capital",
+    "domain": "manilatimes.net",
+    "language": "English",
+    "seendate": "20260821T213000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://www.manilatimes.net/2026/08/22/tmt-newswire/globenewswire/privea-partners-emerges-as-the-bridge-between-western-founders-and-emea-family-office-capital/2410189"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:moneycontrol.com",
   "name": "Indian Family Office",
   "payload": {
