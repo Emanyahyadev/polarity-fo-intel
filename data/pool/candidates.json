@@ -16160,6 +16160,33 @@
   "source_class": "News / Press (GDELT)"
  },
  {
+  "dedup_key": "domain:retail.economictimes.indiatimes.com",
+  "name": "Vivek Oberoi Family Office",
+  "payload": {
+   "dedup_key": "domain:retail.economictimes.indiatimes.com",
+   "discovered_at": "2026-08-26",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Biryani Bees Secures Funding from Vivek Oberoi Family Office for Expansion in Tier 2 Cities , ETRetail"
+   },
+   "identifiers": {
+    "domain": "retail.economictimes.indiatimes.com"
+   },
+   "name": "Vivek Oberoi Family Office",
+   "raw": {
+    "article_title": "Biryani Bees Secures Funding from Vivek Oberoi Family Office for Expansion in Tier 2 Cities , ETRetail",
+    "domain": "retail.economictimes.indiatimes.com",
+    "language": "English",
+    "seendate": "20260826T150000Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://retail.economictimes.indiatimes.com/news/food-entertainment/food-services/biryani-bees-raises-funding-from-vivek-oberoi-family-office-to-expand-across-tier-2-cities/133541049"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:wealthmanagement.com",
   "name": "Expands Family Office",
   "payload": {
