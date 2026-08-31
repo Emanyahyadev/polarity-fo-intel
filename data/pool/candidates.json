@@ -15944,6 +15944,33 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "domain:brisbanetimes.com.au",
+  "name": "Lee Family Office",
+  "payload": {
+   "dedup_key": "domain:brisbanetimes.com.au",
+   "discovered_at": "2026-08-31",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Bader Naaman hired by Felix Lee for Lee Family Office"
+   },
+   "identifiers": {
+    "domain": "brisbanetimes.com.au"
+   },
+   "name": "Lee Family Office",
+   "raw": {
+    "article_title": "Bader Naaman hired by Felix Lee for Lee Family Office",
+    "domain": "brisbanetimes.com.au",
+    "language": "English",
+    "seendate": "20260831T204500Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://www.brisbanetimes.com.au/national/nsw/optimistic-the-rundown-1920s-mansion-valued-at-27-000-a-square-metre-and-the-hire-that-followed-20260825-p60rdv.html"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:calcuttanews.net",
   "name": "Indian Family Office",
   "payload": {
