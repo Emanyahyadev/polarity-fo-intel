@@ -16079,6 +16079,33 @@
   "source_class": "News / Press (GDELT)"
  },
  {
+  "dedup_key": "domain:hawaiitelegraph.com",
+  "name": "Convergence Family Office",
+  "payload": {
+   "dedup_key": "domain:hawaiitelegraph.com",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Convergence Family Office Salon Returns to Park City for Three - Day Gathering of Family Office Principals"
+   },
+   "identifiers": {
+    "domain": "hawaiitelegraph.com"
+   },
+   "name": "Convergence Family Office",
+   "raw": {
+    "article_title": "Convergence Family Office Salon Returns to Park City for Three - Day Gathering of Family Office Principals",
+    "domain": "hawaiitelegraph.com",
+    "language": "English",
+    "seendate": "20260901T164500Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "http://www.hawaiitelegraph.com/news/279279211/convergence-family-office-salon-returns-to-park-city-for-three-day-gathering-of-family-office-principals"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:livenews.co.nz",
   "name": "Border Family Office",
   "payload": {
@@ -20574,6 +20601,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:beninvest family office|geo:?",
+  "name": "Beninvest Family Office",
+  "payload": {
+   "dedup_key": "name:beninvest family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Beninvest Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Beninvest Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/beninvest-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:benjamin robinson to family office|geo:?",
   "name": "Benjamin Robinson to Family Office",
   "payload": {
@@ -20619,6 +20669,29 @@
    "source_url": "https://rafflesgroup.co/about-rfo/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:benoit jp flammang family office|geo:?",
+  "name": "Benoit J.P. Flammang Family Office",
+  "payload": {
+   "dedup_key": "name:benoit jp flammang family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | New York Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Benoit J.P. Flammang Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Beninvest Family Office | New York Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/beninvest-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:bespoke family office|geo:?",
@@ -21019,6 +21092,29 @@
    "source_url": "https://familycapital.com.ar/"
   },
   "source_class": "Web search (Serper)"
+ },
+ {
+  "dedup_key": "name:building a single family office|geo:?",
+  "name": "Building a Single Family Office",
+  "payload": {
+   "dedup_key": "name:building a single family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What Is a Single Family Office? | Asseta"
+   },
+   "identifiers": {},
+   "name": "Building a Single Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "What Is a Single Family Office? | Asseta"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.asseta.ai/resources/what-is-a-single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:business angels and family office|geo:?",
@@ -25978,6 +26074,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:firm type family office|geo:?",
+  "name": "Firm type Family Office",
+  "payload": {
+   "dedup_key": "name:firm type family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | New York Multi Family Office"
+   },
+   "identifiers": {},
+   "name": "Firm type Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | New York Multi Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:firm was founded as a single family office|geo:?",
   "name": "firm was founded as a single Family Office",
   "payload": {
@@ -27472,6 +27591,29 @@
    "source_url": "https://www.prnewswire.com/news-releases/linepoint-partners--co-launches-family-office-firm-with-a-pioneering-affiliation-model-for-ultra-high-net-worth-financial-advisors-and-single-family-office-executives-302397958.html"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:high profile us impact focused family office|geo:?",
+  "name": "High-profile US impact-focused Family Office",
+  "payload": {
+   "dedup_key": "name:high profile us impact focused family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "High-profile US impact-focused Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Lego dynasty launch new impact-focused family office and restructure group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2024/11/lego-dynasty-launch-new-impact-focused-family-office-and-restructure-group"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:highly credentialed family office|geo:?",
@@ -33913,6 +34055,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:prominent californian family office|geo:?",
+  "name": "Prominent Californian Family Office",
+  "payload": {
+   "dedup_key": "name:prominent californian family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "identifiers": {},
+   "name": "Prominent Californian Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Split from Zuckerberg linked family office leads to new investment group | Family Capital"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.famcap.com/2018/05/split-from-zuckerberg-linked-family-office-leads-to-new-investment-group"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:prompts a family to start a family office|geo:?",
   "name": "prompts a family to start a Family Office",
   "payload": {
@@ -39007,6 +39172,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:where is new york family office|geo:?",
+  "name": "Where is The New York Family Office",
+  "payload": {
+   "dedup_key": "name:where is new york family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The New York Family Office | New York Multi Family Office"
+   },
+   "identifiers": {},
+   "name": "Where is The New York Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "The New York Family Office | New York Multi Family Office"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/the-new-york-family-office"
   },
   "source_class": "Web search (Tavily)"
  },
