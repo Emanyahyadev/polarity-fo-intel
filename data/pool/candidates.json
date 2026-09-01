@@ -25955,6 +25955,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:financial side of family office|geo:?",
+  "name": "financial side of the Family Office",
+  "payload": {
+   "dedup_key": "name:financial side of family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What is a Single Family Office? - Disrupt Equity"
+   },
+   "identifiers": {},
+   "name": "financial side of the Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "What is a Single Family Office? - Disrupt Equity"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.disruptequity.com/videos/what-is-a-single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:find it with family office|geo:?",
   "name": "Find it With Family Office",
   "payload": {
@@ -26689,6 +26712,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:fundamentals family office|geo:?",
+  "name": "Fundamentals Family Office",
+  "payload": {
+   "dedup_key": "name:fundamentals family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "identifiers": {},
+   "name": "Fundamentals Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://somerspartnership.com/single-family-offices-arent-for-everyonejust-ask-a-good-tailor"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -27775,6 +27821,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://aum13f.com/firm/duquesne-family-office-llc?view_all=holding"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:holdingschannelcom was derived from family office|geo:?",
+  "name": "HoldingsChannel.com was derived from Family Office",
+  "payload": {
+   "dedup_key": "name:holdingschannelcom was derived from family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Research LLC 13F Portfolio: Top Holdings & Latest Filing"
+   },
+   "identifiers": {},
+   "name": "HoldingsChannel.com was derived from Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Family Office Research LLC 13F Portfolio: Top Holdings & Latest Filing"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.holdingschannel.com/13f/family-office-research-llc-top-holdings"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -29110,6 +29179,29 @@
    "source_url": "https://istcapital.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:it is also common for a family office|geo:?",
+  "name": "It is also common for a Family Office",
+  "payload": {
+   "dedup_key": "name:it is also common for a family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Offices Explained: Structure and Strategies"
+   },
+   "identifiers": {},
+   "name": "It is also common for a Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Offices Explained: Structure and Strategies"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://dobetter.esade.edu/en/family-office-wealth"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:it is why our family office|geo:?",
@@ -33251,6 +33343,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:partners so levy family partners is family office|geo:?",
+  "name": "Partners so Levy family Partners is the Family Office",
+  "payload": {
+   "dedup_key": "name:partners so levy family partners is family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What is a Family Office and How Do They Invest?"
+   },
+   "identifiers": {},
+   "name": "Partners so Levy family Partners is the Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "What is a Family Office and How Do They Invest?"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.youtube.com/watch?v=w_F27TqtTLM"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:patel was a founder of kingswood family office|geo:?",
   "name": "Patel was a co-founder of Kingswood Family Office",
   "payload": {
@@ -35497,6 +35612,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:second element of family office|geo:?",
+  "name": "second element of the Family Office",
+  "payload": {
+   "dedup_key": "name:second element of family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "identifiers": {},
+   "name": "second element of the Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices: The Ultimate Resource for Wealth Management and Success"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://thefopro.com/single-family-offices"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:secure your legacy at dca family office|geo:?",
   "name": "Secure Your Legacy At DCA Family Office",
   "payload": {
@@ -35662,6 +35800,29 @@
    "source_url": "https://www.matterfamilyoffice.com/matter-family-office-ultra-high-net-worth-family-office/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:services family office|geo:?",
+  "name": "Services Family Office",
+  "payload": {
+   "dedup_key": "name:services family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "identifiers": {},
+   "name": "Services Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "Single Family Offices Aren’t for Everyone…Just Ask a Good Tailor - Somers Partnership"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://somerspartnership.com/single-family-offices-arent-for-everyonejust-ask-a-good-tailor"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:services for wealth management investments family office|geo:?",
@@ -36369,6 +36530,29 @@
    "source_url": "https://www.linkedin.com/in/cristobal-botanch-cfa-a251a76"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:squire patton boggs family office|geo:?",
+  "name": "Squire Patton Boggs Family Office",
+  "payload": {
+   "dedup_key": "name:squire patton boggs family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Insights Exchange Act Form 13F – New Requirements"
+   },
+   "identifiers": {},
+   "name": "Squire Patton Boggs Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "Family Office Insights Exchange Act Form 13F – New Requirements"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.squirepattonboggs.com/-/media/files/insights/publications/2024/05/family-office-insights-exchange-act-form-13f-new-requirements-effective-july-1-2024/familyofficeinsightsexchangeactform13f.pdf?rev=e2264f4cc18c4cb19d9edeb6fd9add15"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:squire patton boggs in an earlier family office|geo:?",
@@ -39998,6 +40182,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:york ny family office|geo:?",
+  "name": "YORK NY Family Office",
+  "payload": {
+   "dedup_key": "name:york ny family office|geo:?",
+   "discovered_at": "2026-09-01",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "DUQUESNE FAMILY OFFICE LLC Top 13F Holdings"
+   },
+   "identifiers": {},
+   "name": "YORK NY Family Office",
+   "raw": {
+    "query": "\"family office\" 13F filer",
+    "title": "DUQUESNE FAMILY OFFICE LLC Top 13F Holdings"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://whalewisdom.com/filer/duquesne-family-office-llc"
   },
   "source_class": "Web search (Tavily)"
  },
