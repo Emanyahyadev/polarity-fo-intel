@@ -18715,6 +18715,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:about prosper family office|geo:?",
+  "name": "About Prosper Family Office",
+  "payload": {
+   "dedup_key": "name:about prosper family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {},
+   "name": "About Prosper Family Office",
+   "raw": {
+    "published": "2026-08-13T11:41:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.prnewswire.com/apac/news-releases/prosper-family-office-opens-new-office-in-tsim-sha-tsui-302850826.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:about rockefeller global family office|geo:?",
   "name": "About Rockefeller Global Family Office",
   "payload": {
@@ -19231,6 +19255,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:ai tools family office|geo:?",
+  "name": "AI tools. The Family Office",
+  "payload": {
+   "dedup_key": "name:ai tools family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "AI tools. The Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:aim is to ensure that family office|geo:?",
   "name": "aim is to ensure that the Family Office",
   "payload": {
@@ -19483,6 +19531,53 @@
    },
    "identifiers": {},
    "name": "Altss as a Multi Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:altss beninvest family office|geo:?",
+  "name": "Altss Beninvest Family Office",
+  "payload": {
+   "dedup_key": "name:altss beninvest family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Altss Beninvest Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:altss insight family office|geo:?",
+  "name": "Altss Insight Family Office",
+  "payload": {
+   "dedup_key": "name:altss insight family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Altss Insight Family Office",
    "raw": {
     "query": "\"family office\" founded new",
     "title": "Insight Family Office | New York Multi Family Office | Altss"
@@ -20622,6 +20717,30 @@
    "source_url": "https://altss.com/profile/beninvest-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:beninvest structured as a single family office|geo:?",
+  "name": "Beninvest structured as a single Family Office",
+  "payload": {
+   "dedup_key": "name:beninvest structured as a single family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Beninvest structured as a single Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:benjamin robinson to family office|geo:?",
@@ -22231,6 +22350,29 @@
   "source_class": "Web search (Serper)"
  },
  {
+  "dedup_key": "name:complete guide a multi family office|geo:?",
+  "name": "complete guide A multi Family Office",
+  "payload": {
+   "dedup_key": "name:complete guide a multi family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Understanding multi-family offices: A complete guide"
+   },
+   "identifiers": {},
+   "name": "complete guide A multi Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Understanding multi-family offices: A complete guide"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://aleta.io/knowledge-hub/multi-family-offices-a-complete-guide"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:comprehensive family office|geo:?",
   "name": "Comprehensive Family Office",
   "payload": {
@@ -23618,6 +23760,30 @@
    "source_url": "https://altss.com/profile/insight-family-office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:does lien family office|geo:?",
+  "name": "does the Lien Family Office",
+  "payload": {
+   "dedup_key": "name:does lien family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Wah Hin & Co. | Singapore Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "does the Lien Family Office",
+   "raw": {
+    "published": "2026-08-10T15:54:10.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Wah Hin & Co. | Singapore Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/wah-hin-and-co-family-office-lien-family-office"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:downsides to starting a family office|geo:?",
@@ -25146,6 +25312,29 @@
    },
    "source_class": "Web search (Tavily)",
    "source_url": "https://www.linkedin.com/company/family-office-new-york"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:family office founded for pro athletes family office|geo:?",
+  "name": "Family Office Founded For Pro Athletes Family Office",
+  "payload": {
+   "dedup_key": "name:family office founded for pro athletes family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Founded For Pro Athletes"
+   },
+   "identifiers": {},
+   "name": "Family Office Founded For Pro Athletes Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Family Office Founded For Pro Athletes"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.swfinstitute.org/news/101139/family-office-founded-for-pro-athletes"
   },
   "source_class": "Web search (Tavily)"
  },
@@ -29181,6 +29370,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:it is a single family office|geo:?",
+  "name": "It is a single Family Office",
+  "payload": {
+   "dedup_key": "name:it is a single family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "It is a single Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:it is also common for a family office|geo:?",
   "name": "It is also common for a Family Office",
   "payload": {
@@ -31638,6 +31851,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:more new york single family office|geo:?",
+  "name": "More New York Single Family Office",
+  "payload": {
+   "dedup_key": "name:more new york single family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)",
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "More New York Single Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/blackhawk-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:more singapore single family office|geo:?",
   "name": "More Singapore Single Family Office",
   "payload": {
@@ -31942,6 +32179,29 @@
    "source_url": "https://msm-fo.com/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:much does it cost to run a family office|geo:?",
+  "name": "Much Does It Cost to Run a Family Office",
+  "payload": {
+   "dedup_key": "name:much does it cost to run a family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "What Is a Single Family Office? | Asseta"
+   },
+   "identifiers": {},
+   "name": "Much Does It Cost to Run a Family Office",
+   "raw": {
+    "query": "\"single family office\"",
+    "title": "What Is a Single Family Office? | Asseta"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.asseta.ai/resources/what-is-a-single-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:multi family office faqs fintrx is a unified family office|geo:?",
@@ -32297,6 +32557,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.netacn.com/blog/do-family-offices-have-to-file-form13f"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:negative list is unusually long for a family office|geo:?",
+  "name": "negative list is unusually long for a Family Office",
+  "payload": {
+   "dedup_key": "name:negative list is unusually long for a family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "negative list is unusually long for a Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
   },
   "source_class": "Web search (EXA)"
  },
@@ -32842,6 +33126,54 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://arkolith.com/blog/hedge-fund-vs-family-office-disclosures"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:opening ceremony of prosper family office|geo:?",
+  "name": "opening ceremony of Prosper Family Office",
+  "payload": {
+   "dedup_key": "name:opening ceremony of prosper family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {},
+   "name": "opening ceremony of Prosper Family Office",
+   "raw": {
+    "published": "2026-08-13T11:41:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.prnewswire.com/apac/news-releases/prosper-family-office-opens-new-office-in-tsim-sha-tsui-302850826.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:opens new office in tsim sha tsui prosper family office|geo:?",
+  "name": "Opens New Office in Tsim Sha Tsui Prosper Family Office",
+  "payload": {
+   "dedup_key": "name:opens new office in tsim sha tsui prosper family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {},
+   "name": "Opens New Office in Tsim Sha Tsui Prosper Family Office",
+   "raw": {
+    "published": "2026-08-13T11:41:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.prnewswire.com/apac/news-releases/prosper-family-office-opens-new-office-in-tsim-sha-tsui-302850826.html"
   },
   "source_class": "Web search (EXA)"
  },
@@ -34238,6 +34570,30 @@
    "source_url": "https://www.capboard.io/en/investors/family_office"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:prosper family office|geo:?",
+  "name": "Prosper Family Office",
+  "payload": {
+   "dedup_key": "name:prosper family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {},
+   "name": "Prosper Family Office",
+   "raw": {
+    "published": "2026-08-13T11:41:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.prnewswire.com/apac/news-releases/prosper-family-office-opens-new-office-in-tsim-sha-tsui-302850826.html"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:provides products and services to callan family office|geo:?",
@@ -36414,6 +36770,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:source prosper family office|geo:?",
+  "name": "SOURCE Prosper Family Office",
+  "payload": {
+   "dedup_key": "name:source prosper family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "identifiers": {},
+   "name": "SOURCE Prosper Family Office",
+   "raw": {
+    "published": "2026-08-13T11:41:00.000Z",
+    "query": "\"family office\" established new firm",
+    "title": "Prosper Family Office Opens New Office in Tsim Sha Tsui"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.prnewswire.com/apac/news-releases/prosper-family-office-opens-new-office-in-tsim-sha-tsui-302850826.html"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:specialist in family office|geo:?",
   "name": "Specialist in Family Office",
   "payload": {
@@ -36695,6 +37075,29 @@
    "source_url": "https://rscapital.com/2025/02/24/robertson-stephens-launches-family-office-for-select-clients/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:stillwater family office|geo:?",
+  "name": "Stillwater Family Office",
+  "payload": {
+   "dedup_key": "name:stillwater family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Stillwater Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Stillwater Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Stillwater Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/stillwater-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:stock trades custos family office|geo:?",
@@ -39831,6 +40234,53 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:who runs investment decisions at beninvest family office|geo:?",
+  "name": "Who runs investment decisions at Beninvest Family Office",
+  "payload": {
+   "dedup_key": "name:who runs investment decisions at beninvest family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Who runs investment decisions at Beninvest Family Office",
+   "raw": {
+    "published": "2026-07-06T00:31:25.000Z",
+    "query": "\"single family office\" investor",
+    "title": "Beninvest Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/beninvest-family-office-benoit-jp-flammang-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:who runs investment decisions at blackhawk family office|geo:?",
+  "name": "Who runs investment decisions at Blackhawk Family Office",
+  "payload": {
+   "dedup_key": "name:who runs investment decisions at blackhawk family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Who runs investment decisions at Blackhawk Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Blackhawk Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/blackhawk-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:who runs investment decisions at gil elbaz s family office|geo:?",
   "name": "Who runs investment decisions at Gil Elbaz's Family Office",
   "payload": {
@@ -39853,6 +40303,52 @@
    "source_url": "https://altss.com/profile/gil-elbaz"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:who runs investment decisions at insight family office|geo:?",
+  "name": "Who runs investment decisions at Insight Family Office",
+  "payload": {
+   "dedup_key": "name:who runs investment decisions at insight family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Who runs investment decisions at Insight Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Insight Family Office | New York Multi Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/insight-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:who runs investment decisions at stillwater family office|geo:?",
+  "name": "Who runs investment decisions at Stillwater Family Office",
+  "payload": {
+   "dedup_key": "name:who runs investment decisions at stillwater family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Stillwater Family Office | Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "Who runs investment decisions at Stillwater Family Office",
+   "raw": {
+    "query": "\"family office\" founded new",
+    "title": "Stillwater Family Office | Single Family Office | Altss"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://altss.com/profile/stillwater-family-office"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:who uses a family office|geo:?",
