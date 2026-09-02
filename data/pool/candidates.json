@@ -19161,6 +19161,29 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:advisors family office|geo:?",
+  "name": "Advisors Family Office",
+  "payload": {
+   "dedup_key": "name:advisors family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "Advisors Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:agami family office|geo:?",
   "name": "Agami Family Office",
   "payload": {
@@ -19774,6 +19797,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://cressetcapital.com/family-office/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:any other employee of family office|geo:?",
+  "name": "Any other employee of the Family Office",
+  "payload": {
+   "dedup_key": "name:any other employee of family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Family Office: A Small Entity Compliance Guide"
+   },
+   "identifiers": {},
+   "name": "Any other employee of the Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" SEC 13F filings",
+    "title": "Family Office: A Small Entity Compliance Guide"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.sec.gov/files/rules/final/2011/ia-3220-secg.htm"
   },
   "source_class": "Web search (EXA)"
  },
@@ -25129,6 +25176,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:family investment firms fall under family office|geo:?",
+  "name": "Family investment firms fall under the Family Office",
+  "payload": {
+   "dedup_key": "name:family investment firms fall under family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Understanding the difference between family office and family investment firm | Brian C. Adams posted on the topic | LinkedIn"
+   },
+   "identifiers": {},
+   "name": "Family investment firms fall under the Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "Understanding the difference between family office and family investment firm | Brian C. Adams posted on the topic | LinkedIn"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.linkedin.com/posts/brian-c-adams_what-is-the-distinction-between-a-family-activity-7358100308184428544-8u3n"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:family office a family office|geo:?",
   "name": "Family office A Family Office",
   "payload": {
@@ -25174,6 +25244,29 @@
    "source_url": "https://alejandrorhernandez.com/family-office-advisor/"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:family office advisors a family office|geo:?",
+  "name": "Family Office Advisors A Family Office",
+  "payload": {
+   "dedup_key": "name:family office advisors a family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "Family Office Advisors A Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:family office advisory is an independent family office|geo:?",
@@ -29654,6 +29747,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:jp morgan private bank us typical types of family office|geo:?",
+  "name": "J.P. Morgan Private Bank U.S. Typical types of Family Office",
+  "payload": {
+   "dedup_key": "name:jp morgan private bank us typical types of family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "The why, who, what and how of starting a family office | J.P. Morgan Private Bank U.S."
+   },
+   "identifiers": {},
+   "name": "J.P. Morgan Private Bank U.S. Typical types of Family Office",
+   "raw": {
+    "query": "\"family office\" investment firm",
+    "title": "The why, who, what and how of starting a family office | J.P. Morgan Private Bank U.S."
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/ideas-and-insights/the-why-who-what-and-how-of-starting-a-family-office"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:karim mawji participates in select family office|geo:?",
   "name": "Karim Mawji participates in select Family Office",
   "payload": {
@@ -32964,6 +33080,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:o shaughnessy family office|geo:?",
+  "name": "O'Shaughnessy Family Office",
+  "payload": {
+   "dedup_key": "name:o shaughnessy family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "M2O, Inc. | Los Angeles Single Family Office | Altss"
+   },
+   "identifiers": {},
+   "name": "O'Shaughnessy Family Office",
+   "raw": {
+    "published": "2026-06-03T20:00:00.000Z",
+    "query": "\"single family office\" investor",
+    "title": "M2O, Inc. | Los Angeles Single Family Office | Altss"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://altss.com/profile/m2o-inc-oconnell-family-office"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:offering us wealth manager launches family office|geo:?",
   "name": "Offering US Wealth Manager Launches Family Office",
   "payload": {
@@ -35113,6 +35253,29 @@
   "source_class": "Web search (Tavily)"
  },
  {
+  "dedup_key": "name:requires more than chasing returns family office|geo:?",
+  "name": "requires more than chasing returns Family Office",
+  "payload": {
+   "dedup_key": "name:requires more than chasing returns family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "requires more than chasing returns Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
   "dedup_key": "name:resource groupthe family office|geo:?",
   "name": "Resource GroupThe Family Office",
   "payload": {
@@ -36697,6 +36860,30 @@
    "source_url": "https://familyoffices.com/sfo"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:small entity compliance guide family office|geo:?",
+  "name": "Small Entity Compliance Guide Family Office",
+  "payload": {
+   "dedup_key": "name:small entity compliance guide family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Family Office: A Small Entity Compliance Guide"
+   },
+   "identifiers": {},
+   "name": "Small Entity Compliance Guide Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" SEC 13F filings",
+    "title": "Family Office: A Small Entity Compliance Guide"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.sec.gov/files/rules/final/2011/ia-3220-secg.htm"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:so many people ask me what a family office|geo:?",
@@ -38650,6 +38837,52 @@
    "source_url": "https://www.familywealthreport.com/article.php/US-Wealth-Manager-Launches-Family-Office-Offering-"
   },
   "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:value lies in transforming family office|geo:?",
+  "name": "value lies in transforming Family Office",
+  "payload": {
+   "dedup_key": "name:value lies in transforming family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "value lies in transforming Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:value of family office|geo:?",
+  "name": "Value of Family Office",
+  "payload": {
+   "dedup_key": "name:value of family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (Tavily)"
+   ],
+   "hints": {
+    "from_headline": "Family Office Advisors"
+   },
+   "identifiers": {},
+   "name": "Value of Family Office",
+   "raw": {
+    "query": "\"multi family office\" advisor",
+    "title": "Family Office Advisors"
+   },
+   "source_class": "Web search (Tavily)",
+   "source_url": "https://www.assetvantage.com/blogs/family-office-advisors"
+  },
+  "source_class": "Web search (Tavily)"
  },
  {
   "dedup_key": "name:vanderbilt descendant launches family office|geo:?",
