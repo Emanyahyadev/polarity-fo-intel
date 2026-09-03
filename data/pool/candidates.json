@@ -18786,6 +18786,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:about tom ruggie founder and ceo destiny family office|geo:?",
+  "name": "About Tom Ruggie - Founder and CEO - Destiny Family Office",
+  "payload": {
+   "dedup_key": "name:about tom ruggie founder and ceo destiny family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "identifiers": {},
+   "name": "About Tom Ruggie - Founder and CEO - Destiny Family Office",
+   "raw": {
+    "published": "2025-01-08T17:50:02.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://destinyfamilyoffice.com/about-tom-ruggie/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:about us orion advisors is a family office|geo:?",
   "name": "ABOUT US - Orion Advisors is a Family Office",
   "payload": {
@@ -26808,6 +26832,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:founder ceo destiny family office|geo:?",
+  "name": "Founder & CEO - Destiny Family Office",
+  "payload": {
+   "dedup_key": "name:founder ceo destiny family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "identifiers": {},
+   "name": "Founder & CEO - Destiny Family Office",
+   "raw": {
+    "published": "2025-01-08T17:50:02.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://destinyfamilyoffice.com/about-tom-ruggie/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:founder family office|geo:?",
   "name": "Founder Family Office",
   "payload": {
@@ -26899,6 +26947,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://rafflesgroup.co/about-rfo/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:founding of destiny family office|geo:?",
+  "name": "Founding of Destiny Family Office",
+  "payload": {
+   "dedup_key": "name:founding of destiny family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "identifiers": {},
+   "name": "Founding of Destiny Family Office",
+   "raw": {
+    "published": "2025-01-08T17:50:02.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://destinyfamilyoffice.com/about-tom-ruggie/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -29221,6 +29293,30 @@
    },
    "source_class": "Web search (EXA)",
    "source_url": "https://www.insightfamilyoffice.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
+  "dedup_key": "name:insights on family office|geo:?",
+  "name": "insights on Family Office",
+  "payload": {
+   "dedup_key": "name:insights on family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "identifiers": {},
+   "name": "insights on Family Office",
+   "raw": {
+    "published": "2025-01-08T17:50:02.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://destinyfamilyoffice.com/about-tom-ruggie/"
   },
   "source_class": "Web search (EXA)"
  },
@@ -36249,6 +36345,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:senior family office|geo:?",
+  "name": "Senior Family Office",
+  "payload": {
+   "dedup_key": "name:senior family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "Joseph Warsavsky, CPA"
+   },
+   "identifiers": {},
+   "name": "Senior Family Office",
+   "raw": {
+    "published": "2025-10-17T14:45:14.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "Joseph Warsavsky, CPA"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://mai.capital/team/joseph-warsavsky/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:seppelfricke family office|geo:?",
   "name": "Seppelfricke & Co Family Office",
   "payload": {
@@ -38248,6 +38368,30 @@
    "source_url": "https://www.linkedin.com/company/the-family-office-at-synovus"
   },
   "source_class": "Web search (Tavily)"
+ },
+ {
+  "dedup_key": "name:tom is founder and ceo of destiny family office|geo:?",
+  "name": "Tom is Founder and CEO of Destiny Family Office",
+  "payload": {
+   "dedup_key": "name:tom is founder and ceo of destiny family office|geo:?",
+   "discovered_at": "2026-09-02",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "identifiers": {},
+   "name": "Tom is Founder and CEO of Destiny Family Office",
+   "raw": {
+    "published": "2025-01-08T17:50:02.000Z",
+    "query": "\"multi family office\" advisor",
+    "title": "About Tom Ruggie - Founder and CEO - Destiny Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://destinyfamilyoffice.com/about-tom-ruggie/"
+  },
+  "source_class": "Web search (EXA)"
  },
  {
   "dedup_key": "name:traditional family office|geo:?",
