@@ -19350,6 +19350,30 @@
   "source_class": "Web search (EXA)"
  },
  {
+  "dedup_key": "name:ajh family office|geo:?",
+  "name": "AJH Family Office",
+  "payload": {
+   "dedup_key": "name:ajh family office|geo:?",
+   "discovered_at": "2026-09-03",
+   "discovery_sources": [
+    "Web search (EXA)"
+   ],
+   "hints": {
+    "from_headline": "AJH — Family Office"
+   },
+   "identifiers": {},
+   "name": "AJH Family Office",
+   "raw": {
+    "published": null,
+    "query": "\"family office\" investment firm",
+    "title": "AJH — Family Office"
+   },
+   "source_class": "Web search (EXA)",
+   "source_url": "https://www.ajhinvestments.com/"
+  },
+  "source_class": "Web search (EXA)"
+ },
+ {
   "dedup_key": "name:akcj ventures is an integrated family office|geo:?",
   "name": "AKCJ Ventures is an integrated Family Office",
   "payload": {
