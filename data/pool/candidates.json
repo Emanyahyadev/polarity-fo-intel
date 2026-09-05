@@ -16079,6 +16079,33 @@
   "source_class": "News / Press (GDELT)"
  },
  {
+  "dedup_key": "domain:en.interfax.com.ua",
+  "name": "Dovgiy Family Office",
+  "payload": {
+   "dedup_key": "domain:en.interfax.com.ua",
+   "discovered_at": "2026-09-05",
+   "discovery_sources": [
+    "News / Press (GDELT)"
+   ],
+   "hints": {
+    "from_headline": "Russian strike destroys Dovgiy Family Office solar power plant in Kyiv – managing partner"
+   },
+   "identifiers": {
+    "domain": "en.interfax.com.ua"
+   },
+   "name": "Dovgiy Family Office",
+   "raw": {
+    "article_title": "Russian strike destroys Dovgiy Family Office solar power plant in Kyiv – managing partner",
+    "domain": "en.interfax.com.ua",
+    "language": "English",
+    "seendate": "20260905T131500Z"
+   },
+   "source_class": "News / Press (GDELT)",
+   "source_url": "https://en.interfax.com.ua/news/general/1199214.html"
+  },
+  "source_class": "News / Press (GDELT)"
+ },
+ {
   "dedup_key": "domain:hawaiitelegraph.com",
   "name": "Convergence Family Office",
   "payload": {
