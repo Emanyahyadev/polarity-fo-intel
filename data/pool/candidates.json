@@ -15944,6 +15944,39 @@
   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
  },
  {
+  "dedup_key": "crd:343902",
+  "name": "AQUIUM LEGACY PARTNERS",
+  "payload": {
+   "dedup_key": "crd:343902",
+   "discovered_at": "2026-09-17",
+   "discovery_sources": [
+    "SEC IAPD / Form ADV (investment-adviser registration)"
+   ],
+   "hints": {
+    "city": "OLMSTED TOWNSHIP",
+    "country": "United States",
+    "state": "OH"
+   },
+   "identifiers": {
+    "crd": "343902"
+   },
+   "name": "AQUIUM LEGACY PARTNERS",
+   "raw": {
+    "crd": "343902",
+    "other_names": [
+     "AQUIUM LEGACY PARTNERS",
+     "AQUIUM LEGACY PARTNERS",
+     "NEXTGEN FAMILY OFFICE LLC",
+     "NEXGEN FAMILY OFFICE LLC"
+    ],
+    "sec_number": "801-137316"
+   },
+   "source_class": "SEC IAPD / Form ADV (investment-adviser registration)",
+   "source_url": "https://adviserinfo.sec.gov/firm/summary/343902"
+  },
+  "source_class": "SEC IAPD / Form ADV (investment-adviser registration)"
+ },
+ {
   "dedup_key": "domain:brisbanetimes.com.au",
   "name": "Lee Family Office",
   "payload": {
