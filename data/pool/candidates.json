@@ -18679,6 +18679,34 @@
   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
  },
  {
+  "dedup_key": "ein:99-2417632",
+  "name": "Latam Family Office Society",
+  "payload": {
+   "dedup_key": "ein:99-2417632",
+   "discovered_at": "2026-09-23",
+   "discovery_sources": [
+    "IRS 990-PF (ProPublica Nonprofit Explorer)"
+   ],
+   "hints": {
+    "city": "Miami",
+    "state": "FL"
+   },
+   "identifiers": {
+    "ein": "99-2417632"
+   },
+   "name": "Latam Family Office Society",
+   "raw": {
+    "ein": "99-2417632",
+    "matched_query": "family office",
+    "ntee_code": "S41",
+    "subseccd": 6
+   },
+   "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)",
+   "source_url": "https://projects.propublica.org/nonprofits/organizations/992417632"
+  },
+  "source_class": "IRS 990-PF (ProPublica Nonprofit Explorer)"
+ },
+ {
   "dedup_key": "name:ability to integrate these pillars of family office|geo:?",
   "name": "ability to integrate these pillars of Family Office",
   "payload": {
