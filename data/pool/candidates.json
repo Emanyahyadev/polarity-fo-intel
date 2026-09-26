@@ -41632,6 +41632,31 @@
   "source_class": "Curated directory / reference (Wikipedia, associations)"
  },
  {
+  "dedup_key": "qid:q141561648",
+  "name": "Apex Capital Holdings",
+  "payload": {
+   "dedup_key": "qid:q141561648",
+   "discovered_at": "2026-09-26",
+   "discovery_sources": [
+    "Curated directory / reference (Wikipedia, associations)"
+   ],
+   "hints": {
+    "country": "United States"
+   },
+   "identifiers": {
+    "qid": "Q141561648"
+   },
+   "name": "Apex Capital Holdings",
+   "raw": {
+    "qid": "Q141561648",
+    "via": "wikidata"
+   },
+   "source_class": "Curated directory / reference (Wikipedia, associations)",
+   "source_url": "http://www.wikidata.org/entity/Q141561648"
+  },
+  "source_class": "Curated directory / reference (Wikipedia, associations)"
+ },
+ {
   "dedup_key": "qid:q29954162",
   "name": "Bancard Group",
   "payload": {
